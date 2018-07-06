@@ -6,7 +6,7 @@
 title: Penny Pan
 email: mumuxi15@gmail.com
 description: A simple and awesome blog theme powered by jekyll.
-url: https://mumuxi15.github.io# the base hostname & protocol for your site
+url: https://mumuxi15.github.io   # the base hostname & protocol for your site
 keywords: ["Data Scientist"]
 
 #
@@ -31,13 +31,6 @@ kramdown:
 ###################################
 # Site Owner configuration
 ####################################
-#
-
-# title:
-# email: mumuxi15@gmail.com
-# description: A simple and awesome blog theme powered by jekyll.
-# url: https://renyuanz.github.io/leonids # the base hostname & protocol for your site
-# keywords: [""]
 owner:
   name: Penny Pan
   avatar: avatar.jpg
@@ -49,7 +42,7 @@ owner:
   facebook: #username
   google:
     plus: #username
-    analytics: UA-62251910-2
+    analytics: 
     verify:
     ad-client:
     ad-slot:
