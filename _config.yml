@@ -3,11 +3,11 @@
 # Site wide configuration
 ####################################
 #
-title: Leonids
-email: zourenyuan@gmail.com
+title: Penny Pan
+email: mumuxi15@gmail.com
 description: A simple and awesome blog theme powered by jekyll.
 url: https://renyuanz.github.io/leonids # the base hostname & protocol for your site
-keywords: ["Programming", "PHP", "Ruby"]
+keywords: ["Data Scientist"]
 
 #
 ###################################
@@ -32,14 +32,20 @@ kramdown:
 # Site Owner configuration
 ####################################
 #
+
+# title:
+# email: mumuxi15@gmail.com
+# description: A simple and awesome blog theme powered by jekyll.
+# url: https://renyuanz.github.io/leonids # the base hostname & protocol for your site
+# keywords: [""]
 owner:
-  name: Leonids
-  avatar: leonids-logo.png
-  job: "PHP & Ruby Developer"
-  bio: "A backend developer who loves design awesome things. Working for RendezvousCheznous atm in Marseille, France."
-  email: zourenyuan@gmail.com
-  disqus-shortname: renyuanzblog
-  twitter: renyuan814 #username
+  name: Penny Pan
+  avatar: avatar.jpg
+  job: "Data Scientist"
+  bio: "A New York based data scientist with passion for machine learning "
+  email: mumuxi15@gmail.com
+  disqus-shortname: pennyblog
+  twitter: #username
   facebook: #username
   google:
     plus: #username
@@ -48,9 +54,9 @@ owner:
     ad-client:
     ad-slot:
   bing-verify:
-  github: renyuanz #username
+  github: mumuxi15 #username
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
-  linkedin: renyuan-zou-69b7038a #username
+  linkedin: pennypan15 #username
   xing: #username
   instagram: #username
   lastfm: #username
