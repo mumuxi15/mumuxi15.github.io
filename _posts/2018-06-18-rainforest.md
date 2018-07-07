@@ -25,9 +25,39 @@ Let's get started with downloading following files from kaggle competition  "[Pl
 
 Extract images from 7z file and create two empty folder train_clean and test_clean.
 
+```terminal
+7za x train-jpg.tar.7z
+tar xf train-jpg.tar
+mkdir train_clean test_clean
+```
+
+
+
+The main feature engineering performed on the images is haze removal technique. It improves precision recall significantly especially on the rare land use labels.
+
 We created a a00_remove_haze.py function based on  ["Single Image Haze Removal using Dark Channel Prior"](https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf) paper and increased the contrast after.
 
-![dehaze](../img/dehaze.jpg)
+
+
+![How hazy image is formed](https://www.researchgate.net/profile/Seung_Won_Jung2/publication/291385074/figure/fig14/AS:320880610693124@1453515307125/Formation-of-a-hazy-image.png)
+
+In most cases light is scattered in the atmosphere before it reaches the camera and the scattered light is the main cause of blurry images or hazy images. The a00_remove_haze.py haze removal function estimates the scattered light intensity as the maximum pixel intensity. Thus image is restored by removing the scattered light. Following are some examples  of before and after haze removal function. As demonstrated below, it works great on both images labelled clear and hazy. 
+
+![dehaze](https://github.com/mumuxi15/mumuxi15.github.io/blob/master/img/dehaze.jpg?raw=true)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {% highlight ruby %}
 def print_hi(name)
@@ -36,8 +66,6 @@ end
 print_hi('Tom')
 
 {% endhighlight %}
-
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
 
 [jekyll]:      http://jekyllrb.com
 [jekyll-gh]:   https://github.com/jekyll/jekyll
