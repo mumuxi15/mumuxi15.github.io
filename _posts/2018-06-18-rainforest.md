@@ -35,7 +35,7 @@ Let's get started with downloading following files from kaggle competition  "[Pl
 - test-jpg.tar.7z 
 - train_v2.csv       -   labels for the train set
 
-The dataset consists of 41,789 labeled and 71,000 unlabeled  satellite image chips that look like following. (The labels were added for readers and are seperated by space)
+The dataset consists of 41,789 labeled and 71,000 unlabeled  satellite image chips that look like following. (The labels were added for readers and are separated by space)
 
 ![train data example](https://github.com/mumuxi15/metis_proj/blob/master/Multilabel%20image%20classification/img/eg1.jpg?raw=true)
 
@@ -49,7 +49,7 @@ Fig 1. Examples of labeled image chips. Satellite image chips have different lab
 
 *Hint: artisanal mine is another word for illegal mine*
 
-The aim is to generate labels for descrbing the image content and find those labeled artisanal mine. 
+The aim is to generate labels for describing the image content and find those labeled artisanal mine. 
 
 #### Build a Neural Network Model
 
@@ -60,11 +60,14 @@ I first started with a basic convolutional neural network model (CNN) with the o
 Therefore, I tackle the problem in two different ways: input and model structure.
 
 - **Improve input images' quality**: Generally speaking, clearer images containing more information yield better results for Neural Network models.
+
 - **More advanced network design**: To learn fine details we need to increase the model complexity . Here I chose to use one of the latest Neural Network architectures, DenseNet (Dense Convolutional Network), a smarter neural network designed by [Zhuang Liu and Gao Huang](https://arxiv.org/pdf/1608.06993v3.pdf) in  2017. 
 
-#####Improve image quality
+  
 
-I wrote a dehaze function based on  ["Single Image Haze Removal using Dark Channel Prior"](https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf) paper. In most cases light is scattered in the atmosphere before it reaches the camera and such scattered light is the main cause of blurry images or hazy images. To simplifiy, the dehaze function estimates the scattered light intensity as the maximum pixel intensity. Thus by removing the scattered light, original images can be restored.
+##### Improve image quality
+
+I wrote a dehaze function based on  ["Single Image Haze Removal using Dark Channel Prior"](https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf) paper. In most cases light is scattered in the atmosphere before it reaches the camera and such scattered light is the main cause of blurry images or hazy images. To simplify, the dehaze function estimates the scattered light intensity as the maximum pixel intensity. Thus by removing the scattered light, original images can be restored.
 
 ![How hazy image is formed](https://www.researchgate.net/profile/Seung_Won_Jung2/publication/291385074/figure/fig14/AS:320880610693124@1453515307125/Formation-of-a-hazy-image.png)
 
@@ -78,7 +81,7 @@ This improves precision recall significantly especially on the rare land use lab
 
 ![precision](https://github.com/mumuxi15/mumuxi15.github.io/blob/master/img/rainforest/land_cover_precision.jpg?raw=true)
 
-Figure4. Comparision of DenseNet model trained  on original images and haze free images. F2 score is a combination  of precision and recall, similar to F1 score but puts more weight on recall. Recall is more important as I would like the model to make less mistakes. 
+Figure4. Comparison of DenseNet model trained  on original images and haze free images. F2 score is a combination  of precision and recall, similar to F1 score but puts more weight on recall. Recall is more important as I would like the model to make less mistakes. 
 
 ##### DenseNet
 
