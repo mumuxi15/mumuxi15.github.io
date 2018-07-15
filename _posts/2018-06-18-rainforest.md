@@ -7,9 +7,7 @@ comments: true
 image:
   feature: https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/crop=dim:[0,0,1250,260]/https://cdn1.img.sputniknews.com/images/105730/27/1057302722.jpg
 ---
-Amazon deforestation has been a serious concern over the past several decades due to its devastating impact on biodiversity, habitat lost and climate change. One of the causes is illegal gold mining. 
-
-To protect the beautiful Amazon forest, we can combine satellite images with machine learning techniques to keep track of deforestation and detect such illegal activities. 
+Amazon deforestation has been a serious concern over the past several decades due to its devastating impact on biodiversity, habitat lost and climate change. One of the causes is illegal gold mining. To protect the beautiful Amazon forest, we can combine satellite images with machine learning techniques to keep track of deforestation and detect such illegal activities. 
 
 <!--more-->
 
@@ -35,11 +33,11 @@ Let's get started with downloading following files from kaggle competition  "[Pl
 - test-jpg.tar.7z 
 - train_v2.csv       -   labels for the train set
 
-The dataset consists of 41,789 labeled and 71,000 unlabeled  satellite image chips that look like following. (The labels were added for readers and are separated by space)
+The dataset consists of 41,789 labeled and 71,000 unlabeled  satellite image chips that look like following (The labels were added for readers and are separated by space) . Satellite image chips have different labels depending on its content. Each image chip consists of one unique atmospheric label and zero or multiple land use labels. 
 
 ![train data example](https://github.com/mumuxi15/metis_proj/blob/master/Multilabel%20image%20classification/img/eg1.jpg?raw=true)
 
-Fig 1. Examples of labeled image chips. Satellite image chips have different labels depending on its content. Each image chip consists of one unique atmospheric label and zero or multiple land use labels. 
+Fig 1. Examples of labeled image chips. 
 
 - Weather labels: clear, cloudy, hazy, partly cloudy. 
 
