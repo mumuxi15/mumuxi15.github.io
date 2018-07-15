@@ -76,7 +76,7 @@ Figure3. Before and after dehire function on hazy, partly cloudy and clear image
 
 This improves precision recall significantly especially on the rare land use labels. 
 
-![precision](/Users/mumuxi/Desktop/metis/mumuxi15.github.io/img/rainforest/land_cover_precision.jpg)
+![precision](https://github.com/mumuxi15/mumuxi15.github.io/blob/master/img/rainforest/land_cover_precision.jpg?raw=true)
 
 Figure4. Comparision of DenseNet model trained  on original images and haze free images. F2 score is a combination  of precision and recall, similar to F1 score but puts more weight on recall. Recall is more important as I would like the model to make less mistakes. 
 
