@@ -33,7 +33,7 @@ Let's get started with downloading following files from kaggle competition  "[Pl
 - test-jpg.tar.7z 
 - train_v2.csv       -   labels for the train set
 
-![train data example](https://github.com/mumuxi15/metis_proj/blob/master/Multilabel%20image%20classification/img/eg1.jpg?raw=true)
+<img style="float:left; width:600px;" src="https://raw.githubusercontent.com/mumuxi15/metis_proj/master/Multilabel%20image%20classification/img/eg1.jpg" />
 
 Fig 1. Examples of labeled image chips. 
 
