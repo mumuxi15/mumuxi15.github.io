@@ -33,15 +33,17 @@ Let's get started with downloading following files from kaggle competition  "[Pl
 - test-jpg.tar.7z 
 - train_v2.csv       -   labels for the train set
 
-<img style="width:700px;display:block;" align="left" src="https://raw.githubusercontent.com/mumuxi15/metis_proj/master/Multilabel%20image%20classification/img/eg1.jpg" />
+<img style="width:700px;display:inline-block;text-align: left;" src="https://raw.githubusercontent.com/mumuxi15/metis_proj/master/Multilabel%20image%20classification/img/eg1.jpg" />
 
-Fig 1. Examples of labeled image chips. 
+Figure 1. Examples of labeled image chips
 
 This dataset consists of 41,789 labeled and 71,000 unlabeled satellite image chips that look like above (The labels were added for readers and are separated by space) . Satellite image chips have different labels depending on its content. Each image chip consists of one unique atmospheric label and zero or multiple land use labels. 
 
-- Weather labels: clear, cloudy, hazy, partly cloudy. 
+- Weather
 
-- Land use labels
+  clear, cloudy, hazy, partly cloudy
+
+- Land use
   - Commonly appeared: primary, agriculture, road, water, cultivation, habitation, bare ground
   - Rare: conventional mine,  selective logging, artisanal mine,  blooming, slash burn, blow down
 
@@ -71,17 +73,19 @@ Therefore, I tackle the problem in two different ways: input and model structure
 
 I wrote a dehaze function based on  ["Single Image Haze Removal using Dark Channel Prior"](https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf) paper. In most cases light is scattered in the atmosphere before it reaches the camera and such scattered light is the main cause of blurry images or hazy images. To simplify, the dehaze function estimates the scattered light intensity as the maximum pixel intensity. Thus by removing the scattered light, original images can be restored.
 
-![How hazy image is formed](https://www.researchgate.net/profile/Seung_Won_Jung2/publication/291385074/figure/fig14/AS:320880610693124@1453515307125/Formation-of-a-hazy-image.png)
+<img style="width:600px;display:inline-block;" src="https://www.researchgate.net/profile/Seung_Won_Jung2/publication/291385074/figure/fig14/AS:320880610693124@1453515307125/Formation-of-a-hazy-image.png" />
 
-Figure 2. Formation of a hazy image [$^{[1]}$](https://www.researchgate.net/profile/Seung_Won_Jung2/publication/291385074)
 
-The dehaze function will remove the haze and increase image contrast.  Following are some examples  of before and after haze removal. As demonstrated below, it works great on both clear and hazy images.![before and after haze function](https://raw.githubusercontent.com/mumuxi15/mumuxi15.github.io/master/img/rainforest/dehaze.jpg)
 
-Figure3. Before and after dehire function on hazy, partly cloudy and clear images.
+Figure 2. Formation of a hazy image
 
-This improves precision recall significantly especially on the rare land use labels. 
+The dehaze function will remove the haze and increase image contrast.  Following are some examples  of before and after haze removal. As demonstrated below, it works great on both clear and hazy images. This improves precision recall significantly especially on the rare land use labels. 
 
-![precision](https://github.com/mumuxi15/mumuxi15.github.io/blob/master/img/rainforest/land_cover_precision.jpg?raw=true)
+<img style="width:700px;display:inline-block;" src="https://raw.githubusercontent.com/mumuxi15/mumuxi15.github.io/master/img/rainforest/dehaze.jpg" />
+
+Figure3. Before and after dehaze function on hazy, partly cloudy and clear images.
+
+<img style="width:700px;display:inline-block;" src="https://github.com/mumuxi15/mumuxi15.github.io/blob/master/img/rainforest/land_cover_precision.jpg?raw=true" />
 
 Figure4. Comparison of DenseNet model trained  on original images and haze free images. F2 score is a combination  of precision and recall, similar to F1 score but puts more weight on recall. Recall is more important as I would like the model to make less mistakes. 
 
