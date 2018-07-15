@@ -33,11 +33,11 @@ Let's get started with downloading following files from kaggle competition  "[Pl
 - test-jpg.tar.7z 
 - train_v2.csv       -   labels for the train set
 
-The dataset consists of 41,789 labeled and 71,000 unlabeled  satellite image chips that look like following (The labels were added for readers and are separated by space) . Satellite image chips have different labels depending on its content. Each image chip consists of one unique atmospheric label and zero or multiple land use labels. 
-
 ![train data example](https://github.com/mumuxi15/metis_proj/blob/master/Multilabel%20image%20classification/img/eg1.jpg?raw=true)
 
 Fig 1. Examples of labeled image chips. 
+
+This dataset consists of 41,789 labeled and 71,000 unlabeled satellite image chips that look like above (The labels were added for readers and are separated by space) . Satellite image chips have different labels depending on its content. Each image chip consists of one unique atmospheric label and zero or multiple land use labels. 
 
 - Weather labels: clear, cloudy, hazy, partly cloudy. 
 
@@ -47,7 +47,7 @@ Fig 1. Examples of labeled image chips.
 
 *Hint: artisanal mine is another word for illegal mine*
 
-The aim is to generate labels for describing the image content and find those labeled artisanal mine. 
+The aim is to generate labels for any given satellite images and find those labeled artisanal mine. 
 
 #### Build a Neural Network Model
 
