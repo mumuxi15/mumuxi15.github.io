@@ -57,9 +57,13 @@ I first started with a basic convolutional neural network model (CNN) with the o
 
 Therefore, I tackle the problem in two different ways: input and model structure.
 
-- **Improve input images' quality**: Generally speaking, clearer images containing more information yield better results for Neural Network models.
+- **Improve input image quality**
 
-- **More advanced network design**: To learn fine details we need to increase the model complexity . Here I chose to use one of the latest Neural Network architectures, DenseNet (Dense Convolutional Network), a smarter neural network designed by [Zhuang Liu and Gao Huang](https://arxiv.org/pdf/1608.06993v3.pdf) in  2017. 
+  Generally speaking, clearer images containing more information yield better results for Neural Network models.
+
+- **More advanced network design**
+
+  To learn fine details we need to increase the model complexity . Here I chose to use one of the latest Neural Network architectures, DenseNet (Dense Convolutional Network), a smarter neural network designed by [Zhuang Liu and Gao Huang](https://arxiv.org/pdf/1608.06993v3.pdf) in  2017. 
 
   
 
