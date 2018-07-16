@@ -21,23 +21,23 @@ I used AWS GPU instance (Amazon Cloud service) :
 
 ​	 **Instance type** : p2.xlarge
 
-Python Packages: Keras, tensorflow, opencv
+​	 **Python Packages** : Keras 2.1, Tensorflow, Opencv
 
 #### Data
 
 ------
 
-Let's get started with downloading following files from kaggle competition  "[Planet: Understanding the Amazon from Space](https://www.kaggle.com/c/planet-understanding-the-amazon-from-space)". 
+Let's get started with downloading following files from Kaggle  "[Planet: Understanding the Amazon from Space](https://www.kaggle.com/c/planet-understanding-the-amazon-from-space)". 
 
 - train-jpg.tar.7z  
 - test-jpg.tar.7z 
 - train_v2.csv       -   labels for the train set
 
-<img style="width:700px;display:inline-block;text-align: left;" src="https://raw.githubusercontent.com/mumuxi15/metis_proj/master/Multilabel%20image%20classification/img/eg1.jpg" />
+<img style="width:500px;display:inline-block;text-align: left;" src="https://raw.githubusercontent.com/mumuxi15/metis_proj/master/Multilabel%20image%20classification/img/eg1.jpg" />
 
 Figure 1. Examples of labeled image chips
 
-This dataset consists of 41,789 labeled and 71,000 unlabeled satellite image chips that look like above (The labels were added for readers and are separated by space) . Satellite image chips have different labels depending on its content. Each image chip consists of one unique atmospheric label and zero or multiple land use labels. 
+This dataset consists of 41,789 labeled and 71,000 unlabeled satellite image chips that look like above (the labels were added for readers and are separated by commas). Image chips have different labels depending on their content. Each image chip consists of one atmospheric label and multiple land use labels.
 
 - Weather
 
@@ -47,17 +47,17 @@ This dataset consists of 41,789 labeled and 71,000 unlabeled satellite image chi
   - Commonly appeared: primary, agriculture, road, water, cultivation, habitation, bare ground
   - Rare: conventional mine,  selective logging, artisanal mine,  blooming, slash burn, blow down
 
-*Hint: artisanal mine is another word for illegal mine*
+*Note: artisanal mine is another word for illegal mine* 
 
-The aim is to generate labels for any given satellite images and find those labeled artisanal mine. 
+The aim is to generate labels for any given satellite image and to identify illegal mines.  
 
 #### Build a Neural Network Model
 
 ------
 
-I first started with a basic convolutional neural network model (CNN) with the original dataset (without any pre-process). CNN composes of multiple non-linear transformation layers and extract high-level features from data. However, even after 10 hours' training, the model failed to predict any rare land use labels, meaning the CNN model is underfit. So how can the model be improved to recognize image patterns of those with more challenging labels ? 
+I first started with a basic convolutional neural network model (CNN) with the original dataset (without any pre-processing). CNN comprises multiple non-linear transformation layers and extracts high-level features from data. However, even after 10 hours of training, the model failed to predict any rare land use labels, meaning the CNN model is underfit. The challenge then posed: how could the model be improved to classify more challenging labels? 
 
-Therefore, I tackle the problem in two different ways: input and model structure.
+Therefore, I tackled the problem in two different ways: input and model structure.
 
 - **Improve input image quality**
 
@@ -65,38 +65,36 @@ Therefore, I tackle the problem in two different ways: input and model structure
 
 - **More advanced network design**
 
-  To learn fine details we need to increase the model complexity . Here I chose to use one of the latest Neural Network architectures, DenseNet (Dense Convolutional Network), a smarter neural network designed by [Zhuang Liu and Gao Huang](https://arxiv.org/pdf/1608.06993v3.pdf) in  2017. 
-
-  
+  Increased model complexity is necessary to learn finer details. Here I chose to use one of the latest Neural Network architectures: DenseNet (Dense Convolutional Network), a smarter neural network designed by [Zhuang Liu and Gao Huang](https://arxiv.org/pdf/1608.06993v3.pdf) in 2017.  
 
 ##### Improve image quality
 
-I wrote a dehaze function based on  ["Single Image Haze Removal using Dark Channel Prior"](https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf) paper. In most cases light is scattered in the atmosphere before it reaches the camera and such scattered light is the main cause of blurry images or hazy images. To simplify, the dehaze function estimates the scattered light intensity as the maximum pixel intensity. Thus by removing the scattered light, original images can be restored.
+ I wrote a dehaze function based on the paper: ["Single Image Haze Removal using Dark Channel Prior"](https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf). In most cases, light is scattered in the atmosphere before it reaches the camera. Such scattered light is the main cause of blurry images or hazy images. To simplify, the dehaze function estimates the scattered light intensity as the maximum pixel intensity. Thus by removing the scattered light, original images can be restored. 
 
 <img style="width:600px;display:inline-block;" src="https://www.researchgate.net/profile/Seung_Won_Jung2/publication/291385074/figure/fig14/AS:320880610693124@1453515307125/Formation-of-a-hazy-image.png" />
 
 
 
-Figure 2. Formation of a hazy image
+ Figure 2. Formation of a hazy image. Camera = Direct attenuation+Airlight, where t(x) is the transmission coefficient
 
-The dehaze function will remove the haze and increase image contrast.  Following are some examples  of before and after haze removal. As demonstrated below, it works great on both clear and hazy images. This improves precision recall significantly especially on the rare land use labels. 
+ The resulting effect of using the dehaze function is the removal of haze and an increase in image contrast.  Below are some examples of before and after haze removal. As demonstrated, it works great on both clear and hazy images. 
 
 <img style="width:700px;display:inline-block;" src="https://raw.githubusercontent.com/mumuxi15/mumuxi15.github.io/master/img/rainforest/dehaze.jpg" />
 
-Figure3. Before and after dehaze function on hazy, partly cloudy and clear images.
+Figure3. Before and after dehaze function on hazy, partly cloudy and clear images
+
+This improves both precision and recall significantly especially on the rare land use labels. F2 score is a combination of precision and recall, similar to F1 score but puts more weight on recall. Recall is more important as I would like the model to make less mistakes.  
 
 <img style="width:700px;display:inline-block;" src="https://github.com/mumuxi15/mumuxi15.github.io/blob/master/img/rainforest/land_cover_precision.jpg?raw=true" />
 
-Figure4. Comparison of DenseNet model trained  on original images and haze free images. F2 score is a combination  of precision and recall, similar to F1 score but puts more weight on recall. Recall is more important as I would like the model to make less mistakes. 
+Figure 4. Comparison of DenseNet model trained on original images and haze free images
 
 ##### DenseNet
 
-The big difference is that DenseNet connects each layer to every other layer. Whereas traditional convolutional networks layers connect sequentially. DenseNet improved a flow of information and gradients throughout the network, therefore, it has better parameter efficiency and is quicker to train. 
+The big difference is that DenseNet connects each layer to every other layer whereas traditional convolutional network layers connect sequentially. DenseNet improves the flow of information and gradients throughout the network, therefore it has better parameter efficiency resulting in a faster training time. 
 
-I built a multi output model based on the original DenseNet code and reduced filter number and learning rate as the original model is too memory consuming. I trained the model on the labeled image sets for 4 hours and saved the model as b01_dense121.h5. Then used it to generate labels for images. 
-
-
+I built a multi-output model based on the original DenseNet code and reduced the filter number and learning rate as the original model is too memory consuming for p2.xlarge (cloud service). I trained the model on the labeled image sets for 4 hours and saved the model as b01_dense121.h5. Then used it to generate labels for images. 
 
 You can check out the project in my [GitHub](https://github.com/mumuxi15/metis_proj/tree/master/Multilabel%20image%20classification)
 
-Thanks for reading!
+Thanks for reading !
