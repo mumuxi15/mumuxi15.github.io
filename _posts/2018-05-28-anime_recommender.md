@@ -81,9 +81,9 @@ Content based system recommend items xxxxx
   - Feature_extraction using TF-IDF
   - Decomposition techniques using NMF
 
-#####TF-IDF (**Term Frequency–Inverse Document Frequency**)
+**TF-IDF (Term Frequency–Inverse Document Frequency**)
 
-
+A tf-idf transformer is applied to the bag of words matrix that NMF must process with the TfidfVectorizer.
 
 #### Collaborative filtering
 
@@ -93,23 +93,27 @@ TF-IDF (Term Frequency–Inverse Document Frequency)
 
 
 
-I first started with a basic convolutional neural network model (CNN) with the original dataset (without any pre-processing). CNN comprises multiple non-linear transformation layers and extracts high-level features from data. However, even after 10 hours of training, the model failed to predict any rare land use labels, meaning the CNN model is underfit. The challenge then posed: how could the model be improved to classify more challenging labels? 
 
-Therefore, I tackled the problem in two different ways: input and model structure.
 
-- **Improve input image quality**
 
-  Generally speaking, clearer images containing more information yield better results for Neural Network models.
+
+
+
+<img src="https://i.imgur.com/zBbWj8p.jpg">
+
+**Improve input image quality**
+
+Generally speaking, clearer images containing more information yield better results for Neural Network models.
 
 - **More advanced network design**
 
   Increased model complexity is necessary to learn finer details. Here I chose to use one of the latest Neural Network architectures: DenseNet (Dense Convolutional Network), a smarter neural network designed by [Zhuang Liu and Gao Huang](https://arxiv.org/pdf/1608.06993v3.pdf) in 2017.  
 
+  
+
 ##### Improve image quality
 
- I wrote a dehaze function based on the paper: ["Single Image Haze Removal using Dark Channel Prior"](https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf). In most cases, light is scattered in the atmosphere before it reaches the camera. Such scattered light is the main cause of blurry images or hazy images. To simplify, the dehaze function estimates the scattered light intensity as the maximum pixel intensity. Thus by removing the scattered light, original images can be restored.    
-
-<img style="width:550px; display:inline-block;" src="https://www.researchgate.net/profile/Seung_Won_Jung2/publication/291385074/figure/fig14/AS:320880610693124@1453515307125/Formation-of-a-hazy-image.png" />
+ I wrote a dehaze function based on the paper: ["Single Image Haze Removal using Dark Channel Prior"](https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf). In most cases, light is scattered in the atmosphere before it reaches the camera. Such scattered light is the main cause of blurry images or hazy images. To simplify, the dehaze function estimates the scattered light intensity as the maximum pixel intensity. Thus by removing the scattered light, original images can be restored.   
 
 
 

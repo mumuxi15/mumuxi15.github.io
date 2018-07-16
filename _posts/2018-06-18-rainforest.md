@@ -31,7 +31,7 @@ Let's get started with downloading following files from Kaggle  "[Planet: Unders
 - test-jpg.tar.7z 
 - train_v2.csv       -   labels for the train set
 
-<img style="width:500px; display:inline-block;" src="https://raw.githubusercontent.com/mumuxi15/metis_proj/master/Multilabel%20image%20classification/img/eg1.jpg" alt="image chips examples" />
+<img style="width:500px; display:inline-block;" src="https://i.imgur.com/GsW5QR2.jpg" alt="image chips examples" />
 
 Figure 1. Examples of labeled image chips
 
