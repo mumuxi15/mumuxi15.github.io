@@ -15,13 +15,11 @@ Amazon deforestation has been a serious concern over the past several decades du
 
 ------
 
-I used AWS GPU instance (Amazon Cloud service) :
+I used AWS GPU instance (Amazon Web Service) : 
 
-​	 **Image** : Deep Learning AMI (Ubuntu) Version 10.0 
-
-​	 **Instance type** : p2.xlarge
-
-​	 **Python Packages** : Keras 2.1, Tensorflow, Opencv
+- Image: Deep Learning AMI (Ubuntu) Version 10.0 
+- Instance type: p2.xlarge 
+- Python Packages: Keras 2.1.6, Tensorflow, Opencv 
 
 #### Data
 
@@ -33,7 +31,7 @@ Let's get started with downloading following files from Kaggle  "[Planet: Unders
 - test-jpg.tar.7z 
 - train_v2.csv       -   labels for the train set
 
-<img style="width:500px;display:inline-block;text-align: left;" src="https://raw.githubusercontent.com/mumuxi15/metis_proj/master/Multilabel%20image%20classification/img/eg1.jpg" />
+<img style="width:500px; display:inline-block;" src="https://raw.githubusercontent.com/mumuxi15/metis_proj/master/Multilabel%20image%20classification/img/eg1.jpg" alt="image chips examples" />
 
 Figure 1. Examples of labeled image chips
 
@@ -69,9 +67,9 @@ Therefore, I tackled the problem in two different ways: input and model structur
 
 ##### Improve image quality
 
- I wrote a dehaze function based on the paper: ["Single Image Haze Removal using Dark Channel Prior"](https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf). In most cases, light is scattered in the atmosphere before it reaches the camera. Such scattered light is the main cause of blurry images or hazy images. To simplify, the dehaze function estimates the scattered light intensity as the maximum pixel intensity. Thus by removing the scattered light, original images can be restored. 
+ I wrote a dehaze function based on the paper: ["Single Image Haze Removal using Dark Channel Prior"](https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf). In most cases, light is scattered in the atmosphere before it reaches the camera. Such scattered light is the main cause of blurry images or hazy images. To simplify, the dehaze function estimates the scattered light intensity as the maximum pixel intensity. Thus by removing the scattered light, original images can be restored.    
 
-<img style="width:600px;display:inline-block;" src="https://www.researchgate.net/profile/Seung_Won_Jung2/publication/291385074/figure/fig14/AS:320880610693124@1453515307125/Formation-of-a-hazy-image.png" />
+<img style="width:550px; display:inline-block;" src="https://www.researchgate.net/profile/Seung_Won_Jung2/publication/291385074/figure/fig14/AS:320880610693124@1453515307125/Formation-of-a-hazy-image.png" />
 
 
 
@@ -79,13 +77,13 @@ Therefore, I tackled the problem in two different ways: input and model structur
 
  The resulting effect of using the dehaze function is the removal of haze and an increase in image contrast.  Below are some examples of before and after haze removal. As demonstrated, it works great on both clear and hazy images. 
 
-<img style="width:700px;display:inline-block;" src="https://raw.githubusercontent.com/mumuxi15/mumuxi15.github.io/master/img/rainforest/dehaze.jpg" />
+<img style="width:600px;display:inline-block;" src="https://raw.githubusercontent.com/mumuxi15/mumuxi15.github.io/master/img/rainforest/dehaze.jpg" />
 
 Figure3. Before and after dehaze function on hazy, partly cloudy and clear images
 
 This improves both precision and recall significantly especially on the rare land use labels. F2 score is a combination of precision and recall, similar to F1 score but puts more weight on recall. Recall is more important as I would like the model to make less mistakes.  
 
-<img style="width:700px;display:inline-block;" src="https://github.com/mumuxi15/mumuxi15.github.io/blob/master/img/rainforest/land_cover_precision.jpg?raw=true" />
+<img style="width:600px;display:inline-block;" src="https://github.com/mumuxi15/mumuxi15.github.io/blob/master/img/rainforest/land_cover_precision.jpg?raw=true" />
 
 Figure 4. Comparison of DenseNet model trained on original images and haze free images
 
