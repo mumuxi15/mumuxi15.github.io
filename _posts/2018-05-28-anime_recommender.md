@@ -23,29 +23,9 @@ Python packages: Scrapy, Pymongo, nltk
 
 ------
 
-Scraped 9000 anime descriptions and 5000 user profiles from myAnimeList using Scrapy and stored to MongoDB. After combining specials and different series, there are 4588 animes descriptions. To extract better topics, descriptions were broken into sentences.
+9000 anime descriptions and 5000 user profiles were scraped from myAnimeList using Scrapy and stored directly as BSON object in the MongoDB. After combining specials and different series, there are 4588 animes descriptions. 
 
-User datebase contains user name, watched anime IDs, titles and rating score. Examples for user data.
-
-```json
-{'_id': ObjectId('5b085ac6b567e3749a9e84b8'),
- 'user': 'Akin_AI',
- 'anime_id': [6702,22043,12049,5114,32281,15315,23755,19815,30296,22319,27899],
- 'anime_title': ['Fairy Tail',
-  'Fairy Tail (2014)',
-  'Fairy Tail Movie 1: Houou no Miko',
-  'Fullmetal Alchemist: Brotherhood',
-  'Kimi no Na wa.',
-  'Mondaiji-tachi ga Isekai kara Kuru Sou Desu yo?',
-  'Nanatsu no Taizai',
-  'No Game No Life',
-  'Rakudai Kishi no Cavalry',
-  'Tokyo Ghoul',
-  'Tokyo Ghoul √A'],
- 'anime_score': [10, 10, 8, 9, 9, 8, 9, 8, 8, 8, 8]}
-```
-
-Examples for animes
+- Anime database consists of themesongs, image links, descriptions and review. Examples for animes
 
 ```json
 {'_id': 'Yaiba',
@@ -55,6 +35,26 @@ Examples for animes
  'reviews': ['which are really stupid but it all succeds in tickling us!!the storycharacter and enjoyment is quite okwell i personally disliked the op and ed and art also seems quite ok {not many cute girls :( }its a lot of fun overall the series i ll definately say give 1 shot only to the 1st epi!!!ull automatically get hooked to the series atleast i did !well i hope u liked my review plz ratemy 1st reviewread more'],
  'img_url': 'https://myanimelist.cdn-dena.com/images/anime/5/71953.jpg'}
 ```
+
+Here is an example diagram of anime ratings by different users. Rating system is from 1-10
+
+Table1. User anime ratings
+
+| Anime/score     | User1 | User2 | User3 |
+| --------------- | ----- | ----- | ----- |
+| Fairy Tail      | 10    | 8     | 10    |
+| Kimi no na wa   | 10    | 9     | ?     |
+| No game no life | 9     | ?     | 9     |
+| Tokyo Ghoul     | 7     | ?     | 9     |
+| One Piece       | ?     | ?     | 9     |
+
+#### Collaborative filtering
+
+------
+
+Collaborative filtering is based on past interactions between users and ratings. 
+
+Let’s convert Table 1 to a 10000 X 5000 matrix called **$M_{rating}$** . This matrix holds all ratings from all users for all movies (10000 movies x 5000 users).
 
 
 
@@ -86,8 +86,6 @@ Content based system recommend items xxxxx
 A tf-idf transformer is applied to the bag of words matrix that NMF must process with the TfidfVectorizer.
 
 #### Collaborative filtering
-
-Collaborative filtering is based on past interactions between users and ratings. 
 
 TF-IDF (Term Frequency–Inverse Document Frequency)
 
