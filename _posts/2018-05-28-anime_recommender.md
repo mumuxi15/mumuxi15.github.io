@@ -52,9 +52,24 @@ Table1. User anime ratings
 
 ------
 
-Collaborative filtering is based on past interactions between users and ratings. 
+Collaborative filtering is based on users preference. 
 
 Let’s convert Table 1 to a 10000 X 5000 matrix called **$M_{rating}$** . This matrix holds all ratings from all users for all movies (10000 movies x 5000 users).
+
+Here’s what the ratings matrix might look like. Each columns represents rating scores from a user.
+
+```mathematica
+[[ 10  5  0  0  9]
+ [ 0  0  8 10  4]
+ [ 8 10  0  0  6]
+ [10 9  8 10 10]
+ [ 0  0  0  0  5]
+ [ 0  4  6  8  8]]
+```
+
+
+
+ 
 
 
 
