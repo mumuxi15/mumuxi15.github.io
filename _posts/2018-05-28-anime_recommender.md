@@ -23,9 +23,7 @@ Python packages: Scrapy, Pymongo, nltk
 
 ------
 
-9000 anime descriptions and 5000 user profiles were scraped from myAnimeList using Scrapy and stored directly as BSON object in the MongoDB. After combining specials and different series, there are 4588 animes descriptions. 
-
-- Anime database consists of themesongs, image links, descriptions and review. Examples for animes
+9000 anime descriptions and 5000 user profiles were scraped from myAnimeList using Scrapy and stored directly as BSON object in the MongoDB. After combining specials and different series, there are 4588 animes descriptions. Anime database consists of theme songs, image links, descriptions and review. 
 
 ```json
 {'_id': 'Yaiba',
@@ -36,34 +34,33 @@ Python packages: Scrapy, Pymongo, nltk
  'img_url': 'https://myanimelist.cdn-dena.com/images/anime/5/71953.jpg'}
 ```
 
-Here is an example diagram of anime ratings by different users. Rating system is from 1-10
+Here is an example diagram of anime ratings by different users. Rating system is from 1-10.
 
 Table1. User anime ratings
 
-| Anime/score     | User1 | User2 | User3 |
-| --------------- | ----- | ----- | ----- |
-| Fairy Tail      | 10    | 8     | 10    |
-| Kimi no na wa   | 10    | 9     | ?     |
-| No game no life | 9     | ?     | 9     |
-| Tokyo Ghoul     | 7     | ?     | 9     |
-| One Piece       | ?     | ?     | 9     |
+| Anime/score     | User1 | User2 | User3 | User4 | User5 |
+| --------------- | ----- | ----- | ----- | ----- | ----- |
+| Fairy Tail      | 10    | 8     | 10    | 5     | ?     |
+| Kimi no na wa   | 10    | 9     | ?     | ?     | 4     |
+| No game no life | 9     | ?     | 9     | ?     | ?     |
+| Tokyo Ghoul     | 7     | ?     | 9     | ?     | ?     |
+| One Piece       | ?     | ?     | ?     | 10    | 9     |
 
 #### Build a hybrid recommender system
 
 ------
 
-Here’s what the ratings matrix might look like. Each column represents rating scores from a user. When recommending from a large selection, users will have reated only a few and the result will be a sparse matrix where most elements are zero. First, let’s convert Table 1 to a 10000 X 5000 matrix called **$M_{rating}$**, this matrix holds all ratings from all users for all movies (10000 movies x 5000 users).
+ Let’s convert Table 1 to a 10000 X 5000 matrix called **$M_{rating}$**, this matrix holds all ratings from all users for all movies (10000 movies x 5000 users). Each column represents rating scores from a user. When recommending from a large selection, users will have reated only a few and the result will be a sparse matrix where most elements are zero.
 
 ```mathematica
-[[ 10  5   0   0   0   9]
- [ 0   0   8   10  0   4]
- [ 8   10  0   0   6   0]
- [ 0   10  9   0   10  10]
- [ 1   0   0   0   5   0]
- [ 0   0   0   0   4   0]]
+[[ 10  8   10  5   0]
+ [ 10  9   0   0   4]
+ [ 9   0   9   0   0]
+ [ 7   0   9   0   0]
+ [ 0   0   0   10  9]]
 ```
 
-The most simple way of user preference prediction is to calculate cosine similarity, however, in this case, results will not be good due to sparsity of $M_{rating}$. So how to handel large and sparse matrices ?
+The most simple way of user preference prediction is to calculate cosine similarity, however, in this case, results will not be good due to sparsity of M<sub>rating</sub> . So how to handel large and sparse matrices ?
 
 The answer is a hybrid recommender system. Collaborative filtering predicts based on past user behavior and the idea is to use opinions from other users with similar taste. However, it can only predict ratings if there are enough users who have rated it. In case of sparsity, a hybrid approach can be more effetive by combining collaborative filtering and content-based filtering.
 
