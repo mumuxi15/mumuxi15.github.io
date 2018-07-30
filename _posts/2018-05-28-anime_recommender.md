@@ -52,7 +52,7 @@ Table1. User anime ratings
 
 ------
 
-Collaborative filtering (CF) is based on past user behavior e.g anime ratings. One of the main advantages of CF over other recommendation systems is it does not require any domain knowledge and there is more versatile.
+Collaborative filtering (CF) is based on past user behavior e.g anime ratings. One of the main advantages of CF over other recommendation systems is it does not require any domain knowledge and therefore is more versatile. 
 
 Let’s convert Table 1 to a 10000 X 5000 matrix called **$M_{rating}$** . This matrix holds all ratings from all users for all movies (10000 movies x 5000 users).
 
@@ -75,7 +75,9 @@ Here’s what the ratings matrix might look like. Each columns represents rating
 
 #### Content based recommender systems
 
-Content based system recommend items xxxxx
+------
+
+Content based system recommend items xxxxx. Content based filtering suffers from "user cold start" proble.
 
 - Download nltk libraries
 
@@ -114,42 +116,4 @@ TF-IDF (Term Frequency–Inverse Document Frequency)
 
 <img src="https://i.imgur.com/zBbWj8p.jpg">
 
-**Improve input image quality**
-
-Generally speaking, clearer images containing more information yield better results for Neural Network models.
-
-- **More advanced network design**
-
-  Increased model complexity is necessary to learn finer details. Here I chose to use one of the latest Neural Network architectures: DenseNet (Dense Convolutional Network), a smarter neural network designed by [Zhuang Liu and Gao Huang](https://arxiv.org/pdf/1608.06993v3.pdf) in 2017.  
-
-  
-
-##### Improve image quality
-
- I wrote a dehaze function based on the paper: ["Single Image Haze Removal using Dark Channel Prior"](https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf). In most cases, light is scattered in the atmosphere before it reaches the camera. Such scattered light is the main cause of blurry images or hazy images. To simplify, the dehaze function estimates the scattered light intensity as the maximum pixel intensity. Thus by removing the scattered light, original images can be restored.   
-
-
-
- Figure 2. Formation of a hazy image. Camera = Direct attenuation+Airlight, where t(x) is the transmission coefficient
-
- The resulting effect of using the dehaze function is the removal of haze and an increase in image contrast.  Below are some examples of before and after haze removal. As demonstrated, it works great on both clear and hazy images. 
-
-<img style="width:600px;display:inline-block;" src="https://raw.githubusercontent.com/mumuxi15/mumuxi15.github.io/master/img/rainforest/dehaze.jpg" />
-
-Figure3. Before and after dehaze function on hazy, partly cloudy and clear images
-
-This improves both precision and recall significantly especially on the rare land use labels. F2 score is a combination of precision and recall, similar to F1 score but puts more weight on recall. Recall is more important as I would like the model to make less mistakes.  
-
-<img style="width:600px;display:inline-block;" src="https://github.com/mumuxi15/mumuxi15.github.io/blob/master/img/rainforest/land_cover_precision.jpg?raw=true" />
-
-Figure 4. Comparison of DenseNet model trained on original images and haze free images
-
-##### DenseNet
-
-The big difference is that DenseNet connects each layer to every other layer whereas traditional convolutional network layers connect sequentially. DenseNet improves the flow of information and gradients throughout the network, therefore it has better parameter efficiency resulting in a faster training time. 
-
-I built a multi-output model based on the original DenseNet code and reduced the filter number and learning rate as the original model is too memory consuming for p2.xlarge (cloud service). I trained the model on the labeled image sets for 4 hours and saved the model as b01_dense121.h5. Then used it to generate labels for images. 
-
-You can check out the project in my [GitHub](https://github.com/mumuxi15/metis_proj/tree/master/Multilabel%20image%20classification)
-
-Thanks for reading !
+Please wait for the update, .... 
