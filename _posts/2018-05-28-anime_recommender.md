@@ -48,15 +48,11 @@ Table1. User anime ratings
 | Tokyo Ghoul     | 7     | ?     | 9     |
 | One Piece       | ?     | ?     | 9     |
 
-#### Collaborative filtering
+#### Build a hybrid recommender system
 
 ------
 
-Collaborative filtering (CF) is based on past user behavior e.g anime ratings. One of the main advantages of CF over other recommendation systems is it does not require any domain knowledge and therefore is more versatile. 
-
-Let’s convert Table 1 to a 10000 X 5000 matrix called **$M_{rating}$** . This matrix holds all ratings from all users for all movies (10000 movies x 5000 users).
-
-Here’s what the ratings matrix might look like. Each columns represents rating scores from a user. The matrix is actaully a sparse matrix (matrix contains mostly zeros). 
+Here’s what the ratings matrix might look like. Each column represents rating scores from a user. When recommending from a large selection, users will have reated only a few and the result will be a sparse matrix where most elements are zero. First, let’s convert Table 1 to a 10000 X 5000 matrix called **$M_{rating}$**, this matrix holds all ratings from all users for all movies (10000 movies x 5000 users).
 
 ```mathematica
 [[ 10  5   0   0   0   9]
@@ -67,17 +63,15 @@ Here’s what the ratings matrix might look like. Each columns represents rating
  [ 0   0   0   0   4   0]]
 ```
 
+The most simple way of user preference prediction is to calculate cosine similarity, however, in this case, results will not be good due to sparsity of $M_{rating}$. So how to handel large and sparse matrices ?
+
+The answer is a hybrid recommender system. Collaborative filtering predicts based on past user behavior and the idea is to use opinions from other users with similar taste. However, it can only predict ratings if there are enough users who have rated it. In case of sparsity, a hybrid approach can be more effetive by combining collaborative filtering and content-based filtering.
+
+**Hybrid = Collaborative filtering + Content based filtering**
 
 
- 
 
-
-
-#### Content based recommender systems
-
-------
-
-Content based system recommend items xxxxx. Content based filtering suffers from "user cold start" proble.
+Steps
 
 - Download nltk libraries
 
@@ -101,8 +95,6 @@ Content based system recommend items xxxxx. Content based filtering suffers from
 **TF-IDF (Term Frequency–Inverse Document Frequency**)
 
 A tf-idf transformer is applied to the bag of words matrix that NMF must process with the TfidfVectorizer.
-
-#### Collaborative filtering
 
 TF-IDF (Term Frequency–Inverse Document Frequency)
 
