@@ -7,23 +7,19 @@ comments: true
 image:
   feature: https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=width:1024/https://i.imgur.com/1UKDz2j.jpg
 ---
-If you google "ran out of anime to watch", there are 28 million related search results. As a big anime fan myself, I always struggling to find new animes to watch. On the market, a lot anime websites recommend animes based on popularity, new released, or genres you most frequently visited. What if I want more personalized and more about the story?  AnimeMatcher is an application built based on your watched history and anime stories.
+On a casual Saturday night with friends, a problem we always facing is we ran out of anime to watch ! If you seach on google, there are millions of people with similar concerns. Anime Crisis ! 
+
+On Internet, many websites recommend animes based on popularity, new released, or genres. What if I want a more personalized suggestion and concentrate more about the story?  AnimeMatcher is an application built based on your watched history and anime stories.
 
 <!--more-->
-
-#### System Requirement
-
-------
-
-Database: MongoDB
-
-Python packages: Scrapy, Pymongo, nltk
 
 #### Data
 
 ------
 
-9000 anime descriptions and 5000 user profiles were scraped from myAnimeList using Scrapy and stored directly as BSON object in the MongoDB. After combining specials and different series, there are 4588 animes descriptions. Anime database consists of theme songs, image links, descriptions and review. 
+I scraped 9000 anime descriptions and 5000 user profiles from myAnimeList and stored as BSON object in the MongoDB. After combining specials and series, I obtained 4588 animes descriptions in total. Data was stored as anime description and user watched history seperately in MongoDB . 
+
+e.g Anime description
 
 ```json
 {'_id': 'Yaiba',
@@ -34,9 +30,7 @@ Python packages: Scrapy, Pymongo, nltk
  'img_url': 'https://myanimelist.cdn-dena.com/images/anime/5/71953.jpg'}
 ```
 
-Here is an example diagram of anime ratings by different users. Rating system is from 1-10.
-
-Table1. User anime ratings
+e.g. User watched history. Table shows anime ratings of 5 animes given by 5 different users. Rating system is from 1-10.
 
 | Anime/score     | User1 | User2 | User3 | User4 | User5 |
 | --------------- | ----- | ----- | ----- | ----- | ----- |
@@ -50,7 +44,7 @@ Table1. User anime ratings
 
 ------
 
- Let’s convert Table 1 to a 10000 X 5000 matrix called **$M_{rating}$**, this matrix holds all ratings from all users for all movies (10000 movies x 5000 users). Each column represents rating scores from a user. When recommending from a large selection, users will have reated only a few and the result will be a sparse matrix where most elements are zero.
+Let’s convert Table 1 to a 10000 X 5000 matrix called **M<sub>rating</sub>** , this matrix holds all ratings from all users for all movies (10000 movies x 5000 users). Each column represents rating scores from a user. When recommending from a large selection, users will have reated only a few and the result will be a sparse matrix where most elements are zero.
 
 ```mathematica
 [[ 10  8   10  5   0]
@@ -60,29 +54,26 @@ Table1. User anime ratings
  [ 0   0   0   10  9]]
 ```
 
-The most simple way of user preference prediction is to calculate cosine similarity, however, in this case, results will not be good due to sparsity of M<sub>rating</sub> . So how to handel large and sparse matrices ?
+The most simple way of user preference prediction is to calculate cosine similarity, however, in this case, results will not be good due to sparsity of **M<sub>rating</sub>** . So how to handel large and sparse matrices ?
 
-The answer is a hybrid recommender system. Collaborative filtering predicts based on past user behavior and the idea is to use opinions from other users with similar taste. However, it can only predict ratings if there are enough users who have rated it. In case of sparsity, a hybrid approach can be more effetive by combining collaborative filtering and content-based filtering.
+The answer is a hybrid recommender system. Collaborative filtering predicts based on past user behavior and the idea is to use opinions from other users with similar taste. However, it can only predict ratings if there are enough users who have rated it. In case of sparsity, a hybrid approach can be more effetive by combining collaborative filtering and content-based filtering. It also helps to overcome common problems of recommenders such as cold start and the sparsity problem.
 
-**Hybrid = Collaborative filtering + Content based filtering**
-
-
+**My Hybrid recommender = Collaborative filtering + Content based filtering**
 
 Steps
 
-- Download nltk libraries
 
-  ```python
-  import nltk
-  nltk.download('punkt')
-  nltk.download('wordnet')
-  nltk.download('averaged_perceptron_tagger')
-  ```
 
-- Break into bags of words
 
-  - Break words to tokens
-  - Reduce different forms of a word to a common base form using stemming and lemmatizing 
+
+
+
+
+
+1. Break into bags of words
+
+- Break words to tokens
+- Reduce different forms of a word to a common base form using stemming and lemmatizing 
 
 - Topic Modelling 
 
@@ -99,10 +90,20 @@ TF-IDF (Term Frequency–Inverse Document Frequency)
 
 
 
+NLP stands for Natural Language Processing, it is defined as the computational technique to understand and manipulate human language and speech. Here we are going to demostrate how we can extract topics from anime descriptions with help of NLP.
 
+Challenges of NLP:
+
+- 
 
 
 
 <img src="https://i.imgur.com/zBbWj8p.jpg">
 
 Please wait for the update, .... 
+
+
+
+Conclusion:
+
+The important factors of a good recommender: diversity, privacy, robustness, serendipity, labelling.
