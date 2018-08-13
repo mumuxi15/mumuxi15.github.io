@@ -40,11 +40,13 @@ e.g. User watched history. Table shows anime ratings of 5 animes given by 5 diff
 | Tokyo Ghoul     | 7     | ?     | 9     | ?     | ?     |
 | One Piece       | ?     | ?     | ?     | 10    | 9     |
 
-#### Build a hybrid recommender system
+#### How does  recommender system works ? 
 
 ------
 
-Let’s convert Table 1 to a 10000 X 5000 matrix called **M<sub>rating</sub>** , this matrix holds all ratings from all users for all movies (10000 movies x 5000 users). Each column represents rating scores from a user. When recommending from a large selection, users will have reated only a few and the result will be a sparse matrix where most elements are zero.
+There are two common types of algorithm used in recommendation system, collaborative filtering and content-Based Filtering. Collaborative filtering predicts based on past user behavior and the idea is to use opinions from other users with similar taste. Content-Based Filtering, like The name suggested, it is based on a comparison between item descriptions and a user profile.
+
+Let’s consider the rating score table above to a matrix called **M<sub>rating</sub>** , this matrix holds all ratings from all users for all movies (10000 movies x 5000 users). Each column represents rating scores from a user, and we replace ? with 0. 
 
 ```mathematica
 [[ 10  8   10  5   0]
@@ -54,13 +56,15 @@ Let’s convert Table 1 to a 10000 X 5000 matrix called **M<sub>rating</sub>** ,
  [ 0   0   0   10  9]]
 ```
 
-The most simple way of user preference prediction is to calculate cosine similarity, however, in this case, results will not be good due to sparsity of **M<sub>rating</sub>** . So how to handel large and sparse matrices ?
+When recommending from a large selection (which is this case), users only have rated a few and the result will be a large sparse matrix where elements are mostly zero. Simple collaborative filtering or content-based method will not be good due to sparsity of **M<sub>rating</sub>**. So how do we handel large and sparse user profile matrices?
 
-The answer is a hybrid recommender system. Collaborative filtering predicts based on past user behavior and the idea is to use opinions from other users with similar taste. However, it can only predict ratings if there are enough users who have rated it. In case of sparsity, a hybrid approach can be more effetive by combining collaborative filtering and content-based filtering. It also helps to overcome common problems of recommenders such as cold start and the sparsity problem.
+The answer is a hybrid recommender system. In case of sparsity, a hybrid approach can be more effetive by combining collaborative filtering and content-based filtering. It also helps to overcome common problems of recommenders such as cold start.
 
 **My Hybrid recommender = Collaborative filtering + Content based filtering**
 
-Steps
+<img src="https://i.imgur.com/zBbWj8p.jpg">
+
+15 topics were extracted from anime descriptions. Each anime will have an associated probability for each topic.  [picutre]
 
 
 
@@ -68,12 +72,13 @@ Steps
 
 
 
+1. Preprocess words - stemming and lemmatizing to reduce different forms of a word 
 
 
-1. Break into bags of words
 
-- Break words to tokens
-- Reduce different forms of a word to a common base form using stemming and lemmatizing 
+
+
+1. 
 
 - Topic Modelling 
 
@@ -98,7 +103,7 @@ Challenges of NLP:
 
 
 
-<img src="https://i.imgur.com/zBbWj8p.jpg">
+
 
 Please wait for the update, .... 
 
