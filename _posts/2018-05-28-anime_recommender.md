@@ -1,9 +1,13 @@
 ---
 layout: post
 title:  "Anime Recommender"
-date:   2015-10-06 15:39:40
+date:   2018-07-06 15:39:40
 preview: https://www.lolacamisetas.com/3175-large_default/pokemon-tshirt-mimikyu-ghibli.jpg
 ---
+
+On a casual Saturday night with friends, a problem we always facing is we ran out of anime to watch ! If you seach on google, there are millions of people with similar concerns. Anime Crisis ! 
+
+On Internet, many websites recommend animes based on popularity, new released, or genres. What if I want a more personalized suggestion and concentrate more about the story?  AnimeMatcher is an application built based on your watched history and anime stories.
 
 #### Data
 
