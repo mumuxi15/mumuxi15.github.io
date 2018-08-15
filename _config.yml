@@ -4,7 +4,7 @@ email: mumuxi15@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Hi, my name is Penny Pan, a New York based data scientist with passion for machine learning
 baseurl: "/penny-pan" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "https://mumuxi15.github.io/" # the base hostname & protocol for your site
 github_username:  mumuxi15
 
 # Build settings
