@@ -22,7 +22,7 @@ e.g Anime description
  'img_url': 'https://myanimelist.cdn-dena.com/images/anime/5/71953.jpg'}
 ```
 
-e.g. User watched history. Table shows anime ratings of 5 animes given by 5 different users. Rating system is from 1-10.
+e.g. User watched history. Table shows anime ratings of 5 animes given by 5 users. Rating system is from 1-10.
 
 | Anime/score     | User1 | User2 | User3 | User4 | User5 |
 | --------------- | ----- | ----- | ----- | ----- | ----- |
@@ -56,55 +56,41 @@ The answer is a hybrid recommender system. In case of sparsity, a hybrid approac
 
 <img src="https://i.imgur.com/zBbWj8p.jpg">
 
-**Recommender1 workflow**
+**Recommender1: Collaborative Filtering Workflow**
 
 For recommender1, a user’s predicted rating for an anime would equal the dot product of the user’s and anime’s features. 
 
- **R<sub>rating</sub> = P x <sup>Q</sup>**
+ **R<sub>rating</sub> = P x Q <sup>T</sup>**
 
-where P and Q are matrices that minimizes the regularized squared error.  P represents the strength of the associations between users and the features. Similarly, Q represents the strength of the associations between animes and the features. Therefore, recommender1 generates recommendations by calculating similarity between P and Q. 
+where P and Q are matrices that minimizes the regularized squared error. P represents the strength of the associations between users and the features. Similarly, Q represents the strength of the associations between animes and the features. Therefore, recommender1 generates recommendations by calculating similarity between P and Q. 
 
-**Recommender2 workflow**
+**Recommender2: Content-based Filtering workflow**
 
-30 topics were extracted from anime descriptions. Each anime will have an associated probability for each topic.  For example
+For the content-based filtering, the key step is to extract topics from text. First step is to preprocess words with stemming and lemmatizing techinque to reduce different forms of a word. For example, beautiful -> beauty, cars -> car. After that, I tried to extract topics using TF-IDF and NMF (Non-negative Matrix Factorization). In addition, I manually adjusted min_df and  max_df parameters until succinct topics were found. We will talk more about natural language processing in other posts. 30 unique topics were extracted from anime descriptions. Topics were covered for anime story descriptions. For example, topic 7 is about solving crime and the most famous anime in that category is Detective Conan. 
 
-| Anime/Topics    | War  | School | Robot | Demon | Game |
-| --------------- | ---- | ------ | ----- | ----- | ---- |
-| Fairy Tail      | 0.27 | 0.02   | 0.00  | 0.59  | 0.11 |
-| Kimi no na wa   | 0.01 | 0.95   | 0.00  | 0.01  | 0.01 |
-| No game no life | 0.35 | 0.01   | 0.00  | 0.01  | 0.63 |
-| Tokyo Ghoul     | 0.01 | 0.15   | 0.01  | 0.12  | 0.08 |
-| One Piece       | 0.28 | 0.00   | 0.00  | 0.45  | 0.01 |
+Examples:
+
+> Topic #1: Special, release, air, recap, feature  
+> Topic #2: Earth, Planet, space, alien, ship  
+> Topic #3: High, school, junior, student, classmate  
+> Topic #4: Team, soccer, player, match, baseball  
+> Topic #5: Human, race, mankind, god, survive, extinct    
+> Topic #6: Magic, witch, magician, kingdom, wish  
+> Topic #7: Mystery, solve, appear, past, shadow, kill  
+> Topic #8: Demon, king, hero, lord, seal, defeat, mission  
+> Topic #9: Love, feel, fall, relationship, confess, heart
+
+Each anime will then have an associated probability for each topic.  For example
+
+| Anime/Topics    | Topic 2 | Topic 3 | Topic 7 | Topic 8 | Topic 9 |
+| --------------- | ------- | ------- | ------- | ------- | ------- |
+| Fairy Tail      | 0.01    | 0.12    | 0.00    | 0.67    | 0.00    |
+| Kimi no na wa   | 0.11    | 0.87    | 0.02    | 0.01    | 0.54    |
+| No game no life | 0.35    | 0.23    | 0.34    | 0.01    | 0.35    |
+| Tokyo Ghoul     | 0.02    | 0.56    | 0.76    | 0.12    | 0.00    |
+| One Piece       | 0.05    | 0.00    | 0.00    | 0.45    | 0.00    |
 
 By averaging all user's past watched anime topics, we can get user's preference on topic. Then we can calculate cosine similarity between user topic matrices and anime topic matrice to generate recommendations. 
-
-
-
-1. Topic Modelling 
-
-- - Feature_extraction using TF-IDF
-  - Decomposition techniques using NMF
-
-
-
-
-
-NLP stands for Natural Language Processing, it is defined as the computational technique to understand and manipulate human language and speech. Here we are going to demostrate how we can extract topics from anime descriptions with help of NLP.
-
-Two challenges of this project. 
-
-1. words have different forms 
-
-1. A lot of anime terms appeared frequently. 
-
-Solutions to solve NLP challenges:
-
-- Preprocess words with stemming and lemmatizing techinque to reduce different forms of a word. For example, beautiful -> beauty, cars -> car
-- TF-IDF (Term Frequency–Inverse Document Frequency)
-
-<img src="https://cdn-images-1.medium.com/max/1600/0*WcQ96JVrKLlC4cZN.jpg">
-
-
 
 
 
