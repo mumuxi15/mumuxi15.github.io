@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Penny's blog</title>
+    <description>Hi, my name is Penny Pan, a New York based data scientist with passion for machine learning
+</description>
+    <link>http://localhost:4000/penny-pan/</link>
+    <atom:link href="http://localhost:4000/penny-pan/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 14 Aug 2018 22:34:02 -0400</pubDate>
+    <lastBuildDate>Tue, 14 Aug 2018 22:34:02 -0400</lastBuildDate>
+    <generator>Jekyll v3.7.3</generator>
+    
+      <item>
+        <title>Anime Recommender</title>
+        <description>&lt;h4 id=&quot;data&quot;&gt;Data&lt;/h4&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;I scraped 9000 anime descriptions and 5000 user profiles from myAnimeList and stored as BSON object in the MongoDB. After combining specials and series, I obtained 4588 animes descriptions in total. Data was stored as anime description and user watched history seperately in MongoDB .&lt;/p&gt;
+
+&lt;p&gt;e.g Anime description&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'_id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'Yaiba'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'themesongs'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Yuuki ga Areba (勇気があれば)&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;by&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Kabuki&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Rocks&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(カブキロックス)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Shinchigakunaki Tatakai! (神智学無き戦い!)&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;by&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Kabuki&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Rocks&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(カブキロックス)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'description'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Kurogane Yaiba is a boy who doesn't want to become what any regular kid would: A samurai. That's why he undergoes a hard training with his father, knowing only the forest as his world. Then, one day, he is sent to Japan, where he has to deal with a whole new civilized reality, meeting the Mine family, the evil Onimaru and even the legendary Musashi, having lots of dangerous adventures, becoming stronger everyday.(Source: ANN, edited) &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'reviews'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'which&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;are&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;really&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;stupid&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;but&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;succeds&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tickling&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;us!!the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;storycharacter&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;enjoyment&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;quite&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;okwell&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;personally&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;disliked&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;op&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ed&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;art&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;also&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;seems&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;quite&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ok&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;not&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;many&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;cute&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;girls&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;its&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;lot&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;fun&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;overall&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;series&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ll&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;definately&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;say&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;give&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;shot&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;st&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;epi!!!ull&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;automatically&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;hooked&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;series&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;atleast&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;did&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;!well&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;hope&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;liked&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;review&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;plz&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ratemy&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;st&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;reviewread&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;more'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'img_url'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//myanimelist.cdn-dena.com/images/anime/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;71953&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.jpg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;e.g. User watched history. Table shows anime ratings of 5 animes given by 5 different users. Rating system is from 1-10.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Anime/score&lt;/th&gt;
+      &lt;th&gt;User1&lt;/th&gt;
+      &lt;th&gt;User2&lt;/th&gt;
+      &lt;th&gt;User3&lt;/th&gt;
+      &lt;th&gt;User4&lt;/th&gt;
+      &lt;th&gt;User5&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Fairy Tail&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;?&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Kimi no na wa&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;No game no life&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt;?&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Tokyo Ghoul&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt;?&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;One Piece&lt;/td&gt;
+      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;how-does--recommender-system-works-&quot;&gt;How does  recommender system works ?&lt;/h4&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Broadly speaking, there are two common algorithms used in recommendation system, collaborative filtering and content-Based Filtering. Collaborative filtering predicts based on past user behavior and the idea is to use opinions from other users with similar taste. Content-Based Filtering, like the name suggested, it is based on a comparison between item descriptions and a user profile.&lt;/p&gt;
+
+&lt;p&gt;Let’s consider converting the rating score table above to a matrix called &lt;strong&gt;R&lt;sub&gt;rating&lt;/sub&gt;&lt;/strong&gt; , this matrix holds all ratings from all users for all movies (10000 movies x 5000 users). Each column represents rating scores from a user, and we replace ? with 0.  ? means movies has not watched.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-mathematica&quot;&gt;[[ 10  8   10  5   0]
+ [ 10  9   0   0   4]
+ [ 9   0   9   0   0]
+ [ 7   0   9   0   0]
+ [ 0   0   0   10  9]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When recommending from a large selection (which is in this case), users only have rated a few out of thousands of selections and the result will be a large sparse matrix where elements are mostly zero. Simple recommender will not be good due to sparsity probelem. So how do we handel sparse matrices?&lt;/p&gt;
+
+&lt;p&gt;The answer is a hybrid recommender system. In case of sparsity, a hybrid approach can be more effetive by combining collaborative filtering and content-based filtering. Collaborative filtering offers more interesting and diversed recommendations but suffers from cold start problem. By combining the two, It will also help to overcome the cold start problem.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;My recommender = Collaborative filtering + Content based filtering&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/zBbWj8p.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Recommender1 workflow&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;For recommender1, a user’s predicted rating for an anime would equal the dot product of the user’s and anime’s features.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;R&lt;sub&gt;rating&lt;/sub&gt; = P x &lt;sup&gt;Q&lt;/sup&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;where P and Q are matrices that minimizes the regularized squared error.  P represents the strength of the associations between users and the features. Similarly, Q represents the strength of the associations between animes and the features. Therefore, recommender1 generates recommendations by calculating similarity between P and Q.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Recommender2 workflow&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;30 topics were extracted from anime descriptions. Each anime will have an associated probability for each topic.  For example&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Anime/Topics&lt;/th&gt;
+      &lt;th&gt;War&lt;/th&gt;
+      &lt;th&gt;School&lt;/th&gt;
+      &lt;th&gt;Robot&lt;/th&gt;
+      &lt;th&gt;Demon&lt;/th&gt;
+      &lt;th&gt;Game&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Fairy Tail&lt;/td&gt;
+      &lt;td&gt;0.27&lt;/td&gt;
+      &lt;td&gt;0.02&lt;/td&gt;
+      &lt;td&gt;0.00&lt;/td&gt;
+      &lt;td&gt;0.59&lt;/td&gt;
+      &lt;td&gt;0.11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Kimi no na wa&lt;/td&gt;
+      &lt;td&gt;0.01&lt;/td&gt;
+      &lt;td&gt;0.95&lt;/td&gt;
+      &lt;td&gt;0.00&lt;/td&gt;
+      &lt;td&gt;0.01&lt;/td&gt;
+      &lt;td&gt;0.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;No game no life&lt;/td&gt;
+      &lt;td&gt;0.35&lt;/td&gt;
+      &lt;td&gt;0.01&lt;/td&gt;
+      &lt;td&gt;0.00&lt;/td&gt;
+      &lt;td&gt;0.01&lt;/td&gt;
+      &lt;td&gt;0.63&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Tokyo Ghoul&lt;/td&gt;
+      &lt;td&gt;0.01&lt;/td&gt;
+      &lt;td&gt;0.15&lt;/td&gt;
+      &lt;td&gt;0.01&lt;/td&gt;
+      &lt;td&gt;0.12&lt;/td&gt;
+      &lt;td&gt;0.08&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;One Piece&lt;/td&gt;
+      &lt;td&gt;0.28&lt;/td&gt;
+      &lt;td&gt;0.00&lt;/td&gt;
+      &lt;td&gt;0.00&lt;/td&gt;
+      &lt;td&gt;0.45&lt;/td&gt;
+      &lt;td&gt;0.01&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;By averaging all user’s past watched anime topics, we can get user’s preference on topic. Then we can calculate cosine similarity between user topic matrices and anime topic matrice to generate recommendations.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Topic Modelling&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Feature_extraction using TF-IDF&lt;/li&gt;
+      &lt;li&gt;Decomposition techniques using NMF&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;NLP stands for Natural Language Processing, it is defined as the computational technique to understand and manipulate human language and speech. Here we are going to demostrate how we can extract topics from anime descriptions with help of NLP.&lt;/p&gt;
+
+&lt;p&gt;Two challenges of this project.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;words have different forms&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A lot of anime terms appeared frequently.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Solutions to solve NLP challenges:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Preprocess words with stemming and lemmatizing techinque to reduce different forms of a word. For example, beautiful -&amp;gt; beauty, cars -&amp;gt; car&lt;/li&gt;
+  &lt;li&gt;TF-IDF (Term Frequency–Inverse Document Frequency)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/1600/0*WcQ96JVrKLlC4cZN.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Please wait for the update, ….&lt;/p&gt;
+
+&lt;p&gt;Conclusion:&lt;/p&gt;
+
+&lt;p&gt;The important factors of a good recommender: diversity, privacy, robustness, serendipity, labelling.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 06 Oct 2015 11:39:40 -0400</pubDate>
+        <link>http://localhost:4000/penny-pan/2015/10/06/anime_recommender/</link>
+        <guid isPermaLink="true">http://localhost:4000/penny-pan/2015/10/06/anime_recommender/</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
