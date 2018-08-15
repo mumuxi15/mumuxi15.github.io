@@ -5,15 +5,11 @@ date:   2018-07-06 15:39:40
 preview: https://www.lolacamisetas.com/3175-large_default/pokemon-tshirt-mimikyu-ghibli.jpg
 ---
 
-On a casual Saturday night with friends, a problem we always facing is we ran out of anime to watch ! If you seach on google, there are millions of people with similar concerns. Anime Crisis ! 
+<img style="width:100%;display:block;" src="https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=width:1024/https://i.imgur.com/1UKDz2j.jpg" />
 
-On Internet, many websites recommend animes based on popularity, new released, or genres. What if I want a more personalized suggestion and concentrate more about the story?  AnimeMatcher is an application built based on your watched history and anime stories.
+For those who are big anime fans, our weekend mission is to find a good anime to watch. Often, we call it mission impossible! It is really hard to find a good anime you have not watched. If you search online, websites recommend animes based on popularity, new released, or genres. Such recommendations are boring and often times you have watched already because they are in the same category. What if I want a more personalized suggestion, a suggestion made by analyzing my past anime profile?  AnimeMatcher is an application built for your taste.
 
-#### Data
-
-------
-
-I scraped 9000 anime descriptions and 5000 user profiles from myAnimeList and stored as BSON object in the MongoDB. After combining specials and series, I obtained 4588 animes descriptions in total. Data was stored as anime description and user watched history seperately in MongoDB . 
+To get the data, I scraped 9000 anime descriptions and 5000 user profiles from MyAnimeList, a simple version of imdb for animes. Data was stored as BSON object in the MongoDB and called nime description and user watched history seperately . After combining specials and series, 4588 anime descriptions were obtained in total. 
 
 e.g Anime description
 

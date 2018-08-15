@@ -73,7 +73,7 @@ Increasing model complexity is necessary to learn finer details. After research,
 
 I trained the Dense Net model on the hazed removed image sets for 4 hours and saved the model as b01_dense121.h5. Then used it to generate labels for unlabelled test set images. Here are some examples of test photo chips marked as illegal mines. 
 
-<img style="width:80%;display:inline-block;" src="https://imgur.com/LSL0RMq.jpg"/>
+<img style="width:80%;display:inline-block;" src="https://imgur.com/LSL0RMq.png"/>
 
 
 
