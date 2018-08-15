@@ -48,25 +48,27 @@ Let’s consider converting the rating score table above to a matrix called **R<
  [ 0   0   0   10  9]]
 ```
 
-When recommending from a large selection (which is in this case), users only have rated a few out of thousands of selections and the result will be a large sparse matrix where elements are mostly zero. Simple recommender will not be good due to sparsity probelem. So how do we handel sparse matrices?
+When recommending from a large selection (which is in this case), users only have rated a few out of thousands of selections and the result will be a large sparse matrix where elements are mostly zero. Simple recommender will not be good due to sparsity problem. So how do we handle sparse matrices?
 
-The answer is a hybrid recommender system. In case of sparsity, a hybrid approach can be more effetive by combining collaborative filtering and content-based filtering. Collaborative filtering offers more interesting and diversed recommendations but suffers from cold start problem. By combining the two, It will also help to overcome the cold start problem.
+The answer is a hybrid recommender system. In case of sparsity, a hybrid approach can be more effective by combining collaborative filtering and content-based filtering. Collaborative filtering offers more interesting and diverse recommendations but suffers from cold start problem. By combining the two, It will also help to overcome the cold start problem.
 
 **My recommender = Collaborative filtering + Content based filtering**
 
-<img src="https://i.imgur.com/zBbWj8p.jpg">
+<img style="width:100%;display:block;" src="https://i.imgur.com/zBbWj8p.jpg">
 
-**Recommender1: Collaborative Filtering Workflow**
+**Recommender 1: Collaborative Filtering Workflow**
 
-For recommender1, a user’s predicted rating for an anime would equal the dot product of the user’s and anime’s features. 
+A user’s predicted rating matrix for an anime would equal the dot product of the user’s and anime’s features. Matrix Factorization formula:
 
  **R<sub>rating</sub> = P x Q <sup>T</sup>**
 
-where P and Q are matrices that minimizes the regularized squared error. P represents the strength of the associations between users and the features. Similarly, Q represents the strength of the associations between animes and the features. Therefore, recommender1 generates recommendations by calculating similarity between P and Q. 
+where P and Q are factor vectors that minimizes the regularized squared error. P represents the strength of the associations between users and the features. Similarly, Q represents the strength of the associations between animes and the features. Therefore, recommendations were created by calculating similarity between P and Q. 
 
-**Recommender2: Content-based Filtering workflow**
+**Recommender 2: Content-based Filtering workflow**
 
-For the content-based filtering, the key step is to extract topics from text. First step is to preprocess words with stemming and lemmatizing techinque to reduce different forms of a word. For example, beautiful -> beauty, cars -> car. After that, I tried to extract topics using TF-IDF and NMF (Non-negative Matrix Factorization). In addition, I manually adjusted min_df and  max_df parameters until succinct topics were found. We will talk more about natural language processing in other posts. 30 unique topics were extracted from anime descriptions. Topics were covered for anime story descriptions. For example, topic 7 is about solving crime and the most famous anime in that category is Detective Conan. 
+The key step of content-based filtering is to extract topics from text data. First step is to preprocess words with stemming and lemmatizing technique to reduce different forms of a word. For example, beautiful -> beauty, cars -> car. After that, I tried to extract topics using TF-IDF and NMF (Non-negative Matrix Factorization). TF-IDF, term frequency–inverse document frequency, is proportional to the word frequency in the document and is counteracted by the frequency of the word in the corpus. In this case, the most frequent words have less useful meaning since words like '*people*', '*place*'  occur very frequently across all documents but does not tell any information about the stories. TF-IDF is more or less a measure of how unique a word is in the corpus. 
+
+In addition, I manually adjusted min_df and max_df parameters until succinct topics were found. We will talk more about natural language processing in other posts. In the end, 30 unique anime topics were extracted from anime story descriptions. For example, topic 7 is about solving crime and the most famous anime in that category is Detective Conan. 
 
 Examples:
 
@@ -90,14 +92,8 @@ Each anime will then have an associated probability for each topic.  For example
 | Tokyo Ghoul     | 0.02    | 0.56    | 0.76    | 0.12    | 0.00    |
 | One Piece       | 0.05    | 0.00    | 0.00    | 0.45    | 0.00    |
 
-By averaging all user's past watched anime topics, we can get user's preference on topic. Then we can calculate cosine similarity between user topic matrices and anime topic matrice to generate recommendations. 
+By averaging all user's past watched anime topics, we can get user's preference on topics. Then we can calculate cosine similarity between user topic matrix and anime topic matrix to generate recommendations. 
 
 
 
-Please wait for the update, .... 
-
-
-
-Conclusion:
-
-The important factors of a good recommender: diversity, privacy, robustness, serendipity, labelling.
+Then we combine the outcome from two recommender. 
