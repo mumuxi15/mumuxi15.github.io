@@ -44,9 +44,9 @@ e.g. User watched history. Table shows anime ratings of 5 animes given by 5 diff
 
 ------
 
-There are two common types of algorithm used in recommendation system, collaborative filtering and content-Based Filtering. Collaborative filtering predicts based on past user behavior and the idea is to use opinions from other users with similar taste. Content-Based Filtering, like The name suggested, it is based on a comparison between item descriptions and a user profile.
+Broadly speaking, there are two common algorithms used in recommendation system, collaborative filtering and content-Based Filtering. Collaborative filtering predicts based on past user behavior and the idea is to use opinions from other users with similar taste. Content-Based Filtering, like the name suggested, it is based on a comparison between item descriptions and a user profile.
 
-Let’s consider the rating score table above to a matrix called **M<sub>rating</sub>** , this matrix holds all ratings from all users for all movies (10000 movies x 5000 users). Each column represents rating scores from a user, and we replace ? with 0. 
+Let’s consider converting the rating score table above to a matrix called **R<sub>rating</sub>** , this matrix holds all ratings from all users for all movies (10000 movies x 5000 users). Each column represents rating scores from a user, and we replace ? with 0.  ? means movies has not watched. 
 
 ```mathematica
 [[ 10  8   10  5   0]
@@ -56,40 +56,42 @@ Let’s consider the rating score table above to a matrix called **M<sub>rating<
  [ 0   0   0   10  9]]
 ```
 
-When recommending from a large selection (which is this case), users only have rated a few and the result will be a large sparse matrix where elements are mostly zero. Simple collaborative filtering or content-based method will not be good due to sparsity of **M<sub>rating</sub>**. So how do we handel large and sparse user profile matrices?
+When recommending from a large selection (which is in this case), users only have rated a few out of thousands of selections and the result will be a large sparse matrix where elements are mostly zero. Simple recommender will not be good due to sparsity probelem. So how do we handel sparse matrices?
 
-The answer is a hybrid recommender system. In case of sparsity, a hybrid approach can be more effetive by combining collaborative filtering and content-based filtering. It also helps to overcome common problems of recommenders such as cold start.
+The answer is a hybrid recommender system. In case of sparsity, a hybrid approach can be more effetive by combining collaborative filtering and content-based filtering. Collaborative filtering offers more interesting and diversed recommendations but suffers from cold start problem. By combining the two, It will also help to overcome the cold start problem.
 
-**My Hybrid recommender = Collaborative filtering + Content based filtering**
+**My recommender = Collaborative filtering + Content based filtering**
 
 <img src="https://i.imgur.com/zBbWj8p.jpg">
 
-15 topics were extracted from anime descriptions. Each anime will have an associated probability for each topic.  [picutre]
+**Recommender1 workflow**
+
+For recommender1, a user’s predicted rating for an anime would equal the dot product of the user’s and anime’s features. 
+
+ **R<sub>rating</sub> = P x <sup>Q</sup>**
+
+where P and Q are matrices that minimizes the regularized squared error.  P represents the strength of the associations between users and the features. Similarly, Q represents the strength of the associations between animes and the features. Therefore, recommender1 generates recommendations by calculating similarity between P and Q. 
+
+**Recommender2 workflow**
+
+30 topics were extracted from anime descriptions. Each anime will have an associated probability for each topic.  For example
+
+| Anime/Topics    | War  | School | Robot | Demon | Game |
+| --------------- | ---- | ------ | ----- | ----- | ---- |
+| Fairy Tail      | 0.27 | 0.02   | 0.00  | 0.59  | 0.11 |
+| Kimi no na wa   | 0.01 | 0.95   | 0.00  | 0.01  | 0.01 |
+| No game no life | 0.35 | 0.01   | 0.00  | 0.01  | 0.63 |
+| Tokyo Ghoul     | 0.01 | 0.15   | 0.01  | 0.12  | 0.08 |
+| One Piece       | 0.28 | 0.00   | 0.00  | 0.45  | 0.01 |
+
+By averaging all user's past watched anime topics, we can get user's preference on topic. Then we can calculate cosine similarity between user topic matrices and anime topic matrice to generate recommendations. 
 
 
 
+1. Topic Modelling 
 
-
-
-
-1. Preprocess words - stemming and lemmatizing to reduce different forms of a word 
-
-
-
-
-
-1. 
-
-- Topic Modelling 
-
-  - Feature_extraction using TF-IDF
+- - Feature_extraction using TF-IDF
   - Decomposition techniques using NMF
-
-**TF-IDF (Term Frequency–Inverse Document Frequency**)
-
-A tf-idf transformer is applied to the bag of words matrix that NMF must process with the TfidfVectorizer.
-
-TF-IDF (Term Frequency–Inverse Document Frequency)
 
 
 
@@ -97,9 +99,18 @@ TF-IDF (Term Frequency–Inverse Document Frequency)
 
 NLP stands for Natural Language Processing, it is defined as the computational technique to understand and manipulate human language and speech. Here we are going to demostrate how we can extract topics from anime descriptions with help of NLP.
 
-Challenges of NLP:
+Two challenges of this project. 
 
-- 
+1. words have different forms 
+
+2. A lot of anime terms appeared frequently. 
+
+Solutions to solve NLP challenges:
+
+- Preprocess words with stemming and lemmatizing techinque to reduce different forms of a word. For example, beautiful -> beauty, cars -> car
+- TF-IDF (Term Frequency–Inverse Document Frequency)
+
+<img src="https://cdn-images-1.medium.com/max/1600/0*WcQ96JVrKLlC4cZN.jpg">
 
 
 
