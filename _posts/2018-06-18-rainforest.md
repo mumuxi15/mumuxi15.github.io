@@ -2,7 +2,7 @@
 layout: post
 title:  "Amazon Illegal Mining Detection"
 date:   2018-06-18 15:07:19
-preview: https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=width:600/crop=dim:[180,55,300,300]/https://www.mining-technology.com/wp-content/uploads/sites/8/2018/02/Sonter-thesis-figure_WEB-800.jpg
+preview: https://imgur.com/JZMOivf.jpg
 ---
 Amazon deforestation has been a serious concern over the past several decades due to its devastating impact on biodiversity, habitat lost and climate change. As the global gold price remained high in the past 10 years, more and more illegal gold mines were found in the Amazon rainforest. To protect beautiful Amazon forest, I combined satellite images with machine learning skills to track deforestation and detect  illegal activities. 
 
