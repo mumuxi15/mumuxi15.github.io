@@ -4,19 +4,40 @@
     <title>Penny's blog</title>
     <description>Hi, my name is Penny Pan, a New York based data scientist with passion for machine learning
 </description>
-    <link>http://localhost:4000/penny-pan/</link>
-    <atom:link href="http://localhost:4000/penny-pan/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 14 Aug 2018 22:34:02 -0400</pubDate>
-    <lastBuildDate>Tue, 14 Aug 2018 22:34:02 -0400</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 14 Feb 2020 20:14:57 -0500</pubDate>
+    <lastBuildDate>Fri, 14 Feb 2020 20:14:57 -0500</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
     
       <item>
+        <title>Coronavirus Data Analysis</title>
+        <description>&lt;p&gt;Intro: Coronavirus&lt;/p&gt;
+
+&lt;p&gt;This is a on going project, not completed yet.&lt;/p&gt;
+
+&lt;p&gt;I was trying to find an updated case number for corona virus in China.  When you search on google, there are billions of articles and news in your search results. Yet, could not find a single number for 20 minutes. Information is either irrelevant, out of date or hidden deeply behind charts. Then I decide to scrape the charts and write a few scripts to answer my questions: How is corona virus going ? Is it getting better ? Are things in control ?&lt;/p&gt;
+
+&lt;p&gt;The data is scraped from Buzzfeed and they claimed they collect data from WHO. It was slightly tricky to get the link to the dataset as they do not make life easier. The link was embeded inside iframe structures and I will post it direcly here &lt;a href=&quot;https://datawrapper.dwcdn.net/dmZGM/12/&quot;&gt;source&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I will update this post later once I start the data analysis part.&lt;/p&gt;
+
+&lt;p&gt;Project in posted in my &lt;a href=&quot;https://github.com/mumuxi15/coronavirus&quot;&gt;GitHub&lt;/a&gt;. Thanks for reading !&lt;/p&gt;
+</description>
+        <pubDate>Fri, 14 Feb 2020 14:07:19 -0500</pubDate>
+        <link>http://localhost:4000/2020/02/14/virus/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/14/virus/</guid>
+        
+        
+      </item>
+    
+      <item>
         <title>Anime Recommender</title>
-        <description>&lt;h4 id=&quot;data&quot;&gt;Data&lt;/h4&gt;
+        <description>&lt;p&gt;&lt;img style=&quot;width:100%;display:block;&quot; src=&quot;https://i.imgur.com/1UKDz2j.jpg&quot; /&gt;&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;For those who are big anime fans, our weekend mission is to find a good anime to watch. Often, we call it mission impossible! It is really hard to find a good anime you have not watched. If you search online, websites recommend animes based on popularity, new released, or genres. Such recommendations are boring and often times you have watched already because they are in the same category. What if I want a more personalized suggestion, a suggestion made by analyzing my past anime profile?  AnimeMatcher is an application built for your taste.&lt;/p&gt;
 
-&lt;p&gt;I scraped 9000 anime descriptions and 5000 user profiles from myAnimeList and stored as BSON object in the MongoDB. After combining specials and series, I obtained 4588 animes descriptions in total. Data was stored as anime description and user watched history seperately in MongoDB .&lt;/p&gt;
+&lt;p&gt;To get the data, I scraped 9000 anime descriptions and 5000 user profiles from MyAnimeList, a simple version of imdb for animes. Data was stored as BSON object in the MongoDB and called nime description and user watched history seperately . After combining specials and series, 4588 anime descriptions were obtained in total.&lt;/p&gt;
 
 &lt;p&gt;e.g Anime description&lt;/p&gt;
 
@@ -28,7 +49,7 @@
  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'img_url'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//myanimelist.cdn-dena.com/images/anime/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;71953&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.jpg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;e.g. User watched history. Table shows anime ratings of 5 animes given by 5 different users. Rating system is from 1-10.&lt;/p&gt;
+&lt;p&gt;e.g. User watched history. Table shows anime ratings of 5 animes given by 5 users. Rating system is from 1-10.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -100,127 +121,190 @@
  [ 0   0   0   10  9]]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;When recommending from a large selection (which is in this case), users only have rated a few out of thousands of selections and the result will be a large sparse matrix where elements are mostly zero. Simple recommender will not be good due to sparsity probelem. So how do we handel sparse matrices?&lt;/p&gt;
+&lt;p&gt;When recommending from a large selection (which is in this case), users only have rated a few out of thousands of selections and the result will be a large sparse matrix where elements are mostly zero. Simple recommender will not be good due to sparsity problem. So how do we handle sparse matrices?&lt;/p&gt;
 
-&lt;p&gt;The answer is a hybrid recommender system. In case of sparsity, a hybrid approach can be more effetive by combining collaborative filtering and content-based filtering. Collaborative filtering offers more interesting and diversed recommendations but suffers from cold start problem. By combining the two, It will also help to overcome the cold start problem.&lt;/p&gt;
+&lt;p&gt;The answer is a hybrid recommender system. In case of sparsity, a hybrid approach can be more effective by combining collaborative filtering and content-based filtering. Collaborative filtering offers more interesting and diverse recommendations but suffers from cold start problem. By combining the two, It will also help to overcome the cold start problem.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;My recommender = Collaborative filtering + Content based filtering&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/zBbWj8p.jpg&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img style=&quot;width:100%;display:block;&quot; src=&quot;https://i.imgur.com/zBbWj8p.jpg&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Recommender1 workflow&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recommender 1: Collaborative Filtering Workflow&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;For recommender1, a user’s predicted rating for an anime would equal the dot product of the user’s and anime’s features.&lt;/p&gt;
+&lt;p&gt;A user’s predicted rating matrix for an anime would equal the dot product of the user’s and anime’s features. Matrix Factorization formula:&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;R&lt;sub&gt;rating&lt;/sub&gt; = P x &lt;sup&gt;Q&lt;/sup&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;R&lt;sub&gt;rating&lt;/sub&gt; = P x Q &lt;sup&gt;T&lt;/sup&gt;&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;where P and Q are matrices that minimizes the regularized squared error.  P represents the strength of the associations between users and the features. Similarly, Q represents the strength of the associations between animes and the features. Therefore, recommender1 generates recommendations by calculating similarity between P and Q.&lt;/p&gt;
+&lt;p&gt;where P and Q are factor vectors that minimizes the regularized squared error. P represents the strength of the associations between users and the features. Similarly, Q represents the strength of the associations between animes and the features. Therefore, recommendations were created by calculating similarity between P and Q.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Recommender2 workflow&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recommender 2: Content-based Filtering workflow&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;30 topics were extracted from anime descriptions. Each anime will have an associated probability for each topic.  For example&lt;/p&gt;
+&lt;p&gt;The key step of content-based filtering is to extract topics from text data. First step is to preprocess words with stemming and lemmatizing technique to reduce different forms of a word. For example, beautiful -&amp;gt; beauty, cars -&amp;gt; car. After that, I tried to extract topics using TF-IDF and NMF (Non-negative Matrix Factorization). TF-IDF, term frequency–inverse document frequency, is proportional to the word frequency in the document and is counteracted by the frequency of the word in the corpus. In this case, the most frequent words have less useful meaning since words like ‘&lt;em&gt;people&lt;/em&gt;’, ‘&lt;em&gt;place&lt;/em&gt;‘  occur very frequently across all documents but does not tell any information about the stories. TF-IDF is more or less a measure of how unique a word is in the corpus.&lt;/p&gt;
+
+&lt;p&gt;In addition, I manually adjusted min_df and max_df parameters until succinct topics were found. We will talk more about natural language processing in other posts. In the end, 30 unique anime topics were extracted from anime story descriptions. For example, topic 7 is about solving crime and the most famous anime in that category is Detective Conan.&lt;/p&gt;
+
+&lt;p&gt;Examples:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Topic #1: Special, release, air, recap, feature&lt;br /&gt;
+Topic #2: Earth, Planet, space, alien, ship&lt;br /&gt;
+Topic #3: High, school, junior, student, classmate&lt;br /&gt;
+Topic #4: Team, soccer, player, match, baseball&lt;br /&gt;
+Topic #5: Human, race, mankind, god, survive, extinct  &lt;br /&gt;
+Topic #6: Magic, witch, magician, kingdom, wish&lt;br /&gt;
+Topic #7: Mystery, solve, appear, past, shadow, kill&lt;br /&gt;
+Topic #8: Demon, king, hero, lord, seal, defeat, mission&lt;br /&gt;
+Topic #9: Love, feel, fall, relationship, confess, heart&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Each anime will then have an associated probability for each topic.  For example&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th&gt;Anime/Topics&lt;/th&gt;
-      &lt;th&gt;War&lt;/th&gt;
-      &lt;th&gt;School&lt;/th&gt;
-      &lt;th&gt;Robot&lt;/th&gt;
-      &lt;th&gt;Demon&lt;/th&gt;
-      &lt;th&gt;Game&lt;/th&gt;
+      &lt;th&gt;Topic 2&lt;/th&gt;
+      &lt;th&gt;Topic 3&lt;/th&gt;
+      &lt;th&gt;Topic 7&lt;/th&gt;
+      &lt;th&gt;Topic 8&lt;/th&gt;
+      &lt;th&gt;Topic 9&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Fairy Tail&lt;/td&gt;
-      &lt;td&gt;0.27&lt;/td&gt;
-      &lt;td&gt;0.02&lt;/td&gt;
+      &lt;td&gt;0.01&lt;/td&gt;
+      &lt;td&gt;0.12&lt;/td&gt;
       &lt;td&gt;0.00&lt;/td&gt;
-      &lt;td&gt;0.59&lt;/td&gt;
-      &lt;td&gt;0.11&lt;/td&gt;
+      &lt;td&gt;0.67&lt;/td&gt;
+      &lt;td&gt;0.00&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Kimi no na wa&lt;/td&gt;
+      &lt;td&gt;0.11&lt;/td&gt;
+      &lt;td&gt;0.87&lt;/td&gt;
+      &lt;td&gt;0.02&lt;/td&gt;
       &lt;td&gt;0.01&lt;/td&gt;
-      &lt;td&gt;0.95&lt;/td&gt;
-      &lt;td&gt;0.00&lt;/td&gt;
-      &lt;td&gt;0.01&lt;/td&gt;
-      &lt;td&gt;0.01&lt;/td&gt;
+      &lt;td&gt;0.54&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;No game no life&lt;/td&gt;
       &lt;td&gt;0.35&lt;/td&gt;
+      &lt;td&gt;0.23&lt;/td&gt;
+      &lt;td&gt;0.34&lt;/td&gt;
       &lt;td&gt;0.01&lt;/td&gt;
-      &lt;td&gt;0.00&lt;/td&gt;
-      &lt;td&gt;0.01&lt;/td&gt;
-      &lt;td&gt;0.63&lt;/td&gt;
+      &lt;td&gt;0.35&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Tokyo Ghoul&lt;/td&gt;
-      &lt;td&gt;0.01&lt;/td&gt;
-      &lt;td&gt;0.15&lt;/td&gt;
-      &lt;td&gt;0.01&lt;/td&gt;
+      &lt;td&gt;0.02&lt;/td&gt;
+      &lt;td&gt;0.56&lt;/td&gt;
+      &lt;td&gt;0.76&lt;/td&gt;
       &lt;td&gt;0.12&lt;/td&gt;
-      &lt;td&gt;0.08&lt;/td&gt;
+      &lt;td&gt;0.00&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;One Piece&lt;/td&gt;
-      &lt;td&gt;0.28&lt;/td&gt;
+      &lt;td&gt;0.05&lt;/td&gt;
       &lt;td&gt;0.00&lt;/td&gt;
       &lt;td&gt;0.00&lt;/td&gt;
       &lt;td&gt;0.45&lt;/td&gt;
-      &lt;td&gt;0.01&lt;/td&gt;
+      &lt;td&gt;0.00&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;By averaging all user’s past watched anime topics, we can get user’s preference on topic. Then we can calculate cosine similarity between user topic matrices and anime topic matrice to generate recommendations.&lt;/p&gt;
+&lt;p&gt;By averaging all user’s past watched anime topics, we can get user’s preference on topics. Then we can calculate cosine similarity between user topic matrix and anime topic matrix to generate recommendations.&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Topic Modelling&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&quot;http://flask-env.y2vafy79mw.us-east-2.elasticbeanstalk.com&quot;&gt;&lt;img style=&quot;width:100%;display:block;&quot; src=&quot;https://imgur.com/2Ox9IoY.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Feature_extraction using TF-IDF&lt;/li&gt;
-      &lt;li&gt;Decomposition techniques using NMF&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;http://flask-env.y2vafy79mw.us-east-2.elasticbeanstalk.com&quot;&gt;Website link&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;NLP stands for Natural Language Processing, it is defined as the computational technique to understand and manipulate human language and speech. Here we are going to demostrate how we can extract topics from anime descriptions with help of NLP.&lt;/p&gt;
-
-&lt;p&gt;Two challenges of this project.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;words have different forms&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;A lot of anime terms appeared frequently.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Solutions to solve NLP challenges:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Preprocess words with stemming and lemmatizing techinque to reduce different forms of a word. For example, beautiful -&amp;gt; beauty, cars -&amp;gt; car&lt;/li&gt;
-  &lt;li&gt;TF-IDF (Term Frequency–Inverse Document Frequency)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/1600/0*WcQ96JVrKLlC4cZN.jpg&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Please wait for the update, ….&lt;/p&gt;
-
-&lt;p&gt;Conclusion:&lt;/p&gt;
-
-&lt;p&gt;The important factors of a good recommender: diversity, privacy, robustness, serendipity, labelling.&lt;/p&gt;
+&lt;p&gt;Then we combine the outcome from two recommender.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 06 Oct 2015 11:39:40 -0400</pubDate>
-        <link>http://localhost:4000/penny-pan/2015/10/06/anime_recommender/</link>
-        <guid isPermaLink="true">http://localhost:4000/penny-pan/2015/10/06/anime_recommender/</guid>
+        <pubDate>Fri, 06 Jul 2018 11:39:40 -0400</pubDate>
+        <link>http://localhost:4000/2018/07/06/anime_recommender/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/07/06/anime_recommender/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Amazon Illegal Mining Detection</title>
+        <description>&lt;p&gt;Amazon deforestation has been a serious concern over the past several decades due to its devastating impact on biodiversity, habitat lost and climate change. As the global gold price remained high in the past 10 years, more and more illegal gold mines were found in the Amazon rainforest. To protect beautiful Amazon forest, I combined satellite images with machine learning skills to track deforestation and detect  illegal activities.&lt;/p&gt;
+
+&lt;p&gt;The dataset is from  “&lt;a href=&quot;https://www.kaggle.com/c/planet-understanding-the-amazon-from-space&quot;&gt;Planet: Understanding the Amazon from Space&lt;/a&gt;”, where satellite images were chopped to small chip size and randomly named as numbers. The general aim of the project is to generate multiple labels for describing the content of satellite image chips and therefore find those marked as illegal mines. I used AWS GPU instance (Amazon Web Service) as often times complex neural networks requires better hardware than normal pc setups. It’s a default GPU instance being priced at about $0,772 per hour.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Image: Deep Learning AMI (Ubuntu) Version 10.0&lt;/li&gt;
+  &lt;li&gt;Instance type: p2.xlarge&lt;/li&gt;
+  &lt;li&gt;Python Packages: Keras 2.1.6, Tensorflow, Opencv&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Examples of some image chips (the labels were added for readers). Each image chip consists of multiple labels and are separated by commas, such as clear, cloudy, hazy, road, water, cultivation,artisanal mine and blooming. The dataset is quite challenging as labels are highly imbalanced with a few labelling error.  Red, blue, purple indicates &lt;span style=&quot;color:SALMON&quot;&gt; atmospheric conditions&lt;/span&gt;,  &lt;span style=&quot;color:LightSkyBlue&quot;&gt; common land uses&lt;/span&gt; and  &lt;span style=&quot;color:Plum&quot;&gt; rare land uses&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: artisanal mine is another word for illegal mine&lt;/em&gt;&lt;/p&gt;
+
+&lt;p float=&quot;left&quot;&gt;
+
+&lt;img src=&quot;https://i.imgur.com/GsW5QR2.jpg&quot; width=&quot;50%&quot; /&gt;  &lt;img src=&quot;https://lh3.googleusercontent.com/jn0yWdVFz-RplTsir-DZcRs0UYWSouwjwhknKi3J6-f-o4TPWBlL2AGNsKQa0NIBkPJ66XfUfKrB03-BmHo8vDq2dJhf6lZLRuhQmluBukP2V979NtW7NZ-5odX8mhEru029s6PDy40&quot; width=&quot;49%&quot; /&gt;
+ &lt;/p&gt;
+
+&lt;h4 id=&quot;build-a-neural-network-model&quot;&gt;Build a Neural Network Model&lt;/h4&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;First I started with a basic convolutional neural network model (CNN). CNN comprises multiple non-linear transformation layers and extracts high-level features from images. It basically trains model to find the best set of weights for maximizing a neural network’s accuracy. Although I had 70,000 clearly labeled training images,  results were not as good as expected. After 10 hours of training, the CNN model failed to predict any rare land use labels, meaning it is underfit. The challenge then posed: how could the model be improved to classify minority class?&lt;/p&gt;
+
+&lt;p&gt;Two approaches I made to solve the problem:&lt;/p&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;Improve input image quality&lt;/li&gt;
+
+&lt;li&gt;More advanced network designs&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;improve-image-quality&quot;&gt;&lt;strong&gt;Improve image quality&lt;/strong&gt;&lt;/h5&gt;
+
+&lt;p&gt;Generally speaking, clearer images contains more information yield better results for neural networks. Since many details were covered under the haze, I wrote a dehaze function based on a paper: &lt;a href=&quot;https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf&quot;&gt;“Single Image Haze Removal using Dark Channel Prior”&lt;/a&gt;. In most cases, light is scattered in the atmosphere before it reaches the camera and such scattered light is the main cause of blurry images or hazy images. To simplify, we estimates the scattered light intensity as a constant approximates to the maximum pixel intensity of the darkest RGB channel. Thus images can be restored, by subtracting the haze constant from photo intensity.&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;width:80%;display:block;&quot; src=&quot;https://www.researchgate.net/profile/Seung_Won_Jung2/publication/291385074/figure/fig14/AS:320880610693124@1453515307125/Formation-of-a-hazy-image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt; Figure 2. Formation of a hazy image. Camera = Direct attenuation+Airlight&lt;/p&gt;
+
+&lt;p&gt;The resulting effect of using the dehaze function is the removal of haze and an increase in image contrast.  Below are some examples of before and after haze removal. As demonstrated, it works great on both clear and hazy images.&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;width:80%;display:inline-block;&quot; src=&quot;https://lh5.googleusercontent.com/kLzNKsQnGef5RmNFomjswAF6Fx37KHPC4mEP4zfHRfQZAKSUzEL-nEVMziqYLKAMHZ07v8vWbgYhfntR3l7KGLRKXKhAIaFDLrh20OsqbK6L_U7wHFfsR6JPf5-WwMKq4ToEtGNwHrM&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Figure3. Before and after applying dehaze function on hazy, partly cloudy and clear images&lt;/p&gt;
+
+&lt;p&gt;This shows significant improvement on both precision and recall, especially the rare land use case. As both metrics are important and fewer false negatives are preferred, F2 score is used to evaluate the model. It is a combination of precision and recall and it puts more weight on recall.&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;width:80%;display:inline-block;&quot; src=&quot;https://lh6.googleusercontent.com/P4qLeEVjt-Xh1vPbRrR12i6W43sfm03gZnA5x4NAoSkD4rkqx5cYPlmu9EplmXZDWM0TDudJzw-OOGQIOJ26T4VAFf2sD6isNkzWEyyZJOosXJpH5xXg581AVMpYm1B8j007y6BbdXk&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Figure 4. Comparison of DenseNet model trained on original images and haze free images&lt;/p&gt;
+
+&lt;h5 id=&quot;densenet&quot;&gt;&lt;strong&gt;DenseNet&lt;/strong&gt;&lt;/h5&gt;
+
+&lt;p&gt;Increasing model complexity is necessary to learn finer details. After research, I chose one of the latest Neural Network architectures: DenseNet (Dense Convolutional Network), a smarter neural network published by &lt;a href=&quot;https://arxiv.org/pdf/1608.06993v3.pdf&quot;&gt;Zhuang Liu and Gao Huang&lt;/a&gt; in 2017.  The major difference is that DenseNet connects each layer to every other layer whereas traditional convolutional network layers connect sequentially. DenseNet improves the flow of information and gradients throughout the network, therefore it has better parameter efficiency resulting in a faster training time.&lt;/p&gt;
+
+&lt;h4 id=&quot;model-performance&quot;&gt;Model Performance&lt;/h4&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;I trained the Dense Net model on the hazed removed image sets for 4 hours and saved the model as b01_dense121.h5. Then used it to generate labels for unlabelled test set images. Here are some examples of test photo chips marked as illegal mines.&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;width:80%;display:inline-block;&quot; src=&quot;https://imgur.com/LSL0RMq.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The averaged precision and recall for all labels is 0.89 and 0.81. Out of 90,000 test images, 78 illegal mine photos were successfully detected, which gives precision of 0.69 and recall of 0.45.&lt;/p&gt;
+
+&lt;p&gt;Project in posted in my &lt;a href=&quot;https://github.com/mumuxi15/metis_proj/tree/master/Multilabel%20image%20classification&quot;&gt;GitHub&lt;/a&gt;. Thanks for reading !&lt;/p&gt;
+</description>
+        <pubDate>Mon, 18 Jun 2018 11:07:19 -0400</pubDate>
+        <link>http://localhost:4000/2018/06/18/rainforest/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/18/rainforest/</guid>
         
         
       </item>

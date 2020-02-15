@@ -8,12 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Hi, my name is Penny Pan, a New York based data scientist with passion for machine learning
 ">
-    <link rel="canonical" href="http://localhost:4000/penny-pan/2015/10/06/anime_recommender/">
+    <link rel="canonical" href="http://localhost:4000/2018/07/06/anime_recommender/">
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/penny-pan/css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
 
@@ -22,12 +22,13 @@
     <main class="wrapper">
       
       <header class="site-header">
-  <a class="site-title" href="/penny-pan/"><img src="https://unsplash.it/500/150"></a>
-    
+  <a class="site-title" href="/">
+      <img src="https://i.pinimg.com/originals/7f/71/78/7f71787298b75d309eed861393d10932.png" style="width: 600px; margin: -20px 0 -50px 0;"></a>
+
   <nav class="navbar">
     <ul>
-      <li class="nav-item"><a href="/penny-pan/">home</a></li>
-      <li class="nav-item"><a href="/penny-pan/about/">about</a></li>
+      <li class="nav-item"><a href="/">home</a></li>
+      <li class="nav-item"><a href="/about/">about</a></li>
     </ul>
   </nav>
 
@@ -38,6 +39,10 @@
         <div class="post">
   <div class="post-nav">
     
+      <a class="nav-item" href="/2020/02/14/virus/">&laquo; Prev</a>
+    
+    
+      <a class="nav-item" href="/2018/06/18/rainforest/">Next &raquo;</a>
     
   </div>
 
@@ -46,11 +51,11 @@
   </header>
 
   <article class="post-content">
-    <h4 id="data">Data</h4>
+    <p><img style="width:100%;display:block;" src="https://i.imgur.com/1UKDz2j.jpg" /></p>
 
-<hr />
+<p>For those who are big anime fans, our weekend mission is to find a good anime to watch. Often, we call it mission impossible! It is really hard to find a good anime you have not watched. If you search online, websites recommend animes based on popularity, new released, or genres. Such recommendations are boring and often times you have watched already because they are in the same category. What if I want a more personalized suggestion, a suggestion made by analyzing my past anime profile?  AnimeMatcher is an application built for your taste.</p>
 
-<p>I scraped 9000 anime descriptions and 5000 user profiles from myAnimeList and stored as BSON object in the MongoDB. After combining specials and series, I obtained 4588 animes descriptions in total. Data was stored as anime description and user watched history seperately in MongoDB .</p>
+<p>To get the data, I scraped 9000 anime descriptions and 5000 user profiles from MyAnimeList, a simple version of imdb for animes. Data was stored as BSON object in the MongoDB and called nime description and user watched history seperately . After combining specials and series, 4588 anime descriptions were obtained in total.</p>
 
 <p>e.g Anime description</p>
 
@@ -62,7 +67,7 @@
  </span><span class="err">'img_url'</span><span class="p">:</span><span class="w"> </span><span class="err">'https</span><span class="p">:</span><span class="err">//myanimelist.cdn-dena.com/images/anime/</span><span class="mi">5</span><span class="err">/</span><span class="mi">71953</span><span class="err">.jpg'</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>e.g. User watched history. Table shows anime ratings of 5 animes given by 5 different users. Rating system is from 1-10.</p>
+<p>e.g. User watched history. Table shows anime ratings of 5 animes given by 5 users. Rating system is from 1-10.</p>
 
 <table>
   <thead>
@@ -134,123 +139,106 @@
  [ 0   0   0   10  9]]
 </code></pre>
 
-<p>When recommending from a large selection (which is in this case), users only have rated a few out of thousands of selections and the result will be a large sparse matrix where elements are mostly zero. Simple recommender will not be good due to sparsity probelem. So how do we handel sparse matrices?</p>
+<p>When recommending from a large selection (which is in this case), users only have rated a few out of thousands of selections and the result will be a large sparse matrix where elements are mostly zero. Simple recommender will not be good due to sparsity problem. So how do we handle sparse matrices?</p>
 
-<p>The answer is a hybrid recommender system. In case of sparsity, a hybrid approach can be more effetive by combining collaborative filtering and content-based filtering. Collaborative filtering offers more interesting and diversed recommendations but suffers from cold start problem. By combining the two, It will also help to overcome the cold start problem.</p>
+<p>The answer is a hybrid recommender system. In case of sparsity, a hybrid approach can be more effective by combining collaborative filtering and content-based filtering. Collaborative filtering offers more interesting and diverse recommendations but suffers from cold start problem. By combining the two, It will also help to overcome the cold start problem.</p>
 
 <p><strong>My recommender = Collaborative filtering + Content based filtering</strong></p>
 
-<p><img src="https://i.imgur.com/zBbWj8p.jpg" /></p>
+<p><img style="width:100%;display:block;" src="https://i.imgur.com/zBbWj8p.jpg" /></p>
 
-<p><strong>Recommender1 workflow</strong></p>
+<p><strong>Recommender 1: Collaborative Filtering Workflow</strong></p>
 
-<p>For recommender1, a user’s predicted rating for an anime would equal the dot product of the user’s and anime’s features.</p>
+<p>A user’s predicted rating matrix for an anime would equal the dot product of the user’s and anime’s features. Matrix Factorization formula:</p>
 
-<p><strong>R<sub>rating</sub> = P x <sup>Q</sup></strong></p>
+<p><strong>R<sub>rating</sub> = P x Q <sup>T</sup></strong></p>
 
-<p>where P and Q are matrices that minimizes the regularized squared error.  P represents the strength of the associations between users and the features. Similarly, Q represents the strength of the associations between animes and the features. Therefore, recommender1 generates recommendations by calculating similarity between P and Q.</p>
+<p>where P and Q are factor vectors that minimizes the regularized squared error. P represents the strength of the associations between users and the features. Similarly, Q represents the strength of the associations between animes and the features. Therefore, recommendations were created by calculating similarity between P and Q.</p>
 
-<p><strong>Recommender2 workflow</strong></p>
+<p><strong>Recommender 2: Content-based Filtering workflow</strong></p>
 
-<p>30 topics were extracted from anime descriptions. Each anime will have an associated probability for each topic.  For example</p>
+<p>The key step of content-based filtering is to extract topics from text data. First step is to preprocess words with stemming and lemmatizing technique to reduce different forms of a word. For example, beautiful -&gt; beauty, cars -&gt; car. After that, I tried to extract topics using TF-IDF and NMF (Non-negative Matrix Factorization). TF-IDF, term frequency–inverse document frequency, is proportional to the word frequency in the document and is counteracted by the frequency of the word in the corpus. In this case, the most frequent words have less useful meaning since words like ‘<em>people</em>’, ‘<em>place</em>‘  occur very frequently across all documents but does not tell any information about the stories. TF-IDF is more or less a measure of how unique a word is in the corpus.</p>
+
+<p>In addition, I manually adjusted min_df and max_df parameters until succinct topics were found. We will talk more about natural language processing in other posts. In the end, 30 unique anime topics were extracted from anime story descriptions. For example, topic 7 is about solving crime and the most famous anime in that category is Detective Conan.</p>
+
+<p>Examples:</p>
+
+<blockquote>
+  <p>Topic #1: Special, release, air, recap, feature<br />
+Topic #2: Earth, Planet, space, alien, ship<br />
+Topic #3: High, school, junior, student, classmate<br />
+Topic #4: Team, soccer, player, match, baseball<br />
+Topic #5: Human, race, mankind, god, survive, extinct  <br />
+Topic #6: Magic, witch, magician, kingdom, wish<br />
+Topic #7: Mystery, solve, appear, past, shadow, kill<br />
+Topic #8: Demon, king, hero, lord, seal, defeat, mission<br />
+Topic #9: Love, feel, fall, relationship, confess, heart</p>
+</blockquote>
+
+<p>Each anime will then have an associated probability for each topic.  For example</p>
 
 <table>
   <thead>
     <tr>
       <th>Anime/Topics</th>
-      <th>War</th>
-      <th>School</th>
-      <th>Robot</th>
-      <th>Demon</th>
-      <th>Game</th>
+      <th>Topic 2</th>
+      <th>Topic 3</th>
+      <th>Topic 7</th>
+      <th>Topic 8</th>
+      <th>Topic 9</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Fairy Tail</td>
-      <td>0.27</td>
-      <td>0.02</td>
+      <td>0.01</td>
+      <td>0.12</td>
       <td>0.00</td>
-      <td>0.59</td>
-      <td>0.11</td>
+      <td>0.67</td>
+      <td>0.00</td>
     </tr>
     <tr>
       <td>Kimi no na wa</td>
+      <td>0.11</td>
+      <td>0.87</td>
+      <td>0.02</td>
       <td>0.01</td>
-      <td>0.95</td>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>0.01</td>
+      <td>0.54</td>
     </tr>
     <tr>
       <td>No game no life</td>
       <td>0.35</td>
+      <td>0.23</td>
+      <td>0.34</td>
       <td>0.01</td>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>0.63</td>
+      <td>0.35</td>
     </tr>
     <tr>
       <td>Tokyo Ghoul</td>
-      <td>0.01</td>
-      <td>0.15</td>
-      <td>0.01</td>
+      <td>0.02</td>
+      <td>0.56</td>
+      <td>0.76</td>
       <td>0.12</td>
-      <td>0.08</td>
+      <td>0.00</td>
     </tr>
     <tr>
       <td>One Piece</td>
-      <td>0.28</td>
+      <td>0.05</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.45</td>
-      <td>0.01</td>
+      <td>0.00</td>
     </tr>
   </tbody>
 </table>
 
-<p>By averaging all user’s past watched anime topics, we can get user’s preference on topic. Then we can calculate cosine similarity between user topic matrices and anime topic matrice to generate recommendations.</p>
+<p>By averaging all user’s past watched anime topics, we can get user’s preference on topics. Then we can calculate cosine similarity between user topic matrix and anime topic matrix to generate recommendations.</p>
 
-<ol>
-  <li>Topic Modelling</li>
-</ol>
+<p><a href="http://flask-env.y2vafy79mw.us-east-2.elasticbeanstalk.com"><img style="width:100%;display:block;" src="https://imgur.com/2Ox9IoY.jpg" /></a></p>
 
-<ul>
-  <li>
-    <ul>
-      <li>Feature_extraction using TF-IDF</li>
-      <li>Decomposition techniques using NMF</li>
-    </ul>
-  </li>
-</ul>
+<p><a href="http://flask-env.y2vafy79mw.us-east-2.elasticbeanstalk.com">Website link</a></p>
 
-<p>NLP stands for Natural Language Processing, it is defined as the computational technique to understand and manipulate human language and speech. Here we are going to demostrate how we can extract topics from anime descriptions with help of NLP.</p>
-
-<p>Two challenges of this project.</p>
-
-<ol>
-  <li>
-    <p>words have different forms</p>
-  </li>
-  <li>
-    <p>A lot of anime terms appeared frequently.</p>
-  </li>
-</ol>
-
-<p>Solutions to solve NLP challenges:</p>
-
-<ul>
-  <li>Preprocess words with stemming and lemmatizing techinque to reduce different forms of a word. For example, beautiful -&gt; beauty, cars -&gt; car</li>
-  <li>TF-IDF (Term Frequency–Inverse Document Frequency)</li>
-</ul>
-
-<p><img src="https://cdn-images-1.medium.com/max/1600/0*WcQ96JVrKLlC4cZN.jpg" /></p>
-
-<p>Please wait for the update, ….</p>
-
-<p>Conclusion:</p>
-
-<p>The important factors of a good recommender: diversity, privacy, robustness, serendipity, labelling.</p>
+<p>Then we combine the outcome from two recommender.</p>
 
   </article>
 
@@ -284,19 +272,6 @@
         </li>
         
 
-        
-        <li>
-          <a href="https://twitter.com/jekyllrb">
-            <span class="icon  icon--twitter">
-              <svg viewBox="0 0 16 16">
-                <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
-                c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
-              </svg>
-            </span>
-
-            <span class="username">jekyllrb</span>
-          </a>
-        </li>
         
       </ul>
     </div>
