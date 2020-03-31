@@ -2,7 +2,7 @@
 layout: post
 title:  "Amazon Illegal Mining Detection"
 date:   2018-06-18 15:07:19
-preview: https://imgur.com/JZMOivf.jpg
+preview: https://live.staticflickr.com/65535/49721870336_ddbfcaa96b.jpg
 ---
 Amazon deforestation has been a serious concern over the past several decades due to its devastating impact on biodiversity, habitat lost and climate change. As the global gold price remained high in the past 10 years, more and more illegal gold mines were found in the Amazon rainforest. To protect beautiful Amazon forest, I combined satellite images with machine learning skills to track deforestation and detect  illegal activities. 
 
@@ -19,8 +19,7 @@ Examples of some image chips (the labels were added for readers). Each image chi
 *Note: artisanal mine is another word for illegal mine*
 
 <p float="left">
-
-<img src="https://i.imgur.com/GsW5QR2.jpg" width="50%" />  <img src="https://lh3.googleusercontent.com/jn0yWdVFz-RplTsir-DZcRs0UYWSouwjwhknKi3J6-f-o4TPWBlL2AGNsKQa0NIBkPJ66XfUfKrB03-BmHo8vDq2dJhf6lZLRuhQmluBukP2V979NtW7NZ-5odX8mhEru029s6PDy40" width="49%" />
+<img src="https://live.staticflickr.com/65535/49626992868_557450fa33.jpg" width="50%" />  <img src="https://lh3.googleusercontent.com/jn0yWdVFz-RplTsir-DZcRs0UYWSouwjwhknKi3J6-f-o4TPWBlL2AGNsKQa0NIBkPJ66XfUfKrB03-BmHo8vDq2dJhf6lZLRuhQmluBukP2V979NtW7NZ-5odX8mhEru029s6PDy40" width="49%" />
  </p>
 
 #### Build a Neural Network Model
@@ -65,7 +64,11 @@ Figure 4. Comparison of DenseNet model trained on original images and haze free 
 
 Increasing model complexity is necessary to learn finer details. After research, I chose one of the latest Neural Network architectures: DenseNet (Dense Convolutional Network), a smarter neural network published by [Zhuang Liu and Gao Huang](https://arxiv.org/pdf/1608.06993v3.pdf) in 2017.  The major difference is that DenseNet connects each layer to every other layer whereas traditional convolutional network layers connect sequentially. DenseNet improves the flow of information and gradients throughout the network, therefore it has better parameter efficiency resulting in a faster training time. 
 
+#### Work Flow
 
+------
+
+<img src="https://live.staticflickr.com/65535/49627827697_8058d80cab_c.jpg" width="80%" alt="work flow">
 
 #### Model Performance
 
@@ -73,9 +76,7 @@ Increasing model complexity is necessary to learn finer details. After research,
 
 I trained the Dense Net model on the hazed removed image sets for 4 hours and saved the model as b01_dense121.h5. Then used it to generate labels for unlabelled test set images. Here are some examples of test photo chips marked as illegal mines. 
 
-<img style="width:80%;display:inline-block;" src="https://imgur.com/LSL0RMq.png"/>
-
-
+<img src="https://live.staticflickr.com/65535/49627526151_a93a067f6d_c.jpg" width="80%" alt="LSL0RMq">
 
 The averaged precision and recall for all labels is 0.89 and 0.81. Out of 90,000 test images, 78 illegal mine photos were successfully detected, which gives precision of 0.69 and recall of 0.45. 
 

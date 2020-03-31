@@ -5,13 +5,13 @@ date:   2018-07-06 15:39:40
 preview: https://www.lolacamisetas.com/3175-large_default/pokemon-tshirt-mimikyu-ghibli.jpg
 ---
 
-<img style="width:100%;display:block;" src="https://i.imgur.com/1UKDz2j.jpg" />
+<img style="width:100%;display:block;" src="https://cdn.shopify.com/s/files/1/0187/7082/1184/products/ggg_1200x1200.jpg" />
 
 
 
 For those who are big anime fans, our weekend mission is to find a good anime to watch. Often, we call it mission impossible! It is really hard to find a good anime you have not watched. If you search online, websites recommend animes based on popularity, new released, or genres. Such recommendations are boring and often times you have watched already because they are in the same category. What if I want a more personalized suggestion, a suggestion made by analyzing my past anime profile?  AnimeMatcher is an application built for your taste.
 
-To get the data, I scraped 9000 anime descriptions and 5000 user profiles from MyAnimeList, a simple version of imdb for animes. Data was stored as BSON object in the MongoDB and called nime description and user watched history seperately . After combining specials and series, 4588 anime descriptions were obtained in total. 
+To get the data, I scraped 9000 anime descriptions and 5000 user profiles from MyAnimeList, a simple version of imdb for animes. Data was stored as BSON object in the MongoDB and called nime description and user watched history seperately . After combining specials and series, 4588 anime descriptions were obtained in total.
 
 e.g Anime description
 
@@ -34,13 +34,13 @@ e.g. User watched history. Table shows anime ratings of 5 animes given by 5 user
 | Tokyo Ghoul     | 7     | ?     | 9     | ?     | ?     |
 | One Piece       | ?     | ?     | ?     | 10    | 9     |
 
-#### How does  recommender system works ? 
+#### How does  recommender system works ?
 
 ------
 
 Broadly speaking, there are two common algorithms used in recommendation system, collaborative filtering and content-Based Filtering. Collaborative filtering predicts based on past user behavior and the idea is to use opinions from other users with similar taste. Content-Based Filtering, like the name suggested, it is based on a comparison between item descriptions and a user profile.
 
-Let’s consider converting the rating score table above to a matrix called **R<sub>rating</sub>** , this matrix holds all ratings from all users for all movies (10000 movies x 5000 users). Each column represents rating scores from a user, and we replace ? with 0.  ? means movies has not watched. 
+Let’s consider converting the rating score table above to a matrix called **R<sub>rating</sub>** , this matrix holds all ratings from all users for all movies (10000 movies x 5000 users). Each column represents rating scores from a user, and we replace ? with 0.  ? means movies has not watched.
 
 ```mathematica
 [[ 10  8   10  5   0]
@@ -64,13 +64,13 @@ A user’s predicted rating matrix for an anime would equal the dot product of t
 
  **R<sub>rating</sub> = P x Q <sup>T</sup>**
 
-where P and Q are factor vectors that minimizes the regularized squared error. P represents the strength of the associations between users and the features. Similarly, Q represents the strength of the associations between animes and the features. Therefore, recommendations were created by calculating similarity between P and Q. 
+where P and Q are factor vectors that minimizes the regularized squared error. P represents the strength of the associations between users and the features. Similarly, Q represents the strength of the associations between animes and the features. Therefore, recommendations were created by calculating similarity between P and Q.
 
 **Recommender 2: Content-based Filtering workflow**
 
-The key step of content-based filtering is to extract topics from text data. First step is to preprocess words with stemming and lemmatizing technique to reduce different forms of a word. For example, beautiful -> beauty, cars -> car. After that, I tried to extract topics using TF-IDF and NMF (Non-negative Matrix Factorization). TF-IDF, term frequency–inverse document frequency, is proportional to the word frequency in the document and is counteracted by the frequency of the word in the corpus. In this case, the most frequent words have less useful meaning since words like '*people*', '*place*'  occur very frequently across all documents but does not tell any information about the stories. TF-IDF is more or less a measure of how unique a word is in the corpus. 
+The key step of content-based filtering is to extract topics from text data. First step is to preprocess words with stemming and lemmatizing technique to reduce different forms of a word. For example, beautiful -> beauty, cars -> car. After that, I tried to extract topics using TF-IDF and NMF (Non-negative Matrix Factorization). TF-IDF, term frequency–inverse document frequency, is proportional to the word frequency in the document and is counteracted by the frequency of the word in the corpus. In this case, the most frequent words have less useful meaning since words like '*people*', '*place*'  occur very frequently across all documents but does not tell any information about the stories. TF-IDF is more or less a measure of how unique a word is in the corpus.
 
-In addition, I manually adjusted min_df and max_df parameters until succinct topics were found. We will talk more about natural language processing in other posts. In the end, 30 unique anime topics were extracted from anime story descriptions. For example, topic 7 is about solving crime and the most famous anime in that category is Detective Conan. 
+In addition, I manually adjusted min_df and max_df parameters until succinct topics were found. We will talk more about natural language processing in other posts. In the end, 30 unique anime topics were extracted from anime story descriptions. For example, topic 7 is about solving crime and the most famous anime in that category is Detective Conan.
 
 Examples:
 
@@ -94,10 +94,6 @@ Each anime will then have an associated probability for each topic.  For example
 | Tokyo Ghoul     | 0.02    | 0.56    | 0.76    | 0.12    | 0.00    |
 | One Piece       | 0.05    | 0.00    | 0.00    | 0.45    | 0.00    |
 
-By averaging all user's past watched anime topics, we can get user's preference on topics. Then we can calculate cosine similarity between user topic matrix and anime topic matrix to generate recommendations. 
+By averaging all user's past watched anime topics, we can get user's preference on topics. Then we can calculate cosine similarity between user topic matrix and anime topic matrix to generate recommendations.
 
-<a href="http://flask-env.y2vafy79mw.us-east-2.elasticbeanstalk.com"><img style="width:100%;display:block;" src="https://imgur.com/2Ox9IoY.jpg" /></a>
-
-[Website link](http://flask-env.y2vafy79mw.us-east-2.elasticbeanstalk.com) 
-
-Then we combine the outcome from two recommender. 
+Then we combine the outcome from two recommender.

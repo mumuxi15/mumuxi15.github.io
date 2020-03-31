@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>E-commerce web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hi, my name is Penny Pan, a New York based data scientist with passion for machine learning
+">
+    <link rel="canonical" href="http://localhost:4000/2020/03/06/Ecommerce/">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+
+  <body>
+
+    <main class="wrapper">
+
+      <header class="site-header">
+  <a class="site-title" href="/">
+      <img src="https://i.pinimg.com/originals/7f/71/78/7f71787298b75d309eed861393d10932.png" style="width: 600px; margin: -20px 0 -50px 0;"></a>
+
+  <nav class="navbar">
+    <ul>
+      <li class="nav-item"><a href="/">home</a></li>
+      <li class="nav-item"><a href="/about/">about</a></li>
+      <li class="nav-item"><a href="/demo/">demo</a></li>
+    </ul>
+  </nav>
+
+</header>
+
+
+      <div class="container">
+        <div class="post">
+  <div class="post-nav">
+    
+      <a class="nav-item" href="/2020/03/14/virus/">&laquo; Prev</a>
+    
+    
+      <a class="nav-item" href="/2018/07/06/anime_recommender/">Next &raquo;</a>
+    
+  </div>
+
+  <header class="post-header">
+    <h1 class="post-title">E-commerce web</h1>
+  </header>
+
+  <article class="post-content">
+    <p>Intro: E-commerce Web</p>
+
+<p>I am writing this blog during the coronavirus pandemic that is affecting all our lives. Recent news puts New York at more than 10,000 confirmed cases and it is becoming increasingly harder to get fresh food. Since everyone is supposed to be effectively quarantined except those in essential businesses, there are a lot of people relying on food delivery businesses. A friend of mine who owns a small meal preparation business has seen increasing demandfor his meals and I am helping him build an e-commerice website for his business. Previously he was using wix.com, but as the business expands and more functionality is required, the need to migrate to a dynamic website and to maintain his own databases became increasingly evident. Although there are thousands of blogs or tutorial about building your 1st Python web app, most of them ends on http://127.0.0.1:8080 . This tutorial will guide you till your website appears on google search. I will only briefly mention the major steps, potential challenge and tips, but I put down the links I found useful while learning.</p>
+
+<p>I used Flask for this project, another good choice would be Django. There are many arguments on choosing one over the other, I personally do not have a strong preference as this is not a large website application. Your should choose the framework based on your conditions. Flask is chosen here because of its it is super light and easy to start. The downside is that sometimes some supporting packages may be out of maintenance or out-of-date such as Flask-OAuth.</p>
+
+<h4 id="1-set-up-virtual-environment">1. Set up virtual environment</h4>
+
+<p>Always start a project with virtualenv. Useful packages include Flask-login, Flask-admin, Flask-Security, Flask-dance (for third party login such as google), Flask_sqlalchemy and etc.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>virtualenv <span class="nt">-p</span> python3 &lt;desired-path&gt;
+</code></pre></div></div>
+
+<h4 id="2-draw-a-database-schema">2. Draw a database schema</h4>
+
+<p>Ask yourself a few questions before you start building the website:</p>
+
+<ol>
+  <li>What information I want to show to the client ?</li>
+  <li>What information I want to collect from the website ?</li>
+</ol>
+
+<p>It might be useful to draw a quick databse schema and figure below is an example of the standard schema and the grey lines shows how the tables are linked.</p>
+
+<p><img src="https://live.staticflickr.com/65535/49641865616_3f95e3d78b_c.jpg" width="80%" /></p>
+
+<h4 id="3-build-a-draft-version-from-exisiting-working-app">3. Build a draft version from exisiting working app</h4>
+
+<p>Let’s begin by implementing on the existing examples provided by the Flask development team. The traditional standard layout of a web app contains a run.py where app is defined, a template folder including all the html files and a static folder storing personalized styles and javascript functions. Instead of declaring everything as global variables, the modern approach is to build a function that accepts a configuration object as an argument and returns a Flask application instance. Such way allows you to modify the function in the testing environment to create its own application for testing.</p>
+
+<p>Project Tree Example using Blueprints</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>e_commerce_web
+├── /application
+│   ├── __init__.py
+│   ├── /auth
+│   │   ├── auth_routes.py
+│   │   └── /templates
+│   ├── /main
+│   │   ├── main_routes.py
+│   │   └── /templates
+│   ├── /static
+│   └── /templates
+│       ├── layout.html
+│       ├── home.html
+│       └── login.html
+├── requirements.txt
+└── wsgi.py
+└── venv
+</code></pre></div></div>
+
+<p>The function create_app() is used to build a Flask app</p>
+
+<p><em>__int__.py</em></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ... #</span>
+<span class="k">def</span> <span class="nf">create_app</span><span class="p">():</span>
+	<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+	<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SECRET_KEY'</span><span class="p">]</span> <span class="o">=</span> <span class="s">''</span>
+	<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_DATABASE_URI'</span><span class="p">]</span> <span class="o">=</span> <span class="n">db_path</span>
+	<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_TRACK_MODIFICATIONS'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+	<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">'OAUTH_CONFIG'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">''</span><span class="p">}</span>
+	<span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+	<span class="n">login_manager</span> <span class="o">=</span> <span class="n">LoginManager</span><span class="p">()</span>
+	<span class="n">login_manager</span><span class="o">.</span><span class="n">login_view</span> <span class="o">=</span> <span class="s">'auth.login'</span>
+	<span class="n">login_manager</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+	<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">User</span>
+
+	<span class="n">admin</span> <span class="o">=</span> <span class="n">Admin</span><span class="p">(</span><span class="n">app</span><span class="p">,</span><span class="n">index_view</span><span class="o">=</span><span class="n">CustomAdminIndexView</span><span class="p">())</span>
+	<span class="c">#...#</span>
+  
+	<span class="nd">@login_manager.user_loader</span>
+	<span class="k">def</span> <span class="nf">load_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+	<span class="c"># use user_id in the query for the user</span>
+		<span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">user_id</span><span class="p">))</span>
+
+
+	<span class="c"># blueprint for auth routes in our app</span>
+	<span class="kn">from</span> <span class="nn">.auth</span> <span class="kn">import</span> <span class="n">auth</span> <span class="k">as</span> <span class="n">auth_blueprint</span>
+	<span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">auth_blueprint</span><span class="p">)</span>
+
+	<span class="c"># blueprint for non-auth parts of app</span>
+	<span class="kn">from</span> <span class="nn">.main</span> <span class="kn">import</span> <span class="n">main</span> <span class="k">as</span> <span class="n">main_blueprint</span>
+	<span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">main_blueprint</span><span class="p">)</span>
+  
+	<span class="c"># register google / facebook login</span>
+	<span class="n">init_oauth_providers</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+	<span class="k">return</span> <span class="n">app</span>
+</code></pre></div></div>
+
+<p>Reference:</p>
+
+<p><a href="https://flask-login.readthedocs.io/en/latest/">Flask-login document</a></p>
+
+<p><a href="https://github.com/pallets/flask/tree/master/examples/tutorial/flaskr/">Flask-login github demo</a></p>
+
+<p><a href="https://hackersandslackers.com/flask-blueprints/">Organzing Flask Apps with Blueprints</a></p>
+
+<h4 id="4-add-e-commerce-features">4. Add e-commerce features</h4>
+
+<p>Step 3. Add e-commerical features such as product display and shopping cart functions.</p>
+
+<p>This section requires basic javascript programming skills and some knowledge of client-side and server-side. The major challenge of building a dynamic website over static is to pass data between database and website, akin to building a bridge across the sea to connect two cities. I used HTML5 webstorage to store shopping cart status in conjunction with ajax to transfer data to the backend and then to be stored in the database. If you not familiar with jsp, ajax, I recommend you going through some youtube tutorials.</p>
+
+<p><a href="https://www.youtube.com/watch?v=1Q74A6ZQxdY&amp;list=PLoN_ejT35AEhzNoPStBzAkpqAu3YQwPj7">JavaScript Shopping Cart Tutorial</a></p>
+
+<h4 id="5-testing">5. Testing</h4>
+
+<p>Here are some links to good articles on web testing.</p>
+
+<p><a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-unit-testing-legacy">unittesting</a></p>
+
+<p><a href="https://scotch.io/tutorials/test-a-flask-app-with-selenium-webdriver-part-1">Selenium</a></p>
+
+<h4 id="6-deploy">6. Deploy</h4>
+
+<p>I used pythoneverywhere.com as it is one of the cheapest and easiest. Hosting a single website only cost $5 per month and they also provide free accounts. I do not recommend Amazon for hosting personal website, as the price could go beyond your expectation with no cap.</p>
+
+<h4 id="7-google-search">7. Google Search</h4>
+
+<p>If you have bought a domain name on goDaddy, you can link it to your *.pythonanywhere.com by following  <a href="https://wpsmackdown.com/domain-redirect-godaddy/">this tutorial</a></p>
+
+<p>If you want your website to appear in google search,</p>
+
+<ol>
+  <li>
+    <p>Verify the domain on google search console. You can open the console by typing in google</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>site:xxx.com
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Complete the DNS verification as google requested</p>
+  </li>
+  <li>
+    <p>go to https://www.freewebsubmission.com/ to submit your website</p>
+  </li>
+</ol>
+
+<p>The website is currently in the testing phase. Only existing members will be able to order meals . Any orders placed from outside will not be processed.</p>
+
+<p>https://hellokike.pythonanywhere.com/</p>
+
+
+  </article>
+
+</div>
+
+
+        <footer class="site-footer">
+  <h2 class="footer-heading">Penny's blog</h2>
+
+  <div class="row">
+    <div class="column">
+      <ul class="contact-list">
+        <li>Penny's blog</li>
+        <li><a href="mailto:mumuxi15@gmail.com">mumuxi15@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="column">
+      <ul class="social-media-list">
+        
+        <li>
+          <a href="https://github.com/mumuxi15">
+            <span class="icon  icon--github">
+              <svg viewBox="0 0 16 16">
+                <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+              </svg>
+            </span>
+
+            <span class="username">mumuxi15</span>
+          </a>
+        </li>
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="column">
+      <p>Hi, my name is Penny Pan, a New York based data scientist with passion for machine learning
+</p>
+    </div>
+  </div>
+
+</footer>
+
+      </div>
+
+    </main>
+
+  </body>
+
+</html>
