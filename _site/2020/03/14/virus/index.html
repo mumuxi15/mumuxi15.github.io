@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Hi, my name is Penny Pan, a New York based data scientist with passion for machine learning
 ">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+
     <link rel="canonical" href="http://localhost:4000/2020/03/14/virus/">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -49,15 +51,217 @@
   <article class="post-content">
     <p>Intro: Coronavirus</p>
 
-<p>This is a on going project, not completed yet.</p>
+<p>Updates on 3.31</p>
 
-<p>I was trying to find an updated case number for corona virus in China.  When you search on google, there are billions of articles and news in your search results. Yet, could not find a single number for 20 minutes. Information is either irrelevant, out of date or hidden deeply behind charts. Then I decide to scrape the charts and write a few scripts to answer my questions: How is corona virus going ? Is it getting better ? Are things in control ?</p>
+<p>It has almost been a month since the quarantine started here in New York. Things have changed dramatically since I started this blog in early Feb. I started this blog because I was frustrated at not being able to easily find a single number that could tell me the total number of cases. Now google seems to have fixed that and there are more wesbites presenting decent nicely looking tables that are easy to scrape.</p>
 
-<p>The data is scraped from Buzzfeed and they claimed they collect data from WHO. It was slightly tricky to get the link to the dataset as they do not make life easier. The link was embeded inside iframe structures and I will post it direcly here <a href="https://datawrapper.dwcdn.net/dmZGM/12/">source</a>.</p>
+<p>Attached is my code, if you would like to try. The output format is json.</p>
 
-<p>I will update this post later once I start the data analysis part.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span> <span class="nn">ast</span> <span class="kn">import</span> <span class="n">literal_eval</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">re</span><span class="p">,</span> <span class="n">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 
-<p>Project in posted in my <a href="https://github.com/mumuxi15/coronavirus">GitHub</a>. Thanks for reading !</p>
+
+<span class="k">def</span> <span class="nf">get_text_bs</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
+	<span class="s">""" extract data array from the charts 
+		input: html
+		output: dict
+	"""</span>
+	<span class="n">body</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">body</span>
+	<span class="k">if</span> <span class="n">body</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+		<span class="k">return</span> <span class="bp">None</span>
+	<span class="n">v</span> <span class="o">=</span> <span class="p">{}</span>
+	<span class="n">process_array</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">sector</span> <span class="p">:</span> <span class="n">literal_eval</span><span class="p">(</span><span class="n">sector</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">':'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">' '</span><span class="p">,</span><span class="s">''</span><span class="p">))</span>
+	<span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">body</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">'script'</span><span class="p">):</span>
+		<span class="k">if</span> <span class="s">'Highcharts.chart'</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
+			<span class="n">tag</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span><span class="s">''</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'       '</span><span class="p">)</span>
+			<span class="k">for</span> <span class="n">sector</span> <span class="ow">in</span> <span class="n">tag</span><span class="p">:</span>
+				<span class="k">if</span> <span class="s">'categories'</span> <span class="ow">in</span> <span class="n">sector</span> <span class="ow">and</span> <span class="s">'date'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+					<span class="n">v</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">process_array</span><span class="p">(</span><span class="n">sector</span><span class="p">)</span>
+				<span class="k">if</span> <span class="s">'text'</span> <span class="ow">in</span> <span class="n">sector</span><span class="p">:</span>
+					<span class="n">title</span> <span class="o">=</span> <span class="n">sector</span>
+				<span class="k">if</span> <span class="s">'data'</span> <span class="ow">in</span> <span class="n">sector</span><span class="p">:</span>
+					<span class="k">if</span> <span class="s">'Total Coronavirus Cases'</span> <span class="ow">in</span> <span class="n">title</span><span class="p">:</span>
+						<span class="n">v</span><span class="p">[</span><span class="s">'total'</span><span class="p">]</span> <span class="o">=</span> <span class="n">process_array</span><span class="p">(</span><span class="n">sector</span><span class="p">)</span>
+					<span class="k">elif</span> <span class="s">'Total Coronavirus Deaths'</span> <span class="ow">in</span> <span class="n">title</span><span class="p">:</span>
+						<span class="n">v</span><span class="p">[</span><span class="s">'death'</span><span class="p">]</span> <span class="o">=</span> <span class="n">process_array</span><span class="p">(</span><span class="n">sector</span><span class="p">)</span>
+					<span class="k">elif</span> <span class="s">'Total Coronavirus Currently Infected'</span> <span class="ow">in</span> <span class="n">title</span><span class="p">:</span>
+						<span class="n">v</span><span class="p">[</span><span class="s">'active'</span><span class="p">]</span> <span class="o">=</span> <span class="n">process_array</span><span class="p">(</span><span class="n">sector</span><span class="p">)</span>
+					<span class="k">else</span><span class="p">:</span>
+						<span class="k">continue</span>
+	<span class="k">return</span> <span class="n">v</span>
+	
+
+<span class="k">def</span> <span class="nf">download_virus_at</span><span class="p">(</span><span class="n">countries</span><span class="p">):</span>
+	<span class="n">r</span> <span class="o">=</span> <span class="p">{}</span>
+	<span class="k">for</span> <span class="n">country</span> <span class="ow">in</span> <span class="n">countries</span><span class="p">:</span>
+		<span class="n">url</span> <span class="o">=</span> <span class="s">'https://www.worldometers.info/coronavirus/country/</span><span class="si">%</span><span class="s">s'</span><span class="o">%</span><span class="p">(</span><span class="n">country</span><span class="p">)</span>
+		<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+		<span class="n">page</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+		<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">,</span><span class="s">"html5lib"</span><span class="p">)</span>
+		<span class="n">r</span><span class="p">[</span><span class="n">country</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_text_bs</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span>
+		
+	<span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s">'virus_world.json'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+		<span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+	
+<span class="s">"""add to COUNTRY if you want to include more,
+   find country code on the worldmeters website
+"""</span>
+
+<span class="n">COUNTRY</span> <span class="o">=</span> <span class="p">[</span><span class="s">'us'</span><span class="p">,</span><span class="s">'china'</span><span class="p">,</span><span class="s">'italy'</span><span class="p">]</span>	
+<span class="n">download_virus_at</span><span class="p">(</span><span class="n">COUNTRY</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>While coronavirus in China seems to be under control, here in US, it is just starting to go wild. The number of confirmed cases in US on March 31st is about 188,530 and some officals predict up to <a href="https://www.theguardian.com/world/2020/mar/31/donald-trump-coronavirus-briefing-painful-us-deaths">240,000 death</a></p>
+
+<p>∑(っ°Д °;)っ</p>
+
+<p><img src="https://live.staticflickr.com/65535/49726316521_3e2a294821_c.jpg" width="800" alt="corona_tot" /></p>
+
+<p>Figure 1 (a). Total confirmed cases in US, China, Italy   (b). Log scale. Slope is obtained by breaking the data into smaller sections, and taking the maximum slope. Slope is calcualted every 14 days using linear regression.</p>
+
+<p>Figure 1 shows three countries at three phases of coronavirus. In China, the number of cases reached an almost stationary state at day 30 and seems to be under control. In Italy, the rate has slowed down and hopefully it will look like the green line soon. In US, we are still at the blooming stage, but there is a slow-down sign at the tip of the blue line. We have a little hope it seems… In the log scale graph, US and China has a higher infection rate, which makes sense as US and China is more densely populated.</p>
+
+<h4 id="analysis">Analysis</h4>
+
+<p>My first intuition of the graph 1(a) US (blue line) is that the data probably follows an exponential trend ain the early stage, as shown in the log graph 1(b). The green curve looks more a sigmoid function. So let’s start with a simple exponential model. Define <strong>I</strong> as infection population and assuming each patient passes on to <strong>A</strong> number of new people everyday. It can be tested by by plotting log(y) against t figure 1(b):</p>
+
+<p>$
+\begin{equation} \label{0}
+I = I_{0}\times A^{t}
+\end{equation}
+$</p>
+
+<p>where t is number of days since $I_{0}$ cases.</p>
+
+<p>This model only fits the blue line, not so much for the yellow and green line. After doing some research on spread of infectious diseases, it seems an SIR-model might work. The model consists of three parts: infected population, susceptible population and recovered/immue population. As I am trying to model the total confirmed cases, not the active, I can drop the recovery part for simplicity. Then the math becomes simpler and boils down to solving an ordinary differential equation. To simplify, let’s define population as 1 and <strong>I(t)</strong> is the percentage of population that is infected and <strong>S(t)</strong> is the proportion of susceptible population.  If we divide both side by $\delta t$, we can get $\frac{dI}{dt}+\frac{dS}{dt}=0$.</p>
+
+<p>$\begin{equation} \label{1}
+S(t)+I(t) = 1
+\end{equation}$</p>
+
+<p>Define $\beta$  as transimission rate. Upon further reflection, the rate of infection should be affected by both infection and susceptible population.  To consider two extreme cases,</p>
+<ul>
+  <li>when s = 1 , i = 0, the transmission rate, $\beta$ = 0</li>
+  <li>when s = 0 , i = 1, everyone is infected and no more new cases, $\beta$ = 0</li>
+</ul>
+
+<p>$\begin{equation} \label{2}
+\frac{dI}{dt} = - \frac{dS}{dt} = \beta S I
+\end{equation}$</p>
+
+<p>This is equation is an ODE function, and we can solve it using scipy package.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">js</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s">'virus_world.json'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    <span class="n">dy_dt</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dy_dt</span>
+
+<span class="k">def</span> <span class="nf">SI_model</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">js</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="s">'total'</span><span class="p">])</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="nb">max</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="c"># standardized</span>
+    <span class="n">y0</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+
+    <span class="c"># solve ODEs</span>
+    <span class="n">k1</span><span class="p">,</span><span class="n">k2</span><span class="p">,</span><span class="n">k3</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.5</span>
+    <span class="n">y1</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">k1</span><span class="p">,))</span>
+    <span class="n">y2</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">k2</span><span class="p">,))</span>
+    <span class="n">y3</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">k3</span><span class="p">,))</span>
+
+    <span class="c"># plot results</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="s">'y:'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">'β=0.1'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="s">'b:'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">'β=0.3'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y3</span><span class="p">,</span><span class="s">'g:'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">'β=0.5'</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[:</span><span class="n">d</span><span class="p">],</span><span class="n">v</span><span class="p">[:</span><span class="n">d</span><span class="p">],</span><span class="s">'r'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'t'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'I(t)'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'SI model fitting '</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+<span class="n">SI_model</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s">'china'</span><span class="p">)</span>
+
+
+</code></pre></div></div>
+
+<p><img src="https://live.staticflickr.com/65535/49726837227_baf1f56d59_c.jpg" width="600" alt="testing" /></p>
+
+<p>In fact, turns out function $\begin{equation} \label{}
+\frac{dI}{dt} = \beta I \cdot (1-I)
+\end{equation}$  is the derivate of sigmoid function $\begin{equation} \label{}
+I = \frac{1}{1+e^{-t}}
+\end{equation}$</p>
+
+<h4 id="prediction-using-sigmoid-function">Prediction using sigmoid function</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">time</span>
+ 
+<span class="k">def</span> <span class="nf">logistic_function</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">P0</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+    <span class="s">'define logsitc function here, try yourself'</span>
+    <span class="k">return</span> 
+  
+<span class="k">def</span> <span class="nf">prediction</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+
+    <span class="n">predict_days</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s">'data/virus_world.json'</span><span class="p">)[</span><span class="n">c</span><span class="p">]</span>
+    <span class="n">confirm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'total'</span><span class="p">])</span>
+    <span class="n">scaler</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">max</span><span class="p">(</span><span class="n">confirm</span><span class="p">)</span>
+    <span class="n">confirm</span> <span class="o">=</span> <span class="n">confirm</span><span class="o">/</span><span class="p">(</span><span class="n">scaler</span><span class="p">)</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">confirm</span><span class="p">))</span>
+    <span class="c"># curve fit</span>
+    <span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">logistic_function</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">confirm</span><span class="p">,</span><span class="n">maxfev</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+    <span class="c">#predit future</span>
+    <span class="n">predict_x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">predict_days</span><span class="p">)]</span>
+    <span class="n">predict_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">predict_x</span><span class="p">)</span>
+    <span class="n">predict_y</span> <span class="o">=</span> <span class="n">logistic_function</span><span class="p">(</span><span class="n">predict_x</span><span class="p">,</span> <span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">popt</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">confirm</span><span class="p">,</span> <span class="s">'^'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">"confimed infected number"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">predict_x</span><span class="p">,</span> <span class="n">predict_y</span><span class="p">,</span> <span class="s">'--'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">"predicted infected number"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s">"Coronavirus cases prediction in </span><span class="si">%</span><span class="s">s for the next </span><span class="si">%</span><span class="s">d days (Pred = </span><span class="si">%</span><span class="s">d,  r=</span><span class="si">%.2</span><span class="s">f)"</span><span class="o">%</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(),</span><span class="n">predict_days</span><span class="p">,</span><span class="n">scaler</span><span class="o">*</span><span class="n">predict_y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">popt</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s">"bold"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Predict time:{}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">Y-</span><span class="si">%</span><span class="s">m-</span><span class="si">%</span><span class="s">d"</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'days'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Infected number'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+<span class="n">prediction</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s">'china'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p float="left">
+<img src="https://live.staticflickr.com/65535/49726837247_fa301b48f3_c.jpg" width="50%" />  <img src="https://live.staticflickr.com/65535/49726837257_0b1c12643e_c.jpg" width="49%" />
+ </p>
+
+<p>Thanks for reading !</p>
+
+<p>Reference:</p>
+
+<p><a href="https://calculate.org.au/wp-content/uploads/sites/15/2018/10/spread-of-disease.pdf">Spread of Disease by Dr Julia Collins and Nadia Abdelal</a></p>
+
+<p><a href="https://idmod.org/docs/hiv/model-si.html">EMOD HIV modeling</a></p>
+
 
   </article>
 

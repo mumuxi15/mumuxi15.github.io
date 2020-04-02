@@ -2,103 +2,125 @@
 <html>
 
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>about</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Hi, my name is Penny Pan, a New York based data scientist with passion for machine learning
-">
-<link rel="canonical" href="http://localhost:4000/about/">
-<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
-<link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
-
-<!-- Custom CSS -->
-<link rel="stylesheet" href="/css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  
 </head>
 
-
 <body>
-
-<main class="wrapper">
-
-<header class="site-header">
-<a class="site-title" href="/">
-<img src="https://i.pinimg.com/originals/7f/71/78/7f71787298b75d309eed861393d10932.png" style="width: 600px; margin: -20px 0 -50px 0;"></a>
-
-<nav class="navbar">
-<ul>
-<li class="nav-item"><a href="/">home</a></li>
-<li class="nav-item"><a href="/about/">about</a></li>
-<li class="nav-item"><a href="/pages/">demo</a></li>
-</ul>
-</nav>
-
-</header>
-
-
-  <div class="container">
-    <div class="post">
-
-<header class="post-header">
-<h1 class="post-title">Examples</h1>
-</header>
-
-<article class="post-content">
-  <ul>
-    <li class="nav-item"><a href="/">home</a></li>
-    <li class="nav-item"><a href="/about/">about</a></li>
-    <li class="nav-item"><a href="/pages/">demo</a></li>
-    <li class="nav-item"></li>
-  </ul>
-
-</article>
-
-</div>
-
-
-        <footer class="site-footer">
-  <h2 class="footer-heading">Penny's blog</h2>
-
-  <div class="row">
-    <div class="column">
-      <ul class="contact-list">
-        <li>Penny's blog</li>
-        <li><a href="mailto:mumuxi15@gmail.com">mumuxi15@gmail.com</a></li>
-      </ul>
-    </div>
-
-    <div class="column">
-      <ul class="social-media-list">
-
-        <li>
-          <a href="https://github.com/mumuxi15">
-            <span class="icon  icon--github">
-              <svg viewBox="0 0 16 16">
-                <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
-              </svg>
-            </span>
-
-            <span class="username">mumuxi15</span>
-          </a>
-        </li>
-
-
-
-      </ul>
-    </div>
-
-    <div class="column">
-      <p>Hi, my name is Penny Pan, a New York based data scientist with passion for machine learning
-</p>
-    </div>
+  
+  <div id="myDiv" style="width: 480px; height: 400px;">
+  
+  </div>
+  
+  <div id="logDiv" style="width: 480px; height: 400px;">
+  
   </div>
 
-</footer>
+  <button type="button" id="log_scale" class="btn btn-info">log scale</button>
 
+
+
+      <div class="container">
+      <div class="table-responsive">
+      <h1 align="center">China Data</h1>
+      <br />
+      <div align="center">
+      <button type="button" name="load_data" id="load_data" class="btn btn-info">Load Data</button>
       </div>
+      <br />
+      <div id="employee_table">
+      </div>
+      </div>
+      </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script>
+    
+    data = $.ajax({
+      type: 'GET',
+      url: "virus_china.json",
+      async: false,
+      dataType: 'json',
+      done: function(results) {
+        JSON.parse(results);
+        return results;
+      },
+      fail: function() {
+        console.log( 'Error ');
+      }
+       }).responseJSON; 
+      
+    
+    
+    var china = {
+      x: data['date'], 
+      y: data['cases'], 
+      mode: 'markers',
+      type: 'scatter'
+      };
 
-    </main>
+    var plot = [china];
+    var layout = {
+      xaxis: {
+        type: 'linear',
+        autorange: true
+      }, 
+      yaxis: {
+        type: 'linear', 
+        autorange: true
+      }
+    };
+    Plotly.plot('myDiv', plot, layout, {showSendToCloud: true});
 
-  </body>
+
+
+
+    $("#log_scale").click(function f(){
+      var plot = [
+      
+     {
+        x: data['date'], 
+        y: data['cases'], 
+        type: 'scatter'}
+        
+        ];
+
+      var layout = {
+        xaxis: {
+          type: 'linear',
+          autorange: true
+        }, 
+        yaxis: {
+          type: 'log', 
+          autorange: true
+        }
+      };
+      Plotly.plot('logDiv', plot, layout, {showSendToCloud: true})
+      
+      });
+    
+   
+  
+  
+
+  </script>
+</body>
 
 </html>
+
+
+
+
+
+
+
