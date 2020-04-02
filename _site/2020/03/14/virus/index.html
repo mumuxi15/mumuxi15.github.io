@@ -53,7 +53,7 @@
 
 <p>Updates on 3.31</p>
 
-<p>It has almost been a month since the quarantine started here in New York. Things have changed dramatically since I started this blog in early Feb. I started this blog because I was frustrated at not being able to easily find a single number that could tell me the total number of cases. Now google seems to have fixed that and there are more wesbites presenting decent nicely looking tables that are easy to scrape.</p>
+<p>It has almost been a month since the quarantine started here in New York. Things have changed dramatically since I started this blog in early Feb. I started this blog because I was frustrated at not being able to easily find a single number that could tell me the total number of cases. Now google seems to have fixed that and there are more websites presenting decent nicely looking tables that are easy to scrape.</p>
 
 <p>Attached is my code, if you would like to try. The output format is json.</p>
 
@@ -136,13 +136,13 @@ $</p>
 
 <p>where t is number of days since $I_{0}$ cases.</p>
 
-<p>This model only fits the blue line, not so much for the yellow and green line. After doing some research on spread of infectious diseases, it seems an SIR-model might work. The model consists of three parts: infected population, susceptible population and recovered/immue population. As I am trying to model the total confirmed cases, not the active, I can drop the recovery part for simplicity. Then the math becomes simpler and boils down to solving an ordinary differential equation. To simplify, let’s define population as 1 and <strong>I(t)</strong> is the percentage of population that is infected and <strong>S(t)</strong> is the proportion of susceptible population.  If we divide both side by $\delta t$, we can get $\frac{dI}{dt}+\frac{dS}{dt}=0$.</p>
+<p>This model only fits the blue line, not so much for the yellow and green line. After doing some research on spread of infectious diseases, it seems an SIR-model might work. The model consists of three parts: infected population, susceptible population and recovered/immune population. As I am trying to model the total confirmed cases, not the active, I can drop the recovery part for simplicity. Then the math becomes simpler and boils down to solving an ordinary differential equation. To simplify, let’s define population as 1 and <strong>I(t)</strong> is the percentage of population that is infected and <strong>S(t)</strong> is the proportion of susceptible population.  If we divide both side by $\delta t$, we can get $\frac{dI}{dt}+\frac{dS}{dt}=0$.</p>
 
 <p>$\begin{equation} \label{1}
 S(t)+I(t) = 1
 \end{equation}$</p>
 
-<p>Define $\beta$  as transimission rate. Upon further reflection, the rate of infection should be affected by both infection and susceptible population.  To consider two extreme cases,</p>
+<p>Define $\beta$  as  transmission rate. Upon further reflection, the rate of infection should be affected by both infection and susceptible population.  To consider two extreme cases,</p>
 <ul>
   <li>when s = 1 , i = 0, the transmission rate, $\beta$ = 0</li>
   <li>when s = 0 , i = 1, everyone is infected and no more new cases, $\beta$ = 0</li>

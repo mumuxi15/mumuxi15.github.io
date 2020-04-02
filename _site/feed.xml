@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Apr 2020 03:47:18 -0400</pubDate>
-    <lastBuildDate>Thu, 02 Apr 2020 03:47:18 -0400</lastBuildDate>
+    <pubDate>Thu, 02 Apr 2020 11:07:57 -0400</pubDate>
+    <lastBuildDate>Thu, 02 Apr 2020 11:07:57 -0400</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
     
       <item>
@@ -16,7 +16,7 @@
 
 &lt;p&gt;Updates on 3.31&lt;/p&gt;
 
-&lt;p&gt;It has almost been a month since the quarantine started here in New York. Things have changed dramatically since I started this blog in early Feb. I started this blog because I was frustrated at not being able to easily find a single number that could tell me the total number of cases. Now google seems to have fixed that and there are more wesbites presenting decent nicely looking tables that are easy to scrape.&lt;/p&gt;
+&lt;p&gt;It has almost been a month since the quarantine started here in New York. Things have changed dramatically since I started this blog in early Feb. I started this blog because I was frustrated at not being able to easily find a single number that could tell me the total number of cases. Now google seems to have fixed that and there are more websites presenting decent nicely looking tables that are easy to scrape.&lt;/p&gt;
 
 &lt;p&gt;Attached is my code, if you would like to try. The output format is json.&lt;/p&gt;
 
@@ -99,13 +99,13 @@ $&lt;/p&gt;
 
 &lt;p&gt;where t is number of days since $I_{0}$ cases.&lt;/p&gt;
 
-&lt;p&gt;This model only fits the blue line, not so much for the yellow and green line. After doing some research on spread of infectious diseases, it seems an SIR-model might work. The model consists of three parts: infected population, susceptible population and recovered/immue population. As I am trying to model the total confirmed cases, not the active, I can drop the recovery part for simplicity. Then the math becomes simpler and boils down to solving an ordinary differential equation. To simplify, let’s define population as 1 and &lt;strong&gt;I(t)&lt;/strong&gt; is the percentage of population that is infected and &lt;strong&gt;S(t)&lt;/strong&gt; is the proportion of susceptible population.  If we divide both side by $\delta t$, we can get $\frac{dI}{dt}+\frac{dS}{dt}=0$.&lt;/p&gt;
+&lt;p&gt;This model only fits the blue line, not so much for the yellow and green line. After doing some research on spread of infectious diseases, it seems an SIR-model might work. The model consists of three parts: infected population, susceptible population and recovered/immune population. As I am trying to model the total confirmed cases, not the active, I can drop the recovery part for simplicity. Then the math becomes simpler and boils down to solving an ordinary differential equation. To simplify, let’s define population as 1 and &lt;strong&gt;I(t)&lt;/strong&gt; is the percentage of population that is infected and &lt;strong&gt;S(t)&lt;/strong&gt; is the proportion of susceptible population.  If we divide both side by $\delta t$, we can get $\frac{dI}{dt}+\frac{dS}{dt}=0$.&lt;/p&gt;
 
 &lt;p&gt;$\begin{equation} \label{1}
 S(t)+I(t) = 1
 \end{equation}$&lt;/p&gt;
 
-&lt;p&gt;Define $\beta$  as transimission rate. Upon further reflection, the rate of infection should be affected by both infection and susceptible population.  To consider two extreme cases,&lt;/p&gt;
+&lt;p&gt;Define $\beta$  as  transmission rate. Upon further reflection, the rate of infection should be affected by both infection and susceptible population.  To consider two extreme cases,&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;when s = 1 , i = 0, the transmission rate, $\beta$ = 0&lt;/li&gt;
   &lt;li&gt;when s = 0 , i = 1, everyone is infected and no more new cases, $\beta$ = 0&lt;/li&gt;
