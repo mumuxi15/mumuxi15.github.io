@@ -53,9 +53,7 @@
 
 <p>Updates on 3.31</p>
 
-<p>It has almost been a month since the quarantine started here in New York. Things have changed dramatically since I started this blog in early Feb. I started this blog because I was frustrated at not being able to easily find a single number that could tell me the total number of cases. Now google seems to have fixed that and there are more websites presenting decent nicely looking tables that are easy to scrape.</p>
-
-<p>Attached is my code, if you would like to try. The output format is json.</p>
+<p>In New York, almost a month has passed since the start of the quarantine. In this time huge changes have occurred since I first started this blog in early February. My initial goal was to create a source that would collect total number of cases worldwide since the most updated information was not easily available to the public. However, the current situation has now changed, and there are more reliable resources that are documenting the spread of COVID-19 and disseminating the research in clear graphs. However, if you like to try my code, I have presensted it below (output is in json format).</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">from</span> <span class="nn">ast</span> <span class="kn">import</span> <span class="n">literal_eval</span>
@@ -114,19 +112,17 @@
 <span class="n">download_virus_at</span><span class="p">(</span><span class="n">COUNTRY</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>While coronavirus in China seems to be under control, here in US, it is just starting to go wild. The number of confirmed cases in US on March 31st is about 188,530 and some officials predict up to <a href="https://www.theguardian.com/world/2020/mar/31/donald-trump-coronavirus-briefing-painful-us-deaths">240,000 death</a></p>
-
-<p>∑(っ°Д °;)っ</p>
+<p>While coronavirus in China seems to be under control, here in US, the number of infected individuals are only beginning to drastically rise. As of March 31st, the number of confirmed cases in US on March 31st is about 188,530 and some officials predict up to <a href="https://www.theguardian.com/world/2020/mar/31/donald-trump-coronavirus-briefing-painful-us-deaths">240,000 deaths</a></p>
 
 <p><img src="https://live.staticflickr.com/65535/49726316521_3e2a294821_c.jpg" width="800" alt="corona_tot" /></p>
 
-<p>Figure 1 (a). Total confirmed cases in US, China, Italy   (b). Log scale. Slope is obtained by breaking the data into smaller sections, and taking the maximum slope. Slope is calculated every 14 days using linear regression.</p>
+<p>Figure 1 (a). Total confirmed cases in US, China, Italy                                             (b). Log scale</p>
 
-<p>Figure 1 shows three countries at three phases of coronavirus. In China, the number of cases reached an almost stationary state at day 30 and seems to be under control. In Italy, the rate has slowed down and hopefully it will look like the green line soon. In US, we are still at the blooming stage, but there is a slow-down sign at the tip of the blue line. We have a little hope it seems… In the log scale graph, US and China has a higher infection rate, which makes sense as US and China is more densely populated.</p>
+<p>Figure 1 shows three countries at three phases of coronavirus. In China, the number of cases reached an almost stationary state at day 30 and since then has been under control. In Italy, the rate has slowed down and potentially may start to follow the trends of China (green line). In US, we are still at the growing stage, however, further calculations indicate that there is a slow-down sign at the tip of the blue line.Indicating, that we have a little hope. The log scale (Figure 1b) graph, shows that the US and China has a higher infection rate, which is indicative of high population density. The slope in figure 1b is obtained by breaking the data into smaller sections, and taking the maximum slope. Slope is calculated every 14 days using linear regression.</p>
 
 <h4 id="analysis">Analysis</h4>
 
-<p>My first intuition of the graph 1(a) US (blue line) is that the data probably follows an exponential trend ain the early stage, as shown in the log graph 1(b). The green curve looks more a sigmoid function. So let’s start with a simple exponential model. Define <strong>I</strong> as infection population and assuming each patient passes on to <strong>A</strong> number of new people everyday. It can be tested by by plotting log(y) against t figure 1(b):</p>
+<p>Figure 1(a) shows that US data (blue line) probably follows an exponential trend ain the early stage, as also shown in the log Figure 1(b). Whereas, the green curve (China) looks more like a sigmoid function. So let’s first try to predict the infection population <strong>I(t)</strong> with a simple exponential model, defining <strong>I</strong> as infection population with an assumption that each patient infects <strong>A</strong> number of new people every day. This can be tested by by plotting log(y) against t - Figure 1(b):</p>
 
 <p>$
 \begin{equation} \label{0}
@@ -136,7 +132,7 @@ $</p>
 
 <p>where t is number of days since $I_{0}$ cases.</p>
 
-<p>This model only fits the blue line, not so much for the yellow and green line. After doing some research on spread of infectious diseases, it seems an SIR-model might work. The model consists of three parts: infected population, susceptible population and recovered/immune population. As I am trying to model the total confirmed cases, not the active, I can drop the recovery part for simplicity. Then the math becomes simpler and boils down to solving an ordinary differential equation. To simplify, let’s define population as 1 and <strong>I(t)</strong> is the percentage of population that is infected and <strong>S(t)</strong> is the proportion of susceptible population.  If we divide both side by $\delta t$, we can get $\frac{dI}{dt}+\frac{dS}{dt}=0$.</p>
+<p>This model only fits the blue line, and does not fit the trend of the yellow or green line at later stage. After doing some research on spread of infectious diseases, it seems an SIR-model might be a better model. The model consists of three parts: infected population, susceptible population and recovered/immune population. As I am trying to model the total of confirmed cases, not the active cases, for simplicity I will I can drop the recovery aspect of the model. This greatly simplifies the math, allowing to simply solve an ordinary differential equation. To further simplify this, let’s define population as 1 and <strong>I(t)</strong> is the percentage of population that is infected and <strong>S(t)</strong> is the proportion of susceptible population. Then we get:</p>
 
 <p>$\begin{equation} \label{1}
 S(t)+I(t) = 1
@@ -147,6 +143,8 @@ S(t)+I(t) = 1
   <li>when s = 1 , i = 0, the transmission rate, $\beta$ = 0</li>
   <li>when s = 0 , i = 1, everyone is infected and no more new cases, $\beta$ = 0</li>
 </ul>
+
+<p>If we divide both side by $\delta t$, we can get:</p>
 
 <p>$\begin{equation} \label{2}
 \frac{dI}{dt} = - \frac{dS}{dt} = \beta S I
@@ -198,7 +196,7 @@ S(t)+I(t) = 1
 
 <p><img src="https://live.staticflickr.com/65535/49726837227_baf1f56d59_c.jpg" width="600" alt="testing" /></p>
 
-<p>In fact, turns out function $\begin{equation} \label{}
+<p>In fact, turns out that this function $\begin{equation} \label{}
 \frac{dI}{dt} = \beta I \cdot (1-I)
 \end{equation}$  is the derivate of sigmoid function $\begin{equation} \label{}
 I = \frac{1}{1+e^{-t}}
