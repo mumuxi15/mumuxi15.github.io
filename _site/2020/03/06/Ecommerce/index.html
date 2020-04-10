@@ -175,8 +175,6 @@
 
 <h4 id="7-google-search">7. Google Search</h4>
 
-<p>If you have bought a domain name on goDaddy, you can link it to your *.pythonanywhere.com by following  <a href="https://wpsmackdown.com/domain-redirect-godaddy/">this tutorial</a></p>
-
 <p>If you want your website to appear in google search,</p>
 
 <ol>
@@ -190,13 +188,24 @@
     <p>Complete the DNS verification as google requested</p>
   </li>
   <li>
-    <p>go to https://www.freewebsubmission.com/ to submit your website</p>
+    <p>Buy a domain name.</p>
   </li>
+  <li>
+    <p>Edit CNAME record in the DNS manage section. Here I used goDaddy as an example.</p>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>host: www
+points to: yourwebsitename.com
+</code></pre></div></div>
+
+<ol>
+  <li>Then go back to google console, search for your url in the URL inspection section and submit the index request. Google will perform several test on the website and if passed, you will receive a confirmation email from google.</li>
 </ol>
 
 <p>The website is currently in the testing phase. Only existing members will be able to order meals . Any orders placed from outside will not be processed.</p>
 
-<p>https://hellokike.pythonanywhere.com/</p>
+<p>www.vallacarte.com</p>
 
 
   </article>

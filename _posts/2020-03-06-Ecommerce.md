@@ -145,8 +145,6 @@ I used pythoneverywhere.com as it is one of the cheapest and easiest. Hosting a 
 
 #### 7. Google Search
 
-If you have bought a domain name on goDaddy, you can link it to your *.pythonanywhere.com by following  [this tutorial](https://wpsmackdown.com/domain-redirect-godaddy/)
-
 If you want your website to appear in google search, 
 
 1. Verify the domain on google search console. You can open the console by typing in google 
@@ -157,7 +155,18 @@ If you want your website to appear in google search,
 
 2. Complete the DNS verification as google requested
 
-3. go to https://www.freewebsubmission.com/ to submit your website
+3. Buy a domain name. 
+
+4. Edit CNAME record in the DNS manage section. Here I used goDaddy as an example.
+
+```
+host: www
+points to: yourwebsitename.com
+```
+
+5. Then go back to google console, search for your url in the URL inspection section and submit the index request. Google will perform several test on the website and if passed, you will receive a confirmation email from google. 
+
+
 
 
 
@@ -171,7 +180,7 @@ If you want your website to appear in google search,
 
 The website is currently in the testing phase. Only existing members will be able to order meals . Any orders placed from outside will not be processed. 
 
-https://hellokike.pythonanywhere.com/
+www.vallacarte.com
 
 
 
