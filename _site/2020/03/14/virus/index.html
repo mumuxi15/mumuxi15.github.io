@@ -10,7 +10,7 @@
 ">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163186088-1"></script>
-    <link rel="canonical" href="http://localhost:4000/2020/03/14/virus/">
+    <link rel="canonical" href="https://mumuxi15.github.io//2020/03/14/virus/">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -55,13 +55,13 @@
 
 <p>In New York, almost a month has passed since the start of the quarantine. In this time huge changes have occurred since I first started this blog in early February. My initial goal was to create a source that would collect total number of cases worldwide since the most updated information was not easily available to the public. However, the current situation has now changed, and there are more reliable resources that are documenting the spread of COVID-19 and disseminating the research in clear graphs. However, if you like to try my code, I have presensted it below (output is in json format).</p>
 
-<p><img src="https://media-exp1.licdn.com/dms/image/C4D12AQHYhvRt4Uvx4w/article-inline_image-shrink_1500_2232/0?e=1591833600&amp;v=beta&amp;t=AM2LJbs3IDs46TCrPF9EyvJC1HVe0LehGEs3SiHbADw" /></p>
+<p><img src="https://media-exp3.licdn.com/dms/image/C4D12AQHYhvRt4Uvx4w/article-inline_image-shrink_1500_2232/0/1585841101969?e=1630540800&amp;v=beta&amp;t=UggMGdcoq_-dOXt1pVxv2JcH5cAk0XUvyg52zcmiIm4" /></p>
 
-<p><img src="https://media-exp1.licdn.com/dms/image/C4D12AQFkpvj32zpmlg/article-inline_image-shrink_1000_1488/0?e=1591833600&amp;v=beta&amp;t=btjd8oEBNpPZB30ZkVsHHESwquTI4ZlYFt14hAU_zko" /></p>
+<p><img src="https://media-exp3.licdn.com/dms/image/C4D12AQFkpvj32zpmlg/article-inline_image-shrink_1000_1488/0/1585841113925?e=1630540800&amp;v=beta&amp;t=jqc2m_r6w8TbHZ52kQndL7Irbmu-cO3DxfF_nmm1h_c" /></p>
 
 <p>While coronavirus in China seems to be under control, here in US, the number of infected individuals are only beginning to drastically rise. As of March 31st, the number of confirmed cases in US on March 31st is about 188,530 and some officials predict up to <a href="https://www.theguardian.com/world/2020/mar/31/donald-trump-coronavirus-briefing-painful-us-deaths">240,000 deaths</a></p>
 
-<p><img src="https://live.staticflickr.com/65535/49726316521_3e2a294821_c.jpg" width="800" alt="corona_tot" /></p>
+<p><img src="https://media-exp3.licdn.com/dms/image/C4E12AQFMq3auItOSeA/article-inline_image-shrink_1000_1488/0/1585839808611?e=1630540800&amp;v=beta&amp;t=G1w_5Ohz6xDeHEYuObUIyEQbRMTnMyY9j0MKJNrDars" width="800" alt="corona_tot" /></p>
 
 <p>Figure 1 (a). Total confirmed cases in US, China, Italy                                             (b). Log scale</p>
 
@@ -71,51 +71,49 @@
 
 <p>Figure 1(a) shows that US data (blue line) probably follows an exponential trend ain the early stage, as also shown in the log Figure 1(b). Whereas, the green curve (China) looks more like a sigmoid function. So let’s first try to predict the infection population <strong>I(t)</strong> with a simple exponential model, defining <strong>I</strong> as infection population with an assumption that each patient infects <strong>A</strong> number of new people every day. This can be tested by by plotting log(y) against t - Figure 1(b):</p>
 
-<script type="math/tex; mode=display">\begin{equation} \label{0}
+\[\begin{equation} \label{0}
 I = I_{0}\times A^{t}
-\end{equation}</script>
+\end{equation}\]
 
-<p>where t is number of days since <script type="math/tex">I_{0}</script> cases.</p>
+<p>where t is number of days since \(I_{0}\) cases.</p>
 
 <p>This model only fits the blue line, and does not fit the trend of the yellow or green line at later stage. After doing some research on spread of infectious diseases, it seems an SIR-model might be a better model. The model consists of three parts: infected population, susceptible population and recovered/immune population. As I am trying to model the total of confirmed cases, not the active cases, for simplicity I will I can drop the recovery aspect of the model. This greatly simplifies the math, allowing to simply solve an ordinary differential equation. To further simplify this, let’s define population as 1 and <strong>I(t)</strong> is the percentage of population that is infected and <strong>S(t)</strong> is the proportion of susceptible population. Then we get:</p>
 
-<script type="math/tex; mode=display">\begin{equation} \label{1}
+\[\begin{equation} \label{1}
 S(t)+I(t) = 1
-\end{equation}</script>
+\end{equation}\]
 
-<p>Define <script type="math/tex">\beta</script>  as  <strong>transmission rate</strong>. Upon further reflection, the rate of infection should be affected by both infection and susceptible population.  To consider two extreme cases,</p>
+<p>Define \(\beta\)  as  <strong>transmission rate</strong>. Upon further reflection, the rate of infection should be affected by both infection and susceptible population.  To consider two extreme cases,</p>
 <ul>
   <li>when s = 1 , i = 0, the transmission rate, β = 0</li>
   <li>when s = 0 , i = 1, everyone is infected and no more new cases, β=0</li>
 </ul>
 
-<p>If we divide both side by <script type="math/tex">\delta t</script>, we can get:</p>
+<p>If we divide both side by \(\delta t\), we can get:</p>
 
-<script type="math/tex; mode=display">\begin{equation} \label{2}
+\[\begin{equation} \label{2}
 \frac{dI}{dt} = - \frac{dS}{dt} = \beta S I
-\end{equation}</script>
+\end{equation}\]
 
 <p>This is equation is an ODE function, and we can solve it using scipy package.</p>
 
-<p><img src="https://media-exp1.licdn.com/dms/image/C4D12AQE5v1YG8wRCkQ/article-inline_image-shrink_1500_2232/0?e=1591833600&amp;v=beta&amp;t=rleX1ktNJdoO64_FPtsarR01fmRWY-6OobXk9zINzw0" /></p>
+<p><img src="https://media-exp3.licdn.com/dms/image/C4D12AQE5v1YG8wRCkQ/article-inline_image-shrink_1500_2232/0/1585841024718?e=1630540800&amp;v=beta&amp;t=jx74V9SjWhnnlMrzJreVfGHOqMQj6SlANK4kiovSZEc" /></p>
 
-<p><img src="https://live.staticflickr.com/65535/49726837227_baf1f56d59_c.jpg" width="600" alt="testing" /></p>
+<p><img src="https://media-exp3.licdn.com/dms/image/C4D12AQGT5RzGn69ykA/article-inline_image-shrink_1000_1488/0/1585840485624?e=1630540800&amp;v=beta&amp;t=k-nPA8McOrLxpBN14aYGozey7krwdnp-0YjbEczqftk" width="600" alt="testing" /></p>
 
-<p>In fact, turns out that this function <script type="math/tex">\begin{equation} \label{}
+<p>In fact, turns out that this function \(\begin{equation} \label{}
 \frac{dI}{dt} = \beta I \cdot (1-I)
-\end{equation}</script>  is the derivate of sigmoid function <script type="math/tex">\begin{equation} \label{}
+\end{equation}\)  is the derivate of sigmoid function \(\begin{equation} \label{}
 I = \frac{1}{1+e^{-t}}
-\end{equation}</script></p>
+\end{equation}\)</p>
 
 <h4 id="prediction-using-sigmoid-function"><strong>Prediction using sigmoid function</strong></h4>
 
 <p>The model predicts the total confirmed cases next 30 days. For example, given data on March 1st, the model estimates about 172172 confirmed cases in Italy at the end of April.</p>
 
-<p><img src="https://media-exp1.licdn.com/dms/image/C4D12AQE_k0WlDIID4A/article-inline_image-shrink_1500_2232/0?e=1591833600&amp;v=beta&amp;t=qIXBGxz9qyskmNdFtSwO0jUAMiFlJo9cEjkgIWTS4rM" /></p>
+<p><img src="https://media-exp3.licdn.com/dms/image/C4D12AQE_k0WlDIID4A/article-inline_image-shrink_1500_2232/0/1585841199697?e=1630540800&amp;v=beta&amp;t=ScBw4GyV2YB8i5p50trmCEjmKpplEt2wnzdq6nvaEWI" /></p>
 
-<p float="left">
-<img src="https://live.staticflickr.com/65535/49726837247_fa301b48f3_c.jpg" width="50%" />  <img src="https://live.staticflickr.com/65535/49726837257_0b1c12643e_c.jpg" width="49%" />
- </p>
+<p><img src="https://media-exp3.licdn.com/dms/image/C4D12AQHXqvsQUAh7ag/article-inline_image-shrink_1500_2232/0/1585840548381?e=1630540800&amp;v=beta&amp;t=UhKBtskg4vt9bZCm3mwqbUnDirx3BDRD2uh0Plh_d0Y" width="100%" /></p>
 
 <p>Thanks for reading !</p>
 

@@ -41,9 +41,9 @@ It might be useful to draw a quick databse schema and figure below is an example
 
 
 
-#### 3. Build a draft version from exisiting working app
+#### 3. Build a draft version
 
-Let's begin by implementing on the existing examples provided by the Flask development team. The traditional standard layout of a web app contains a run.py where app is defined, a template folder including all the html files and a static folder storing personalized styles and javascript functions. Instead of declaring everything as global variables, the modern approach is to build a function that accepts a configuration object as an argument and returns a Flask application instance. Such way allows you to modify the function in the testing environment to create its own application for testing.  
+Let's begin by implementing on an example provided by the Flask development team. The traditional standard layout of a web app contains a run.py where app is defined, a template folder including all the html files and a static folder storing personalized styles and javascript functions. Instead of declaring everything as global variables, the modern approach is to build a function that accepts a configuration object as an argument and returns a Flask application instance. Such way allows you to modify the function in the testing environment to create its own application for testing.  
 
 Project Tree Example using Blueprints
 
@@ -168,17 +168,7 @@ points to: yourwebsitename.com
 
 
 
-
-
-
-
-
-
-
-
-
-
-The website is currently in the testing phase. Only existing members will be able to order meals . Any orders placed from outside will not be processed. 
+The website is currently running. 
 
 www.vallacarte.com
 

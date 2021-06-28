@@ -2,10 +2,10 @@
 layout: post
 title:  "Anime Recommender"
 date:   2018-07-06 15:39:40
-preview: https://www.lolacamisetas.com/3175-large_default/pokemon-tshirt-mimikyu-ghibli.jpg
+preview: https://c4.wallpaperflare.com/wallpaper/727/45/118/anime-anime-hayao-miyazaki-totoro-wallpaper-preview.jpg
 ---
 
-<img style="width:100%;display:block;" src="https://cdn.shopify.com/s/files/1/0187/7082/1184/products/ggg_1200x1200.jpg" />
+<img style="width:100%;display:block;" src="https://www.befunky.com/images/wp/wp-2015-12-ghibli_parade__by_tenaga-d7gy63i.jpg" />
 
 
 

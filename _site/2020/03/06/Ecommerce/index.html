@@ -10,7 +10,7 @@
 ">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163186088-1"></script>
-    <link rel="canonical" href="http://localhost:4000/2020/03/06/Ecommerce/">
+    <link rel="canonical" href="https://mumuxi15.github.io//2020/03/06/Ecommerce/">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -77,13 +77,13 @@
 
 <p><img src="https://live.staticflickr.com/65535/49641865616_3f95e3d78b_c.jpg" width="80%" /></p>
 
-<h4 id="3-build-a-draft-version-from-exisiting-working-app">3. Build a draft version from exisiting working app</h4>
+<h4 id="3-build-a-draft-version">3. Build a draft version</h4>
 
-<p>Let’s begin by implementing on the existing examples provided by the Flask development team. The traditional standard layout of a web app contains a run.py where app is defined, a template folder including all the html files and a static folder storing personalized styles and javascript functions. Instead of declaring everything as global variables, the modern approach is to build a function that accepts a configuration object as an argument and returns a Flask application instance. Such way allows you to modify the function in the testing environment to create its own application for testing.</p>
+<p>Let’s begin by implementing on an example provided by the Flask development team. The traditional standard layout of a web app contains a run.py where app is defined, a template folder including all the html files and a static folder storing personalized styles and javascript functions. Instead of declaring everything as global variables, the modern approach is to build a function that accepts a configuration object as an argument and returns a Flask application instance. Such way allows you to modify the function in the testing environment to create its own application for testing.</p>
 
 <p>Project Tree Example using Blueprints</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>e_commerce_web
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>e_commerce_web
 ├── /application
 │   ├── __init__.py
 │   ├── /auth
@@ -106,41 +106,41 @@
 
 <p><em>__int__.py</em></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ... #</span>
-<span class="k">def</span> <span class="nf">create_app</span><span class="p">():</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ... #
+</span><span class="k">def</span> <span class="nf">create_app</span><span class="p">():</span>
 	<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
-	<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SECRET_KEY'</span><span class="p">]</span> <span class="o">=</span> <span class="s">''</span>
-	<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_DATABASE_URI'</span><span class="p">]</span> <span class="o">=</span> <span class="n">db_path</span>
-	<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_TRACK_MODIFICATIONS'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
-	<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">'OAUTH_CONFIG'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">''</span><span class="p">}</span>
-	<span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+	<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SECRET_KEY'</span><span class="p">]</span> <span class="o">=</span> <span class="s">''</span>
+	<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_DATABASE_URI'</span><span class="p">]</span> <span class="o">=</span> <span class="n">db_path</span>
+	<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_TRACK_MODIFICATIONS'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+	<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'OAUTH_CONFIG'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">''</span><span class="p">}</span>
+	<span class="n">db</span><span class="p">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
 	<span class="n">login_manager</span> <span class="o">=</span> <span class="n">LoginManager</span><span class="p">()</span>
-	<span class="n">login_manager</span><span class="o">.</span><span class="n">login_view</span> <span class="o">=</span> <span class="s">'auth.login'</span>
-	<span class="n">login_manager</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+	<span class="n">login_manager</span><span class="p">.</span><span class="n">login_view</span> <span class="o">=</span> <span class="s">'auth.login'</span>
+	<span class="n">login_manager</span><span class="p">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
 	<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">User</span>
 
 	<span class="n">admin</span> <span class="o">=</span> <span class="n">Admin</span><span class="p">(</span><span class="n">app</span><span class="p">,</span><span class="n">index_view</span><span class="o">=</span><span class="n">CustomAdminIndexView</span><span class="p">())</span>
-	<span class="c">#...#</span>
-  
-	<span class="nd">@login_manager.user_loader</span>
+	<span class="c1">#...#
+</span>  
+	<span class="o">@</span><span class="n">login_manager</span><span class="p">.</span><span class="n">user_loader</span>
 	<span class="k">def</span> <span class="nf">load_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
-	<span class="c"># use user_id in the query for the user</span>
-		<span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">user_id</span><span class="p">))</span>
+	<span class="c1"># use user_id in the query for the user
+</span>		<span class="k">return</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">user_id</span><span class="p">))</span>
 
 
-	<span class="c"># blueprint for auth routes in our app</span>
-	<span class="kn">from</span> <span class="nn">.auth</span> <span class="kn">import</span> <span class="n">auth</span> <span class="k">as</span> <span class="n">auth_blueprint</span>
-	<span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">auth_blueprint</span><span class="p">)</span>
+	<span class="c1"># blueprint for auth routes in our app
+</span>	<span class="kn">from</span> <span class="nn">.auth</span> <span class="kn">import</span> <span class="n">auth</span> <span class="k">as</span> <span class="n">auth_blueprint</span>
+	<span class="n">app</span><span class="p">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">auth_blueprint</span><span class="p">)</span>
 
-	<span class="c"># blueprint for non-auth parts of app</span>
-	<span class="kn">from</span> <span class="nn">.main</span> <span class="kn">import</span> <span class="n">main</span> <span class="k">as</span> <span class="n">main_blueprint</span>
-	<span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">main_blueprint</span><span class="p">)</span>
+	<span class="c1"># blueprint for non-auth parts of app
+</span>	<span class="kn">from</span> <span class="nn">.main</span> <span class="kn">import</span> <span class="n">main</span> <span class="k">as</span> <span class="n">main_blueprint</span>
+	<span class="n">app</span><span class="p">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">main_blueprint</span><span class="p">)</span>
   
-	<span class="c"># register google / facebook login</span>
-	<span class="n">init_oauth_providers</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+	<span class="c1"># register google / facebook login
+</span>	<span class="n">init_oauth_providers</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
 	<span class="k">return</span> <span class="n">app</span>
 </code></pre></div></div>
@@ -181,7 +181,7 @@
   <li>
     <p>Verify the domain on google search console. You can open the console by typing in google</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>site:xxx.com
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>site:xxx.com
 </code></pre></div>    </div>
   </li>
   <li>
@@ -195,7 +195,7 @@
   </li>
 </ol>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>host: www
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>host: www
 points to: yourwebsitename.com
 </code></pre></div></div>
 
@@ -203,7 +203,7 @@ points to: yourwebsitename.com
   <li>Then go back to google console, search for your url in the URL inspection section and submit the index request. Google will perform several test on the website and if passed, you will receive a confirmation email from google.</li>
 </ol>
 
-<p>The website is currently in the testing phase. Only existing members will be able to order meals . Any orders placed from outside will not be processed.</p>
+<p>The website is currently running.</p>
 
 <p>www.vallacarte.com</p>
 
