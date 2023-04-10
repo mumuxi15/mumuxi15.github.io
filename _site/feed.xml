@@ -6,35 +6,35 @@
 </description>
     <link>https://mumuxi15.github.io//</link>
     <atom:link href="https://mumuxi15.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 28 Jun 2021 00:23:00 -0400</pubDate>
-    <lastBuildDate>Mon, 28 Jun 2021 00:23:00 -0400</lastBuildDate>
+    <pubDate>Mon, 10 Apr 2023 03:56:38 -0400</pubDate>
+    <lastBuildDate>Mon, 10 Apr 2023 03:56:38 -0400</lastBuildDate>
     <generator>Jekyll v4.2.0</generator>
     
       <item>
         <title>Coronavirus Data Analysis</title>
         <description>&lt;p&gt;Subtitle: COVID19 Spread Simulation using Python&lt;/p&gt;
 
-&lt;p&gt;Updated on 3.31&lt;/p&gt;
+&lt;p&gt;&lt;img style=&quot;width:100%;display:block;&quot; src=&quot;https://media.licdn.com/dms/image/C4D12AQF3kTLbkr-fHw/article-cover_image-shrink_423_752/0/1585840765955?e=1686787200&amp;amp;v=beta&amp;amp;t=UradA-QLXKKf-lpf-v0uio3-UukwghsXG25uAJyeg8w&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In New York, almost a month has passed since the start of the quarantine. In this time huge changes have occurred since I first started this blog in early February. My initial goal was to create a source that would collect total number of cases worldwide since the most updated information was not easily available to the public. However, the current situation has now changed, and there are more reliable resources that are documenting the spread of COVID-19 and disseminating the research in clear graphs. However, if you like to try my code, I have presensted it below (output is in json format).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://media-exp3.licdn.com/dms/image/C4D12AQHYhvRt4Uvx4w/article-inline_image-shrink_1500_2232/0/1585841101969?e=1630540800&amp;amp;v=beta&amp;amp;t=UggMGdcoq_-dOXt1pVxv2JcH5cAk0XUvyg52zcmiIm4&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://media.licdn.com/dms/image/C4D12AQHYhvRt4Uvx4w/article-inline_image-shrink_1500_2232/0/1585841101969?e=1686182400&amp;amp;v=beta&amp;amp;t=ZbDvR8lghy1WX-asXAbBmCO7YPrBzVquecINlbjaB7s&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://media-exp3.licdn.com/dms/image/C4D12AQFkpvj32zpmlg/article-inline_image-shrink_1000_1488/0/1585841113925?e=1630540800&amp;amp;v=beta&amp;amp;t=jqc2m_r6w8TbHZ52kQndL7Irbmu-cO3DxfF_nmm1h_c&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://media.licdn.com/dms/image/C4D12AQFkpvj32zpmlg/article-inline_image-shrink_1000_1488/0/1585841113925?e=1686182400&amp;amp;v=beta&amp;amp;t=7G-Rh-lIOyXqSLiGnuz4jDi9VXNflaIzard356vus8Q&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;While coronavirus in China seems to be under control, here in US, the number of infected individuals are only beginning to drastically rise. As of March 31st, the number of confirmed cases in US on March 31st is about 188,530 and some officials predict up to &lt;a href=&quot;https://www.theguardian.com/world/2020/mar/31/donald-trump-coronavirus-briefing-painful-us-deaths&quot;&gt;240,000 deaths&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Although the situation with the coronavirus seems to be under control in China, the number of individuals infected in the US is rapidly increasing. As of March 31st 2020, the confirmed cases in the US reached around 188,530 and some officials are predicting that the number of deaths may reach up to 240,000.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://media-exp3.licdn.com/dms/image/C4E12AQFMq3auItOSeA/article-inline_image-shrink_1000_1488/0/1585839808611?e=1630540800&amp;amp;v=beta&amp;amp;t=G1w_5Ohz6xDeHEYuObUIyEQbRMTnMyY9j0MKJNrDars&quot; width=&quot;800&quot; alt=&quot;corona_tot&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://media.licdn.com/dms/image/C4E12AQFMq3auItOSeA/article-inline_image-shrink_1000_1488/0/1585839808611?e=1686182400&amp;amp;v=beta&amp;amp;t=V6fHTzkIhoSSxyiZrPQyNdZm709QP9TE-p50OLIF9xo&quot; width=&quot;800&quot; alt=&quot;corona_tot&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Figure 1 (a). Total confirmed cases in US, China, Italy                                             (b). Log scale&lt;/p&gt;
 
-&lt;p&gt;Figure 1 shows three countries at three phases of coronavirus. In China, the number of cases reached an almost stationary state at day 30 and since then has been under control. In Italy, the rate has slowed down and potentially may start to follow the trends of China (green line). In US, we are still at the growing stage, however, further calculations indicate that there is a slow-down sign at the tip of the blue line.Indicating, that we have a little hope. The log scale (Figure 1b) graph, shows that the US and China has a higher infection rate, which is indicative of high population density. The slope in figure 1b is obtained by breaking the data into smaller sections, and taking the maximum slope. Slope is calculated every 14 days using linear regression.&lt;/p&gt;
+&lt;p&gt;In Figure 1, we can observe the progression of the coronavirus outbreak in three countries, each in a different phase. China has managed to control the spread of the virus, with the number of cases stabilizing after day 30. Italy’s rate of infection has slowed down and could potentially follow China’s trend (as indicated by the green line). In the US, we are still in the midst of a growing phase, but there is a glimmer of hope as further calculations suggest a possible slowdown (as indicated by the tip of the blue line). Figure 1b, which uses a log scale, demonstrates that the US and China have a higher infection rate due to their high population density. The slope of the graph in Figure 1b is calculated every 14 days using linear regression, and is obtained by breaking the data into smaller sections and taking the maximum slope.&lt;/p&gt;
 
 &lt;h4 id=&quot;analysis&quot;&gt;&lt;strong&gt;Analysis&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;Figure 1(a) shows that US data (blue line) probably follows an exponential trend ain the early stage, as also shown in the log Figure 1(b). Whereas, the green curve (China) looks more like a sigmoid function. So let’s first try to predict the infection population &lt;strong&gt;I(t)&lt;/strong&gt; with a simple exponential model, defining &lt;strong&gt;I&lt;/strong&gt; as infection population with an assumption that each patient infects &lt;strong&gt;A&lt;/strong&gt; number of new people every day. This can be tested by by plotting log(y) against t - Figure 1(b):&lt;/p&gt;
 
-\[\begin{equation} \label{0}
+\[\begin{equation}
 I = I_{0}\times A^{t}
 \end{equation}\]
 
@@ -42,7 +42,7 @@ I = I_{0}\times A^{t}
 
 &lt;p&gt;This model only fits the blue line, and does not fit the trend of the yellow or green line at later stage. After doing some research on spread of infectious diseases, it seems an SIR-model might be a better model. The model consists of three parts: infected population, susceptible population and recovered/immune population. As I am trying to model the total of confirmed cases, not the active cases, for simplicity I will I can drop the recovery aspect of the model. This greatly simplifies the math, allowing to simply solve an ordinary differential equation. To further simplify this, let’s define population as 1 and &lt;strong&gt;I(t)&lt;/strong&gt; is the percentage of population that is infected and &lt;strong&gt;S(t)&lt;/strong&gt; is the proportion of susceptible population. Then we get:&lt;/p&gt;
 
-\[\begin{equation} \label{1}
+\[\begin{equation} 
 S(t)+I(t) = 1
 \end{equation}\]
 
@@ -54,19 +54,13 @@ S(t)+I(t) = 1
 
 &lt;p&gt;If we divide both side by \(\delta t\), we can get:&lt;/p&gt;
 
-\[\begin{equation} \label{2}
-\frac{dI}{dt} = - \frac{dS}{dt} = \beta S I
-\end{equation}\]
+\[\frac{dI}{dt} = - \frac{dS}{dt} = \beta S I\]
 
 &lt;p&gt;This is equation is an ODE function, and we can solve it using scipy package.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://media-exp3.licdn.com/dms/image/C4D12AQE5v1YG8wRCkQ/article-inline_image-shrink_1500_2232/0/1585841024718?e=1630540800&amp;amp;v=beta&amp;amp;t=jx74V9SjWhnnlMrzJreVfGHOqMQj6SlANK4kiovSZEc&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://media-exp3.licdn.com/dms/image/C4D12AQGT5RzGn69ykA/article-inline_image-shrink_1000_1488/0/1585840485624?e=1630540800&amp;amp;v=beta&amp;amp;t=k-nPA8McOrLxpBN14aYGozey7krwdnp-0YjbEczqftk&quot; width=&quot;600&quot; alt=&quot;testing&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;In fact, turns out that this function \(\begin{equation} \label{}
+&lt;p&gt;In fact, turns out that this function \(\begin{equation}
 \frac{dI}{dt} = \beta I \cdot (1-I)
-\end{equation}\)  is the derivate of sigmoid function \(\begin{equation} \label{}
+\end{equation}\)  is the derivate of sigmoid function \(\begin{equation}
 I = \frac{1}{1+e^{-t}}
 \end{equation}\)&lt;/p&gt;
 
@@ -98,33 +92,38 @@ I = \frac{1}{1+e^{-t}}
         <title>E-commerce web</title>
         <description>&lt;p&gt;Intro: E-commerce Web&lt;/p&gt;
 
-&lt;p&gt;I am writing this blog during the coronavirus pandemic that is affecting all our lives. Recent news puts New York at more than 10,000 confirmed cases and it is becoming increasingly harder to get fresh food. Since everyone is supposed to be effectively quarantined except those in essential businesses, there are a lot of people relying on food delivery businesses. A friend of mine who owns a small meal preparation business has seen increasing demandfor his meals and I am helping him build an e-commerice website for his business. Previously he was using wix.com, but as the business expands and more functionality is required, the need to migrate to a dynamic website and to maintain his own databases became increasingly evident. Although there are thousands of blogs or tutorial about building your 1st Python web app, most of them ends on http://127.0.0.1:8080 . This tutorial will guide you till your website appears on google search. I will only briefly mention the major steps, potential challenge and tips, but I put down the links I found useful while learning.&lt;/p&gt;
+&lt;p&gt;The ongoing COVID-19 pandemic has dramatically changed the way people shop and do business. With more and more consumers preferring to shop online rather than in-person, small business owners have an opportunity to expand their customer base and increase their revenue by setting up a simple e-commerce website with a database. A dynamic website can help small businesses create an engaging and interactive online presence that attracts new customers and allows existing customers to easily place orders and interact with the business. Setting up a website involves several key steps, including choosing a web hosting provider, selecting a database management system, designing the website’s front-end, creating the back-end infrastructure, and integrating the database with the website. In this introduction, we will guide you through the basic steps involved in setting up a dynamic website for a small business with a database, highlighting important considerations and best practices along the way. With the right tools and knowledge, small business owners can create a successful online presence that helps them navigate the challenges of the pandemic and thrive in a digital world.&lt;/p&gt;
 
-&lt;p&gt;I used Flask for this project, another good choice would be Django. There are many arguments on choosing one over the other, I personally do not have a strong preference as this is not a large website application. Your should choose the framework based on your conditions. Flask is chosen here because of its it is super light and easy to start. The downside is that sometimes some supporting packages may be out of maintenance or out-of-date such as Flask-OAuth.&lt;/p&gt;
+&lt;p&gt;Many prefer to use Flask due to its ease of use and lightweight nature. Flask makes it easy to start building a web application without having to deal with the complexities of a full-stack web framework. As a lightweight micro-framework, it provides the flexibility to build a custom web application tailored to the specific needs of the project.&lt;/p&gt;
 
-&lt;h4 id=&quot;1-set-up-virtual-environment&quot;&gt;1. Set up virtual environment&lt;/h4&gt;
+&lt;h4 id=&quot;1-plan-and-design&quot;&gt;1. Plan and Design&lt;/h4&gt;
 
-&lt;p&gt;Always start a project with virtualenv. Useful packages include Flask-login, Flask-admin, Flask-Security, Flask-dance (for third party login such as google), Flask_sqlalchemy and etc.&lt;/p&gt;
+&lt;p&gt;To start a project, it is always important to plan out the features and functionality you want to include, including the color theme, payment gateway integration and etc. Popular payment gateways include PayPal, Stripe, Braintree and Square, all those have API access and allow backtesting.&lt;/p&gt;
+
+&lt;h4 id=&quot;2-set-up-virtual-environment&quot;&gt;2. Set up virtual environment&lt;/h4&gt;
+
+&lt;p&gt;Starting your project with a virtual environment tool virtualenv, helps to keep project dependencies organized and prevents conflicts between different projects. Once you have created a virtual environment, you can activate it by running the command. Useful packages include Flask-login, Flask-admin, Flask-Security, Flask-dance (for third party login such as google), Flask_sqlalchemy and etc.&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;virtualenv &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; python3 &amp;lt;desired-path&amp;gt;
+&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &amp;lt;venv&amp;gt;/bin/activate
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;2-draw-a-database-schema&quot;&gt;2. Draw a database schema&lt;/h4&gt;
+&lt;h4 id=&quot;3-build-backend---database&quot;&gt;3. Build Backend - Database&lt;/h4&gt;
 
-&lt;p&gt;Ask yourself a few questions before you start building the website:&lt;/p&gt;
+&lt;p&gt;Ask yourself a few questions before you start building the backend:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;What information I want to show to the client ?&lt;/li&gt;
   &lt;li&gt;What information I want to collect from the website ?&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;It might be useful to draw a quick databse schema and figure below is an example of the standard schema and the grey lines shows how the tables are linked.&lt;/p&gt;
+&lt;p&gt;Drawing a quick database schema can also be very helpful in visualizing the data model and identifying the relationships between different entities. Picture below is an example of the standard schema and the grey lines shows how the tables are linked. The “order_detail” table share a common key “order_id” with the “orders” table. This would allow you to link specific items in an order to their corresponding product records, so you can accurately track inventory levels and update product availability as items are sold.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://live.staticflickr.com/65535/49641865616_3f95e3d78b_c.jpg&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;3-build-a-draft-version&quot;&gt;3. Build a draft version&lt;/h4&gt;
+&lt;h4 id=&quot;4-build-frontend&quot;&gt;4. Build Frontend&lt;/h4&gt;
 
-&lt;p&gt;Let’s begin by implementing on an example provided by the Flask development team. The traditional standard layout of a web app contains a run.py where app is defined, a template folder including all the html files and a static folder storing personalized styles and javascript functions. Instead of declaring everything as global variables, the modern approach is to build a function that accepts a configuration object as an argument and returns a Flask application instance. Such way allows you to modify the function in the testing environment to create its own application for testing.&lt;/p&gt;
+&lt;p&gt;You can quickly get the website to running by using Jinja to dynamically generate HTML pages based on data from your database and user input. This allows you to create customized web pages that can display product listings, shopping carts, checkout forms, and other essential features of an e-commerce website. A basic set up looks like the example below.&lt;/p&gt;
 
 &lt;p&gt;Project Tree Example using Blueprints&lt;/p&gt;
 
@@ -198,27 +197,29 @@ I = \frac{1}{1+e^{-t}}
 
 &lt;p&gt;&lt;a href=&quot;https://hackersandslackers.com/flask-blueprints/&quot;&gt;Organzing Flask Apps with Blueprints&lt;/a&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;4-add-e-commerce-features&quot;&gt;4. Add e-commerce features&lt;/h4&gt;
+&lt;h4 id=&quot;5-add-e-commerce-features&quot;&gt;5. Add e-commerce features&lt;/h4&gt;
 
-&lt;p&gt;Step 3. Add e-commerical features such as product display and shopping cart functions.&lt;/p&gt;
+&lt;p&gt;As the website grows, you can add additional features and functionalities to enhance the user experience. For instance, payment gateways, search functionality, product reviews, wish lists, and social media integration to increase user engagement and boost sales. With Flask’s modular design and scalability, you can add these features to the website as needed, making it a versatile and flexible tool for building an e-commerce website.&lt;/p&gt;
 
-&lt;p&gt;This section requires basic javascript programming skills and some knowledge of client-side and server-side. The major challenge of building a dynamic website over static is to pass data between database and website, akin to building a bridge across the sea to connect two cities. I used HTML5 webstorage to store shopping cart status in conjunction with ajax to transfer data to the backend and then to be stored in the database. If you not familiar with jsp, ajax, I recommend you going through some youtube tutorials.&lt;/p&gt;
+&lt;p&gt;In order to make a dynamic website, you need to have a basic understanding of JavaScript programming and be familiar with both client-side and server-side development. The main challenge of building a dynamic website is connecting the database to the website and passing data between them. It’s like building a bridge between two cities over the sea. One way to do this is by using HTML5 web storage to store shopping cart information and using AJAX to transfer data from the front-end to the back-end, where it can be stored in the database. If you’re not familiar with these technologies, I recommend watching some YouTube tutorials to learn more.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=1Q74A6ZQxdY&amp;amp;list=PLoN_ejT35AEhzNoPStBzAkpqAu3YQwPj7&quot;&gt;JavaScript Shopping Cart Tutorial&lt;/a&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;5-testing&quot;&gt;5. Testing&lt;/h4&gt;
+&lt;h4 id=&quot;6-testing&quot;&gt;6. Testing&lt;/h4&gt;
 
-&lt;p&gt;Here are some links to good articles on web testing.&lt;/p&gt;
+&lt;p&gt;This involves running different types of tests such as unit tests, integration tests, and end-to-end tests to verify the functionality of different components of the website. You can use testing frameworks such as Pytest and unittest to write and run tests for your website. Debugging any issues or errors that arise is also crucial to make sure that your website is functioning smoothly.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-unit-testing-legacy&quot;&gt;unittesting&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Links to good articles on web testing.   &lt;a href=&quot;https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-unit-testing-legacy&quot;&gt;unittesting&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://scotch.io/tutorials/test-a-flask-app-with-selenium-webdriver-part-1&quot;&gt;Selenium&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;7-deploy&quot;&gt;7. Deploy&lt;/h4&gt;
 
-&lt;h4 id=&quot;6-deploy&quot;&gt;6. Deploy&lt;/h4&gt;
+&lt;p&gt;Once you have tested your website and are confident that it works as expected, the next step is to deploy it to a production environment where it can be accessed by users. There are various hosting services available such as Heroku, AWS, and Google Cloud Platform that can be used to deploy your website. You will need to configure the hosting environment, set up the database and server, and deploy your code to the server. It is also important to consider issues such as scalability, security, and availability when deploying your website. I used pythoneverywhere.com to host my website. It is affordable and easy to use. It provides a web-based development environment and a platform for hosting web applications written in Python. With a paid account, you can host up to three web applications for $5 per month.&lt;/p&gt;
 
-&lt;p&gt;I used pythoneverywhere.com as it is one of the cheapest and easiest. Hosting a single website only cost $5 per month and they also provide free accounts. I do not recommend Amazon for hosting personal website, as the price could go beyond your expectation with no cap.&lt;/p&gt;
+&lt;p&gt;When building a website, it’s important to ensure that the site is secure and the sensitive customer information such as names, addresses, and payment details are protected from potential hackers or other security threats. One way to accomplish this is to use encryption to protect the data as it is transmitted between the client and server. First, you’ll need to obtain an SSL (Secure Sockets Layer) certificate, which verifies the identity of your website and encrypts all data transmitted between the server and the client. You can obtain a SSL certificate from a trusted certificate authority such as Let’s Encrypt (FREE !!!) Once you have the certificate, configure the web server to use HTTPS instead of HTTP. HTTPS is a secure version of the HTTP protocol that encrypts all data transmitted between the client and server.&lt;/p&gt;
 
-&lt;h4 id=&quot;7-google-search&quot;&gt;7. Google Search&lt;/h4&gt;
+&lt;p&gt;In addition to using encryption, you should also take other security measures such as regularly updating your software and plugins, using strong passwords, and implementing measures such as two-factor authentication to protect your website from potential threats. It’s also a good idea to regularly back up your website to protect against data loss in the event of a security breach or other issue.&lt;/p&gt;
+
+&lt;h4 id=&quot;8-google-search&quot;&gt;8. Google Search&lt;/h4&gt;
 
 &lt;p&gt;If you want your website to appear in google search,&lt;/p&gt;
 
@@ -248,10 +249,7 @@ points to: yourwebsitename.com
   &lt;li&gt;Then go back to google console, search for your url in the URL inspection section and submit the index request. Google will perform several test on the website and if passed, you will receive a confirmation email from google.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;The website is currently running.&lt;/p&gt;
-
-&lt;p&gt;www.vallacarte.com&lt;/p&gt;
-
+&lt;p&gt;Overall, Flask is a flexible and lightweight web framework that simplifies database integration and offers a range of built-in features that can be customized and extended to create dynamic websites for small businesses during the pandemic.&lt;/p&gt;
 </description>
         <pubDate>Fri, 06 Mar 2020 14:07:19 -0500</pubDate>
         <link>https://mumuxi15.github.io//2020/03/06/Ecommerce/</link>
@@ -264,11 +262,11 @@ points to: yourwebsitename.com
         <title>Anime Recommender</title>
         <description>&lt;p&gt;&lt;img style=&quot;width:100%;display:block;&quot; src=&quot;https://www.befunky.com/images/wp/wp-2015-12-ghibli_parade__by_tenaga-d7gy63i.jpg&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;For those who are big anime fans, our weekend mission is to find a good anime to watch. Often, we call it mission impossible! It is really hard to find a good anime you have not watched. If you search online, websites recommend animes based on popularity, new released, or genres. Such recommendations are boring and often times you have watched already because they are in the same category. What if I want a more personalized suggestion, a suggestion made by analyzing my past anime profile?  AnimeMatcher is an application built for your taste.&lt;/p&gt;
+&lt;p&gt;In recent years, anime has become increasingly popular worldwide, and the number of anime available online  has grown exponentially. With so many options to choose from, it can be challenging to select the perfect one to suit their unique tastes. To address this issue, machine learning techniques has been used to develop personalized anime recommendation systems. By analyzing an individual’s viewing history and preferences, these systems can suggest anime titles that are more likely to appeal to them, based on factors such as genre, themes, and style. In this way, anime fans can discover new shows that are tailored to their specific interests, and spend less time searching. This article explores the use of machine learning in anime recommendation systems and discusses how they can enhance the anime viewing experience.&lt;/p&gt;
 
-&lt;p&gt;To get the data, I scraped 9000 anime descriptions and 5000 user profiles from MyAnimeList, a simple version of imdb for animes. Data was stored as BSON object in the MongoDB and called nime description and user watched history seperately . After combining specials and series, 4588 anime descriptions were obtained in total.&lt;/p&gt;
+&lt;p&gt;The process began by gathering data from MyAnimeList, a website dedicated to anime similar to IMDb. Over 5000 anime titles and user profiles were collected using Scrapy, Beautiful-soup and stored as JSON objects in MongoDB. The collected information includes names, descriptions, directors, vocal casts, theme songs, reviews, and more. Below is an example demonstrating the format of the collected data.&lt;/p&gt;
 
-&lt;p&gt;e.g Anime description&lt;/p&gt;
+&lt;p&gt;e.g Anime data&lt;/p&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'_id':&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'Yaiba'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'themesongs':&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Yuuki ga Areba (勇気があれば)&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;by&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Kabuki&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Rocks&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(カブキロックス)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -278,7 +276,7 @@ points to: yourwebsitename.com
  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'img_url':&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'https://myanimelist.cdn-dena.com/images/anime/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;71953&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.jpg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;e.g. User watched history. Table shows anime ratings of 5 animes given by 5 users. Rating system is from 1-10.&lt;/p&gt;
+&lt;p&gt;e.g. User watched history. Table shows 5 anime rated by 5 different users, with 10 as the most favorable.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -298,77 +296,89 @@ points to: yourwebsitename.com
       &lt;td&gt;8&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;5&lt;/td&gt;
-      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Kimi no na wa&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
-      &lt;td&gt;?&lt;/td&gt;
-      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;No game no life&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
-      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
-      &lt;td&gt;?&lt;/td&gt;
-      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Tokyo Ghoul&lt;/td&gt;
       &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
-      &lt;td&gt;?&lt;/td&gt;
-      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;One Piece&lt;/td&gt;
-      &lt;td&gt;?&lt;/td&gt;
-      &lt;td&gt;?&lt;/td&gt;
-      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;how-does--recommender-system-works-&quot;&gt;How does  recommender system works ?&lt;/h4&gt;
+&lt;h4 id=&quot;how-does-this-recommender-system-works-&quot;&gt;How does this recommender system works ?&lt;/h4&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;Broadly speaking, there are two common algorithms used in recommendation system, collaborative filtering and content-Based Filtering. Collaborative filtering predicts based on past user behavior and the idea is to use opinions from other users with similar taste. Content-Based Filtering, like the name suggested, it is based on a comparison between item descriptions and a user profile.&lt;/p&gt;
+&lt;p&gt;Broadly speaking, there are two common algorithms used in the recommendation systems, collaborative filtering and content-based filtering. Collaborative filtering works by analyzing the viewing histories and ratings of multiple users. The system identifies users who have similar viewing and rating patterns and groups them into clusters. It then makes recommendations based on the preferences of users in the same cluster. For example, if many Marvel fans has enjoyed Tom and Jerry in their past, the system will likely recommend Tom and Jerry to those Marvel fans who has not watched it yet. In other words, it makes predictions based on the response of other users who share similar tastes. Content-based filtering, on the other hand, makes recommendations based on the content of the anime themselves. This approach involves analyzing the attributes, such as genre, theme, plot, character and story background,. The system then recommends anime to users based on their preferences for these attributes. For example, if a user enjoys watching romantic comedies with high school settings, the system will search for anime with similar attributes.&lt;/p&gt;
 
-&lt;p&gt;Let’s consider converting the rating score table above to a matrix called &lt;strong&gt;R&lt;sub&gt;rating&lt;/sub&gt;&lt;/strong&gt; , this matrix holds all ratings from all users for all movies (10000 movies x 5000 users). Each column represents rating scores from a user, and we replace ? with 0.  ? means movies has not watched.&lt;/p&gt;
+&lt;p&gt;Both methods have their pros and cons. A major appeal of collaborative filtering is its flexibility in dealing with various data aspects. Collaborative filtering requires an active user data base with effective rating system and it does not work well with new user profiles or new anime with no ratings or reviews, known as cold start problem. It also relies heavily on the availability of user data, which can lead to sparsity and bias in data. A content based filtering is more friendly to new anime but is more exclusive to users’ own experience, and does not consider social factors such as popularity.&lt;/p&gt;
 
-&lt;div class=&quot;language-mathematica highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;p&gt;A more effective solution would be a hybrid system that combines both methods. While there are many blogs online discussing these two methods, few dive into how they work in practice. To begin with, it is important to understand the concept of the cold start problem and how it arises. We can conceptualize the rating system as a matrix, denoted as  &lt;strong&gt;R&lt;sub&gt;rating&lt;/sub&gt;&lt;/strong&gt;, where the matrix contains the scores of all anime titles rated by all users. In our particular case, the matrix size will be 5000 shows by 5000 users, and each row will represent the ratings given by a user, with a value of 0 indicating that the user has not watched the anime.&lt;/p&gt;
+
+&lt;div class=&quot;language-mathematica highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;When recommending from a large selection (which is in this case), users only have rated a few out of thousands of selections and the result will be a large sparse matrix where elements are mostly zero. Simple recommender will not be good due to sparsity problem. So how do we handle sparse matrices?&lt;/p&gt;
+&lt;p&gt;Let’s take a look at Row 5, which represents a new user. Typically, most users will have only watched a small fraction of the thousands of anime titles available on the platform. Assuming an average user spends about one hour per week on anime and each show has around 12 episodes of 20 minutes each, that would amount to roughly 152 hours per year, or about 20 shows per year. Consequently, the rating matrix will be extremely sparse, with most elements being zero. As the platform expands and more users join, the sparsity problem will continue to grow more severe.&lt;/p&gt;
 
-&lt;p&gt;The answer is a hybrid recommender system. In case of sparsity, a hybrid approach can be more effective by combining collaborative filtering and content-based filtering. Collaborative filtering offers more interesting and diverse recommendations but suffers from cold start problem. By combining the two, It will also help to overcome the cold start problem.&lt;/p&gt;
+&lt;p&gt;Figure 1. Hybrid recommender work flow. A layout structure of my code.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;My recommender = Collaborative filtering + Content based filtering&lt;/strong&gt;&lt;/p&gt;
+&lt;h5&gt;&lt;img src=&quot;https://live.staticflickr.com/65535/49755925832_dd80feb86a_b.jpg&quot; width=&quot;100%&quot; alt=&quot;zBbWj8p&quot; /&gt;&lt;/h5&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://live.staticflickr.com/65535/49755925832_dd80feb86a_b.jpg&quot; width=&quot;100%&quot; alt=&quot;zBbWj8p&quot; /&gt;&lt;strong&gt;Recommender 1: Collaborative Filtering Workflow&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&quot;a-collaborative-filtering-workflow&quot;&gt;A: Collaborative Filtering Workflow&lt;/h5&gt;
 
-&lt;p&gt;A user’s predicted rating matrix for an anime would equal the dot product of the user’s and anime’s features. Matrix Factorization formula:&lt;/p&gt;
+&lt;p&gt;The following image displays a user-item interaction matrix obtained from the ratings of six shows given by six users. Traditional collaborative filtering include measuring user similarity by calculating Pearson correlation or cosine similarity between normalized user vectors. Then combine the weighted average scores given by neighbors to estimate user’s score on the unseen show. A modern solution called matrix factorization, initially introduced by Simon Funk in 2006 in the Netflix Prize competition, has a better approach in handling this user-item matrix.  Instead of directly computing similarity between users, matrix factorization transforms the original matrix into two lower-dimensional matrices - one representing users and the other representing items using technique called singular value decomposition (SVD). These lower-dimensional matrices capture the latent factors or features that determine the user’s preference for a particular item, and can be used to predict missing ratings. Matrix factorization can provide more accurate predictions and is more scalable than traditional collaborative filtering methods.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;R&lt;sub&gt;rating&lt;/sub&gt; = P x Q &lt;sup&gt;T&lt;/sup&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Figure 2. &lt;a href=&quot;https://buomsoo-kim.github.io/data/images/2020-09-25/1.png&quot;&gt;User-item matrix decomposition&lt;/a&gt; &lt;img src=&quot;https://miro.medium.com/v2/resize:fit:1400/0*c4ajANtlyjvhwpgj.png&quot; width=&quot;100%&quot; alt=&quot;zBbWj8p&quot; /&gt;
+\(R=\begin{bmatrix}
+5 &amp;amp; 3 &amp;amp; 0 &amp;amp; 1 \\
+4 &amp;amp; 0 &amp;amp; 0&amp;amp; 1\\
+1 &amp;amp; 1 &amp;amp; 0&amp;amp; 5\\
+0 &amp;amp; 1 &amp;amp; 5&amp;amp; 4\\
+\end{bmatrix}
+\rightarrow\;\;\;\; U \times V\;\;
+\rightarrow \;\;\hat{R}=\begin{bmatrix}
+4.9&amp;amp; 2.5 &amp;amp;2.2 &amp;amp;0.9 \\
+4.2 &amp;amp; 0.5 &amp;amp; 3.4&amp;amp; 1\\
+1.5 &amp;amp; 0.3 &amp;amp; 4.5&amp;amp; 3.9\\
+1.1 &amp;amp; 0.9 &amp;amp; 4.9&amp;amp; 3.2\\
+\end{bmatrix}\)
+Rating matrix R can be expressed as the product of two lower-dimensional matrices: U (user matrix) and V (item matrix). Assume k=3 latent factors, which means we assume that there are three underlying factors that determine how users rate the items (e.g. action vs romance vs adventure, animation quality vs length vs vocal, etc). We initialize U and V randomly, then use gradient descent to optimize the matrices based on the mean squared error loss between the predicted ratings and actual ratings in R. We can then use these matrices to predict the missing values in R, by taking the dot product of the corresponding user and item vectors.&lt;/p&gt;
 
-&lt;p&gt;where P and Q are factor vectors that minimizes the regularized squared error. P represents the strength of the associations between users and the features. Similarly, Q represents the strength of the associations between animes and the features. Therefore, recommendations were created by calculating similarity between P and Q.&lt;/p&gt;
+&lt;h5 id=&quot;b-content-based-filtering-workflow&quot;&gt;B: Content-based Filtering workflow&lt;/h5&gt;
 
-&lt;p&gt;&lt;strong&gt;Recommender 2: Content-based Filtering workflow&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The key step of content-based filtering is to extract topics from text data. First step is to preprocess words with stemming and lemmatizing technique to reduce different forms of a word. For example, beautiful -&amp;gt; beauty, cars -&amp;gt; car. After that, I tried to extract topics using TF-IDF and NMF (Non-negative Matrix Factorization). TF-IDF, term frequency–inverse document frequency, is proportional to the word frequency in the document and is counteracted by the frequency of the word in the corpus. In this case, the most frequent words have less useful meaning since words like ‘&lt;em&gt;people&lt;/em&gt;’, ‘&lt;em&gt;place&lt;/em&gt;‘  occur very frequently across all documents but does not tell any information about the stories. TF-IDF is more or less a measure of how unique a word is in the corpus.&lt;/p&gt;
-
-&lt;p&gt;In addition, I manually adjusted min_df and max_df parameters until succinct topics were found. We will talk more about natural language processing in other posts. In the end, 30 unique anime topics were extracted from anime story descriptions. For example, topic 7 is about solving crime and the most famous anime in that category is Detective Conan.&lt;/p&gt;
+&lt;p&gt;A way to understand content-based filtering is to see it as a classification problem, where the system identifies relevant features in the content that are highly correlated with the user’s preferences. Recommendations are then made by comparing the user’s profile to the content of each item in the collection. The inputs are descriptions of anime stories and the goal is to identify the key topics or themes present in the text by extracting and grouping related keywords. TF-IDF is a common method used for text extraction that calculates the importance of a specific word in a given document. Words that appear frequently across all documents, such as “people” or “place,” are given a lower importance than words that appear infrequently but suggest a specific theme or topic, such as “wolf,” “magic,” or “spirit”.  In this project, 30 different anime topics were identified by extracting the key phrases from all the story descriptions. For instance, Topic 7 is centered on solving crimes, with Detective Conan being the most representative example.&lt;/p&gt;
 
 &lt;p&gt;Examples:&lt;/p&gt;
 
@@ -384,7 +394,7 @@ Topic #8: Demon, king, hero, lord, seal, defeat, mission&lt;br /&gt;
 Topic #9: Love, feel, fall, relationship, confess, heart&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Each anime will then have an associated probability for each topic.  For example&lt;/p&gt;
+&lt;p&gt;Then we can calculate an associated probability for each topic for a given anime.  For example&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -441,22 +451,35 @@ Topic #9: Love, feel, fall, relationship, confess, heart&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;By averaging all user’s past watched anime topics, we can get user’s preference on topics. Then we can calculate cosine similarity between user topic matrix and anime topic matrix to generate recommendations.&lt;/p&gt;
+&lt;p&gt;We can determine a user’s preference for different topics by taking an average of all the anime topics they have watched in the past. To generate recommendations, we then calculate the cosine similarity between the user’s topic matrix and the anime topic matrix. Finally, we combine the results obtained from the two recommenders.&lt;/p&gt;
 
-&lt;p&gt;Then we combine the outcome from two recommender.&lt;/p&gt;
+&lt;h4 id=&quot;future-improvements&quot;&gt;Future Improvements&lt;/h4&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Incorporating contextual information, such as location, country, ethnicity, age to enhance the accuracy of recommendations by tailoring them to the user’s current situation. Use deep learning techniques, such as neural networks, to create more sophisticated models that can capture more complex patterns and relationships between users and items.&lt;/p&gt;
+
+&lt;h4 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h4&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Both methods have their strengths and limitations, and they can be combined to create a hybrid recommender system. The effectiveness of these methods can be further improved with advancements in natural language processing and machine learning techniques. Overall, recommender systems play a critical role in providing personalized experiences to users and are increasingly important in today’s digital landscape.&lt;/p&gt;
+
+&lt;p&gt;Reference&lt;/p&gt;
+
 </description>
-        <pubDate>Fri, 06 Jul 2018 11:39:40 -0400</pubDate>
-        <link>https://mumuxi15.github.io//2018/07/06/anime_recommender/</link>
-        <guid isPermaLink="true">https://mumuxi15.github.io//2018/07/06/anime_recommender/</guid>
+        <pubDate>Sat, 06 Jul 2019 11:39:40 -0400</pubDate>
+        <link>https://mumuxi15.github.io//2019/07/06/anime_recommender/</link>
+        <guid isPermaLink="true">https://mumuxi15.github.io//2019/07/06/anime_recommender/</guid>
         
         
       </item>
     
       <item>
         <title>Amazon Illegal Mining Detection</title>
-        <description>&lt;p&gt;Amazon deforestation has been a serious concern over the past several decades due to its devastating impact on biodiversity, habitat lost and climate change. As the global gold price remained high in the past 10 years, more and more illegal gold mines were found in the Amazon rainforest. To protect beautiful Amazon forest, I combined satellite images with machine learning skills to track deforestation and detect  illegal activities.&lt;/p&gt;
+        <description>&lt;p&gt;Amazon deforestation has been a major concern due to its negative impact on biodiversity, habitat destruction, and climate change. Over the past decade, the increasing global gold price has led to a rise in illegal gold mining activities within the region. To detect land use changes associated with illegal mining, satellite images can be analyzed to locate the illegal mines using machine learning technique.&lt;/p&gt;
 
-&lt;p&gt;The dataset is from  “&lt;a href=&quot;https://www.kaggle.com/c/planet-understanding-the-amazon-from-space&quot;&gt;Planet: Understanding the Amazon from Space&lt;/a&gt;”, where satellite images were chopped to small chip size and randomly named as numbers. The general aim of the project is to generate multiple labels for describing the content of satellite image chips and therefore find those marked as illegal mines. I used AWS GPU instance (Amazon Web Service) as often times complex neural networks requires better hardware than normal pc setups. It’s a default GPU instance being priced at about $0,772 per hour.&lt;/p&gt;
+&lt;p&gt;The dataset used for this project is from “&lt;a href=&quot;https://www.kaggle.com/c/planet-understanding-the-amazon-from-space&quot;&gt;Planet: Understanding the Amazon from Space&lt;/a&gt;”, where satellite images were divided into small chips and randomly assigned numbers as names. The goal of the project is to generate labels that best describe the content of the image and thus identify those that are marked as illegal mines. To accomplish this, I used an AWS GPU instance (Amazon Web Service), as complex neural networks often require better hardware than standard PC setups. The instance used was a default GPU instance priced at approximately $0.772 per hour and used the following:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Image: Deep Learning AMI (Ubuntu) Version 10.0&lt;/li&gt;
@@ -464,7 +487,7 @@ Topic #9: Love, feel, fall, relationship, confess, heart&lt;/p&gt;
   &lt;li&gt;Python Packages: Keras 2.1.6, Tensorflow, Opencv&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Examples of some image chips (the labels were added for readers). Each image chip consists of multiple labels and are separated by commas, such as clear, cloudy, hazy, road, water, cultivation,artisanal mine and blooming. The dataset is quite challenging as labels are highly imbalanced with a few labelling error.  Red, blue, purple indicates &lt;span style=&quot;color:SALMON&quot;&gt; atmospheric conditions&lt;/span&gt;,  &lt;span style=&quot;color:LightSkyBlue&quot;&gt; common land uses&lt;/span&gt; and  &lt;span style=&quot;color:Plum&quot;&gt; rare land uses&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Examples of some image chips (the labels were added for readers). Each image chip consists of multiple labels and is separated by commas, such as clear, cloudy, hazy, road, water, cultivation, artisanal mine, and blooming. The dataset is quite challenging as the labels are highly imbalanced with a few labeling errors. Red, blue, and purple indicates &lt;span style=&quot;color:SALMON&quot;&gt; atmospheric conditions&lt;/span&gt;,  &lt;span style=&quot;color:LightSkyBlue&quot;&gt; common land uses&lt;/span&gt; and  &lt;span style=&quot;color:Plum&quot;&gt; rare land uses&lt;/span&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Note: artisanal mine is another word for illegal mine&lt;/em&gt;&lt;/p&gt;
 
@@ -476,27 +499,24 @@ Topic #9: Love, feel, fall, relationship, confess, heart&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;First I started with a basic convolutional neural network model (CNN). CNN comprises multiple non-linear transformation layers and extracts high-level features from images. It basically trains model to find the best set of weights for maximizing a neural network’s accuracy. Although I had 70,000 clearly labeled training images,  results were not as good as expected. After 10 hours of training, the CNN model failed to predict any rare land use labels, meaning it is underfit. The challenge then posed: how could the model be improved to classify minority class?&lt;/p&gt;
+&lt;p&gt;I started with a basic convolutional neural network (CNN) model as CNN is good at recognizing visual patterns in images. In order to train the CNN, images of forests, roads, water, agricultural fields, and other categories were provided to the model, along with images of illegal mining activities. The CNN then uses a pooling process to extract the most important information from the features it has found and reduce the amount of data it needs to store. Finally, it uses a process called fully connected layers to combine all of the information it has learned about the features to generate labels for the images. Although I had 70,000 clearly labeled training images, the results were not as good as expected. After 10 hours of training, the CNN model failed to predict any rare land use labels, indicating that it was underfit. The challenge then became how to improve the model to classify minority classes.&lt;/p&gt;
 
 &lt;p&gt;Two approaches I made to solve the problem:&lt;/p&gt;
 
 &lt;ul&gt;
-
-&lt;li&gt;Improve input image quality&lt;/li&gt;
-
-&lt;li&gt;More advanced network designs&lt;/li&gt;
-
+    &lt;li&gt;Improve input image quality&lt;/li&gt;
+    &lt;li&gt;More advanced network designs&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h5 id=&quot;improve-image-quality&quot;&gt;&lt;strong&gt;Improve image quality&lt;/strong&gt;&lt;/h5&gt;
 
-&lt;p&gt;Generally speaking, clearer images contains more information yield better results for neural networks. Since many details were covered under the haze, I wrote a dehaze function based on a paper: &lt;a href=&quot;https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf&quot;&gt;“Single Image Haze Removal using Dark Channel Prior”&lt;/a&gt;. In most cases, light is scattered in the atmosphere before it reaches the camera and such scattered light is the main cause of blurry images or hazy images. To simplify, we estimates the scattered light intensity as a constant approximates to the maximum pixel intensity of the darkest RGB channel. Thus images can be restored, by subtracting the haze constant from photo intensity.&lt;/p&gt;
+&lt;p&gt;Generally speaking, clearer images that contain more information yield better results for neural networks. However, an image covered by haze can be challenging for the neural network to extract the necessary information. To address this issue, a dehaze function was developed based on a paper called: &lt;a href=&quot;https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf&quot;&gt;“Single Image Haze Removal using Dark Channel Prior”&lt;/a&gt;.  Haze or blur in images is often caused by the scattering of light in the atmosphere before it reaches the camera. To simplify the process, the scattered light intensity is estimated as a constant, which is approximated to the maximum pixel intensity of the darkest RGB channel. By subtracting this haze constant, the image can be restored and clearer information can be extracted.&lt;/p&gt;
 
 &lt;p&gt;&lt;img style=&quot;width:80%;display:block;&quot; src=&quot;https://www.researchgate.net/profile/Seung_Won_Jung2/publication/291385074/figure/fig14/AS:320880610693124@1453515307125/Formation-of-a-hazy-image.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt; Figure 2. Formation of a hazy image. Camera = Direct attenuation+Airlight&lt;/p&gt;
 
-&lt;p&gt;The resulting effect of using the dehaze function is the removal of haze and an increase in image contrast.  Below are some examples of before and after haze removal. As demonstrated, it works great on both clear and hazy images.&lt;/p&gt;
+&lt;p&gt;Using the dehaze function results in the elimination of haze and an enhancement in image contrast. Here are some examples of images before and after dehazing. The dehazing function is highly effective for both clear and hazy images, as shown in the examples.&lt;/p&gt;
 
 &lt;p&gt;&lt;img style=&quot;width:80%;display:inline-block;&quot; src=&quot;https://lh5.googleusercontent.com/kLzNKsQnGef5RmNFomjswAF6Fx37KHPC4mEP4zfHRfQZAKSUzEL-nEVMziqYLKAMHZ07v8vWbgYhfntR3l7KGLRKXKhAIaFDLrh20OsqbK6L_U7wHFfsR6JPf5-WwMKq4ToEtGNwHrM&quot; /&gt;&lt;/p&gt;
 

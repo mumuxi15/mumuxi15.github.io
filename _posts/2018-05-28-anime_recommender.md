@@ -1,19 +1,19 @@
 ---
 layout: post
 title:  "Anime Recommender"
-date:   2018-07-06 15:39:40
+date:   2019-07-06 15:39:40
 preview: https://c4.wallpaperflare.com/wallpaper/727/45/118/anime-anime-hayao-miyazaki-totoro-wallpaper-preview.jpg
 ---
 
 <img style="width:100%;display:block;" src="https://www.befunky.com/images/wp/wp-2015-12-ghibli_parade__by_tenaga-d7gy63i.jpg" />
 
+In recent years, anime has become increasingly popular worldwide, and the number of anime available online  has grown exponentially. With so many options to choose from, it can be challenging to select the perfect one to suit their unique tastes. To address this issue, machine learning techniques has been used to develop personalized anime recommendation systems. By analyzing an individual's viewing history and preferences, these systems can suggest anime titles that are more likely to appeal to them, based on factors such as genre, themes, and style. In this way, anime fans can discover new shows that are tailored to their specific interests, and spend less time searching. This article explores the use of machine learning in anime recommendation systems and discusses how they can enhance the anime viewing experience.
 
 
-For those who are big anime fans, our weekend mission is to find a good anime to watch. Often, we call it mission impossible! It is really hard to find a good anime you have not watched. If you search online, websites recommend animes based on popularity, new released, or genres. Such recommendations are boring and often times you have watched already because they are in the same category. What if I want a more personalized suggestion, a suggestion made by analyzing my past anime profile?  AnimeMatcher is an application built for your taste.
 
-To get the data, I scraped 9000 anime descriptions and 5000 user profiles from MyAnimeList, a simple version of imdb for animes. Data was stored as BSON object in the MongoDB and called nime description and user watched history seperately . After combining specials and series, 4588 anime descriptions were obtained in total.
+The process began by gathering data from MyAnimeList, a website dedicated to anime similar to IMDb. Over 5000 anime titles and user profiles were collected using Scrapy, Beautiful-soup and stored as JSON objects in MongoDB. The collected information includes names, descriptions, directors, vocal casts, theme songs, reviews, and more. Below is an example demonstrating the format of the collected data. 
 
-e.g Anime description
+e.g Anime data
 
 ```json
 {'_id': 'Yaiba',
@@ -24,51 +24,71 @@ e.g Anime description
  'img_url': 'https://myanimelist.cdn-dena.com/images/anime/5/71953.jpg'}
 ```
 
-e.g. User watched history. Table shows anime ratings of 5 animes given by 5 users. Rating system is from 1-10.
+e.g. User watched history. Table shows 5 anime rated by 5 different users, with 10 as the most favorable. 
 
 | Anime/score     | User1 | User2 | User3 | User4 | User5 |
 | --------------- | ----- | ----- | ----- | ----- | ----- |
-| Fairy Tail      | 10    | 8     | 10    | 5     | ?     |
-| Kimi no na wa   | 10    | 9     | ?     | ?     | 4     |
-| No game no life | 9     | ?     | 9     | ?     | ?     |
-| Tokyo Ghoul     | 7     | ?     | 9     | ?     | ?     |
-| One Piece       | ?     | ?     | ?     | 10    | 9     |
+| Fairy Tail      | 10    | 8     | 10    | 5     |       |
+| Kimi no na wa   | 10    | 9     |       |       | 4     |
+| No game no life | 9     |       | 9     |       |       |
+| Tokyo Ghoul     | 7     |       | 9     |       |       |
+| One Piece       |       |       |       | 10    | 9     |
 
-#### How does  recommender system works ?
+#### How does this recommender system works ?
 
 ------
 
-Broadly speaking, there are two common algorithms used in recommendation system, collaborative filtering and content-Based Filtering. Collaborative filtering predicts based on past user behavior and the idea is to use opinions from other users with similar taste. Content-Based Filtering, like the name suggested, it is based on a comparison between item descriptions and a user profile.
+Broadly speaking, there are two common algorithms used in the recommendation systems, collaborative filtering and content-based filtering. Collaborative filtering works by analyzing the viewing histories and ratings of multiple users. The system identifies users who have similar viewing and rating patterns and groups them into clusters. It then makes recommendations based on the preferences of users in the same cluster. For example, if many Marvel fans has enjoyed Tom and Jerry in their past, the system will likely recommend Tom and Jerry to those Marvel fans who has not watched it yet. In other words, it makes predictions based on the response of other users who share similar tastes. Content-based filtering, on the other hand, makes recommendations based on the content of the anime themselves. This approach involves analyzing the attributes, such as genre, theme, plot, character and story background,. The system then recommends anime to users based on their preferences for these attributes. For example, if a user enjoys watching romantic comedies with high school settings, the system will search for anime with similar attributes. 
 
-Let’s consider converting the rating score table above to a matrix called **R<sub>rating</sub>** , this matrix holds all ratings from all users for all movies (10000 movies x 5000 users). Each column represents rating scores from a user, and we replace ? with 0.  ? means movies has not watched.
+
+
+Both methods have their pros and cons. A major appeal of collaborative filtering is its flexibility in dealing with various data aspects. Collaborative filtering requires an active user data base with effective rating system and it does not work well with new user profiles or new anime with no ratings or reviews, known as cold start problem. It also relies heavily on the availability of user data, which can lead to sparsity and bias in data. A content based filtering is more friendly to new anime but is more exclusive to users' own experience, and does not consider social factors such as popularity.  
+
+
+
+A more effective solution would be a hybrid system that combines both methods. While there are many blogs online discussing these two methods, few dive into how they work in practice. To begin with, it is important to understand the concept of the cold start problem and how it arises. We can conceptualize the rating system as a matrix, denoted as  **R<sub>rating</sub>**, where the matrix contains the scores of all anime titles rated by all users. In our particular case, the matrix size will be 5000 shows by 5000 users, and each row will represent the ratings given by a user, with a value of 0 indicating that the user has not watched the anime.
 
 ```mathematica
-[[ 10  8   10  5   0]
- [ 10  9   0   0   4]
- [ 9   0   9   0   0]
- [ 7   0   9   0   0]
- [ 0   0   0   10  9]]
+[[ 10  0   0   0   8   9   0   9   0   0   10  0   5   0   10   ...]
+ [ 0   0   0   9   0   0   0   8   0   0   4   0   0   0   8    ...]
+ [ 9   0   0   0   0   8   9   0   0   0   0   0   0   0   0    ...]
+ [ 0   3   1   0   0   0   0   0   7   3   9   0   0   0   0    ...]
+ [ 0   0   0   0   0   0   0   0   0   0   0   0   9   0   0    ...]]
 ```
 
-When recommending from a large selection (which is in this case), users only have rated a few out of thousands of selections and the result will be a large sparse matrix where elements are mostly zero. Simple recommender will not be good due to sparsity problem. So how do we handle sparse matrices?
+Let's take a look at Row 5, which represents a new user. Typically, most users will have only watched a small fraction of the thousands of anime titles available on the platform. Assuming an average user spends about one hour per week on anime and each show has around 12 episodes of 20 minutes each, that would amount to roughly 152 hours per year, or about 20 shows per year. Consequently, the rating matrix will be extremely sparse, with most elements being zero. As the platform expands and more users join, the sparsity problem will continue to grow more severe. 
 
-The answer is a hybrid recommender system. In case of sparsity, a hybrid approach can be more effective by combining collaborative filtering and content-based filtering. Collaborative filtering offers more interesting and diverse recommendations but suffers from cold start problem. By combining the two, It will also help to overcome the cold start problem.
+Figure 1. Hybrid recommender work flow. A layout structure of my code. 
 
-**My recommender = Collaborative filtering + Content based filtering**
+##### <img src="https://live.staticflickr.com/65535/49755925832_dd80feb86a_b.jpg" width="100%" alt="zBbWj8p">
 
-<img src="https://live.staticflickr.com/65535/49755925832_dd80feb86a_b.jpg" width="100%" alt="zBbWj8p">**Recommender 1: Collaborative Filtering Workflow**
+##### A: Collaborative Filtering Workflow
 
-A user’s predicted rating matrix for an anime would equal the dot product of the user’s and anime’s features. Matrix Factorization formula:
+The following image displays a user-item interaction matrix obtained from the ratings of six shows given by six users. Traditional collaborative filtering include measuring user similarity by calculating Pearson correlation or cosine similarity between normalized user vectors. Then combine the weighted average scores given by neighbors to estimate user's score on the unseen show. A modern solution called matrix factorization, initially introduced by Simon Funk in 2006 in the Netflix Prize competition, has a better approach in handling this user-item matrix.  Instead of directly computing similarity between users, matrix factorization transforms the original matrix into two lower-dimensional matrices - one representing users and the other representing items using technique called singular value decomposition (SVD). These lower-dimensional matrices capture the latent factors or features that determine the user's preference for a particular item, and can be used to predict missing ratings. Matrix factorization can provide more accurate predictions and is more scalable than traditional collaborative filtering methods. 
 
- **R<sub>rating</sub> = P x Q <sup>T</sup>**
+Figure 2. [User-item matrix decomposition][1] <img src="https://miro.medium.com/v2/resize:fit:1400/0*c4ajANtlyjvhwpgj.png" width="100%" alt="zBbWj8p">
+$$
+R=\begin{bmatrix}
+5 & 3 & 0 & 1 \\
+4 & 0 & 0& 1\\
+1 & 1 & 0& 5\\
+0 & 1 & 5& 4\\
+\end{bmatrix}
+\rightarrow\;\;\;\; U \times V\;\;
+\rightarrow \;\;\hat{R}=\begin{bmatrix}
+4.9& 2.5 &2.2 &0.9 \\
+4.2 & 0.5 & 3.4& 1\\
+1.5 & 0.3 & 4.5& 3.9\\
+1.1 & 0.9 & 4.9& 3.2\\
+\end{bmatrix}
+$$
+Rating matrix R can be expressed as the product of two lower-dimensional matrices: U (user matrix) and V (item matrix). Assume k=3 latent factors, which means we assume that there are three underlying factors that determine how users rate the items (e.g. action vs romance vs adventure, animation quality vs length vs vocal, etc). We initialize U and V randomly, then use gradient descent to optimize the matrices based on the mean squared error loss between the predicted ratings and actual ratings in R. We can then use these matrices to predict the missing values in R, by taking the dot product of the corresponding user and item vectors. 
 
-where P and Q are factor vectors that minimizes the regularized squared error. P represents the strength of the associations between users and the features. Similarly, Q represents the strength of the associations between animes and the features. Therefore, recommendations were created by calculating similarity between P and Q.
 
-**Recommender 2: Content-based Filtering workflow**
 
-The key step of content-based filtering is to extract topics from text data. First step is to preprocess words with stemming and lemmatizing technique to reduce different forms of a word. For example, beautiful -> beauty, cars -> car. After that, I tried to extract topics using TF-IDF and NMF (Non-negative Matrix Factorization). TF-IDF, term frequency–inverse document frequency, is proportional to the word frequency in the document and is counteracted by the frequency of the word in the corpus. In this case, the most frequent words have less useful meaning since words like '*people*', '*place*'  occur very frequently across all documents but does not tell any information about the stories. TF-IDF is more or less a measure of how unique a word is in the corpus.
+##### B: Content-based Filtering workflow
 
-In addition, I manually adjusted min_df and max_df parameters until succinct topics were found. We will talk more about natural language processing in other posts. In the end, 30 unique anime topics were extracted from anime story descriptions. For example, topic 7 is about solving crime and the most famous anime in that category is Detective Conan.
+A way to understand content-based filtering is to see it as a classification problem, where the system identifies relevant features in the content that are highly correlated with the user's preferences. Recommendations are then made by comparing the user's profile to the content of each item in the collection. The inputs are descriptions of anime stories and the goal is to identify the key topics or themes present in the text by extracting and grouping related keywords. TF-IDF is a common method used for text extraction that calculates the importance of a specific word in a given document. Words that appear frequently across all documents, such as "people" or "place," are given a lower importance than words that appear infrequently but suggest a specific theme or topic, such as "wolf," "magic," or "spirit".  In this project, 30 different anime topics were identified by extracting the key phrases from all the story descriptions. For instance, Topic 7 is centered on solving crimes, with Detective Conan being the most representative example.
 
 Examples:
 
@@ -82,7 +102,7 @@ Examples:
 > Topic #8: Demon, king, hero, lord, seal, defeat, mission  
 > Topic #9: Love, feel, fall, relationship, confess, heart
 
-Each anime will then have an associated probability for each topic.  For example
+Then we can calculate an associated probability for each topic for a given anime.  For example
 
 | Anime/Topics    | Topic 2 | Topic 3 | Topic 7 | Topic 8 | Topic 9 |
 | --------------- | ------- | ------- | ------- | ------- | ------- |
@@ -92,6 +112,30 @@ Each anime will then have an associated probability for each topic.  For example
 | Tokyo Ghoul     | 0.02    | 0.56    | 0.76    | 0.12    | 0.00    |
 | One Piece       | 0.05    | 0.00    | 0.00    | 0.45    | 0.00    |
 
-By averaging all user's past watched anime topics, we can get user's preference on topics. Then we can calculate cosine similarity between user topic matrix and anime topic matrix to generate recommendations.
+We can determine a user's preference for different topics by taking an average of all the anime topics they have watched in the past. To generate recommendations, we then calculate the cosine similarity between the user's topic matrix and the anime topic matrix. Finally, we combine the results obtained from the two recommenders.
 
-Then we combine the outcome from two recommender.
+
+
+#### Future Improvements
+
+------
+
+Incorporating contextual information, such as location, country, ethnicity, age to enhance the accuracy of recommendations by tailoring them to the user's current situation. Use deep learning techniques, such as neural networks, to create more sophisticated models that can capture more complex patterns and relationships between users and items.
+
+
+
+#### Conclusion
+
+------
+
+Both methods have their strengths and limitations, and they can be combined to create a hybrid recommender system. The effectiveness of these methods can be further improved with advancements in natural language processing and machine learning techniques. Overall, recommender systems play a critical role in providing personalized experiences to users and are increasingly important in today's digital landscape.
+
+
+
+Reference
+
+[1]: https://buomsoo-kim.github.io/data/images/2020-09-25/1.png
+[2]: https://datajobs.com/data-science-repo/Recommender-Systems-Netflix.pdf	"MATRIX FACTORIZATION TECHNIQUES FOR RECOMMENDER SYSTEMS by Yehuda Koren and Chris Volinsky, published in 2009"
+
+
+

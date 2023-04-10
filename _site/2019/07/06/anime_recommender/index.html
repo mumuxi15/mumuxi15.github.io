@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Anime Recommender</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hi, my name is Penny Pan, a New York based data scientist with passion for machine learning
+">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163186088-1"></script>
+    <link rel="canonical" href="https://mumuxi15.github.io//2019/07/06/anime_recommender/">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+
+  <body>
+
+    <main class="wrapper">
+
+      <header class="site-header">
+  <a class="site-title" href="/">
+      <img src="https://i.pinimg.com/originals/7f/71/78/7f71787298b75d309eed861393d10932.png" style="width: 600px; margin: -20px 0 -50px 0;"></a>
+
+  <nav class="navbar">
+    <ul>
+      <li class="nav-item"><a href="/">home</a></li>
+      <li class="nav-item"><a href="/about/">about</a></li>
+      <li class="nav-item"><a href="/demo/">demo</a></li>
+    </ul>
+  </nav>
+
+</header>
+
+
+      <div class="container">
+        <div class="post">
+  <div class="post-nav">
+    
+      <a class="nav-item" href="/2020/03/06/Ecommerce/">&laquo; Prev</a>
+    
+    
+      <a class="nav-item" href="/2018/06/18/rainforest/">Next &raquo;</a>
+    
+  </div>
+
+  <header class="post-header">
+    <h1 class="post-title">Anime Recommender</h1>
+  </header>
+
+  <article class="post-content">
+    <p><img style="width:100%;display:block;" src="https://www.befunky.com/images/wp/wp-2015-12-ghibli_parade__by_tenaga-d7gy63i.jpg" /></p>
+
+<p>In recent years, anime has become increasingly popular worldwide, and the number of anime available online  has grown exponentially. With so many options to choose from, it can be challenging to select the perfect one to suit their unique tastes. To address this issue, machine learning techniques has been used to develop personalized anime recommendation systems. By analyzing an individual’s viewing history and preferences, these systems can suggest anime titles that are more likely to appeal to them, based on factors such as genre, themes, and style. In this way, anime fans can discover new shows that are tailored to their specific interests, and spend less time searching. This article explores the use of machine learning in anime recommendation systems and discusses how they can enhance the anime viewing experience.</p>
+
+<p>The process began by gathering data from MyAnimeList, a website dedicated to anime similar to IMDb. Over 5000 anime titles and user profiles were collected using Scrapy, Beautiful-soup and stored as JSON objects in MongoDB. The collected information includes names, descriptions, directors, vocal casts, theme songs, reviews, and more. Below is an example demonstrating the format of the collected data.</p>
+
+<p>e.g Anime data</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="err">'_id':</span><span class="w"> </span><span class="err">'Yaiba'</span><span class="p">,</span><span class="w">
+ </span><span class="err">'themesongs':</span><span class="w"> </span><span class="p">[[</span><span class="err">'</span><span class="s2">"Yuuki ga Areba (勇気があれば)"</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">Kabuki</span><span class="w"> </span><span class="err">Rocks</span><span class="w"> </span><span class="err">(カブキロックス)'</span><span class="p">,</span><span class="w">
+   </span><span class="err">'</span><span class="s2">"Shinchigakunaki Tatakai! (神智学無き戦い!)"</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">Kabuki</span><span class="w"> </span><span class="err">Rocks</span><span class="w"> </span><span class="err">(カブキロックス)'</span><span class="p">]],</span><span class="w">
+ </span><span class="err">'description':</span><span class="w"> </span><span class="p">[</span><span class="s2">"Kurogane Yaiba is a boy who doesn't want to become what any regular kid would: A samurai. That's why he undergoes a hard training with his father, knowing only the forest as his world. Then, one day, he is sent to Japan, where he has to deal with a whole new civilized reality, meeting the Mine family, the evil Onimaru and even the legendary Musashi, having lots of dangerous adventures, becoming stronger everyday.(Source: ANN, edited) "</span><span class="p">],</span><span class="w">
+ </span><span class="err">'reviews':</span><span class="w"> </span><span class="p">[</span><span class="err">'which</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">really</span><span class="w"> </span><span class="err">stupid</span><span class="w"> </span><span class="err">but</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">succeds</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">tickling</span><span class="w"> </span><span class="err">us!!the</span><span class="w"> </span><span class="err">storycharacter</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">enjoyment</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">quite</span><span class="w"> </span><span class="err">okwell</span><span class="w"> </span><span class="err">i</span><span class="w"> </span><span class="err">personally</span><span class="w"> </span><span class="err">disliked</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">op</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">ed</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">art</span><span class="w"> </span><span class="err">also</span><span class="w"> </span><span class="err">seems</span><span class="w"> </span><span class="err">quite</span><span class="w"> </span><span class="err">ok</span><span class="w"> </span><span class="p">{</span><span class="err">not</span><span class="w"> </span><span class="err">many</span><span class="w"> </span><span class="err">cute</span><span class="w"> </span><span class="err">girls</span><span class="w"> </span><span class="err">:(</span><span class="w"> </span><span class="p">}</span><span class="err">its</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">lot</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">fun</span><span class="w"> </span><span class="err">overall</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">series</span><span class="w"> </span><span class="err">i</span><span class="w"> </span><span class="err">ll</span><span class="w"> </span><span class="err">definately</span><span class="w"> </span><span class="err">say</span><span class="w"> </span><span class="err">give</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">shot</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="mi">1</span><span class="err">st</span><span class="w"> </span><span class="err">epi!!!ull</span><span class="w"> </span><span class="err">automatically</span><span class="w"> </span><span class="err">get</span><span class="w"> </span><span class="err">hooked</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">series</span><span class="w"> </span><span class="err">atleast</span><span class="w"> </span><span class="err">i</span><span class="w"> </span><span class="err">did</span><span class="w"> </span><span class="err">!well</span><span class="w"> </span><span class="err">i</span><span class="w"> </span><span class="err">hope</span><span class="w"> </span><span class="err">u</span><span class="w"> </span><span class="err">liked</span><span class="w"> </span><span class="err">my</span><span class="w"> </span><span class="err">review</span><span class="w"> </span><span class="err">plz</span><span class="w"> </span><span class="err">ratemy</span><span class="w"> </span><span class="mi">1</span><span class="err">st</span><span class="w"> </span><span class="err">reviewread</span><span class="w"> </span><span class="err">more'</span><span class="p">],</span><span class="w">
+ </span><span class="err">'img_url':</span><span class="w"> </span><span class="err">'https://myanimelist.cdn-dena.com/images/anime/</span><span class="mi">5</span><span class="err">/</span><span class="mi">71953</span><span class="err">.jpg'</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>e.g. User watched history. Table shows 5 anime rated by 5 different users, with 10 as the most favorable.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Anime/score</th>
+      <th>User1</th>
+      <th>User2</th>
+      <th>User3</th>
+      <th>User4</th>
+      <th>User5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fairy Tail</td>
+      <td>10</td>
+      <td>8</td>
+      <td>10</td>
+      <td>5</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Kimi no na wa</td>
+      <td>10</td>
+      <td>9</td>
+      <td> </td>
+      <td> </td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>No game no life</td>
+      <td>9</td>
+      <td> </td>
+      <td>9</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Tokyo Ghoul</td>
+      <td>7</td>
+      <td> </td>
+      <td>9</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>One Piece</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>10</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="how-does-this-recommender-system-works-">How does this recommender system works ?</h4>
+
+<hr />
+
+<p>Broadly speaking, there are two common algorithms used in the recommendation systems, collaborative filtering and content-based filtering. Collaborative filtering works by analyzing the viewing histories and ratings of multiple users. The system identifies users who have similar viewing and rating patterns and groups them into clusters. It then makes recommendations based on the preferences of users in the same cluster. For example, if many Marvel fans has enjoyed Tom and Jerry in their past, the system will likely recommend Tom and Jerry to those Marvel fans who has not watched it yet. In other words, it makes predictions based on the response of other users who share similar tastes. Content-based filtering, on the other hand, makes recommendations based on the content of the anime themselves. This approach involves analyzing the attributes, such as genre, theme, plot, character and story background,. The system then recommends anime to users based on their preferences for these attributes. For example, if a user enjoys watching romantic comedies with high school settings, the system will search for anime with similar attributes.</p>
+
+<p>Both methods have their pros and cons. A major appeal of collaborative filtering is its flexibility in dealing with various data aspects. Collaborative filtering requires an active user data base with effective rating system and it does not work well with new user profiles or new anime with no ratings or reviews, known as cold start problem. It also relies heavily on the availability of user data, which can lead to sparsity and bias in data. A content based filtering is more friendly to new anime but is more exclusive to users’ own experience, and does not consider social factors such as popularity.</p>
+
+<p>A more effective solution would be a hybrid system that combines both methods. While there are many blogs online discussing these two methods, few dive into how they work in practice. To begin with, it is important to understand the concept of the cold start problem and how it arises. We can conceptualize the rating system as a matrix, denoted as  <strong>R<sub>rating</sub></strong>, where the matrix contains the scores of all anime titles rated by all users. In our particular case, the matrix size will be 5000 shows by 5000 users, and each row will represent the ratings given by a user, with a value of 0 indicating that the user has not watched the anime.</p>
+
+<div class="language-mathematica highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[[</span><span class="w"> </span><span class="m">10</span><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">8</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">10</span><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">5</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">10</span><span class="w">   </span><span class="o">...</span><span class="p">]</span><span class="w">
+ </span><span class="p">[</span><span class="w"> </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">8</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">4</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">8</span><span class="w">    </span><span class="o">...</span><span class="p">]</span><span class="w">
+ </span><span class="p">[</span><span class="w"> </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">8</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">    </span><span class="o">...</span><span class="p">]</span><span class="w">
+ </span><span class="p">[</span><span class="w"> </span><span class="m">0</span><span class="w">   </span><span class="m">3</span><span class="w">   </span><span class="m">1</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">7</span><span class="w">   </span><span class="m">3</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">    </span><span class="o">...</span><span class="p">]</span><span class="w">
+ </span><span class="p">[</span><span class="w"> </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">    </span><span class="o">...</span><span class="p">]]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Let’s take a look at Row 5, which represents a new user. Typically, most users will have only watched a small fraction of the thousands of anime titles available on the platform. Assuming an average user spends about one hour per week on anime and each show has around 12 episodes of 20 minutes each, that would amount to roughly 152 hours per year, or about 20 shows per year. Consequently, the rating matrix will be extremely sparse, with most elements being zero. As the platform expands and more users join, the sparsity problem will continue to grow more severe.</p>
+
+<p>Figure 1. Hybrid recommender work flow. A layout structure of my code.</p>
+
+<h5><img src="https://live.staticflickr.com/65535/49755925832_dd80feb86a_b.jpg" width="100%" alt="zBbWj8p" /></h5>
+
+<h5 id="a-collaborative-filtering-workflow">A: Collaborative Filtering Workflow</h5>
+
+<p>The following image displays a user-item interaction matrix obtained from the ratings of six shows given by six users. Traditional collaborative filtering include measuring user similarity by calculating Pearson correlation or cosine similarity between normalized user vectors. Then combine the weighted average scores given by neighbors to estimate user’s score on the unseen show. A modern solution called matrix factorization, initially introduced by Simon Funk in 2006 in the Netflix Prize competition, has a better approach in handling this user-item matrix.  Instead of directly computing similarity between users, matrix factorization transforms the original matrix into two lower-dimensional matrices - one representing users and the other representing items using technique called singular value decomposition (SVD). These lower-dimensional matrices capture the latent factors or features that determine the user’s preference for a particular item, and can be used to predict missing ratings. Matrix factorization can provide more accurate predictions and is more scalable than traditional collaborative filtering methods.</p>
+
+<p>Figure 2. <a href="https://buomsoo-kim.github.io/data/images/2020-09-25/1.png">User-item matrix decomposition</a> <img src="https://miro.medium.com/v2/resize:fit:1400/0*c4ajANtlyjvhwpgj.png" width="100%" alt="zBbWj8p" />
+\(R=\begin{bmatrix}
+5 &amp; 3 &amp; 0 &amp; 1 \\
+4 &amp; 0 &amp; 0&amp; 1\\
+1 &amp; 1 &amp; 0&amp; 5\\
+0 &amp; 1 &amp; 5&amp; 4\\
+\end{bmatrix}
+\rightarrow\;\;\;\; U \times V\;\;
+\rightarrow \;\;\hat{R}=\begin{bmatrix}
+4.9&amp; 2.5 &amp;2.2 &amp;0.9 \\
+4.2 &amp; 0.5 &amp; 3.4&amp; 1\\
+1.5 &amp; 0.3 &amp; 4.5&amp; 3.9\\
+1.1 &amp; 0.9 &amp; 4.9&amp; 3.2\\
+\end{bmatrix}\)
+Rating matrix R can be expressed as the product of two lower-dimensional matrices: U (user matrix) and V (item matrix). Assume k=3 latent factors, which means we assume that there are three underlying factors that determine how users rate the items (e.g. action vs romance vs adventure, animation quality vs length vs vocal, etc). We initialize U and V randomly, then use gradient descent to optimize the matrices based on the mean squared error loss between the predicted ratings and actual ratings in R. We can then use these matrices to predict the missing values in R, by taking the dot product of the corresponding user and item vectors.</p>
+
+<h5 id="b-content-based-filtering-workflow">B: Content-based Filtering workflow</h5>
+
+<p>A way to understand content-based filtering is to see it as a classification problem, where the system identifies relevant features in the content that are highly correlated with the user’s preferences. Recommendations are then made by comparing the user’s profile to the content of each item in the collection. The inputs are descriptions of anime stories and the goal is to identify the key topics or themes present in the text by extracting and grouping related keywords. TF-IDF is a common method used for text extraction that calculates the importance of a specific word in a given document. Words that appear frequently across all documents, such as “people” or “place,” are given a lower importance than words that appear infrequently but suggest a specific theme or topic, such as “wolf,” “magic,” or “spirit”.  In this project, 30 different anime topics were identified by extracting the key phrases from all the story descriptions. For instance, Topic 7 is centered on solving crimes, with Detective Conan being the most representative example.</p>
+
+<p>Examples:</p>
+
+<blockquote>
+  <p>Topic #1: Special, release, air, recap, feature<br />
+Topic #2: Earth, Planet, space, alien, ship<br />
+Topic #3: High, school, junior, student, classmate<br />
+Topic #4: Team, soccer, player, match, baseball<br />
+Topic #5: Human, race, mankind, god, survive, extinct  <br />
+Topic #6: Magic, witch, magician, kingdom, wish<br />
+Topic #7: Mystery, solve, appear, past, shadow, kill<br />
+Topic #8: Demon, king, hero, lord, seal, defeat, mission<br />
+Topic #9: Love, feel, fall, relationship, confess, heart</p>
+</blockquote>
+
+<p>Then we can calculate an associated probability for each topic for a given anime.  For example</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Anime/Topics</th>
+      <th>Topic 2</th>
+      <th>Topic 3</th>
+      <th>Topic 7</th>
+      <th>Topic 8</th>
+      <th>Topic 9</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fairy Tail</td>
+      <td>0.01</td>
+      <td>0.12</td>
+      <td>0.00</td>
+      <td>0.67</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Kimi no na wa</td>
+      <td>0.11</td>
+      <td>0.87</td>
+      <td>0.02</td>
+      <td>0.01</td>
+      <td>0.54</td>
+    </tr>
+    <tr>
+      <td>No game no life</td>
+      <td>0.35</td>
+      <td>0.23</td>
+      <td>0.34</td>
+      <td>0.01</td>
+      <td>0.35</td>
+    </tr>
+    <tr>
+      <td>Tokyo Ghoul</td>
+      <td>0.02</td>
+      <td>0.56</td>
+      <td>0.76</td>
+      <td>0.12</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>One Piece</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.45</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We can determine a user’s preference for different topics by taking an average of all the anime topics they have watched in the past. To generate recommendations, we then calculate the cosine similarity between the user’s topic matrix and the anime topic matrix. Finally, we combine the results obtained from the two recommenders.</p>
+
+<h4 id="future-improvements">Future Improvements</h4>
+
+<hr />
+
+<p>Incorporating contextual information, such as location, country, ethnicity, age to enhance the accuracy of recommendations by tailoring them to the user’s current situation. Use deep learning techniques, such as neural networks, to create more sophisticated models that can capture more complex patterns and relationships between users and items.</p>
+
+<h4 id="conclusion">Conclusion</h4>
+
+<hr />
+
+<p>Both methods have their strengths and limitations, and they can be combined to create a hybrid recommender system. The effectiveness of these methods can be further improved with advancements in natural language processing and machine learning techniques. Overall, recommender systems play a critical role in providing personalized experiences to users and are increasingly important in today’s digital landscape.</p>
+
+<p>Reference</p>
+
+
+  </article>
+
+</div>
+
+
+        <footer class="site-footer">
+  <h2 class="footer-heading">Penny's blog</h2>
+
+  <div class="row">
+    <div class="column">
+      <ul class="contact-list">
+        <li>Penny's blog</li>
+        <li><a href="mailto:mumuxi15@gmail.com">mumuxi15@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="column">
+      <ul class="social-media-list">
+        
+        <li>
+          <a href="https://github.com/mumuxi15">
+            <span class="icon  icon--github">
+              <svg viewBox="0 0 16 16">
+                <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+              </svg>
+            </span>
+
+            <span class="username">mumuxi15</span>
+          </a>
+        </li>
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="column">
+      <p>Hi, my name is Penny Pan, a New York based data scientist with passion for machine learning
+</p>
+    </div>
+  </div>
+
+</footer>
+
+      </div>
+
+    </main>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-163186088-1');
+    </script>
+  </body>
+
+</html>

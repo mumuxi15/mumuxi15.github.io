@@ -51,27 +51,27 @@
   <article class="post-content">
     <p>Subtitle: COVID19 Spread Simulation using Python</p>
 
-<p>Updated on 3.31</p>
+<p><img style="width:100%;display:block;" src="https://media.licdn.com/dms/image/C4D12AQF3kTLbkr-fHw/article-cover_image-shrink_423_752/0/1585840765955?e=1686787200&amp;v=beta&amp;t=UradA-QLXKKf-lpf-v0uio3-UukwghsXG25uAJyeg8w" /></p>
 
 <p>In New York, almost a month has passed since the start of the quarantine. In this time huge changes have occurred since I first started this blog in early February. My initial goal was to create a source that would collect total number of cases worldwide since the most updated information was not easily available to the public. However, the current situation has now changed, and there are more reliable resources that are documenting the spread of COVID-19 and disseminating the research in clear graphs. However, if you like to try my code, I have presensted it below (output is in json format).</p>
 
-<p><img src="https://media-exp3.licdn.com/dms/image/C4D12AQHYhvRt4Uvx4w/article-inline_image-shrink_1500_2232/0/1585841101969?e=1630540800&amp;v=beta&amp;t=UggMGdcoq_-dOXt1pVxv2JcH5cAk0XUvyg52zcmiIm4" /></p>
+<p><img src="https://media.licdn.com/dms/image/C4D12AQHYhvRt4Uvx4w/article-inline_image-shrink_1500_2232/0/1585841101969?e=1686182400&amp;v=beta&amp;t=ZbDvR8lghy1WX-asXAbBmCO7YPrBzVquecINlbjaB7s" /></p>
 
-<p><img src="https://media-exp3.licdn.com/dms/image/C4D12AQFkpvj32zpmlg/article-inline_image-shrink_1000_1488/0/1585841113925?e=1630540800&amp;v=beta&amp;t=jqc2m_r6w8TbHZ52kQndL7Irbmu-cO3DxfF_nmm1h_c" /></p>
+<p><img src="https://media.licdn.com/dms/image/C4D12AQFkpvj32zpmlg/article-inline_image-shrink_1000_1488/0/1585841113925?e=1686182400&amp;v=beta&amp;t=7G-Rh-lIOyXqSLiGnuz4jDi9VXNflaIzard356vus8Q" /></p>
 
-<p>While coronavirus in China seems to be under control, here in US, the number of infected individuals are only beginning to drastically rise. As of March 31st, the number of confirmed cases in US on March 31st is about 188,530 and some officials predict up to <a href="https://www.theguardian.com/world/2020/mar/31/donald-trump-coronavirus-briefing-painful-us-deaths">240,000 deaths</a></p>
+<p>Although the situation with the coronavirus seems to be under control in China, the number of individuals infected in the US is rapidly increasing. As of March 31st 2020, the confirmed cases in the US reached around 188,530 and some officials are predicting that the number of deaths may reach up to 240,000.</p>
 
-<p><img src="https://media-exp3.licdn.com/dms/image/C4E12AQFMq3auItOSeA/article-inline_image-shrink_1000_1488/0/1585839808611?e=1630540800&amp;v=beta&amp;t=G1w_5Ohz6xDeHEYuObUIyEQbRMTnMyY9j0MKJNrDars" width="800" alt="corona_tot" /></p>
+<p><img src="https://media.licdn.com/dms/image/C4E12AQFMq3auItOSeA/article-inline_image-shrink_1000_1488/0/1585839808611?e=1686182400&amp;v=beta&amp;t=V6fHTzkIhoSSxyiZrPQyNdZm709QP9TE-p50OLIF9xo" width="800" alt="corona_tot" /></p>
 
 <p>Figure 1 (a). Total confirmed cases in US, China, Italy                                             (b). Log scale</p>
 
-<p>Figure 1 shows three countries at three phases of coronavirus. In China, the number of cases reached an almost stationary state at day 30 and since then has been under control. In Italy, the rate has slowed down and potentially may start to follow the trends of China (green line). In US, we are still at the growing stage, however, further calculations indicate that there is a slow-down sign at the tip of the blue line.Indicating, that we have a little hope. The log scale (Figure 1b) graph, shows that the US and China has a higher infection rate, which is indicative of high population density. The slope in figure 1b is obtained by breaking the data into smaller sections, and taking the maximum slope. Slope is calculated every 14 days using linear regression.</p>
+<p>In Figure 1, we can observe the progression of the coronavirus outbreak in three countries, each in a different phase. China has managed to control the spread of the virus, with the number of cases stabilizing after day 30. Italy’s rate of infection has slowed down and could potentially follow China’s trend (as indicated by the green line). In the US, we are still in the midst of a growing phase, but there is a glimmer of hope as further calculations suggest a possible slowdown (as indicated by the tip of the blue line). Figure 1b, which uses a log scale, demonstrates that the US and China have a higher infection rate due to their high population density. The slope of the graph in Figure 1b is calculated every 14 days using linear regression, and is obtained by breaking the data into smaller sections and taking the maximum slope.</p>
 
 <h4 id="analysis"><strong>Analysis</strong></h4>
 
 <p>Figure 1(a) shows that US data (blue line) probably follows an exponential trend ain the early stage, as also shown in the log Figure 1(b). Whereas, the green curve (China) looks more like a sigmoid function. So let’s first try to predict the infection population <strong>I(t)</strong> with a simple exponential model, defining <strong>I</strong> as infection population with an assumption that each patient infects <strong>A</strong> number of new people every day. This can be tested by by plotting log(y) against t - Figure 1(b):</p>
 
-\[\begin{equation} \label{0}
+\[\begin{equation}
 I = I_{0}\times A^{t}
 \end{equation}\]
 
@@ -79,7 +79,7 @@ I = I_{0}\times A^{t}
 
 <p>This model only fits the blue line, and does not fit the trend of the yellow or green line at later stage. After doing some research on spread of infectious diseases, it seems an SIR-model might be a better model. The model consists of three parts: infected population, susceptible population and recovered/immune population. As I am trying to model the total of confirmed cases, not the active cases, for simplicity I will I can drop the recovery aspect of the model. This greatly simplifies the math, allowing to simply solve an ordinary differential equation. To further simplify this, let’s define population as 1 and <strong>I(t)</strong> is the percentage of population that is infected and <strong>S(t)</strong> is the proportion of susceptible population. Then we get:</p>
 
-\[\begin{equation} \label{1}
+\[\begin{equation} 
 S(t)+I(t) = 1
 \end{equation}\]
 
@@ -91,19 +91,13 @@ S(t)+I(t) = 1
 
 <p>If we divide both side by \(\delta t\), we can get:</p>
 
-\[\begin{equation} \label{2}
-\frac{dI}{dt} = - \frac{dS}{dt} = \beta S I
-\end{equation}\]
+\[\frac{dI}{dt} = - \frac{dS}{dt} = \beta S I\]
 
 <p>This is equation is an ODE function, and we can solve it using scipy package.</p>
 
-<p><img src="https://media-exp3.licdn.com/dms/image/C4D12AQE5v1YG8wRCkQ/article-inline_image-shrink_1500_2232/0/1585841024718?e=1630540800&amp;v=beta&amp;t=jx74V9SjWhnnlMrzJreVfGHOqMQj6SlANK4kiovSZEc" /></p>
-
-<p><img src="https://media-exp3.licdn.com/dms/image/C4D12AQGT5RzGn69ykA/article-inline_image-shrink_1000_1488/0/1585840485624?e=1630540800&amp;v=beta&amp;t=k-nPA8McOrLxpBN14aYGozey7krwdnp-0YjbEczqftk" width="600" alt="testing" /></p>
-
-<p>In fact, turns out that this function \(\begin{equation} \label{}
+<p>In fact, turns out that this function \(\begin{equation}
 \frac{dI}{dt} = \beta I \cdot (1-I)
-\end{equation}\)  is the derivate of sigmoid function \(\begin{equation} \label{}
+\end{equation}\)  is the derivate of sigmoid function \(\begin{equation}
 I = \frac{1}{1+e^{-t}}
 \end{equation}\)</p>
 

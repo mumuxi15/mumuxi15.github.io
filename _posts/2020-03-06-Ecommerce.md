@@ -6,34 +6,39 @@ preview: https://i.pinimg.com/originals/73/23/1c/73231c1309d3b2374083bf312fde1d9
 ---
 Intro: E-commerce Web
 
-
-
-I am writing this blog during the coronavirus pandemic that is affecting all our lives. Recent news puts New York at more than 10,000 confirmed cases and it is becoming increasingly harder to get fresh food. Since everyone is supposed to be effectively quarantined except those in essential businesses, there are a lot of people relying on food delivery businesses. A friend of mine who owns a small meal preparation business has seen increasing demandfor his meals and I am helping him build an e-commerice website for his business. Previously he was using wix.com, but as the business expands and more functionality is required, the need to migrate to a dynamic website and to maintain his own databases became increasingly evident. Although there are thousands of blogs or tutorial about building your 1st Python web app, most of them ends on http://127.0.0.1:8080 . This tutorial will guide you till your website appears on google search. I will only briefly mention the major steps, potential challenge and tips, but I put down the links I found useful while learning. 
-
-
-
-I used Flask for this project, another good choice would be Django. There are many arguments on choosing one over the other, I personally do not have a strong preference as this is not a large website application. Your should choose the framework based on your conditions. Flask is chosen here because of its it is super light and easy to start. The downside is that sometimes some supporting packages may be out of maintenance or out-of-date such as Flask-OAuth.
+The ongoing COVID-19 pandemic has dramatically changed the way people shop and do business. With more and more consumers preferring to shop online rather than in-person, small business owners have an opportunity to expand their customer base and increase their revenue by setting up a simple e-commerce website with a database. A dynamic website can help small businesses create an engaging and interactive online presence that attracts new customers and allows existing customers to easily place orders and interact with the business. Setting up a website involves several key steps, including choosing a web hosting provider, selecting a database management system, designing the website's front-end, creating the back-end infrastructure, and integrating the database with the website. In this introduction, we will guide you through the basic steps involved in setting up a dynamic website for a small business with a database, highlighting important considerations and best practices along the way. With the right tools and knowledge, small business owners can create a successful online presence that helps them navigate the challenges of the pandemic and thrive in a digital world.
 
 
 
-#### 1. Set up virtual environment
+Many prefer to use Flask due to its ease of use and lightweight nature. Flask makes it easy to start building a web application without having to deal with the complexities of a full-stack web framework. As a lightweight micro-framework, it provides the flexibility to build a custom web application tailored to the specific needs of the project. 
 
-Always start a project with virtualenv. Useful packages include Flask-login, Flask-admin, Flask-Security, Flask-dance (for third party login such as google), Flask_sqlalchemy and etc.
+
+
+#### 1. Plan and Design 
+
+To start a project, it is always important to plan out the features and functionality you want to include, including the color theme, payment gateway integration and etc. Popular payment gateways include PayPal, Stripe, Braintree and Square, all those have API access and allow backtesting. 
+
+
+
+#### 2. Set up virtual environment
+
+Starting your project with a virtual environment tool virtualenv, helps to keep project dependencies organized and prevents conflicts between different projects. Once you have created a virtual environment, you can activate it by running the command. Useful packages include Flask-login, Flask-admin, Flask-Security, Flask-dance (for third party login such as google), Flask_sqlalchemy and etc.
 
 ```bash
 virtualenv -p python3 <desired-path>
+source <venv>/bin/activate
 ```
 
 
 
-#### 2. Draw a database schema
+#### 3. Build Backend - Database
 
-Ask yourself a few questions before you start building the website:
+Ask yourself a few questions before you start building the backend:
 
 1. What information I want to show to the client ? 
 2. What information I want to collect from the website ?
 
-It might be useful to draw a quick databse schema and figure below is an example of the standard schema and the grey lines shows how the tables are linked. 
+Drawing a quick database schema can also be very helpful in visualizing the data model and identifying the relationships between different entities. Picture below is an example of the standard schema and the grey lines shows how the tables are linked. The "order_detail" table share a common key "order_id" with the "orders" table. This would allow you to link specific items in an order to their corresponding product records, so you can accurately track inventory levels and update product availability as items are sold.
 
 
 
@@ -41,9 +46,9 @@ It might be useful to draw a quick databse schema and figure below is an example
 
 
 
-#### 3. Build a draft version
+#### 4. Build Frontend 
 
-Let's begin by implementing on an example provided by the Flask development team. The traditional standard layout of a web app contains a run.py where app is defined, a template folder including all the html files and a static folder storing personalized styles and javascript functions. Instead of declaring everything as global variables, the modern approach is to build a function that accepts a configuration object as an argument and returns a Flask application instance. Such way allows you to modify the function in the testing environment to create its own application for testing.  
+You can quickly get the website to running by using Jinja to dynamically generate HTML pages based on data from your database and user input. This allows you to create customized web pages that can display product listings, shopping carts, checkout forms, and other essential features of an e-commerce website. A basic set up looks like the example below. 
 
 Project Tree Example using Blueprints
 
@@ -121,29 +126,39 @@ Reference:
 
 
 
-#### 4. Add e-commerce features
+#### 5. Add e-commerce features
 
-Step 3. Add e-commerical features such as product display and shopping cart functions.
+As the website grows, you can add additional features and functionalities to enhance the user experience. For instance, payment gateways, search functionality, product reviews, wish lists, and social media integration to increase user engagement and boost sales. With Flask's modular design and scalability, you can add these features to the website as needed, making it a versatile and flexible tool for building an e-commerce website.
 
-This section requires basic javascript programming skills and some knowledge of client-side and server-side. The major challenge of building a dynamic website over static is to pass data between database and website, akin to building a bridge across the sea to connect two cities. I used HTML5 webstorage to store shopping cart status in conjunction with ajax to transfer data to the backend and then to be stored in the database. If you not familiar with jsp, ajax, I recommend you going through some youtube tutorials.
+
+
+In order to make a dynamic website, you need to have a basic understanding of JavaScript programming and be familiar with both client-side and server-side development. The main challenge of building a dynamic website is connecting the database to the website and passing data between them. It's like building a bridge between two cities over the sea. One way to do this is by using HTML5 web storage to store shopping cart information and using AJAX to transfer data from the front-end to the back-end, where it can be stored in the database. If you're not familiar with these technologies, I recommend watching some YouTube tutorials to learn more.
 
 [JavaScript Shopping Cart Tutorial](https://www.youtube.com/watch?v=1Q74A6ZQxdY&list=PLoN_ejT35AEhzNoPStBzAkpqAu3YQwPj7)
 
 
 
-#### 5. Testing
+#### 6. Testing
 
-Here are some links to good articles on web testing.
+This involves running different types of tests such as unit tests, integration tests, and end-to-end tests to verify the functionality of different components of the website. You can use testing frameworks such as Pytest and unittest to write and run tests for your website. Debugging any issues or errors that arise is also crucial to make sure that your website is functioning smoothly.
 
-[unittesting](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-unit-testing-legacy)
+Links to good articles on web testing.   [unittesting](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-unit-testing-legacy)
 
-[Selenium](https://scotch.io/tutorials/test-a-flask-app-with-selenium-webdriver-part-1)
 
-#### 6. Deploy
 
-I used pythoneverywhere.com as it is one of the cheapest and easiest. Hosting a single website only cost $5 per month and they also provide free accounts. I do not recommend Amazon for hosting personal website, as the price could go beyond your expectation with no cap. 
+#### 7. Deploy
 
-#### 7. Google Search
+Once you have tested your website and are confident that it works as expected, the next step is to deploy it to a production environment where it can be accessed by users. There are various hosting services available such as Heroku, AWS, and Google Cloud Platform that can be used to deploy your website. You will need to configure the hosting environment, set up the database and server, and deploy your code to the server. It is also important to consider issues such as scalability, security, and availability when deploying your website. I used pythoneverywhere.com to host my website. It is affordable and easy to use. It provides a web-based development environment and a platform for hosting web applications written in Python. With a paid account, you can host up to three web applications for \$5 per month.
+
+
+
+When building a website, it's important to ensure that the site is secure and the sensitive customer information such as names, addresses, and payment details are protected from potential hackers or other security threats. One way to accomplish this is to use encryption to protect the data as it is transmitted between the client and server. First, you'll need to obtain an SSL (Secure Sockets Layer) certificate, which verifies the identity of your website and encrypts all data transmitted between the server and the client. You can obtain a SSL certificate from a trusted certificate authority such as Let's Encrypt (FREE !!!) Once you have the certificate, configure the web server to use HTTPS instead of HTTP. HTTPS is a secure version of the HTTP protocol that encrypts all data transmitted between the client and server. 
+
+In addition to using encryption, you should also take other security measures such as regularly updating your software and plugins, using strong passwords, and implementing measures such as two-factor authentication to protect your website from potential threats. It's also a good idea to regularly back up your website to protect against data loss in the event of a security breach or other issue.
+
+
+
+#### 8. Google Search
 
 If you want your website to appear in google search, 
 
@@ -168,9 +183,4 @@ points to: yourwebsitename.com
 
 
 
-The website is currently running. 
-
-www.vallacarte.com
-
-
-
+Overall, Flask is a flexible and lightweight web framework that simplifies database integration and offers a range of built-in features that can be customized and extended to create dynamic websites for small businesses during the pandemic.
