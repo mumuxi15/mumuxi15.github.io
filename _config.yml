@@ -3,7 +3,7 @@ name: 'Penny Pan'
 description: 'Have a good day ~ '
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
-baseurl: '/mundana-theme-jekyll'
+baseurl: ''
 disqus: 'demowebsite'
 email: 'mumuxi15@gmail.com'
 
