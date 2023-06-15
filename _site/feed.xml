@@ -1,561 +1,410 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Penny's blog</title>
-    <description>Hi, my name is Penny Pan, a New York based data scientist with passion for machine learning
-</description>
-    <link>https://mumuxi15.github.io//</link>
-    <atom:link href="https://mumuxi15.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 10 Apr 2023 03:56:38 -0400</pubDate>
-    <lastBuildDate>Mon, 10 Apr 2023 03:56:38 -0400</lastBuildDate>
-    <generator>Jekyll v4.2.0</generator>
-    
-      <item>
-        <title>Coronavirus Data Analysis</title>
-        <description>&lt;p&gt;Subtitle: COVID19 Spread Simulation using Python&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/mundana-theme-jekyll/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/mundana-theme-jekyll/" rel="alternate" type="text/html" /><updated>2023-05-28T23:37:06-04:00</updated><id>http://localhost:4000/mundana-theme-jekyll/feed.xml</id><title type="html">Penny Pan</title><subtitle>Have a good day ~ </subtitle><entry><title type="html">Coronavirus Data Analysis</title><link href="http://localhost:4000/mundana-theme-jekyll/covid/" rel="alternate" type="text/html" title="Coronavirus Data Analysis" /><published>2020-03-14T00:00:00-04:00</published><updated>2020-03-14T00:00:00-04:00</updated><id>http://localhost:4000/mundana-theme-jekyll/covid</id><content type="html" xml:base="http://localhost:4000/mundana-theme-jekyll/covid/"><![CDATA[<p>Subtitle: COVID19 Spread Simulation using Python</p>
 
-&lt;p&gt;&lt;img style=&quot;width:100%;display:block;&quot; src=&quot;https://media.licdn.com/dms/image/C4D12AQF3kTLbkr-fHw/article-cover_image-shrink_423_752/0/1585840765955?e=1686787200&amp;amp;v=beta&amp;amp;t=UradA-QLXKKf-lpf-v0uio3-UukwghsXG25uAJyeg8w&quot; /&gt;&lt;/p&gt;
+<p><img style="width:100%;display:block;" src="https://media.licdn.com/dms/image/C4D12AQF3kTLbkr-fHw/article-cover_image-shrink_423_752/0/1585840765955?e=1686787200&amp;v=beta&amp;t=UradA-QLXKKf-lpf-v0uio3-UukwghsXG25uAJyeg8w" /></p>
 
-&lt;p&gt;In New York, almost a month has passed since the start of the quarantine. In this time huge changes have occurred since I first started this blog in early February. My initial goal was to create a source that would collect total number of cases worldwide since the most updated information was not easily available to the public. However, the current situation has now changed, and there are more reliable resources that are documenting the spread of COVID-19 and disseminating the research in clear graphs. However, if you like to try my code, I have presensted it below (output is in json format).&lt;/p&gt;
+<p>In New York, almost a month has passed since the start of the quarantine. In this time huge changes have occurred since I first started this blog in early February. My initial goal was to create a source that would collect total number of cases worldwide since the most updated information was not easily available to the public. However, the current situation has now changed, and there are more reliable resources that are documenting the spread of COVID-19 and disseminating the research in clear graphs. However, if you like to try my code, I have presensted it below (output is in json format).</p>
 
-&lt;p&gt;&lt;img src=&quot;https://media.licdn.com/dms/image/C4D12AQHYhvRt4Uvx4w/article-inline_image-shrink_1500_2232/0/1585841101969?e=1686182400&amp;amp;v=beta&amp;amp;t=ZbDvR8lghy1WX-asXAbBmCO7YPrBzVquecINlbjaB7s&quot; /&gt;&lt;/p&gt;
+<p><img src="https://media.licdn.com/dms/image/C4D12AQHYhvRt4Uvx4w/article-inline_image-shrink_1500_2232/0/1585841101969?e=1686182400&amp;v=beta&amp;t=ZbDvR8lghy1WX-asXAbBmCO7YPrBzVquecINlbjaB7s" /></p>
 
-&lt;p&gt;&lt;img src=&quot;https://media.licdn.com/dms/image/C4D12AQFkpvj32zpmlg/article-inline_image-shrink_1000_1488/0/1585841113925?e=1686182400&amp;amp;v=beta&amp;amp;t=7G-Rh-lIOyXqSLiGnuz4jDi9VXNflaIzard356vus8Q&quot; /&gt;&lt;/p&gt;
+<p><img src="https://media.licdn.com/dms/image/C4D12AQFkpvj32zpmlg/article-inline_image-shrink_1000_1488/0/1585841113925?e=1686182400&amp;v=beta&amp;t=7G-Rh-lIOyXqSLiGnuz4jDi9VXNflaIzard356vus8Q" /></p>
 
-&lt;p&gt;Although the situation with the coronavirus seems to be under control in China, the number of individuals infected in the US is rapidly increasing. As of March 31st 2020, the confirmed cases in the US reached around 188,530 and some officials are predicting that the number of deaths may reach up to 240,000.&lt;/p&gt;
+<p>Although the situation with the coronavirus seems to be under control in China, the number of individuals infected in the US is rapidly increasing. As of March 31st 2020, the confirmed cases in the US reached around 188,530 and some officials are predicting that the number of deaths may reach up to 240,000.</p>
 
-&lt;p&gt;&lt;img src=&quot;https://media.licdn.com/dms/image/C4E12AQFMq3auItOSeA/article-inline_image-shrink_1000_1488/0/1585839808611?e=1686182400&amp;amp;v=beta&amp;amp;t=V6fHTzkIhoSSxyiZrPQyNdZm709QP9TE-p50OLIF9xo&quot; width=&quot;800&quot; alt=&quot;corona_tot&quot; /&gt;&lt;/p&gt;
+<p><img src="https://media.licdn.com/dms/image/C4E12AQFMq3auItOSeA/article-inline_image-shrink_1000_1488/0/1585839808611?e=1686182400&amp;v=beta&amp;t=V6fHTzkIhoSSxyiZrPQyNdZm709QP9TE-p50OLIF9xo" width="800" alt="corona_tot" /></p>
 
-&lt;p&gt;Figure 1 (a). Total confirmed cases in US, China, Italy                                             (b). Log scale&lt;/p&gt;
+<p>Figure 1 (a). Total confirmed cases in US, China, Italy                                             (b). Log scale</p>
 
-&lt;p&gt;In Figure 1, we can observe the progression of the coronavirus outbreak in three countries, each in a different phase. China has managed to control the spread of the virus, with the number of cases stabilizing after day 30. Italy’s rate of infection has slowed down and could potentially follow China’s trend (as indicated by the green line). In the US, we are still in the midst of a growing phase, but there is a glimmer of hope as further calculations suggest a possible slowdown (as indicated by the tip of the blue line). Figure 1b, which uses a log scale, demonstrates that the US and China have a higher infection rate due to their high population density. The slope of the graph in Figure 1b is calculated every 14 days using linear regression, and is obtained by breaking the data into smaller sections and taking the maximum slope.&lt;/p&gt;
+<p>In Figure 1, we can observe the progression of the coronavirus outbreak in three countries, each in a different phase. China has managed to control the spread of the virus, with the number of cases stabilizing after day 30. Italy’s rate of infection has slowed down and could potentially follow China’s trend (as indicated by the green line). In the US, we are still in the midst of a growing phase, but there is a glimmer of hope as further calculations suggest a possible slowdown (as indicated by the tip of the blue line). Figure 1b, which uses a log scale, demonstrates that the US and China have a higher infection rate due to their high population density. The slope of the graph in Figure 1b is calculated every 14 days using linear regression, and is obtained by breaking the data into smaller sections and taking the maximum slope.</p>
 
-&lt;h4 id=&quot;analysis&quot;&gt;&lt;strong&gt;Analysis&lt;/strong&gt;&lt;/h4&gt;
+<h4 id="analysis"><strong>Analysis</strong></h4>
 
-&lt;p&gt;Figure 1(a) shows that US data (blue line) probably follows an exponential trend ain the early stage, as also shown in the log Figure 1(b). Whereas, the green curve (China) looks more like a sigmoid function. So let’s first try to predict the infection population &lt;strong&gt;I(t)&lt;/strong&gt; with a simple exponential model, defining &lt;strong&gt;I&lt;/strong&gt; as infection population with an assumption that each patient infects &lt;strong&gt;A&lt;/strong&gt; number of new people every day. This can be tested by by plotting log(y) against t - Figure 1(b):&lt;/p&gt;
+<p>Figure 1(a) shows that US data (blue line) probably follows an exponential trend ain the early stage, as also shown in the log Figure 1(b). Whereas, the green curve (China) looks more like a sigmoid function. So let’s first try to predict the infection population <strong>I(t)</strong> with a simple exponential model, defining <strong>I</strong> as infection population with an assumption that each patient infects <strong>A</strong> number of new people every day. This can be tested by by plotting log(y) against t - Figure 1(b):</p>
 
 \[\begin{equation}
 I = I_{0}\times A^{t}
 \end{equation}\]
 
-&lt;p&gt;where t is number of days since \(I_{0}\) cases.&lt;/p&gt;
+<p>where t is number of days since \(I_{0}\) cases.</p>
 
-&lt;p&gt;This model only fits the blue line, and does not fit the trend of the yellow or green line at later stage. After doing some research on spread of infectious diseases, it seems an SIR-model might be a better model. The model consists of three parts: infected population, susceptible population and recovered/immune population. As I am trying to model the total of confirmed cases, not the active cases, for simplicity I will I can drop the recovery aspect of the model. This greatly simplifies the math, allowing to simply solve an ordinary differential equation. To further simplify this, let’s define population as 1 and &lt;strong&gt;I(t)&lt;/strong&gt; is the percentage of population that is infected and &lt;strong&gt;S(t)&lt;/strong&gt; is the proportion of susceptible population. Then we get:&lt;/p&gt;
+<p>This model only fits the blue line, and does not fit the trend of the yellow or green line at later stage. After doing some research on spread of infectious diseases, it seems an SIR-model might be a better model. The model consists of three parts: infected population, susceptible population and recovered/immune population. As I am trying to model the total of confirmed cases, not the active cases, for simplicity I will I can drop the recovery aspect of the model. This greatly simplifies the math, allowing to simply solve an ordinary differential equation. To further simplify this, let’s define population as 1 and <strong>I(t)</strong> is the percentage of population that is infected and <strong>S(t)</strong> is the proportion of susceptible population. Then we get:</p>
 
 \[\begin{equation} 
 S(t)+I(t) = 1
 \end{equation}\]
 
-&lt;p&gt;Define \(\beta\)  as  &lt;strong&gt;transmission rate&lt;/strong&gt;. Upon further reflection, the rate of infection should be affected by both infection and susceptible population.  To consider two extreme cases,&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;when s = 1 , i = 0, the transmission rate, β = 0&lt;/li&gt;
-  &lt;li&gt;when s = 0 , i = 1, everyone is infected and no more new cases, β=0&lt;/li&gt;
-&lt;/ul&gt;
+<p>Define \(\beta\)  as  <strong>transmission rate</strong>. Upon further reflection, the rate of infection should be affected by both infection and susceptible population.  To consider two extreme cases,</p>
 
-&lt;p&gt;If we divide both side by \(\delta t\), we can get:&lt;/p&gt;
+<ul>
+  <li>when s = 1 , i = 0, the transmission rate, β = 0</li>
+  <li>when s = 0 , i = 1, everyone is infected and no more new cases, β=0</li>
+</ul>
+
+<p>If we divide both side by \(\delta t\), we can get:</p>
 
 \[\frac{dI}{dt} = - \frac{dS}{dt} = \beta S I\]
 
-&lt;p&gt;This is equation is an ODE function, and we can solve it using scipy package.&lt;/p&gt;
+<p>This is equation is an ODE function, and we can solve it using scipy package.</p>
 
-&lt;p&gt;In fact, turns out that this function \(\begin{equation}
+<p>In fact, turns out that this function 
+\(\begin{equation}
 \frac{dI}{dt} = \beta I \cdot (1-I)
-\end{equation}\)  is the derivate of sigmoid function \(\begin{equation}
+\end{equation}\)</p>
+
+<p>is the derivate of sigmoid function</p>
+
+\[\begin{equation}
 I = \frac{1}{1+e^{-t}}
-\end{equation}\)&lt;/p&gt;
+\end{equation}\]
 
-&lt;h4 id=&quot;prediction-using-sigmoid-function&quot;&gt;&lt;strong&gt;Prediction using sigmoid function&lt;/strong&gt;&lt;/h4&gt;
+<h4 id="prediction-using-sigmoid-function"><strong>Prediction using sigmoid function</strong></h4>
 
-&lt;p&gt;The model predicts the total confirmed cases next 30 days. For example, given data on March 1st, the model estimates about 172172 confirmed cases in Italy at the end of April.&lt;/p&gt;
+<p>The model predicts the total confirmed cases next 30 days. For example, given data on March 1st, the model estimates about 172172 confirmed cases in Italy at the end of April.</p>
 
-&lt;p&gt;&lt;img src=&quot;https://media-exp3.licdn.com/dms/image/C4D12AQE_k0WlDIID4A/article-inline_image-shrink_1500_2232/0/1585841199697?e=1630540800&amp;amp;v=beta&amp;amp;t=ScBw4GyV2YB8i5p50trmCEjmKpplEt2wnzdq6nvaEWI&quot; /&gt;&lt;/p&gt;
+<p>Thanks for reading !</p>]]></content><author><name>penny</name></author><summary type="html"><![CDATA[Subtitle: COVID19 Spread Simulation using Python]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://imgc.allpostersimages.com/img/print/u-g-Q10FX9I0.jpg?w=500&amp;h=500&amp;p=0" /><media:content medium="image" url="https://imgc.allpostersimages.com/img/print/u-g-Q10FX9I0.jpg?w=500&amp;h=500&amp;p=0" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Accumulated experience of social living</title><link href="http://localhost:4000/mundana-theme-jekyll/acumulated-experience/" rel="alternate" type="text/html" title="Accumulated experience of social living" /><published>2019-01-30T00:00:00-05:00</published><updated>2019-01-30T00:00:00-05:00</updated><id>http://localhost:4000/mundana-theme-jekyll/acumulated-experience</id><content type="html" xml:base="http://localhost:4000/mundana-theme-jekyll/acumulated-experience/"><![CDATA[<p>The die cut has also been employed in the non-juvenile sphere as well, a recent example being Jonathan Safran Foer’s ambitious Tree of Codes.</p>
 
-&lt;p&gt;&lt;img src=&quot;https://media-exp3.licdn.com/dms/image/C4D12AQHXqvsQUAh7ag/article-inline_image-shrink_1500_2232/0/1585840548381?e=1630540800&amp;amp;v=beta&amp;amp;t=UhKBtskg4vt9bZCm3mwqbUnDirx3BDRD2uh0Plh_d0Y&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+<p>As for this particular rendition of Charles Perrault’s classic tale, the text and design is by Lydia Very (1823-1901), sister of Transcendentalist poet Jones Very. The gruesome ending of the original - which sees Little Red Riding Hood being gobbled up as well as her grandmother - is avoided here, the gore giving way to the less bloody aims of the morality tale, and the lesson that one should not disobey one’s mother.</p>
 
-&lt;p&gt;Thanks for reading !&lt;/p&gt;
+<p>The first mass-produced book to deviate from a rectilinear format, at least in the United States, is thought to be this 1863 edition of Red Riding Hood, cut into the shape of the protagonist herself with the troublesome wolf curled at her feet. Produced by the Boston-based publisher Louis Prang, this is the first in their “Doll Series”, a set of five “die-cut” books, known also as shape books — the other titles being Robinson Crusoe, Goody Two-Shoes (also written by Red Riding Hood author Lydia Very), Cinderella, and King Winter.</p>
 
-&lt;p&gt;Reference:&lt;/p&gt;
+<p>An 1868 Prang catalogue would later claim that such “books in the shape of a regular paper Doll… originated with us”.</p>
 
-&lt;p&gt;&lt;a href=&quot;https://calculate.org.au/wp-content/uploads/sites/15/2018/10/spread-of-disease.pdf&quot;&gt;Spread of Disease by Dr Julia Collins and Nadia Abdelal&lt;/a&gt;&lt;/p&gt;
+<blockquote>
+  <p>It would seem the claim could also extend to die cut books in general, as we can’t find anything sooner, but do let us know in the comments if you have further light to shed on this! Such books are, of course, still popular in children’s publishing today, though the die cutting is not now limited to mere outlines, as evidenced in a beautiful 2014 version of the same Little Red Riding Hood story.</p>
+</blockquote>]]></content><author><name>sal</name></author><category term="Jekyll" /><category term="tutorial" /><summary type="html"><![CDATA[The die cut has also been employed in the non-juvenile sphere as well, a recent example being Jonathan Safran Foer’s ambitious Tree of Codes.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/mundana-theme-jekyll/assets/images/15.jpg" /><media:content medium="image" url="http://localhost:4000/mundana-theme-jekyll/assets/images/15.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Press and education</title><link href="http://localhost:4000/mundana-theme-jekyll/press-and-education/" rel="alternate" type="text/html" title="Press and education" /><published>2019-01-25T00:00:00-05:00</published><updated>2019-01-25T00:00:00-05:00</updated><id>http://localhost:4000/mundana-theme-jekyll/press-and-education</id><content type="html" xml:base="http://localhost:4000/mundana-theme-jekyll/press-and-education/"><![CDATA[<p>Even the press, the classroom, the platform, and the pulpit in many instances do not give us objective and unbiased truths. To save man from the morass of propaganda, in my opinion, is one of the chief aims of education. Education must enable one to sift and weigh evidence, to discern the true from the false, the real from the unreal, and the facts from the fiction.</p>
 
-&lt;p&gt;&lt;a href=&quot;https://idmod.org/docs/hiv/model-si.html&quot;&gt;EMOD HIV modeling&lt;/a&gt;&lt;/p&gt;
+<p>Education must also train one for quick, <strong>resolute and effective thinking</strong>. To think incisively and to think for one’s self is very difficult.</p>
 
-</description>
-        <pubDate>Sat, 14 Mar 2020 15:07:19 -0400</pubDate>
-        <link>https://mumuxi15.github.io//2020/03/14/virus/</link>
-        <guid isPermaLink="true">https://mumuxi15.github.io//2020/03/14/virus/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>E-commerce web</title>
-        <description>&lt;p&gt;Intro: E-commerce Web&lt;/p&gt;
+<blockquote>
+  <p>We are prone to let our mental life become invaded by legions of half truths, prejudices, and propaganda. At this point, I often wonder whether or not education is fulfilling its purpose. A great majority of the so-called educated people do not think logically and scientifically.</p>
+</blockquote>
 
-&lt;p&gt;The ongoing COVID-19 pandemic has dramatically changed the way people shop and do business. With more and more consumers preferring to shop online rather than in-person, small business owners have an opportunity to expand their customer base and increase their revenue by setting up a simple e-commerce website with a database. A dynamic website can help small businesses create an engaging and interactive online presence that attracts new customers and allows existing customers to easily place orders and interact with the business. Setting up a website involves several key steps, including choosing a web hosting provider, selecting a database management system, designing the website’s front-end, creating the back-end infrastructure, and integrating the database with the website. In this introduction, we will guide you through the basic steps involved in setting up a dynamic website for a small business with a database, highlighting important considerations and best practices along the way. With the right tools and knowledge, small business owners can create a successful online presence that helps them navigate the challenges of the pandemic and thrive in a digital world.&lt;/p&gt;
+<p>The function of education, therefore, is to teach one to think intensively and to think critically. But education which stops with efficiency may prove the greatest menace to society. The most dangerous criminal may be the man gifted with reason, but with no morals.</p>
 
-&lt;p&gt;Many prefer to use Flask due to its ease of use and lightweight nature. Flask makes it easy to start building a web application without having to deal with the complexities of a full-stack web framework. As a lightweight micro-framework, it provides the flexibility to build a custom web application tailored to the specific needs of the project.&lt;/p&gt;
+<p>The late Eugene Talmadge, in my opinion, possessed one of the better minds of Georgia, or even America. Moreover, he wore the Phi Beta Kappa key. By all measuring rods, Mr. Talmadge could think critically and intensively; yet he contends that I am an inferior being. Are those the types of men we call educated?</p>
 
-&lt;h4 id=&quot;1-plan-and-design&quot;&gt;1. Plan and Design&lt;/h4&gt;
+<p>We must remember that intelligence is not enough. Intelligence plus character–that is the goal of true education. The complete education gives one not only power of concentration, but worthy objectives upon which to concentrate. The broad education will, therefore, transmit to one not only the accumulated knowledge of the race but also the accumulated experience of social living.</p>]]></content><author><name>sal</name></author><category term="Jekyll" /><category term="tutorial" /><summary type="html"><![CDATA[Even the press, the classroom, the platform, and the pulpit in many instances do not give us objective and unbiased truths. To save man from the morass of propaganda, in my opinion, is one of the chief aims of education. Education must enable one to sift and weigh evidence, to discern the true from the false, the real from the unreal, and the facts from the fiction.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/mundana-theme-jekyll/assets/images/7.jpg" /><media:content medium="image" url="http://localhost:4000/mundana-theme-jekyll/assets/images/7.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Options for creating a new site with Jekyll</title><link href="http://localhost:4000/mundana-theme-jekyll/options-for-creating-new-site-with-jekyll/" rel="alternate" type="text/html" title="Options for creating a new site with Jekyll" /><published>2019-01-23T00:00:00-05:00</published><updated>2019-01-23T00:00:00-05:00</updated><id>http://localhost:4000/mundana-theme-jekyll/options-for-creating-new-site-with-jekyll</id><content type="html" xml:base="http://localhost:4000/mundana-theme-jekyll/options-for-creating-new-site-with-jekyll/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">jekyll new &lt;PATH&gt;</code> installs a new Jekyll site at the path specified (relative to current directory). In this case, Jekyll will be installed in a directory called <code class="language-plaintext highlighter-rouge">myblog</code>. Here are some additional details:</p>
 
-&lt;p&gt;To start a project, it is always important to plan out the features and functionality you want to include, including the color theme, payment gateway integration and etc. Popular payment gateways include PayPal, Stripe, Braintree and Square, all those have API access and allow backtesting.&lt;/p&gt;
+<ul>
+  <li>To install the Jekyll site into the directory you’re currently in, run <code class="language-plaintext highlighter-rouge">jekyll new</code> . If the existing directory isn’t empty, you can pass the –force option with jekyll new . –force.</li>
+  <li><code class="language-plaintext highlighter-rouge">jekyll new</code> automatically initiates <code class="language-plaintext highlighter-rouge">bundle install</code> to install the dependencies required. (If you don’t want Bundler to install the gems, use <code class="language-plaintext highlighter-rouge">jekyll new myblog --skip-bundle</code>.)</li>
+  <li>By default, the Jekyll site installed by <code class="language-plaintext highlighter-rouge">jekyll new</code> uses a gem-based theme called Minima. With gem-based themes, some of the directories and files are stored in the theme-gem, hidden from your immediate view.</li>
+  <li>We recommend setting up Jekyll with a gem-based theme but if you want to start with a blank slate, use <code class="language-plaintext highlighter-rouge">jekyll new myblog --blank</code></li>
+  <li>To learn about other parameters you can include with <code class="language-plaintext highlighter-rouge">jekyll new</code>, type <code class="language-plaintext highlighter-rouge">jekyll new --help</code>.</li>
+</ul>]]></content><author><name>jane</name></author><category term="Jekyll" /><category term="tutorial" /><summary type="html"><![CDATA[jekyll new &lt;PATH&gt; installs a new Jekyll site at the path specified (relative to current directory). In this case, Jekyll will be installed in a directory called myblog. Here are some additional details:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/mundana-theme-jekyll/assets/images/13.jpg" /><media:content medium="image" url="http://localhost:4000/mundana-theme-jekyll/assets/images/13.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Never stopped worrying or loving the bomb</title><link href="http://localhost:4000/mundana-theme-jekyll/never-stopped-worrying-never-loved-bomb/" rel="alternate" type="text/html" title="Never stopped worrying or loving the bomb" /><published>2019-01-22T00:00:00-05:00</published><updated>2019-01-22T00:00:00-05:00</updated><id>http://localhost:4000/mundana-theme-jekyll/never-stopped-worrying-never-loved-bomb</id><content type="html" xml:base="http://localhost:4000/mundana-theme-jekyll/never-stopped-worrying-never-loved-bomb/"><![CDATA[<p>I’ve been through fire and water, I tell you! From my earliest pebblehood the wildest things you could imagine have been happening to this world of ours, and I have been right in the midst of them.</p>
 
-&lt;h4 id=&quot;2-set-up-virtual-environment&quot;&gt;2. Set up virtual environment&lt;/h4&gt;
+<p>So begins Hallam Hawksworth’s The Strange Adventures of a Pebble. Written in the 1920s, the book was part of a series which also included The Adventures of a Grain of Dust and A Year in the Wonderland of Trees, all of which were supposed to introduce children to the world of Natural Sciences.</p>
 
-&lt;p&gt;Starting your project with a virtual environment tool virtualenv, helps to keep project dependencies organized and prevents conflicts between different projects. Once you have created a virtual environment, you can activate it by running the command. Useful packages include Flask-login, Flask-admin, Flask-Security, Flask-dance (for third party login such as google), Flask_sqlalchemy and etc.&lt;/p&gt;
+<p>In each of them, Hawksworth personifies the natural object he is exploring, and using a mixture of folk tales, scientific facts and colloquial, friendly explanations guides the reader through the history of the natural world. It’s a real thrill of a ride, dramatizing the life cycle of supposedly dull things. The Adventures of a Grain of Dust begins even more loudly than Pebble:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;virtualenv &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; python3 &amp;lt;desired-path&amp;gt;
-&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &amp;lt;venv&amp;gt;/bin/activate
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<p>I don’t want you to think that I’m boasting, but I do believe I’m one of the greatest travellers that ever was; and if anybody, living or dead, has ever gone through with more than I have I’d like to hear about it.</p>
 
-&lt;h4 id=&quot;3-build-backend---database&quot;&gt;3. Build Backend - Database&lt;/h4&gt;
+<blockquote>
+  <p>Hallam Hawksworth was the pen-name of teacher Francis Blake Atkinson. He was married to the author Eleanor Stackhouse Atkinson, author of the children’s classic Greyfriars Bobby, which was based on the (supposedly) true story of a Scottish dog who spent fourteen years guarding his masters grave. The couple were both committed to education and published a weekly magazine for Chicago high school students called The Little Chronicle, as well as working for Encyclopaedia companies later in life.</p>
+</blockquote>
 
-&lt;p&gt;Ask yourself a few questions before you start building the backend:&lt;/p&gt;
+<p>I’ve been through fire and water, I tell you! From my earliest pebblehood the wildest things you could imagine have been happening to this world of ours, and I have been right in the midst of them.</p>
 
-&lt;ol&gt;
-  &lt;li&gt;What information I want to show to the client ?&lt;/li&gt;
-  &lt;li&gt;What information I want to collect from the website ?&lt;/li&gt;
-&lt;/ol&gt;
+<p>So begins Hallam Hawksworth’s The Strange Adventures of a Pebble. Written in the 1920s, the book was part of a series which also included The Adventures of a Grain of Dust and A Year in the Wonderland of Trees, all of which were supposed to introduce children to the world of Natural Sciences.</p>
 
-&lt;p&gt;Drawing a quick database schema can also be very helpful in visualizing the data model and identifying the relationships between different entities. Picture below is an example of the standard schema and the grey lines shows how the tables are linked. The “order_detail” table share a common key “order_id” with the “orders” table. This would allow you to link specific items in an order to their corresponding product records, so you can accurately track inventory levels and update product availability as items are sold.&lt;/p&gt;
+<p>In each of them, Hawksworth personifies the natural object he is exploring, and using a mixture of folk tales, scientific facts and colloquial, friendly explanations guides the reader through the history of the natural world. It’s a real thrill of a ride, dramatizing the life cycle of supposedly dull things. The Adventures of a Grain of Dust begins even more loudly than Pebble:</p>
 
-&lt;p&gt;&lt;img src=&quot;https://live.staticflickr.com/65535/49641865616_3f95e3d78b_c.jpg&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
+<h4 id="i-dont-want-you-to-think-that-im-boasting">I don’t want you to think that I’m boasting</h4>
 
-&lt;h4 id=&quot;4-build-frontend&quot;&gt;4. Build Frontend&lt;/h4&gt;
+<p>Hallam Hawksworth was the pen-name of teacher Francis Blake Atkinson. He was married to the author Eleanor Stackhouse Atkinson, author of the children’s classic Greyfriars Bobby, which was based on the (supposedly) true story of a Scottish dog who spent fourteen years guarding his masters grave. The couple were both committed to education and published a weekly magazine for Chicago high school students called The Little Chronicle, as well as working for Encyclopaedia companies later in life.</p>
 
-&lt;p&gt;You can quickly get the website to running by using Jinja to dynamically generate HTML pages based on data from your database and user input. This allows you to create customized web pages that can display product listings, shopping carts, checkout forms, and other essential features of an e-commerce website. A basic set up looks like the example below.&lt;/p&gt;
+<p>I’ve been through fire and water, I tell you! From my earliest pebblehood the wildest things you could imagine have been happening to this world of ours, and I have been right in the midst of them.</p>
 
-&lt;p&gt;Project Tree Example using Blueprints&lt;/p&gt;
+<blockquote>
+  <p>So begins Hallam Hawksworth’s The Strange Adventures of a Pebble. Written in the 1920s, the book was part of a series which also included The Adventures of a Grain of Dust and A Year in the Wonderland of Trees, all of which were supposed to introduce children to the world of Natural Sciences.</p>
+</blockquote>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;e_commerce_web
-├── /application
-│   ├── __init__.py
-│   ├── /auth
-│   │   ├── auth_routes.py
-│   │   └── /templates
-│   ├── /main
-│   │   ├── main_routes.py
-│   │   └── /templates
-│   ├── /static
-│   └── /templates
-│       ├── layout.html
-│       ├── home.html
-│       └── login.html
-├── requirements.txt
-└── wsgi.py
-└── venv
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<p>In each of them, Hawksworth personifies the natural object he is exploring, and using a mixture of folk tales, scientific facts and colloquial, friendly explanations guides the reader through the history of the natural world. It’s a real thrill of a ride, dramatizing the life cycle of supposedly dull things. The Adventures of a Grain of Dust begins even more loudly than Pebble:</p>
 
-&lt;p&gt;The function create_app() is used to build a Flask app&lt;/p&gt;
+<p>I don’t want you to think that I’m boasting, but I do believe I’m one of the greatest travellers that ever was; and if anybody, living or dead, has ever gone through with more than I have I’d like to hear about it.</p>
 
-&lt;p&gt;&lt;em&gt;__int__.py&lt;/em&gt;&lt;/p&gt;
+<p>Hallam Hawksworth was the pen-name of teacher Francis Blake Atkinson. He was married to the author Eleanor Stackhouse Atkinson, author of the children’s classic Greyfriars Bobby, which was based on the (supposedly) true story of a Scottish dog who spent fourteen years guarding his masters grave. The couple were both committed to education and published a weekly magazine for Chicago high school students called The Little Chronicle, as well as working for Encyclopaedia companies later in life.</p>]]></content><author><name>sal</name></author><category term="Jekyll" /><category term="featured" /><summary type="html"><![CDATA[I’ve been through fire and water, I tell you! From my earliest pebblehood the wildest things you could imagine have been happening to this world of ours, and I have been right in the midst of them.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/mundana-theme-jekyll/assets/images/14.jpg" /><media:content medium="image" url="http://localhost:4000/mundana-theme-jekyll/assets/images/14.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Is Intelligence Enough</title><link href="http://localhost:4000/mundana-theme-jekyll/is-intelligence-enough/" rel="alternate" type="text/html" title="Is Intelligence Enough" /><published>2019-01-21T00:00:00-05:00</published><updated>2019-01-21T00:00:00-05:00</updated><id>http://localhost:4000/mundana-theme-jekyll/is-intelligence-enough</id><content type="html" xml:base="http://localhost:4000/mundana-theme-jekyll/is-intelligence-enough/"><![CDATA[<p>Education must also train one for quick, resolute and effective thinking. To think incisively and to think for one’s self is very difficult. We are prone to let our mental life become invaded by legions of half truths, prejudices, and propaganda. At this point, I often wonder whether or not education is fulfilling its purpose. A great majority of the so-called educated people do not think logically and scientifically.</p>
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# ... #
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create_app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Flask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+<blockquote>
+  <p>Even the press, the classroom, the platform, and the pulpit in many instances do not give us objective and unbiased truths. To save man from the morass of propaganda, in my opinion, is one of the chief aims of education. Education must enable one to sift and weigh evidence, to discern the true from the false, the real from the unreal, and the facts from the fiction.</p>
+</blockquote>
 
-	&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'SECRET_KEY'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'SQLALCHEMY_DATABASE_URI'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db_path&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'SQLALCHEMY_TRACK_MODIFICATIONS'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'OAUTH_CONFIG'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;init_app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+<p>The function of education, therefore, is to teach one to think intensively and to think critically. But education which stops with efficiency may prove the greatest menace to society. The most dangerous criminal may be the man gifted with reason, but with no morals.</p>
 
-	&lt;span class=&quot;n&quot;&gt;login_manager&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LoginManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;login_manager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;login_view&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'auth.login'&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;login_manager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;init_app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+<p>The late Eugene Talmadge, in my opinion, possessed one of the better minds of Georgia, or even America. Moreover, he wore the Phi Beta Kappa key. By all measuring rods, Mr. Talmadge could think critically and intensively; yet he contends that I am an inferior being. Are those the types of men we call educated?</p>
 
-	&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;
+<p>We must remember that intelligence is not enough. Intelligence plus character–that is the goal of true education. The complete education gives one not only power of concentration, but worthy objectives upon which to concentrate. The broad education will, therefore, transmit to one not only the accumulated knowledge of the race but also the accumulated experience of social living.</p>]]></content><author><name>sal</name></author><category term="Jekyll" /><category term="tutorial" /><summary type="html"><![CDATA[Education must also train one for quick, resolute and effective thinking. To think incisively and to think for one’s self is very difficult. We are prone to let our mental life become invaded by legions of half truths, prejudices, and propaganda. At this point, I often wonder whether or not education is fulfilling its purpose. A great majority of the so-called educated people do not think logically and scientifically.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1523740856324-f2ce89135981?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=798&amp;q=80" /><media:content medium="image" url="https://images.unsplash.com/photo-1523740856324-f2ce89135981?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=798&amp;q=80" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Amazon Illegal Mining Detection</title><link href="http://localhost:4000/mundana-theme-jekyll/illegal_mining/" rel="alternate" type="text/html" title="Amazon Illegal Mining Detection" /><published>2019-01-18T00:00:00-05:00</published><updated>2019-01-18T00:00:00-05:00</updated><id>http://localhost:4000/mundana-theme-jekyll/illegal_mining</id><content type="html" xml:base="http://localhost:4000/mundana-theme-jekyll/illegal_mining/"><![CDATA[<p>The Amazon rainforest, known for its rich biodiversity and vital role in regulating the Earth’s climate, has been facing a grave threat in the form of deforestation. This destructive practice has led to significant habitat destruction, loss of biodiversity, and contributes to climate change. A key factor exacerbating this devastation is the sharp increase in illegal gold mining activities observed in the region over the past decade. Motivated by the soaring global gold price, individuals have engaged in unlawful mining practices within the Amazon rainforest, further exacerbating the environmental crisis.</p>
 
-	&lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index_view&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CustomAdminIndexView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-	&lt;span class=&quot;c1&quot;&gt;#...#
-&lt;/span&gt;  
-	&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;login_manager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_loader&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;load_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-	&lt;span class=&quot;c1&quot;&gt;# use user_id in the query for the user
-&lt;/span&gt;		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+<p>Traditional labor-intensive methods involving the hiring of local citizens have proven to be costly and time-consuming. Fortunately, advancements in satellite technology have opened new avenues for detecting illegal mining activities using satellite images and employing machine learning techniques like image classification.</p>
 
+<p>The primary objective of this project is to develop a system capable of identifying illegal mining activities among 16 other labels, including clouds, trees, ground, road, water, and more. To achieve this, I employed a dataset obtained from <a href="https://www.kaggle.com/c/planet-understanding-the-amazon-from-space">“Planet: Understanding the Amazon from Space.”</a> The dataset consisted of satellite images that were segmented into smaller chips and randomly assigned numerical names. Our aim was to generate accurate labels that effectively describe the content of each image and enable the identification of those chips associated with illegal mining. Neural networks were chosen as the preferred approach for this project due to their exceptional ability to recognize complex patterns and extract meaningful features from images.</p>
 
-	&lt;span class=&quot;c1&quot;&gt;# blueprint for auth routes in our app
-&lt;/span&gt;	&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.auth&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auth&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auth_blueprint&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;register_blueprint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auth_blueprint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+<h4 id="start-with-basic-neural-network-model">Start with basic Neural Network Model</h4>
 
-	&lt;span class=&quot;c1&quot;&gt;# blueprint for non-auth parts of app
-&lt;/span&gt;	&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.main&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main_blueprint&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;register_blueprint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main_blueprint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  
-	&lt;span class=&quot;c1&quot;&gt;# register google / facebook login
-&lt;/span&gt;	&lt;span class=&quot;n&quot;&gt;init_oauth_providers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+<p float="left">
+<img src="https://live.staticflickr.com/65535/49626992868_557450fa33.jpg" width="50%" />  <img src="https://lh3.googleusercontent.com/jn0yWdVFz-RplTsir-DZcRs0UYWSouwjwhknKi3J6-f-o4TPWBlL2AGNsKQa0NIBkPJ66XfUfKrB03-BmHo8vDq2dJhf6lZLRuhQmluBukP2V979NtW7NZ-5odX8mhEru029s6PDy40" width="49%" />
+ </p>
 
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<p>The dataset consists of 70,000 image chips, each was associated with at least one label. The labels were categorized into three main groups: <span style="color:SALMON">  atmospheric conditions</span>,  <span style="color:LightSkyBlue"> common land uses</span> and  <span style="color:Plum"> rare land uses</span>.  However, there were significant imbalances in the distribution of the labels, and a few labeling errors were present in the dataset. Among the labels, less than 1% represented categories such as artisanal mines, conventional mines, slash burn, and others. This highly imbalanced nature of the labels posed a challenge during the training process. The neural network had to learn to accurately classify and recognize the rare land use categories, despite having limited examples for these classes.</p>
 
-&lt;p&gt;Reference:&lt;/p&gt;
+<p>I began by implementing a basic convolutional neural network (CNN) model. One of the key aspects is its ability to capture and extract important local features, allowing them to identify patterns and objects. However, after hours of training, the model struggled to predict any rare land use labels. The challenge here is how to predict the 1% population.</p>
 
-&lt;p&gt;&lt;a href=&quot;https://flask-login.readthedocs.io/en/latest/&quot;&gt;Flask-login document&lt;/a&gt;&lt;/p&gt;
+<p>Approaches I made to solve the problem:</p>
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/pallets/flask/tree/master/examples/tutorial/flaskr/&quot;&gt;Flask-login github demo&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://hackersandslackers.com/flask-blueprints/&quot;&gt;Organzing Flask Apps with Blueprints&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;5-add-e-commerce-features&quot;&gt;5. Add e-commerce features&lt;/h4&gt;
-
-&lt;p&gt;As the website grows, you can add additional features and functionalities to enhance the user experience. For instance, payment gateways, search functionality, product reviews, wish lists, and social media integration to increase user engagement and boost sales. With Flask’s modular design and scalability, you can add these features to the website as needed, making it a versatile and flexible tool for building an e-commerce website.&lt;/p&gt;
-
-&lt;p&gt;In order to make a dynamic website, you need to have a basic understanding of JavaScript programming and be familiar with both client-side and server-side development. The main challenge of building a dynamic website is connecting the database to the website and passing data between them. It’s like building a bridge between two cities over the sea. One way to do this is by using HTML5 web storage to store shopping cart information and using AJAX to transfer data from the front-end to the back-end, where it can be stored in the database. If you’re not familiar with these technologies, I recommend watching some YouTube tutorials to learn more.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=1Q74A6ZQxdY&amp;amp;list=PLoN_ejT35AEhzNoPStBzAkpqAu3YQwPj7&quot;&gt;JavaScript Shopping Cart Tutorial&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;6-testing&quot;&gt;6. Testing&lt;/h4&gt;
-
-&lt;p&gt;This involves running different types of tests such as unit tests, integration tests, and end-to-end tests to verify the functionality of different components of the website. You can use testing frameworks such as Pytest and unittest to write and run tests for your website. Debugging any issues or errors that arise is also crucial to make sure that your website is functioning smoothly.&lt;/p&gt;
-
-&lt;p&gt;Links to good articles on web testing.   &lt;a href=&quot;https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-unit-testing-legacy&quot;&gt;unittesting&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;7-deploy&quot;&gt;7. Deploy&lt;/h4&gt;
-
-&lt;p&gt;Once you have tested your website and are confident that it works as expected, the next step is to deploy it to a production environment where it can be accessed by users. There are various hosting services available such as Heroku, AWS, and Google Cloud Platform that can be used to deploy your website. You will need to configure the hosting environment, set up the database and server, and deploy your code to the server. It is also important to consider issues such as scalability, security, and availability when deploying your website. I used pythoneverywhere.com to host my website. It is affordable and easy to use. It provides a web-based development environment and a platform for hosting web applications written in Python. With a paid account, you can host up to three web applications for $5 per month.&lt;/p&gt;
-
-&lt;p&gt;When building a website, it’s important to ensure that the site is secure and the sensitive customer information such as names, addresses, and payment details are protected from potential hackers or other security threats. One way to accomplish this is to use encryption to protect the data as it is transmitted between the client and server. First, you’ll need to obtain an SSL (Secure Sockets Layer) certificate, which verifies the identity of your website and encrypts all data transmitted between the server and the client. You can obtain a SSL certificate from a trusted certificate authority such as Let’s Encrypt (FREE !!!) Once you have the certificate, configure the web server to use HTTPS instead of HTTP. HTTPS is a secure version of the HTTP protocol that encrypts all data transmitted between the client and server.&lt;/p&gt;
-
-&lt;p&gt;In addition to using encryption, you should also take other security measures such as regularly updating your software and plugins, using strong passwords, and implementing measures such as two-factor authentication to protect your website from potential threats. It’s also a good idea to regularly back up your website to protect against data loss in the event of a security breach or other issue.&lt;/p&gt;
-
-&lt;h4 id=&quot;8-google-search&quot;&gt;8. Google Search&lt;/h4&gt;
-
-&lt;p&gt;If you want your website to appear in google search,&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Verify the domain on google search console. You can open the console by typing in google&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;site:xxx.com
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Complete the DNS verification as google requested&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Buy a domain name.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Edit CNAME record in the DNS manage section. Here I used goDaddy as an example.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;host: www
-points to: yourwebsitename.com
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Then go back to google console, search for your url in the URL inspection section and submit the index request. Google will perform several test on the website and if passed, you will receive a confirmation email from google.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Overall, Flask is a flexible and lightweight web framework that simplifies database integration and offers a range of built-in features that can be customized and extended to create dynamic websites for small businesses during the pandemic.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 06 Mar 2020 14:07:19 -0500</pubDate>
-        <link>https://mumuxi15.github.io//2020/03/06/Ecommerce/</link>
-        <guid isPermaLink="true">https://mumuxi15.github.io//2020/03/06/Ecommerce/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Anime Recommender</title>
-        <description>&lt;p&gt;&lt;img style=&quot;width:100%;display:block;&quot; src=&quot;https://www.befunky.com/images/wp/wp-2015-12-ghibli_parade__by_tenaga-d7gy63i.jpg&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;In recent years, anime has become increasingly popular worldwide, and the number of anime available online  has grown exponentially. With so many options to choose from, it can be challenging to select the perfect one to suit their unique tastes. To address this issue, machine learning techniques has been used to develop personalized anime recommendation systems. By analyzing an individual’s viewing history and preferences, these systems can suggest anime titles that are more likely to appeal to them, based on factors such as genre, themes, and style. In this way, anime fans can discover new shows that are tailored to their specific interests, and spend less time searching. This article explores the use of machine learning in anime recommendation systems and discusses how they can enhance the anime viewing experience.&lt;/p&gt;
-
-&lt;p&gt;The process began by gathering data from MyAnimeList, a website dedicated to anime similar to IMDb. Over 5000 anime titles and user profiles were collected using Scrapy, Beautiful-soup and stored as JSON objects in MongoDB. The collected information includes names, descriptions, directors, vocal casts, theme songs, reviews, and more. Below is an example demonstrating the format of the collected data.&lt;/p&gt;
-
-&lt;p&gt;e.g Anime data&lt;/p&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'_id':&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'Yaiba'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'themesongs':&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Yuuki ga Areba (勇気があれば)&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;by&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Kabuki&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Rocks&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(カブキロックス)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Shinchigakunaki Tatakai! (神智学無き戦い!)&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;by&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Kabuki&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Rocks&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(カブキロックス)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'description':&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Kurogane Yaiba is a boy who doesn't want to become what any regular kid would: A samurai. That's why he undergoes a hard training with his father, knowing only the forest as his world. Then, one day, he is sent to Japan, where he has to deal with a whole new civilized reality, meeting the Mine family, the evil Onimaru and even the legendary Musashi, having lots of dangerous adventures, becoming stronger everyday.(Source: ANN, edited) &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'reviews':&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'which&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;are&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;really&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;stupid&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;but&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;succeds&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tickling&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;us!!the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;storycharacter&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;enjoyment&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;quite&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;okwell&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;personally&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;disliked&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;op&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ed&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;art&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;also&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;seems&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;quite&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ok&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;not&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;many&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;cute&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;girls&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;its&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;lot&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;fun&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;overall&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;series&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ll&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;definately&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;say&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;give&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;shot&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;st&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;epi!!!ull&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;automatically&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;hooked&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;series&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;atleast&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;did&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;!well&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;hope&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;liked&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;review&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;plz&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ratemy&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;st&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;reviewread&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;more'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'img_url':&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'https://myanimelist.cdn-dena.com/images/anime/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;71953&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.jpg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;e.g. User watched history. Table shows 5 anime rated by 5 different users, with 10 as the most favorable.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Anime/score&lt;/th&gt;
-      &lt;th&gt;User1&lt;/th&gt;
-      &lt;th&gt;User2&lt;/th&gt;
-      &lt;th&gt;User3&lt;/th&gt;
-      &lt;th&gt;User4&lt;/th&gt;
-      &lt;th&gt;User5&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Fairy Tail&lt;/td&gt;
-      &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;8&lt;/td&gt;
-      &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;5&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Kimi no na wa&lt;/td&gt;
-      &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;9&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;4&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;No game no life&lt;/td&gt;
-      &lt;td&gt;9&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;9&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Tokyo Ghoul&lt;/td&gt;
-      &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;9&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;One Piece&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;9&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&quot;how-does-this-recommender-system-works-&quot;&gt;How does this recommender system works ?&lt;/h4&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Broadly speaking, there are two common algorithms used in the recommendation systems, collaborative filtering and content-based filtering. Collaborative filtering works by analyzing the viewing histories and ratings of multiple users. The system identifies users who have similar viewing and rating patterns and groups them into clusters. It then makes recommendations based on the preferences of users in the same cluster. For example, if many Marvel fans has enjoyed Tom and Jerry in their past, the system will likely recommend Tom and Jerry to those Marvel fans who has not watched it yet. In other words, it makes predictions based on the response of other users who share similar tastes. Content-based filtering, on the other hand, makes recommendations based on the content of the anime themselves. This approach involves analyzing the attributes, such as genre, theme, plot, character and story background,. The system then recommends anime to users based on their preferences for these attributes. For example, if a user enjoys watching romantic comedies with high school settings, the system will search for anime with similar attributes.&lt;/p&gt;
-
-&lt;p&gt;Both methods have their pros and cons. A major appeal of collaborative filtering is its flexibility in dealing with various data aspects. Collaborative filtering requires an active user data base with effective rating system and it does not work well with new user profiles or new anime with no ratings or reviews, known as cold start problem. It also relies heavily on the availability of user data, which can lead to sparsity and bias in data. A content based filtering is more friendly to new anime but is more exclusive to users’ own experience, and does not consider social factors such as popularity.&lt;/p&gt;
-
-&lt;p&gt;A more effective solution would be a hybrid system that combines both methods. While there are many blogs online discussing these two methods, few dive into how they work in practice. To begin with, it is important to understand the concept of the cold start problem and how it arises. We can conceptualize the rating system as a matrix, denoted as  &lt;strong&gt;R&lt;sub&gt;rating&lt;/sub&gt;&lt;/strong&gt;, where the matrix contains the scores of all anime titles rated by all users. In our particular case, the matrix size will be 5000 shows by 5000 users, and each row will represent the ratings given by a user, with a value of 0 indicating that the user has not watched the anime.&lt;/p&gt;
-
-&lt;div class=&quot;language-mathematica highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Let’s take a look at Row 5, which represents a new user. Typically, most users will have only watched a small fraction of the thousands of anime titles available on the platform. Assuming an average user spends about one hour per week on anime and each show has around 12 episodes of 20 minutes each, that would amount to roughly 152 hours per year, or about 20 shows per year. Consequently, the rating matrix will be extremely sparse, with most elements being zero. As the platform expands and more users join, the sparsity problem will continue to grow more severe.&lt;/p&gt;
-
-&lt;p&gt;Figure 1. Hybrid recommender work flow. A layout structure of my code.&lt;/p&gt;
-
-&lt;h5&gt;&lt;img src=&quot;https://live.staticflickr.com/65535/49755925832_dd80feb86a_b.jpg&quot; width=&quot;100%&quot; alt=&quot;zBbWj8p&quot; /&gt;&lt;/h5&gt;
-
-&lt;h5 id=&quot;a-collaborative-filtering-workflow&quot;&gt;A: Collaborative Filtering Workflow&lt;/h5&gt;
-
-&lt;p&gt;The following image displays a user-item interaction matrix obtained from the ratings of six shows given by six users. Traditional collaborative filtering include measuring user similarity by calculating Pearson correlation or cosine similarity between normalized user vectors. Then combine the weighted average scores given by neighbors to estimate user’s score on the unseen show. A modern solution called matrix factorization, initially introduced by Simon Funk in 2006 in the Netflix Prize competition, has a better approach in handling this user-item matrix.  Instead of directly computing similarity between users, matrix factorization transforms the original matrix into two lower-dimensional matrices - one representing users and the other representing items using technique called singular value decomposition (SVD). These lower-dimensional matrices capture the latent factors or features that determine the user’s preference for a particular item, and can be used to predict missing ratings. Matrix factorization can provide more accurate predictions and is more scalable than traditional collaborative filtering methods.&lt;/p&gt;
-
-&lt;p&gt;Figure 2. &lt;a href=&quot;https://buomsoo-kim.github.io/data/images/2020-09-25/1.png&quot;&gt;User-item matrix decomposition&lt;/a&gt; &lt;img src=&quot;https://miro.medium.com/v2/resize:fit:1400/0*c4ajANtlyjvhwpgj.png&quot; width=&quot;100%&quot; alt=&quot;zBbWj8p&quot; /&gt;
+<ul>
+  <li>Update computational power: use AWS GPU</li>
+  <li>More advanced network designs</li>
+  <li>Improve input image quality</li>
+</ul>
+
+<h5 id="update-computational-power">Update computational power</h5>
+
+<p>To harness the power of advanced hardware and accelerate the training process, an AWS GPU instance was utilized. The use of GPU computing combined with multi-processing technique allows for parallel processing and faster model training, enabling more efficient experimentation and optimization.   Additionally, cross-validation was implemented to continuously monitor the model’s performance across multiple iterations, ensuring that overfitting issues were identified and addressed promptly.</p>
+
+<h5 id="advanced-network-designs---densenet">Advanced network designs - DenseNet</h5>
+
+<p>To further improve the model’s performance and parameter efficiency, a DenseNet architecture was implemented. DenseNet is a deep neural network architecture that introduces dense connections between layers, allowing for direct information flow and gradient propagation throughout the network. This architecture alleviates the vanishing gradient problem and encourages feature reuse, leading to better parameter efficiency and faster convergence during training. As a result, the model benefits from requiring fewer parameters to achieve similar or even superior performance compared to CNN. This not only accelerates the training time but also helps mitigate the risk of overfitting by encouraging the model to learn more robust and generalized features from the data.</p>
+
+<h5 id="improve-image-quality">Improve image quality</h5>
+
+<p>Satellite images often suffer from darkness and blurriness caused by atmospheric turbulence. However, by mitigating the effects of haze and improving image quality, we can enhance the performance of neural networks. Leveraging my understanding of atmospheric physics and conducting research on Google Scholars, I developed a dehaze function based on a <a href="https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf">paper</a> to address this challenge. Haze results from the scattering of light in the atmosphere before it reaches the camera. To estimate the intensity of scattered light, a constant value is derived by approximating the maximum pixel intensity within the darkest RGB channel. By utilizing OpenCV to convert images to a colorspace matrix and calculating the haze constant, we can restore the image by subtracting this value. As a result, the dehazed image appears brighter and exhibits better contrast, improving the quality of input data for neural networks.</p>
+
+<p><img style="width:80%;display:block;" src="https://www.researchgate.net/profile/Seung_Won_Jung2/publication/291385074/figure/fig14/AS:320880610693124@1453515307125/Formation-of-a-hazy-image.png" /></p>
+
+<p>Figure 2. Formation of a hazy image. Camera = Direct attenuation+Airlight</p>
+
+<p float="left">
+<img src="https://live.staticflickr.com/65535/49626992868_557450fa33.jpg" width="50%" />  <img src="https://lh3.googleusercontent.com/jn0yWdVFz-RplTsir-DZcRs0UYWSouwjwhknKi3J6-f-o4TPWBlL2AGNsKQa0NIBkPJ66XfUfKrB03-BmHo8vDq2dJhf6lZLRuhQmluBukP2V979NtW7NZ-5odX8mhEru029s6PDy40" width="49%" />
+ </p>
+
+<p>Figure 3 showcases several examples of images before and after applying the haze removal function. The impact of the dehazing process is evident, as it leads to a substantial improvement in image quality across most samples. The “before” images appear hazy and lackluster, with reduced visibility and contrast. However, upon applying the haze removal function, the “after” images exhibit a remarkable transformation. The images become brighter, with enhanced contrast and sharper details. This dehazing technique proves particularly effective for images tagged as partly cloudy or affected by haze, successfully restoring their visual appeal and making them more suitable for analysis and interpretation.</p>
+
+<p>The results of the model demonstrate a notable enhancement in both precision and recall, particularly in the case of rare land use labels. Given the significance of these metrics and the preference for minimizing false negatives, the evaluation of the model’s performance is based on the F2 score. The F2 score is a composite metric that combines precision and recall, with a greater emphasis on recall. In scenarios where the consequences of missing positive instances are significant, such as detecting illegal activities or identifying rare occurrences, a higher recall is crucial. By assigning more weight to recall, the F2 score ensures that the model effectively identifies as many positive instances as possible, while still maintaining a reasonable level of precision.</p>
+
+<p><img style="width:80%;display:inline-block;" src="https://lh6.googleusercontent.com/P4qLeEVjt-Xh1vPbRrR12i6W43sfm03gZnA5x4NAoSkD4rkqx5cYPlmu9EplmXZDWM0TDudJzw-OOGQIOJ26T4VAFf2sD6isNkzWEyyZJOosXJpH5xXg581AVMpYm1B8j007y6BbdXk" /></p>
+
+<h5 id="work-flow">Work Flow</h5>
+
+<p><img src="https://live.staticflickr.com/65535/49627827697_8058d80cab_c.jpg" width="80%" alt="work flow" /></p>
+
+<h5 id="model-performance">Model performance</h5>
+
+<p>After training the DenseNet model on the dehazed image sets, the model was saved as “b01_dense121.h5”. This trained model was then utilized to generate labels for the previously unlabelled test set images. The model successfully identified several test photo chips as illegal mines, providing valuable insights into the presence of illegal mining activities in the dataset.</p>
+
+<p><img src="https://live.staticflickr.com/65535/49627526151_a93a067f6d_c.jpg" width="80%" alt="LSL0RMq" /></p>
+
+<p>Figure 4. Examples from the test data that were marked as illegal mines with labels generated by the DenseNet model.</p>
+
+<p>In summary, the project focused on developing a model to detect illegal mining and rare land use cases using satellite images. Several approaches were employed to address the challenges of imbalanced labels, low image quality, and underfitting. These approaches included improving computational power, rotating images of rare land use categories, using more advanced network designs like DenseNet, and enhancing input image quality through haze removal. The implementation of these approaches resulted in significant improvements in both precision and recall, particularly for the rare land use cases.</p>]]></content><author><name>penny</name></author><category term="classification" /><category term="supervised" /><category term="sticky" /><summary type="html"><![CDATA[The Amazon rainforest, known for its rich biodiversity and vital role in regulating the Earth’s climate, has been facing a grave threat in the form of deforestation. This destructive practice has led to significant habitat destruction, loss of biodiversity, and contributes to climate change. A key factor exacerbating this devastation is the sharp increase in illegal gold mining activities observed in the region over the past decade. Motivated by the soaring global gold price, individuals have engaged in unlawful mining practices within the Amazon rainforest, further exacerbating the environmental crisis.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/mundana-theme-jekyll/assets/images/1-mining.jpeg" /><media:content medium="image" url="http://localhost:4000/mundana-theme-jekyll/assets/images/1-mining.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Anime Recommender</title><link href="http://localhost:4000/mundana-theme-jekyll/anime_recommender/" rel="alternate" type="text/html" title="Anime Recommender" /><published>2018-05-28T00:00:00-04:00</published><updated>2018-05-28T00:00:00-04:00</updated><id>http://localhost:4000/mundana-theme-jekyll/anime_recommender</id><content type="html" xml:base="http://localhost:4000/mundana-theme-jekyll/anime_recommender/"><![CDATA[<p>In recent years, anime has become increasingly popular worldwide, and the number of anime available online  has grown exponentially. With so many options to choose from, it can be challenging to select the perfect one to suit their unique tastes. To address this issue, machine learning techniques has been used to develop personalized anime recommendation systems. By analyzing an individual’s viewing history and preferences, these systems can suggest anime titles that are more likely to appeal to them, based on factors such as genre, themes, and style. In this way, anime fans can discover new shows that are tailored to their specific interests, and spend less time searching. This article explores the use of machine learning in anime recommendation systems and discusses how they can enhance the anime viewing experience.</p>
+
+<p>The process began by gathering data from MyAnimeList, a website dedicated to anime similar to IMDb. Over 5000 anime titles and user profiles were collected using Scrapy, Beautiful-soup and stored as JSON objects in MongoDB. The collected information includes names, descriptions, directors, vocal casts, theme songs, reviews, and more. Below is an example demonstrating the format of the collected data.</p>
+
+<p>Examples of data stored in MangoDB.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="err">'_id':</span><span class="w"> </span><span class="err">'Yaiba'</span><span class="p">,</span><span class="w">
+ </span><span class="err">'themesongs':</span><span class="w"> </span><span class="p">[[</span><span class="err">'</span><span class="s2">"Yuuki ga Areba (勇気があれば)"</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">Kabuki</span><span class="w"> </span><span class="err">Rocks</span><span class="w"> </span><span class="err">(カブキロックス)'</span><span class="p">,</span><span class="w">
+   </span><span class="err">'</span><span class="s2">"Shinchigakunaki Tatakai! (神智学無き戦い!)"</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">Kabuki</span><span class="w"> </span><span class="err">Rocks</span><span class="w"> </span><span class="err">(カブキロックス)'</span><span class="p">]],</span><span class="w">
+ </span><span class="err">'description':</span><span class="w"> </span><span class="p">[</span><span class="s2">"Kurogane Yaiba is a boy who doesn't want to become what any regular kid would: A samurai. That's why he undergoes a hard training with his father, knowing only the forest as his world. Then, one day, he is sent to Japan, where he has to deal with a whole new civilized reality, meeting the Mine family, the evil Onimaru and even the legendary Musashi, having lots of dangerous adventures, becoming stronger everyday.(Source: ANN, edited) "</span><span class="p">],</span><span class="w">
+ </span><span class="err">'reviews':</span><span class="w"> </span><span class="p">[</span><span class="err">'which</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">really</span><span class="w"> </span><span class="err">stupid</span><span class="w"> </span><span class="err">but</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">succeds</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">tickling</span><span class="w"> </span><span class="err">us!!the</span><span class="w"> </span><span class="err">storycharacter</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">enjoyment</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">quite</span><span class="w"> </span><span class="err">okwell</span><span class="w"> </span><span class="err">i</span><span class="w"> </span><span class="err">personally</span><span class="w"> </span><span class="err">disliked</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">op</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">ed</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">art</span><span class="w"> </span><span class="err">also</span><span class="w"> </span><span class="err">seems</span><span class="w"> </span><span class="err">quite</span><span class="w"> </span><span class="err">ok</span><span class="w"> </span><span class="p">{</span><span class="err">not</span><span class="w"> </span><span class="err">many</span><span class="w"> </span><span class="err">cute</span><span class="w"> </span><span class="err">girls</span><span class="w"> </span><span class="err">:(</span><span class="w"> </span><span class="p">}</span><span class="err">its</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">lot</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">fun</span><span class="w"> </span><span class="err">overall</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">series</span><span class="w"> </span><span class="err">i</span><span class="w"> </span><span class="err">ll</span><span class="w"> </span><span class="err">definately</span><span class="w"> </span><span class="err">say</span><span class="w"> </span><span class="err">give</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">shot</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="mi">1</span><span class="err">st</span><span class="w"> </span><span class="err">epi!!!ull</span><span class="w"> </span><span class="err">automatically</span><span class="w"> </span><span class="err">get</span><span class="w"> </span><span class="err">hooked</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">series</span><span class="w"> </span><span class="err">atleast</span><span class="w"> </span><span class="err">i</span><span class="w"> </span><span class="err">did</span><span class="w"> </span><span class="err">!well</span><span class="w"> </span><span class="err">i</span><span class="w"> </span><span class="err">hope</span><span class="w"> </span><span class="err">u</span><span class="w"> </span><span class="err">liked</span><span class="w"> </span><span class="err">my</span><span class="w"> </span><span class="err">review</span><span class="w"> </span><span class="err">plz</span><span class="w"> </span><span class="err">ratemy</span><span class="w"> </span><span class="mi">1</span><span class="err">st</span><span class="w"> </span><span class="err">reviewread</span><span class="w"> </span><span class="err">more'</span><span class="p">],</span><span class="w">
+ </span><span class="err">'img_url':</span><span class="w"> </span><span class="err">'https://myanimelist.cdn-dena.com/images/anime/</span><span class="mi">5</span><span class="err">/</span><span class="mi">71953</span><span class="err">.jpg'</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The table illustrates an example of a user’s watched history, and the accompanying table displays ratings for 5 different anime given by 5 distinct users. The ratings are on a scale of 1 to 10, with 10 representing the highest level of favorability.</p>
+
+<style>
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+	}
+    td, th {
+        border: 1px solid #dddddd;}
+</style>
+
+<table>
+  <thead>
+    <tr>
+      <th>Anime/score</th>
+      <th>User1</th>
+      <th>User2</th>
+      <th>User3</th>
+      <th>User4</th>
+      <th>User5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fairy Tail</td>
+      <td>10</td>
+      <td>8</td>
+      <td>10</td>
+      <td>5</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Kimi no na wa</td>
+      <td>10</td>
+      <td>9</td>
+      <td> </td>
+      <td> </td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>No game no life</td>
+      <td>9</td>
+      <td> </td>
+      <td>9</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Tokyo Ghoul</td>
+      <td>7</td>
+      <td> </td>
+      <td>9</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>One Piece</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>10</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="how-does-this-recommender-system-works-">How does this recommender system works ?</h4>
+
+<hr />
+
+<p>Broadly speaking, there are two common algorithms used in the recommendation systems, collaborative filtering and content-based filtering. Collaborative filtering works by analyzing the viewing histories and ratings of multiple users. The system identifies users who have similar viewing and rating patterns and groups them into clusters. It then makes recommendations based on the preferences of users in the same cluster. For example, if many Marvel fans has enjoyed Tom and Jerry in their past, the system will likely recommend Tom and Jerry to those Marvel fans who has not watched it yet. In other words, it makes predictions based on the response of other users who share similar tastes. Content-based filtering, on the other hand, makes recommendations based on the content of the anime themselves. This approach involves analyzing the attributes, such as genre, theme, plot, character and story background,. The system then recommends anime to users based on their preferences for these attributes. For example, if a user enjoys watching romantic comedies with high school settings, the system will search for anime with similar attributes.</p>
+
+<p>Both methods have their pros and cons. A major appeal of collaborative filtering is its flexibility in dealing with various data aspects. Collaborative filtering requires an active user data base with effective rating system and it does not work well with new user profiles or new anime with no ratings or reviews, known as cold start problem. It also relies heavily on the availability of user data, which can lead to sparsity and bias in data. A content based filtering is more friendly to new anime but is more exclusive to users’ own experience, and does not consider social factors such as popularity.</p>
+
+<p>A more effective solution would be a hybrid system that combines both methods. While there are many blogs online discussing these two methods, few dive into how they work in practice. To begin with, it is important to understand the concept of the cold start problem and how it arises. We can conceptualize the rating system as a matrix, denoted as  <strong>R<sub>rating</sub></strong>, where the matrix contains the scores of all anime titles rated by all users. In our particular case, the matrix size will be 5000 shows by 5000 users, and each row will represent the ratings given by a user, with a value of 0 indicating that the user has not watched the anime.</p>
+
+<div class="language-mathematica highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[[</span><span class="w"> </span><span class="m">10</span><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">8</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">10</span><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">5</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">10</span><span class="w">   </span><span class="o">...</span><span class="p">]</span><span class="w">
+ </span><span class="p">[</span><span class="w"> </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">8</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">4</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">8</span><span class="w">    </span><span class="o">...</span><span class="p">]</span><span class="w">
+ </span><span class="p">[</span><span class="w"> </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">8</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">    </span><span class="o">...</span><span class="p">]</span><span class="w">
+ </span><span class="p">[</span><span class="w"> </span><span class="m">0</span><span class="w">   </span><span class="m">3</span><span class="w">   </span><span class="m">1</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">7</span><span class="w">   </span><span class="m">3</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">    </span><span class="o">...</span><span class="p">]</span><span class="w">
+ </span><span class="p">[</span><span class="w"> </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">    </span><span class="o">...</span><span class="p">]]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Let’s take a look at Row 5, which represents a new user. Typically, most users will have only watched a small fraction of the thousands of anime titles available on the platform. Assuming an average user spends about one hour per week on anime and each show has around 12 episodes of 20 minutes each, that would amount to roughly 152 hours per year, or about 20 shows per year. Consequently, the rating matrix will be extremely sparse, with most elements being zero. As the platform expands and more users join, the sparsity problem will continue to grow more severe.</p>
+
+<p>Figure 1. Hybrid recommender work flow. A layout structure of my code.</p>
+
+<h5><img src="https://live.staticflickr.com/65535/49755925832_dd80feb86a_b.jpg" width="100%" alt="zBbWj8p" /></h5>
+
+<h5 id="a-collaborative-filtering-workflow">A: Collaborative Filtering Workflow</h5>
+
+<p>The following image displays a user-item interaction matrix obtained from the ratings of six shows given by six users. Traditional collaborative filtering include measuring user similarity by calculating Pearson correlation or cosine similarity between normalized user vectors. Then combine the weighted average scores given by neighbors to estimate user’s score on the unseen show. A modern solution called matrix factorization, initially introduced by Simon Funk in 2006 in the Netflix Prize competition, has a better approach in handling this user-item matrix.  Instead of directly computing similarity between users, matrix factorization transforms the original matrix into two lower-dimensional matrices - one representing users and the other representing items using technique called singular value decomposition (SVD). These lower-dimensional matrices capture the latent factors or features that determine the user’s preference for a particular item, and can be used to predict missing ratings. Matrix factorization can provide more accurate predictions and is more scalable than traditional collaborative filtering methods.</p>
+
+<p>Figure 2. <a href="https://datajobs.com/data-science-repo/Recommender-Systems-Netflix.pdf" title="MATRIX FACTORIZATION TECHNIQUES FOR RECOMMENDER SYSTEMS by Yehuda Koren and Chris Volinsky, published in 2009">User-item matrix decomposition</a> <img src="https://miro.medium.com/v2/resize:fit:1400/0*c4ajANtlyjvhwpgj.png" width="100%" alt="zBbWj8p" />
 \(R=\begin{bmatrix}
-5 &amp;amp; 3 &amp;amp; 0 &amp;amp; 1 \\
-4 &amp;amp; 0 &amp;amp; 0&amp;amp; 1\\
-1 &amp;amp; 1 &amp;amp; 0&amp;amp; 5\\
-0 &amp;amp; 1 &amp;amp; 5&amp;amp; 4\\
+5 &amp; 3 &amp; 0 &amp; 1 \\
+4 &amp; 0 &amp; 0&amp; 1\\
+1 &amp; 1 &amp; 0&amp; 5\\
+0 &amp; 1 &amp; 5&amp; 4\\
 \end{bmatrix}
 \rightarrow\;\;\;\; U \times V\;\;
 \rightarrow \;\;\hat{R}=\begin{bmatrix}
-4.9&amp;amp; 2.5 &amp;amp;2.2 &amp;amp;0.9 \\
-4.2 &amp;amp; 0.5 &amp;amp; 3.4&amp;amp; 1\\
-1.5 &amp;amp; 0.3 &amp;amp; 4.5&amp;amp; 3.9\\
-1.1 &amp;amp; 0.9 &amp;amp; 4.9&amp;amp; 3.2\\
+4.9&amp; 2.5 &amp;2.2 &amp;0.9 \\
+4.2 &amp; 0.5 &amp; 3.4&amp; 1\\
+1.5 &amp; 0.3 &amp; 4.5&amp; 3.9\\
+1.1 &amp; 0.9 &amp; 4.9&amp; 3.2\\
 \end{bmatrix}\)
-Rating matrix R can be expressed as the product of two lower-dimensional matrices: U (user matrix) and V (item matrix). Assume k=3 latent factors, which means we assume that there are three underlying factors that determine how users rate the items (e.g. action vs romance vs adventure, animation quality vs length vs vocal, etc). We initialize U and V randomly, then use gradient descent to optimize the matrices based on the mean squared error loss between the predicted ratings and actual ratings in R. We can then use these matrices to predict the missing values in R, by taking the dot product of the corresponding user and item vectors.&lt;/p&gt;
+Rating matrix R can be expressed as the product of two lower-dimensional matrices: U (user matrix) and V (item matrix). Assume k=3 latent factors, which means we assume that there are three underlying factors that determine how users rate the items (e.g. action vs romance vs adventure, animation quality vs length vs vocal, etc). We initialize U and V randomly, then use gradient descent to optimize the matrices based on the mean squared error loss between the predicted ratings and actual ratings in R. We can then use these matrices to predict the missing values in R, by taking the dot product of the corresponding user and item vectors.</p>
 
-&lt;h5 id=&quot;b-content-based-filtering-workflow&quot;&gt;B: Content-based Filtering workflow&lt;/h5&gt;
+<h5 id="b-content-based-filtering-workflow">B: Content-based Filtering workflow</h5>
 
-&lt;p&gt;A way to understand content-based filtering is to see it as a classification problem, where the system identifies relevant features in the content that are highly correlated with the user’s preferences. Recommendations are then made by comparing the user’s profile to the content of each item in the collection. The inputs are descriptions of anime stories and the goal is to identify the key topics or themes present in the text by extracting and grouping related keywords. TF-IDF is a common method used for text extraction that calculates the importance of a specific word in a given document. Words that appear frequently across all documents, such as “people” or “place,” are given a lower importance than words that appear infrequently but suggest a specific theme or topic, such as “wolf,” “magic,” or “spirit”.  In this project, 30 different anime topics were identified by extracting the key phrases from all the story descriptions. For instance, Topic 7 is centered on solving crimes, with Detective Conan being the most representative example.&lt;/p&gt;
+<p>A way to understand content-based filtering is to see it as a classification problem, where the system identifies relevant features in the content that are highly correlated with the user’s preferences. Recommendations are then made by comparing the user’s profile to the content of each item in the collection. The inputs are descriptions of anime stories and the goal is to identify the key topics or themes present in the text by extracting and grouping related keywords. TF-IDF is a common method used for text extraction that calculates the importance of a specific word in a given document. Words that appear frequently across all documents, such as “people” or “place,” are given a lower importance than words that appear infrequently but suggest a specific theme or topic, such as “wolf,” “magic,” or “spirit”.  In this project, 30 different anime topics were identified by extracting the key phrases from all the story descriptions. For instance, Topic 7 is centered on solving crimes, with Detective Conan being the most representative example.</p>
 
-&lt;p&gt;Examples:&lt;/p&gt;
+<p>Examples:</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Topic #1: Special, release, air, recap, feature&lt;br /&gt;
-Topic #2: Earth, Planet, space, alien, ship&lt;br /&gt;
-Topic #3: High, school, junior, student, classmate&lt;br /&gt;
-Topic #4: Team, soccer, player, match, baseball&lt;br /&gt;
-Topic #5: Human, race, mankind, god, survive, extinct  &lt;br /&gt;
-Topic #6: Magic, witch, magician, kingdom, wish&lt;br /&gt;
-Topic #7: Mystery, solve, appear, past, shadow, kill&lt;br /&gt;
-Topic #8: Demon, king, hero, lord, seal, defeat, mission&lt;br /&gt;
-Topic #9: Love, feel, fall, relationship, confess, heart&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>Topic #1: Special, release, air, recap, feature<br />
+Topic #2: Earth, Planet, space, alien, ship<br />
+Topic #3: High, school, junior, student, classmate<br />
+Topic #4: Team, soccer, player, match, baseball<br />
+Topic #5: Human, race, mankind, god, survive, extinct  <br />
+Topic #6: Magic, witch, magician, kingdom, wish<br />
+Topic #7: Mystery, solve, appear, past, shadow, kill<br />
+Topic #8: Demon, king, hero, lord, seal, defeat, mission<br />
+Topic #9: Love, feel, fall, relationship, confess, heart</p>
+</blockquote>
 
-&lt;p&gt;Then we can calculate an associated probability for each topic for a given anime.  For example&lt;/p&gt;
+<p>Then we can calculate an associated probability for each topic for a given anime.  For example</p>
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Anime/Topics&lt;/th&gt;
-      &lt;th&gt;Topic 2&lt;/th&gt;
-      &lt;th&gt;Topic 3&lt;/th&gt;
-      &lt;th&gt;Topic 7&lt;/th&gt;
-      &lt;th&gt;Topic 8&lt;/th&gt;
-      &lt;th&gt;Topic 9&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Fairy Tail&lt;/td&gt;
-      &lt;td&gt;0.01&lt;/td&gt;
-      &lt;td&gt;0.12&lt;/td&gt;
-      &lt;td&gt;0.00&lt;/td&gt;
-      &lt;td&gt;0.67&lt;/td&gt;
-      &lt;td&gt;0.00&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Kimi no na wa&lt;/td&gt;
-      &lt;td&gt;0.11&lt;/td&gt;
-      &lt;td&gt;0.87&lt;/td&gt;
-      &lt;td&gt;0.02&lt;/td&gt;
-      &lt;td&gt;0.01&lt;/td&gt;
-      &lt;td&gt;0.54&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;No game no life&lt;/td&gt;
-      &lt;td&gt;0.35&lt;/td&gt;
-      &lt;td&gt;0.23&lt;/td&gt;
-      &lt;td&gt;0.34&lt;/td&gt;
-      &lt;td&gt;0.01&lt;/td&gt;
-      &lt;td&gt;0.35&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Tokyo Ghoul&lt;/td&gt;
-      &lt;td&gt;0.02&lt;/td&gt;
-      &lt;td&gt;0.56&lt;/td&gt;
-      &lt;td&gt;0.76&lt;/td&gt;
-      &lt;td&gt;0.12&lt;/td&gt;
-      &lt;td&gt;0.00&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;One Piece&lt;/td&gt;
-      &lt;td&gt;0.05&lt;/td&gt;
-      &lt;td&gt;0.00&lt;/td&gt;
-      &lt;td&gt;0.00&lt;/td&gt;
-      &lt;td&gt;0.45&lt;/td&gt;
-      &lt;td&gt;0.00&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+<table>
+  <thead>
+    <tr>
+      <th>Anime/Topics</th>
+      <th>Topic 2</th>
+      <th>Topic 3</th>
+      <th>Topic 7</th>
+      <th>Topic 8</th>
+      <th>Topic 9</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fairy Tail</td>
+      <td>0.01</td>
+      <td>0.12</td>
+      <td>0.00</td>
+      <td>0.67</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Kimi no na wa</td>
+      <td>0.11</td>
+      <td>0.87</td>
+      <td>0.02</td>
+      <td>0.01</td>
+      <td>0.54</td>
+    </tr>
+    <tr>
+      <td>No game no life</td>
+      <td>0.35</td>
+      <td>0.23</td>
+      <td>0.34</td>
+      <td>0.01</td>
+      <td>0.35</td>
+    </tr>
+    <tr>
+      <td>Tokyo Ghoul</td>
+      <td>0.02</td>
+      <td>0.56</td>
+      <td>0.76</td>
+      <td>0.12</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>One Piece</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.45</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table>
 
-&lt;p&gt;We can determine a user’s preference for different topics by taking an average of all the anime topics they have watched in the past. To generate recommendations, we then calculate the cosine similarity between the user’s topic matrix and the anime topic matrix. Finally, we combine the results obtained from the two recommenders.&lt;/p&gt;
+<p>We can determine a user’s preference for different topics by taking an average of all the anime topics they have watched in the past. To generate recommendations, we then calculate the cosine similarity between the user’s topic matrix and the anime topic matrix. Finally, we combine the results obtained from the two recommenders.</p>
 
-&lt;h4 id=&quot;future-improvements&quot;&gt;Future Improvements&lt;/h4&gt;
+<h4 id="future-improvements">Future Improvements</h4>
 
-&lt;hr /&gt;
+<hr />
 
-&lt;p&gt;Incorporating contextual information, such as location, country, ethnicity, age to enhance the accuracy of recommendations by tailoring them to the user’s current situation. Use deep learning techniques, such as neural networks, to create more sophisticated models that can capture more complex patterns and relationships between users and items.&lt;/p&gt;
+<p>Incorporating contextual information, such as location, country, ethnicity, age to enhance the accuracy of recommendations by tailoring them to the user’s current situation. Use deep learning techniques, such as neural networks, to create more sophisticated models that can capture more complex patterns and relationships between users and items.</p>
 
-&lt;h4 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h4&gt;
+<h4 id="conclusion">Conclusion</h4>
 
-&lt;hr /&gt;
+<hr />
 
-&lt;p&gt;Both methods have their strengths and limitations, and they can be combined to create a hybrid recommender system. The effectiveness of these methods can be further improved with advancements in natural language processing and machine learning techniques. Overall, recommender systems play a critical role in providing personalized experiences to users and are increasingly important in today’s digital landscape.&lt;/p&gt;
+<p>Both methods have their strengths and limitations, and they can be combined to create a hybrid recommender system. The effectiveness of these methods can be further improved with advancements in natural language processing and machine learning techniques. Overall, recommender systems play a critical role in providing personalized experiences to users and are increasingly important in today’s digital landscape.</p>
 
-&lt;p&gt;Reference&lt;/p&gt;
-
-</description>
-        <pubDate>Sat, 06 Jul 2019 11:39:40 -0400</pubDate>
-        <link>https://mumuxi15.github.io//2019/07/06/anime_recommender/</link>
-        <guid isPermaLink="true">https://mumuxi15.github.io//2019/07/06/anime_recommender/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Amazon Illegal Mining Detection</title>
-        <description>&lt;p&gt;Amazon deforestation has been a major concern due to its negative impact on biodiversity, habitat destruction, and climate change. Over the past decade, the increasing global gold price has led to a rise in illegal gold mining activities within the region. To detect land use changes associated with illegal mining, satellite images can be analyzed to locate the illegal mines using machine learning technique.&lt;/p&gt;
-
-&lt;p&gt;The dataset used for this project is from “&lt;a href=&quot;https://www.kaggle.com/c/planet-understanding-the-amazon-from-space&quot;&gt;Planet: Understanding the Amazon from Space&lt;/a&gt;”, where satellite images were divided into small chips and randomly assigned numbers as names. The goal of the project is to generate labels that best describe the content of the image and thus identify those that are marked as illegal mines. To accomplish this, I used an AWS GPU instance (Amazon Web Service), as complex neural networks often require better hardware than standard PC setups. The instance used was a default GPU instance priced at approximately $0.772 per hour and used the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Image: Deep Learning AMI (Ubuntu) Version 10.0&lt;/li&gt;
-  &lt;li&gt;Instance type: p2.xlarge&lt;/li&gt;
-  &lt;li&gt;Python Packages: Keras 2.1.6, Tensorflow, Opencv&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Examples of some image chips (the labels were added for readers). Each image chip consists of multiple labels and is separated by commas, such as clear, cloudy, hazy, road, water, cultivation, artisanal mine, and blooming. The dataset is quite challenging as the labels are highly imbalanced with a few labeling errors. Red, blue, and purple indicates &lt;span style=&quot;color:SALMON&quot;&gt; atmospheric conditions&lt;/span&gt;,  &lt;span style=&quot;color:LightSkyBlue&quot;&gt; common land uses&lt;/span&gt; and  &lt;span style=&quot;color:Plum&quot;&gt; rare land uses&lt;/span&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Note: artisanal mine is another word for illegal mine&lt;/em&gt;&lt;/p&gt;
-
-&lt;p float=&quot;left&quot;&gt;
-&lt;img src=&quot;https://live.staticflickr.com/65535/49626992868_557450fa33.jpg&quot; width=&quot;50%&quot; /&gt;  &lt;img src=&quot;https://lh3.googleusercontent.com/jn0yWdVFz-RplTsir-DZcRs0UYWSouwjwhknKi3J6-f-o4TPWBlL2AGNsKQa0NIBkPJ66XfUfKrB03-BmHo8vDq2dJhf6lZLRuhQmluBukP2V979NtW7NZ-5odX8mhEru029s6PDy40&quot; width=&quot;49%&quot; /&gt;
- &lt;/p&gt;
-
-&lt;h4 id=&quot;build-a-neural-network-model&quot;&gt;Build a Neural Network Model&lt;/h4&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;I started with a basic convolutional neural network (CNN) model as CNN is good at recognizing visual patterns in images. In order to train the CNN, images of forests, roads, water, agricultural fields, and other categories were provided to the model, along with images of illegal mining activities. The CNN then uses a pooling process to extract the most important information from the features it has found and reduce the amount of data it needs to store. Finally, it uses a process called fully connected layers to combine all of the information it has learned about the features to generate labels for the images. Although I had 70,000 clearly labeled training images, the results were not as good as expected. After 10 hours of training, the CNN model failed to predict any rare land use labels, indicating that it was underfit. The challenge then became how to improve the model to classify minority classes.&lt;/p&gt;
-
-&lt;p&gt;Two approaches I made to solve the problem:&lt;/p&gt;
-
-&lt;ul&gt;
-    &lt;li&gt;Improve input image quality&lt;/li&gt;
-    &lt;li&gt;More advanced network designs&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&quot;improve-image-quality&quot;&gt;&lt;strong&gt;Improve image quality&lt;/strong&gt;&lt;/h5&gt;
-
-&lt;p&gt;Generally speaking, clearer images that contain more information yield better results for neural networks. However, an image covered by haze can be challenging for the neural network to extract the necessary information. To address this issue, a dehaze function was developed based on a paper called: &lt;a href=&quot;https://www.robots.ox.ac.uk/~vgg/rg/papers/hazeremoval.pdf&quot;&gt;“Single Image Haze Removal using Dark Channel Prior”&lt;/a&gt;.  Haze or blur in images is often caused by the scattering of light in the atmosphere before it reaches the camera. To simplify the process, the scattered light intensity is estimated as a constant, which is approximated to the maximum pixel intensity of the darkest RGB channel. By subtracting this haze constant, the image can be restored and clearer information can be extracted.&lt;/p&gt;
-
-&lt;p&gt;&lt;img style=&quot;width:80%;display:block;&quot; src=&quot;https://www.researchgate.net/profile/Seung_Won_Jung2/publication/291385074/figure/fig14/AS:320880610693124@1453515307125/Formation-of-a-hazy-image.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt; Figure 2. Formation of a hazy image. Camera = Direct attenuation+Airlight&lt;/p&gt;
-
-&lt;p&gt;Using the dehaze function results in the elimination of haze and an enhancement in image contrast. Here are some examples of images before and after dehazing. The dehazing function is highly effective for both clear and hazy images, as shown in the examples.&lt;/p&gt;
-
-&lt;p&gt;&lt;img style=&quot;width:80%;display:inline-block;&quot; src=&quot;https://lh5.googleusercontent.com/kLzNKsQnGef5RmNFomjswAF6Fx37KHPC4mEP4zfHRfQZAKSUzEL-nEVMziqYLKAMHZ07v8vWbgYhfntR3l7KGLRKXKhAIaFDLrh20OsqbK6L_U7wHFfsR6JPf5-WwMKq4ToEtGNwHrM&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Figure3. Before and after applying dehaze function on hazy, partly cloudy and clear images&lt;/p&gt;
-
-&lt;p&gt;This shows significant improvement on both precision and recall, especially the rare land use case. As both metrics are important and fewer false negatives are preferred, F2 score is used to evaluate the model. It is a combination of precision and recall and it puts more weight on recall.&lt;/p&gt;
-
-&lt;p&gt;&lt;img style=&quot;width:80%;display:inline-block;&quot; src=&quot;https://lh6.googleusercontent.com/P4qLeEVjt-Xh1vPbRrR12i6W43sfm03gZnA5x4NAoSkD4rkqx5cYPlmu9EplmXZDWM0TDudJzw-OOGQIOJ26T4VAFf2sD6isNkzWEyyZJOosXJpH5xXg581AVMpYm1B8j007y6BbdXk&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Figure 4. Comparison of DenseNet model trained on original images and haze free images&lt;/p&gt;
-
-&lt;h5 id=&quot;densenet&quot;&gt;&lt;strong&gt;DenseNet&lt;/strong&gt;&lt;/h5&gt;
-
-&lt;p&gt;Increasing model complexity is necessary to learn finer details. After research, I chose one of the latest Neural Network architectures: DenseNet (Dense Convolutional Network), a smarter neural network published by &lt;a href=&quot;https://arxiv.org/pdf/1608.06993v3.pdf&quot;&gt;Zhuang Liu and Gao Huang&lt;/a&gt; in 2017.  The major difference is that DenseNet connects each layer to every other layer whereas traditional convolutional network layers connect sequentially. DenseNet improves the flow of information and gradients throughout the network, therefore it has better parameter efficiency resulting in a faster training time.&lt;/p&gt;
-
-&lt;h4 id=&quot;work-flow&quot;&gt;Work Flow&lt;/h4&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://live.staticflickr.com/65535/49627827697_8058d80cab_c.jpg&quot; width=&quot;80%&quot; alt=&quot;work flow&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;model-performance&quot;&gt;Model Performance&lt;/h4&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;I trained the Dense Net model on the hazed removed image sets for 4 hours and saved the model as b01_dense121.h5. Then used it to generate labels for unlabelled test set images. Here are some examples of test photo chips marked as illegal mines.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://live.staticflickr.com/65535/49627526151_a93a067f6d_c.jpg&quot; width=&quot;80%&quot; alt=&quot;LSL0RMq&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The averaged precision and recall for all labels is 0.89 and 0.81. Out of 90,000 test images, 78 illegal mine photos were successfully detected, which gives precision of 0.69 and recall of 0.45.&lt;/p&gt;
-
-&lt;p&gt;Project in posted in my &lt;a href=&quot;https://github.com/mumuxi15/metis_proj/tree/master/Multilabel%20image%20classification&quot;&gt;GitHub&lt;/a&gt;. Thanks for reading !&lt;/p&gt;
-</description>
-        <pubDate>Mon, 18 Jun 2018 11:07:19 -0400</pubDate>
-        <link>https://mumuxi15.github.io//2018/06/18/rainforest/</link>
-        <guid isPermaLink="true">https://mumuxi15.github.io//2018/06/18/rainforest/</guid>
-        
-        
-      </item>
-    
-  </channel>
-</rss>
+<p>Reference</p>]]></content><author><name>penny</name></author><category term="supervised" /><category term="featured" /><summary type="html"><![CDATA[In recent years, anime has become increasingly popular worldwide, and the number of anime available online has grown exponentially. With so many options to choose from, it can be challenging to select the perfect one to suit their unique tastes. To address this issue, machine learning techniques has been used to develop personalized anime recommendation systems. By analyzing an individual’s viewing history and preferences, these systems can suggest anime titles that are more likely to appeal to them, based on factors such as genre, themes, and style. In this way, anime fans can discover new shows that are tailored to their specific interests, and spend less time searching. This article explores the use of machine learning in anime recommendation systems and discusses how they can enhance the anime viewing experience.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.befunky.com/images/wp/wp-2015-12-ghibli_parade__by_tenaga-d7gy63i.jpg" /><media:content medium="image" url="https://www.befunky.com/images/wp/wp-2015-12-ghibli_parade__by_tenaga-d7gy63i.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

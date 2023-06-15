@@ -1,19 +1,18 @@
 ---
 layout: post
 title:  "Anime Recommender"
-date:   2019-07-06 15:39:40
-preview: https://c4.wallpaperflare.com/wallpaper/727/45/118/anime-anime-hayao-miyazaki-totoro-wallpaper-preview.jpg
+author: penny
+categories: [ supervised ]
+image: https://www.befunky.com/images/wp/wp-2015-12-ghibli_parade__by_tenaga-d7gy63i.jpg
+tags: featured
 ---
-
-<img style="width:100%;display:block;" src="https://www.befunky.com/images/wp/wp-2015-12-ghibli_parade__by_tenaga-d7gy63i.jpg" />
-
 In recent years, anime has become increasingly popular worldwide, and the number of anime available online  has grown exponentially. With so many options to choose from, it can be challenging to select the perfect one to suit their unique tastes. To address this issue, machine learning techniques has been used to develop personalized anime recommendation systems. By analyzing an individual's viewing history and preferences, these systems can suggest anime titles that are more likely to appeal to them, based on factors such as genre, themes, and style. In this way, anime fans can discover new shows that are tailored to their specific interests, and spend less time searching. This article explores the use of machine learning in anime recommendation systems and discusses how they can enhance the anime viewing experience.
 
 
 
 The process began by gathering data from MyAnimeList, a website dedicated to anime similar to IMDb. Over 5000 anime titles and user profiles were collected using Scrapy, Beautiful-soup and stored as JSON objects in MongoDB. The collected information includes names, descriptions, directors, vocal casts, theme songs, reviews, and more. Below is an example demonstrating the format of the collected data. 
 
-e.g Anime data
+Examples of data stored in MangoDB. 
 
 ```json
 {'_id': 'Yaiba',
@@ -24,7 +23,17 @@ e.g Anime data
  'img_url': 'https://myanimelist.cdn-dena.com/images/anime/5/71953.jpg'}
 ```
 
-e.g. User watched history. Table shows 5 anime rated by 5 different users, with 10 as the most favorable. 
+The table illustrates an example of a user's watched history, and the accompanying table displays ratings for 5 different anime given by 5 distinct users. The ratings are on a scale of 1 to 10, with 10 representing the highest level of favorability.
+
+<style>
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+	}
+    td, th {
+        border: 1px solid #dddddd;}
+</style>
 
 | Anime/score     | User1 | User2 | User3 | User4 | User5 |
 | --------------- | ----- | ----- | ----- | ----- | ----- |
@@ -65,6 +74,8 @@ Figure 1. Hybrid recommender work flow. A layout structure of my code.
 ##### A: Collaborative Filtering Workflow
 
 The following image displays a user-item interaction matrix obtained from the ratings of six shows given by six users. Traditional collaborative filtering include measuring user similarity by calculating Pearson correlation or cosine similarity between normalized user vectors. Then combine the weighted average scores given by neighbors to estimate user's score on the unseen show. A modern solution called matrix factorization, initially introduced by Simon Funk in 2006 in the Netflix Prize competition, has a better approach in handling this user-item matrix.  Instead of directly computing similarity between users, matrix factorization transforms the original matrix into two lower-dimensional matrices - one representing users and the other representing items using technique called singular value decomposition (SVD). These lower-dimensional matrices capture the latent factors or features that determine the user's preference for a particular item, and can be used to predict missing ratings. Matrix factorization can provide more accurate predictions and is more scalable than traditional collaborative filtering methods. 
+
+
 
 Figure 2. [User-item matrix decomposition][1] <img src="https://miro.medium.com/v2/resize:fit:1400/0*c4ajANtlyjvhwpgj.png" width="100%" alt="zBbWj8p">
 $$
@@ -134,8 +145,5 @@ Both methods have their strengths and limitations, and they can be combined to c
 
 Reference
 
-[1]: https://buomsoo-kim.github.io/data/images/2020-09-25/1.png
-[2]: https://datajobs.com/data-science-repo/Recommender-Systems-Netflix.pdf	"MATRIX FACTORIZATION TECHNIQUES FOR RECOMMENDER SYSTEMS by Yehuda Koren and Chris Volinsky, published in 2009"
-
-
+[1]: https://datajobs.com/data-science-repo/Recommender-Systems-Netflix.pdf	"MATRIX FACTORIZATION TECHNIQUES FOR RECOMMENDER SYSTEMS by Yehuda Koren and Chris Volinsky, published in 2009"
 

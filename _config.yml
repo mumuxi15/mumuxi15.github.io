@@ -1,15 +1,61 @@
-# Site settings
-title: Penny's blog
-email: mumuxi15@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Hi, my name is Penny Pan, a New York based data scientist with passion for machine learning
-# baseurl: "/penny-pan" # the subpath of your site, e.g. /blog
-url: https://mumuxi15.github.io/ # the base hostname & protocol for your site
-github_username:  mumuxi15
+# Site
+name: 'Penny Pan'
+description: 'Have a good day ~ '
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/favicon.ico'
+baseurl: '/mundana-theme-jekyll'
+disqus: 'demowebsite'
+email: 'mumuxi15@gmail.com'
 
-# Build settings
+include: ["_pages"]
+permalink: /:title/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-seo-tag
+
+authors:
+
+    penny:
+        name:         Penny
+        bio:          "Data scienctist, love to explore new ideas"
+        avatar:       /assets/images/avatar.jpeg
+
+    jane:
+      name:           Jane
+      site:           https://www.wowthemes.net
+      avatar:         /assets/images/avatar2.jpg
+      bio:            "Blogger, fashionista, love to explore new ideas and write on my morning coffee!"
+
+
+# Defaults
+defaults:
+
+  # all posts
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+      author: Penny
+      avatar: /assets/images/avatar.jpeg
+
+  # all pages
+  - scope:
+      path: "_pages"
+    values:
+      layout: page
+
+# Syntax
 markdown: kramdown
-permalink: pretty
-sass:
-    sass_dir: _sass
-    style: :compressed
+highlighter: rouge
+
+# Paginate
+paginate: 10
+
+
+
+# Exclude metadata and development time dependencies (like Grunt plugins)
+exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
