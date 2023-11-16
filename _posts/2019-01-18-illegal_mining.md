@@ -11,7 +11,7 @@ The Amazon rainforest, known for its rich biodiversity and vital role in regulat
 
 
 
-Traditional labor-intensive methods involving the hiring of local citizens have proven to be costly and time-consuming. Fortunately, advancements in satellite technology have opened new avenues for detecting illegal mining activities using satellite images and employing machine learning techniques like image classification.
+Traditional labor-intensive methods involving the hiring of local citizens to spot illegal activities have proven to be costly and time-consuming. Fortunately, advancements in satellite technology have opened new avenues for detecting illegal mining activities using satellite images and employing machine learning techniques like image classification.
 
 
 

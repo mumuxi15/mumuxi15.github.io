@@ -22,14 +22,7 @@ authors:
     penny:
         name:         Penny
         bio:          "Data scienctist, love to explore new ideas"
-        avatar:       /assets/images/avatar.jpeg
-
-    jane:
-      name:           Jane
-      site:           https://www.wowthemes.net
-      avatar:         /assets/images/avatar2.jpg
-      bio:            "Blogger, fashionista, love to explore new ideas and write on my morning coffee!"
-
+        avatar:       assets/images/avatar.jpeg
 
 # Defaults
 defaults:
@@ -40,7 +33,7 @@ defaults:
     values:
       layout: post
       author: Penny
-      avatar: /assets/images/avatar.jpeg
+      avatar: assets/images/avatar.jpeg
 
   # all pages
   - scope:
