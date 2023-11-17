@@ -1,100 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-16T14:49:12-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Penny Pan</title><subtitle>Have a good day ~ </subtitle><entry><title type="html">E-commerce web</title><link href="http://localhost:4000/Ecommerce/" rel="alternate" type="text/html" title="E-commerce web" /><published>2021-06-06T00:00:00-04:00</published><updated>2021-06-06T00:00:00-04:00</updated><id>http://localhost:4000/Ecommerce</id><content type="html" xml:base="http://localhost:4000/Ecommerce/"><![CDATA[<p>Introduction to building website</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-17T02:40:28-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Penny Pan</title><subtitle>Have a good day ~ </subtitle><entry><title type="html">Building a Dynamic E-commerce Website for Small Businesses</title><link href="http://localhost:4000/Ecommerce/" rel="alternate" type="text/html" title="Building a Dynamic E-commerce Website for Small Businesses" /><published>2022-06-06T00:00:00-04:00</published><updated>2022-06-06T00:00:00-04:00</updated><id>http://localhost:4000/Ecommerce</id><content type="html" xml:base="http://localhost:4000/Ecommerce/"><![CDATA[<p>The ongoing COVID-19 pandemic has brought about a seismic shift in consumer behavior, driving an unprecedented surge in online shopping. With an increasing preference for online shopping over in-person experiences, small business owners find themselves presented with a unique opportunity to expand their customer base and boost revenue by establishing a robust e-commerce presence. In this blog post, we’ll explore the transformative potential of setting up a simple yet dynamic website with a database for small businesses. This strategic move not only enables businesses to adapt to the changing landscape but also empowers them to thrive in the digital world.</p>
 
-<p>The ongoing COVID-19 pandemic has dramatically changed the way people shop and do business. With more and more consumers preferring to shop online rather than in-person, small business owners have an opportunity to expand their customer base and increase their revenue by setting up a simple e-commerce website with a database. A dynamic website can help small businesses create an engaging and interactive online presence that attracts new customers and allows existing customers to easily place orders and interact with the business. Setting up a website involves several key steps, including choosing a web hosting provider, selecting a database management system, designing the website’s front-end, creating the back-end infrastructure, and integrating the database with the website. In this introduction, we will guide you through the basic steps involved in setting up a dynamic website for a small business with a database, highlighting important considerations and best practices along the way. With the right tools and knowledge, small business owners can create a successful online presence that helps them navigate the challenges of the pandemic and thrive in a digital world.</p>
+<h4 id="1-plan-and-design-crafting-a-roadmap-to-success">1. Plan and Design: Crafting a Roadmap to Success</h4>
 
-<p>Many prefer to use Flask due to its ease of use and lightweight nature. Flask makes it easy to start building a web application without having to deal with the complexities of a full-stack web framework. As a lightweight micro-framework, it provides the flexibility to build a custom web application tailored to the specific needs of the project.</p>
+<p>Before diving into the development process, it’s crucial to meticulously plan and design your e-commerce platform. Small businesses need to outline their goals, target audience, and unique selling propositions. A well-thought-out plan ensures that the subsequent steps align with the business’s objectives, providing a roadmap for success. To be more specific, consider the features you want to incorporate, such as color themes, payment gateway integration, and more. Popular payment gateways like PayPal, Stripe, Braintree, and Square offer API access, allowing for seamless integration and backtesting.</p>
 
-<h4 id="1-plan-and-design">1. Plan and Design</h4>
+<h4 id="2-set-up-coding-environment">2. Set up coding environment</h4>
 
-<p>To start a project, it is always important to plan out the features and functionality you want to include, including the color theme, payment gateway integration and etc. Popular payment gateways include PayPal, Stripe, Braintree and Square, all those have API access and allow backtesting.</p>
+<p>Initiate your project by establishing a virtual environment using tools like virtualenv, helps to keep project dependencies organized and prevents conflicts between different projects. Additionally, it simplifies the process of transitioning projects to different laptops or computers and enables project reproduction across different devices. Once you have created a virtual environment, you can activate it by running the command.</p>
 
-<h4 id="2-set-up-virtual-environment">2. Set up virtual environment</h4>
-
-<p>Starting your project with a virtual environment tool virtualenv, helps to keep project dependencies organized and prevents conflicts between different projects. Once you have created a virtual environment, you can activate it by running the command. Useful packages include Flask-login, Flask-admin, Flask-Security, Flask-dance (for third party login such as google), Flask_sqlalchemy and etc.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>virtualenv <span class="nt">-p</span> python3 &lt;desired-path&gt;
-<span class="nb">source</span> &lt;venv&gt;/bin/activate
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>virtualenv -p python3 &lt;desired-path&gt;
+source &lt;venv&gt;/bin/activate
 </code></pre></div></div>
 
-<h4 id="3-build-backend---database">3. Build Backend - Database</h4>
+<h4 id="3-building-the-project">3. Building the project</h4>
 
-<p>Ask yourself a few questions before you start building the backend:</p>
+<p>Building a shopping site involves a multifaceted approach that encompasses various aspects, from designing the front end for user interaction to implementing a robust backend and database system. The front end is what users see in their browsers, while the back end is responsible for fulfilling user requests on the server side. You can either design the layout and animations yourself using CSS and JavaScript or utilize tools like <a href="https://getbootstrap.com/docs/4.0/examples/">Bootstrap</a>, which expedites the front end creation of a page.</p>
+
+<p>When it comes to the backend, Flask stands out as an excellent choice for beginners. Its user-friendly nature, coupled with examples readily available on platforms like GitHub, makes it an ideal starting point. The micro-framework of Flask offers flexibility, allowing businesses to tailor their web applications to meet specific project needs. You can have a website up and displaying “hello world!” within seconds by utilizing the following code.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">os</span>
+<span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="k">def</span> <span class="nf">create_app</span><span class="p">(</span><span class="n">test_config</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="c1"># create and configure the app
+</span>    <span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">,</span> <span class="n">instance_relative_config</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="nf">from_mapping</span><span class="p">(</span>
+        <span class="n">SECRET_KEY</span><span class="o">=</span><span class="sh">'</span><span class="s">dev</span><span class="sh">'</span><span class="p">,</span>
+        <span class="n">DATABASE</span><span class="o">=</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">app</span><span class="p">.</span><span class="n">instance_path</span><span class="p">,</span> <span class="sh">'</span><span class="s">flaskr.sqlite</span><span class="sh">'</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">test_config</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="c1"># load the instance config, if it exists, when not testing
+</span>        <span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="nf">from_pyfile</span><span class="p">(</span><span class="sh">'</span><span class="s">config.py</span><span class="sh">'</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># load the test config if passed in
+</span>        <span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="nf">from_mapping</span><span class="p">(</span><span class="n">test_config</span><span class="p">)</span>
+
+    <span class="c1"># ensure the instance folder exists
+</span>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="p">.</span><span class="nf">makedirs</span><span class="p">(</span><span class="n">app</span><span class="p">.</span><span class="n">instance_path</span><span class="p">)</span>
+    <span class="k">except</span> <span class="nb">OSError</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="c1"># a simple page that says hello
+</span>    <span class="nd">@app.route</span><span class="p">(</span><span class="sh">'</span><span class="s">/hello</span><span class="sh">'</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+        <span class="k">return</span> <span class="sh">'</span><span class="s">Hello, World!</span><span class="sh">'</span>
+
+    <span class="k">return</span> <span class="n">app</span>
+</code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flask <span class="nt">--app</span> flaskr run <span class="nt">--debug</span>
+</code></pre></div></div>
+
+<p>The database is the backbone of a shopping site, storing valuable information such as product details, customer data, and transaction history. Ask yourself a few questions before start.</p>
 
 <ol>
-  <li>What information I want to show to the client ?</li>
-  <li>What information I want to collect from the website ?</li>
+  <li><strong>Product Attributes:</strong>
+    <ul>
+      <li>What attributes of the product do we need to showcase to customers?</li>
+      <li>Consider aspects like product images, descriptions, prices, and any other relevant details.</li>
+    </ul>
+  </li>
+  <li><strong>Customer Information:</strong>
+    <ul>
+      <li>What information needs to be collected from customers?</li>
+      <li>Think about user registration details, shipping addresses, and any additional data relevant to your business model.</li>
+    </ul>
+  </li>
 </ol>
 
-<p>Drawing a quick database schema can also be very helpful in visualizing the data model and identifying the relationships between different entities. Picture below is an example of the standard schema and the grey lines shows how the tables are linked. The “order_detail” table share a common key “order_id” with the “orders” table. This would allow you to link specific items in an order to their corresponding product records, so you can accurately track inventory levels and update product availability as items are sold.</p>
+<p>Drawing a clear and concise database schema is a critical step in visualizing the data model and establishing relationships between different entities. A standard schema typically includes tables representing various aspects of your website. Consider the following example:</p>
 
 <p><img src="https://live.staticflickr.com/65535/49641865616_3f95e3d78b_c.jpg" width="80%" /></p>
 
-<h4 id="4-build-frontend">4. Build Frontend</h4>
+<p>In this example, the grey lines depict how tables are linked. Notice the “order_detail” table sharing a common key, “order_id,” with the “orders” table. This linkage allows for accurate tracking of inventory levels and updating product availability as items are sold. Taking the time to design a well-structured database schema sets the foundation for a robust and scalable shopping website.</p>
 
-<p>You can quickly get the website to running by using Jinja to dynamically generate HTML pages based on data from your database and user input. This allows you to create customized web pages that can display product listings, shopping carts, checkout forms, and other essential features of an e-commerce website. A basic set up looks like the example below.</p>
+<p>Below is a simple example of a Flask application with a SQL database. In this example, we’ll create a basic shopping sites with products and orders.  SQLite is used for simplicity, but you can replace it with a more robust database like PostgreSQL or MySQL based on your needs.</p>
 
-<p>Project Tree Example using Blueprints</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">url_for</span>
+<span class="kn">from</span> <span class="n">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>e_commerce_web
-├── /application
-│   ├── __init__.py
-│   ├── /auth
-│   │   ├── auth_routes.py
-│   │   └── /templates
-│   ├── /main
-│   │   ├── main_routes.py
-│   │   └── /templates
-│   ├── /static
-│   └── /templates
-│       ├── layout.html
-│       ├── home.html
-│       └── login.html
-├── requirements.txt
-└── wsgi.py
-└── venv
-</code></pre></div></div>
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="sh">'</span><span class="s">SQLALCHEMY_DATABASE_URI</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="sh">'</span><span class="s">sqlite:///shop.db</span><span class="sh">'</span>  <span class="c1"># Use SQLite for simplicity
+</span><span class="n">db</span> <span class="o">=</span> <span class="nc">SQLAlchemy</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
-<p>The function create_app() is used to build a Flask app</p>
+<span class="c1"># Define Product and Order models
+</span><span class="k">class</span> <span class="nc">Product</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nc">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nc">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="nc">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nc">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Float</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
-<p><em>__int__.py</em></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ... #
-</span><span class="k">def</span> <span class="nf">create_app</span><span class="p">():</span>
-	<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
-
-	<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="sh">'</span><span class="s">SECRET_KEY</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="sh">''</span>
-	<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="sh">'</span><span class="s">SQLALCHEMY_DATABASE_URI</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="n">db_path</span>
-	<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="sh">'</span><span class="s">SQLALCHEMY_TRACK_MODIFICATIONS</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
-	<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="sh">'</span><span class="s">OAUTH_CONFIG</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sh">''</span><span class="p">}</span>
-	<span class="n">db</span><span class="p">.</span><span class="nf">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-
-	<span class="n">login_manager</span> <span class="o">=</span> <span class="nc">LoginManager</span><span class="p">()</span>
-	<span class="n">login_manager</span><span class="p">.</span><span class="n">login_view</span> <span class="o">=</span> <span class="sh">'</span><span class="s">auth.login</span><span class="sh">'</span>
-	<span class="n">login_manager</span><span class="p">.</span><span class="nf">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-
-	<span class="kn">from</span> <span class="n">.models</span> <span class="kn">import</span> <span class="n">User</span>
-
-	<span class="n">admin</span> <span class="o">=</span> <span class="nc">Admin</span><span class="p">(</span><span class="n">app</span><span class="p">,</span><span class="n">index_view</span><span class="o">=</span><span class="nc">CustomAdminIndexView</span><span class="p">())</span>
-	<span class="c1">#...#
-</span>  
-	<span class="nd">@login_manager.user_loader</span>
-	<span class="k">def</span> <span class="nf">load_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
-	<span class="c1"># use user_id in the query for the user
-</span>		<span class="k">return</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">user_id</span><span class="p">))</span>
-
-
-	<span class="c1"># blueprint for auth routes in our app
-</span>	<span class="kn">from</span> <span class="n">.auth</span> <span class="kn">import</span> <span class="n">auth</span> <span class="k">as</span> <span class="n">auth_blueprint</span>
-	<span class="n">app</span><span class="p">.</span><span class="nf">register_blueprint</span><span class="p">(</span><span class="n">auth_blueprint</span><span class="p">)</span>
-
-	<span class="c1"># blueprint for non-auth parts of app
-</span>	<span class="kn">from</span> <span class="n">.main</span> <span class="kn">import</span> <span class="n">main</span> <span class="k">as</span> <span class="n">main_blueprint</span>
-	<span class="n">app</span><span class="p">.</span><span class="nf">register_blueprint</span><span class="p">(</span><span class="n">main_blueprint</span><span class="p">)</span>
-  
-	<span class="c1"># register google / facebook login
-</span>	<span class="nf">init_oauth_providers</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-
-	<span class="k">return</span> <span class="n">app</span>
+<span class="k">class</span> <span class="nc">Order</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nc">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">product_id</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nc">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">db</span><span class="p">.</span><span class="nc">ForeignKey</span><span class="p">(</span><span class="sh">'</span><span class="s">product.id</span><span class="sh">'</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">quantity</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nc">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>Reference:</p>
@@ -105,31 +104,29 @@
 
 <p><a href="https://hackersandslackers.com/flask-blueprints/">Organzing Flask Apps with Blueprints</a></p>
 
-<h4 id="5-add-e-commerce-features">5. Add e-commerce features</h4>
+<p>As the website expands, consider enhancing the user experience with additional features and functionalities. Integration of payment gateways, search functionality, product reviews, wish lists, and social media integration can significantly boost user engagement and drive sales. Flask’s modular design and scalability allow you to seamlessly incorporate these features. Online tutorials from reputable sources, such as PayPal’s official guide on integrating PayPal Checkout for online payments, and various programming tutorials on building a shopping cart using JavaScript, provide valuable resources for developers.</p>
 
-<p>As the website grows, you can add additional features and functionalities to enhance the user experience. For instance, payment gateways, search functionality, product reviews, wish lists, and social media integration to increase user engagement and boost sales. With Flask’s modular design and scalability, you can add these features to the website as needed, making it a versatile and flexible tool for building an e-commerce website.</p>
+<p>Reference:</p>
 
-<p>In order to make a dynamic website, you need to have a basic understanding of JavaScript programming and be familiar with both client-side and server-side development. The main challenge of building a dynamic website is connecting the database to the website and passing data between them. It’s like building a bridge between two cities over the sea. One way to do this is by using HTML5 web storage to store shopping cart information and using AJAX to transfer data from the front-end to the back-end, where it can be stored in the database. If you’re not familiar with these technologies, I recommend watching some YouTube tutorials to learn more.</p>
+<p><a href="https://developer.paypal.com/docs/checkout/standard/integrate/">Paypal integration</a></p>
 
 <p><a href="https://www.youtube.com/watch?v=1Q74A6ZQxdY&amp;list=PLoN_ejT35AEhzNoPStBzAkpqAu3YQwPj7">JavaScript Shopping Cart Tutorial</a></p>
 
-<h4 id="6-testing">6. Testing</h4>
+<h4 id="4-testing">4. Testing</h4>
 
-<p>This involves running different types of tests such as unit tests, integration tests, and end-to-end tests to verify the functionality of different components of the website. You can use testing frameworks such as Pytest and unittest to write and run tests for your website. Debugging any issues or errors that arise is also crucial to make sure that your website is functioning smoothly.</p>
+<p>Testing is a crucial phase in website development, involving various tests like unit tests, integration tests, and end-to-end tests to verify different components’ functionality. Frameworks like Pytest and <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-unit-testing-legacy">unittest</a> can be employed for testing purposes, and debugging is essential to ensure smooth website functionality.</p>
 
-<p>Links to good articles on web testing.   <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-unit-testing-legacy">unittesting</a></p>
+<h4 id="5-deploy">5. Deploy</h4>
 
-<h4 id="7-deploy">7. Deploy</h4>
+<p>Once testing is complete, the next step is to deployment. Hosting services like Heroku, AWS, and Google Cloud Platform provide platforms for deploying websites. You will need to configure the hosting environment, set up the database and server, and deploy your code to the server. It’s also vital to consider factors like scalability, security, and availability during deployment. I used pythoneverywhere.com to host my website. It is affordable and Python friendly. With a paid account, you can host up to three web applications for $5 per month.</p>
 
-<p>Once you have tested your website and are confident that it works as expected, the next step is to deploy it to a production environment where it can be accessed by users. There are various hosting services available such as Heroku, AWS, and Google Cloud Platform that can be used to deploy your website. You will need to configure the hosting environment, set up the database and server, and deploy your code to the server. It is also important to consider issues such as scalability, security, and availability when deploying your website. I used pythoneverywhere.com to host my website. It is affordable and easy to use. It provides a web-based development environment and a platform for hosting web applications written in Python. With a paid account, you can host up to three web applications for $5 per month.</p>
-
-<p>When building a website, it’s important to ensure that the site is secure and the sensitive customer information such as names, addresses, and payment details are protected from potential hackers or other security threats. One way to accomplish this is to use encryption to protect the data as it is transmitted between the client and server. First, you’ll need to obtain an SSL (Secure Sockets Layer) certificate, which verifies the identity of your website and encrypts all data transmitted between the server and the client. You can obtain a SSL certificate from a trusted certificate authority such as Let’s Encrypt (FREE !!!) Once you have the certificate, configure the web server to use HTTPS instead of HTTP. HTTPS is a secure version of the HTTP protocol that encrypts all data transmitted between the client and server.</p>
+<p>Security is paramount when handling sensitive customer information. It is our responsibility to protect user information from potential hackers and other security threats. An essential key is to use encryption to protect the data when transmitted between client and server. First, you’ll need to obtain an SSL (Secure Sockets Layer) certificate, which verifies the identity of your website and encrypts all data transmitted between the server and the client. You can obtain a SSL certificate from a trusted certificate authority such as Let’s Encrypt (FREE !!!) Once you have the certificate, configure the web server to use HTTPS instead of HTTP. HTTPS is a secure version of the HTTP protocol that encrypts all data transmitted between the client and server.</p>
 
 <p>In addition to using encryption, you should also take other security measures such as regularly updating your software and plugins, using strong passwords, and implementing measures such as two-factor authentication to protect your website from potential threats. It’s also a good idea to regularly back up your website to protect against data loss in the event of a security breach or other issue.</p>
 
-<h4 id="8-google-search">8. Google Search</h4>
+<h4 id="6-google-search">6. Google Search</h4>
 
-<p>If you want your website to appear in google search,</p>
+<p>Ensuring visibility on Google search results is pivotal for the success of your website. Google Search Console provides tools for verification and indexing. Purchasing a domain name, completing DNS verification, and submitting the index request are steps to ensure visibility in Google search results.</p>
 
 <ol>
   <li>
@@ -157,11 +154,33 @@ points to: yourwebsitename.com
   <li>Then go back to google console, search for your url in the URL inspection section and submit the index request. Google will perform several test on the website and if passed, you will receive a confirmation email from google.</li>
 </ol>
 
-<p>Overall, Flask is a flexible and lightweight web framework that simplifies database integration and offers a range of built-in features that can be customized and extended to create dynamic websites for small businesses during the pandemic.</p>]]></content><author><name>penny</name></author><summary type="html"><![CDATA[Introduction to building website]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://i.pinimg.com/originals/73/23/1c/73231c1309d3b2374083bf312fde1d98.jpg" /><media:content medium="image" url="https://i.pinimg.com/originals/73/23/1c/73231c1309d3b2374083bf312fde1d98.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Coronavirus Data Analysis</title><link href="http://localhost:4000/covid/" rel="alternate" type="text/html" title="Coronavirus Data Analysis" /><published>2020-03-14T00:00:00-04:00</published><updated>2020-03-14T00:00:00-04:00</updated><id>http://localhost:4000/covid</id><content type="html" xml:base="http://localhost:4000/covid/"><![CDATA[<p>Subtitle: COVID19 Spread Simulation using Python</p>
+<p>In conclusion, Flask proves to be a flexible and lightweight web framework that simplifies database integration and offers built-in features for creating dynamic websites. By following a comprehensive development and deployment process, you can build a secure, feature-rich shopping site that meets user needs and stands out in the competitive online marketplace.</p>]]></content><author><name>penny</name></author><summary type="html"><![CDATA[The ongoing COVID-19 pandemic has brought about a seismic shift in consumer behavior, driving an unprecedented surge in online shopping. With an increasing preference for online shopping over in-person experiences, small business owners find themselves presented with a unique opportunity to expand their customer base and boost revenue by establishing a robust e-commerce presence. In this blog post, we’ll explore the transformative potential of setting up a simple yet dynamic website with a database for small businesses. This strategic move not only enables businesses to adapt to the changing landscape but also empowers them to thrive in the digital world.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.businessnewsdaily.com/app/uploads/2022/04/04073619/how-ecommerce-works.png" /><media:content medium="image" url="https://images.businessnewsdaily.com/app/uploads/2022/04/04073619/how-ecommerce-works.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Coronavirus Data Analysis</title><link href="http://localhost:4000/covid/" rel="alternate" type="text/html" title="Coronavirus Data Analysis" /><published>2020-03-14T00:00:00-04:00</published><updated>2020-03-14T00:00:00-04:00</updated><id>http://localhost:4000/covid</id><content type="html" xml:base="http://localhost:4000/covid/"><![CDATA[<p>Subtitle: COVID19 Spread Simulation using Python</p>
 
-<p><img style="width:100%;display:block;" src="https://media.licdn.com/dms/image/C4D12AQF3kTLbkr-fHw/article-cover_image-shrink_423_752/0/1585840765955?e=1686787200&amp;v=beta&amp;t=UradA-QLXKKf-lpf-v0uio3-UukwghsXG25uAJyeg8w" /></p>
+<p>In New York, almost a month has passed since the start of the quarantine. In this time huge changes have occurred since I first started this blog in early February. My initial goal was to create a source that would collect total number of cases worldwide since the most updated information was not easily available to the public. However, the current situation has now changed, and there are more reliable resources that are documenting the spread of COVID-19 and disseminating the research in clear graphs. However, if you like to try my code, I have presented it below (output is in json format).</p>
 
-<p>In New York, almost a month has passed since the start of the quarantine. In this time huge changes have occurred since I first started this blog in early February. My initial goal was to create a source that would collect total number of cases worldwide since the most updated information was not easily available to the public. However, the current situation has now changed, and there are more reliable resources that are documenting the spread of COVID-19 and disseminating the research in clear graphs. However, if you like to try my code, I have presensted it below (output is in json format).</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+	<span class="n">post_url</span> <span class="o">=</span> <span class="sh">"</span><span class="s">https://covid19.who.int/page-data/region/wpro/country/cn/page-data.json</span><span class="sh">"</span>
+	<span class="k">try</span><span class="p">:</span>
+		<span class="n">res</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">post_url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+		<span class="n">status_code</span> <span class="o">=</span> <span class="n">res</span><span class="p">.</span><span class="n">status_code</span>
+	<span class="k">except</span> <span class="n">re</span><span class="p">.</span><span class="n">exceptions</span><span class="p">.</span><span class="nb">ConnectionError</span><span class="p">:</span>
+		<span class="n">status_code</span> <span class="o">=</span> <span class="sh">'</span><span class="s">CONNECTION ERROR</span><span class="sh">'</span>
+	<span class="k">if</span> <span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+		<span class="nf">print </span><span class="p">(</span><span class="sh">'</span><span class="s">___</span><span class="sh">'</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span> <span class="n">status_code</span><span class="p">)</span>
+		<span class="k">return</span> <span class="sh">'</span><span class="s">STATUS ERROR</span><span class="sh">'</span>
+	
+	<span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="nf">loads</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">json</span><span class="p">()[</span><span class="sh">'</span><span class="s">result</span><span class="sh">'</span><span class="p">][</span><span class="sh">'</span><span class="s">data</span><span class="sh">'</span><span class="p">][</span><span class="sh">'</span><span class="s">countryGroup</span><span class="sh">'</span><span class="p">][</span><span class="sh">'</span><span class="s">data</span><span class="sh">'</span><span class="p">])</span>
+	<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">date</span><span class="sh">'</span><span class="p">,</span><span class="sh">'</span><span class="s">_</span><span class="sh">'</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="sh">'</span><span class="s">name</span><span class="sh">'</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">json_data</span><span class="p">[</span><span class="sh">'</span><span class="s">metrics</span><span class="sh">'</span><span class="p">]]</span>
+	<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">json_data</span><span class="p">[</span><span class="sh">'</span><span class="s">rows</span><span class="sh">'</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+	<span class="n">df</span><span class="p">[</span><span class="sh">'</span><span class="s">date</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="sh">'</span><span class="s">date</span><span class="sh">'</span><span class="p">],</span><span class="n">utc</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">unit</span><span class="o">=</span><span class="sh">'</span><span class="s">ms</span><span class="sh">'</span><span class="p">).</span><span class="n">dt</span><span class="p">.</span><span class="n">date</span>
+	<span class="n">df</span><span class="p">.</span><span class="nf">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sh">'</span><span class="s">_</span><span class="sh">'</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>	
+<span class="c1">#	print (df.describe().T) 
+#	print (df.loc[df['Deaths']&lt;0]) # abnormal data neg daily death 
+</span>	<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="sh">'</span><span class="s">Deaths</span><span class="sh">'</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
+	<span class="nf">print </span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+ 
+<span class="nf">predict</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="sh">'</span><span class="s">china</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p><img src="https://media.licdn.com/dms/image/C4D12AQHYhvRt4Uvx4w/article-inline_image-shrink_1500_2232/0/1585841101969?e=1686182400&amp;v=beta&amp;t=ZbDvR8lghy1WX-asXAbBmCO7YPrBzVquecINlbjaB7s" /></p>
 
@@ -219,7 +238,7 @@ I = \frac{1}{1+e^{-t}}
 
 <p>The model predicts the total confirmed cases next 30 days. For example, given data on March 1st, the model estimates about 172172 confirmed cases in Italy at the end of April.</p>
 
-<p>Thanks for reading !</p>]]></content><author><name>penny</name></author><summary type="html"><![CDATA[Subtitle: COVID19 Spread Simulation using Python]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://imgc.allpostersimages.com/img/print/u-g-Q10FX9I0.jpg?w=500&amp;h=500&amp;p=0" /><media:content medium="image" url="https://imgc.allpostersimages.com/img/print/u-g-Q10FX9I0.jpg?w=500&amp;h=500&amp;p=0" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Anime Recommender</title><link href="http://localhost:4000/anime_recommender/" rel="alternate" type="text/html" title="Anime Recommender" /><published>2019-05-28T00:00:00-04:00</published><updated>2019-05-28T00:00:00-04:00</updated><id>http://localhost:4000/anime_recommender</id><content type="html" xml:base="http://localhost:4000/anime_recommender/"><![CDATA[<p>In recent years, anime has become increasingly popular worldwide, and the number of anime available online  has grown exponentially. With so many options to choose from, it can be challenging to select the perfect one to suit their unique tastes. To address this issue, machine learning techniques has been used to develop personalized anime recommendation systems. By analyzing an individual’s viewing history and preferences, these systems can suggest anime titles that are more likely to appeal to them, based on factors such as genre, themes, and style. In this way, anime fans can discover new shows that are tailored to their specific interests, and spend less time searching. This article explores the use of machine learning in anime recommendation systems and discusses how they can enhance the anime viewing experience.</p>
+<p>Thanks for reading !</p>]]></content><author><name>penny</name></author><category term="data scraping" /><summary type="html"><![CDATA[Subtitle: COVID19 Spread Simulation using Python]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://safeharborsc.imgix.net/adobestock-339124602-converted-1731501992.png" /><media:content medium="image" url="https://safeharborsc.imgix.net/adobestock-339124602-converted-1731501992.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Anime Recommender</title><link href="http://localhost:4000/anime_recommender/" rel="alternate" type="text/html" title="Anime Recommender" /><published>2019-05-28T00:00:00-04:00</published><updated>2019-05-28T00:00:00-04:00</updated><id>http://localhost:4000/anime_recommender</id><content type="html" xml:base="http://localhost:4000/anime_recommender/"><![CDATA[<p>In recent years, anime has become increasingly popular worldwide, and the number of anime available online  has grown exponentially. With so many options to choose from, it can be challenging to select the perfect one to suit their unique tastes. To address this issue, machine learning techniques has been used to develop personalized anime recommendation systems. By analyzing an individual’s viewing history and preferences, these systems can suggest anime titles that are more likely to appeal to them, based on factors such as genre, themes, and style. In this way, anime fans can discover new shows that are tailored to their specific interests, and spend less time searching. This article explores the use of machine learning in anime recommendation systems and discusses how they can enhance the anime viewing experience.</p>
 
 <p>The process began by gathering data from MyAnimeList, a website dedicated to anime similar to IMDb. Over 5000 anime titles and user profiles were collected using Scrapy, Beautiful-soup and stored as JSON objects in MongoDB. The collected information includes names, descriptions, directors, vocal casts, theme songs, reviews, and more. Below is an example demonstrating the format of the collected data.</p>
 
