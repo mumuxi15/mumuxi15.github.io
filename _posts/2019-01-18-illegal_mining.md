@@ -23,8 +23,6 @@ The primary objective of this project is to develop a system capable of identify
 
 <p float="left">
     <img src="https://live.staticflickr.com/65535/49626992868_557450fa33.jpg" width="50%" />  <img src="https://lh3.googleusercontent.com/jn0yWdVFz-RplTsir-DZcRs0UYWSouwjwhknKi3J6-f-o4TPWBlL2AGNsKQa0NIBkPJ66XfUfKrB03-BmHo8vDq2dJhf6lZLRuhQmluBukP2V979NtW7NZ-5odX8mhEru029s6PDy40" width="49%" /> <em>Left Figure 1: Examples of image chips with labels.   Right Figure 2: Frequency distribution of labels</em></p>
-
-
 The dataset consists of 70,000 image chips, each was associated with at least one label. The labels were categorized into three main groups: <span style="color:SALMON">  atmospheric conditions</span>,  <span style="color:LightSkyBlue"> common land uses</span> and  <span style="color:Plum"> rare land uses</span>.  However, there were significant imbalances in the distribution of the labels, and a few labeling errors were present in the dataset. Among the labels, less than 1% represented categories such as artisanal mines, conventional mines, slash burn, and others. This highly imbalanced nature of the labels posed a challenge during the training process. The neural network had to learn to accurately classify and recognize the rare land use categories, despite having limited examples for these classes.
 
 
@@ -58,7 +56,7 @@ To further improve the model's performance and accuracy, a customized neural net
 
 $$\text{Binary Crossentropy } = -\sum y_i log({\hat{y}}_i)+(1-y_i)log({1-\hat{y}}_i) $$
 
-, where y is the true probability and ŷ  is the predicted probability. The binary cross-entropy loss function is particularly effective in multi-class problems. In this context, let's consider a three-class problem with $y_A=1, y_B=1, y_C=0$.  Suppose the model predicts $ŷ_A=0.4, ŷ_B=0.7, ŷ_C=0.1$  The loss is calculated as -(log(0.4)+log(0.7)+log(0.9)) = 0.60. As the predicted y of A and B approaches the correct answer 1, the loss function becomes small. Conversely, if predicted probability of A is close to zero, the loss becomes a large number. Same applies to $y_C$ when it approaches to 0. 
+, where y is the true probability and ŷ  is the predicted probability. The binary cross-entropy loss function is particularly effective in multi-class problems. In this context, let's consider a three-class problem with   $$y_A=1, y_B=1, y_C=0$$.  Suppose the model predicts $$ŷ_A=0.4, ŷ_B=0.7, ŷ_C=0.1$$.  The loss is calculated as -(log(0.4)+log(0.7)+log(0.9)) = 0.60. As the predicted y of A and B approaches the correct answer 1, the loss function becomes small. Conversely, if predicted probability of A is close to zero, the loss becomes a large number. Same applies to $$y_C$$ when it approaches to 0. 
 
 
 
