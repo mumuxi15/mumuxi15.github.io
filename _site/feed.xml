@@ -1,195 +1,357 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-19T12:05:47-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Penny Pan</title><subtitle>Have a good day ~ </subtitle><entry><title type="html">Optiver stock volatility prediction</title><link href="http://localhost:4000/Optiver-stock-volatility-prediction/" rel="alternate" type="text/html" title="Optiver stock volatility prediction" /><published>2022-05-12T00:00:00-04:00</published><updated>2022-05-12T00:00:00-04:00</updated><id>http://localhost:4000/Optiver%20stock%20volatility%20prediction</id><content type="html" xml:base="http://localhost:4000/Optiver-stock-volatility-prediction/"><![CDATA[<h5 id="project-description">Project description</h5>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-29T13:14:13-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Penny Pan</title><subtitle>Have a good day ~ </subtitle><entry><title type="html">A Guide to Interpreting statsmodels summary table</title><link href="http://localhost:4000/sm-summary-table/" rel="alternate" type="text/html" title="A Guide to Interpreting statsmodels summary table" /><published>2023-12-23T00:00:00-05:00</published><updated>2023-12-23T00:00:00-05:00</updated><id>http://localhost:4000/sm%20summary%20table</id><content type="html" xml:base="http://localhost:4000/sm-summary-table/"><![CDATA[<p>In the realm of data science and machine learning, understanding statistical results is crucial for making informed decisions. One of the most commonly used packages data scientist encountered daily is statsmodel. Its summary table is a great tool to gain insights to understanding the relationship between explanatory variable and response variable. In this blog post, we’ll dive into how to interpret a Statsmodels summary table and extract meaningful insights from it.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">statsmodels.api</span> <span class="k">as</span> <span class="n">sm</span>
+<span class="kn">import</span> <span class="n">statsmodels.formula.api</span> <span class="k">as</span> <span class="n">smf</span>
+<span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="n">pandas</span>
+</code></pre></div></div>
+
+<h3 id="what-is-a-statsmodels-summary-table">What is a Statsmodels Summary Table?</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">est</span>  <span class="o">=</span> <span class="n">sm</span><span class="p">.</span><span class="nc">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sm</span><span class="p">.</span><span class="nf">add_constant</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">est</span><span class="p">.</span><span class="nf">fit</span><span class="p">()</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">summary</span><span class="p">())</span>
+
+
+                            <span class="n">OLS</span> <span class="n">Regression</span> <span class="n">Results</span>                            
+<span class="o">==============================================================================</span>
+<span class="n">Dep</span><span class="p">.</span> <span class="n">Variable</span><span class="p">:</span>                      <span class="n">y</span>   <span class="n">R</span><span class="o">-</span><span class="n">squared</span><span class="p">:</span>                       <span class="mf">0.793</span>
+<span class="n">Model</span><span class="p">:</span>                            <span class="n">OLS</span>   <span class="n">Adj</span><span class="p">.</span> <span class="n">R</span><span class="o">-</span><span class="n">squared</span><span class="p">:</span>                  <span class="mf">0.687</span>
+<span class="n">Method</span><span class="p">:</span>                 <span class="n">Least</span> <span class="n">Squares</span>   <span class="n">F</span><span class="o">-</span><span class="n">statistic</span><span class="p">:</span>                 <span class="mf">7.686e+04</span>
+<span class="n">Date</span><span class="p">:</span>                <span class="n">Mon</span><span class="p">,</span> <span class="mi">18</span> <span class="n">Dec</span> <span class="mi">2023</span>   <span class="nc">Prob </span><span class="p">(</span><span class="n">F</span><span class="o">-</span><span class="n">statistic</span><span class="p">):</span>                  <span class="mi">0</span>
+<span class="n">Time</span><span class="p">:</span>                        <span class="mi">09</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mi">24</span>   <span class="n">Log</span><span class="o">-</span><span class="n">Likelihood</span><span class="p">:</span>                <span class="o">-</span><span class="mf">375.30</span>
+<span class="n">No</span><span class="p">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">85</span>   <span class="n">AIC</span><span class="p">:</span>                             <span class="mf">764.6</span>
+<span class="n">Df</span> <span class="n">Residuals</span><span class="p">:</span>                      <span class="mi">78</span>   <span class="n">BIC</span><span class="p">:</span>                             <span class="mf">781.7</span>
+<span class="n">Df</span> <span class="n">Model</span><span class="p">:</span>                           <span class="mi">6</span>                                         
+<span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>            <span class="n">nonrobust</span>                                         
+<span class="o">===============================================================================</span>
+                  <span class="n">coef</span>    <span class="n">std</span> <span class="n">err</span>          <span class="n">t</span>      <span class="n">P</span><span class="o">&gt;|</span><span class="n">t</span><span class="o">|</span>      <span class="p">[</span><span class="mf">0.025</span>      <span class="mf">0.975</span><span class="p">]</span>
+<span class="o">-------------------------------------------------------------------------------</span>
+<span class="n">Intercept</span>      <span class="mf">38.6517</span>      <span class="mf">9.456</span>      <span class="mf">4.087</span>      <span class="mf">0.000</span>      <span class="mf">19.826</span>      <span class="mf">57.478</span>
+<span class="n">Region</span><span class="p">[</span><span class="n">T</span><span class="p">.</span><span class="n">E</span><span class="p">]</span>   <span class="o">-</span><span class="mf">15.4278</span>      <span class="mf">9.727</span>     <span class="o">-</span><span class="mf">1.586</span>      <span class="mf">0.117</span>     <span class="o">-</span><span class="mf">34.793</span>       <span class="mf">3.938</span>
+<span class="n">Region</span><span class="p">[</span><span class="n">T</span><span class="p">.</span><span class="n">N</span><span class="p">]</span>   <span class="o">-</span><span class="mf">10.0170</span>      <span class="mf">9.260</span>     <span class="o">-</span><span class="mf">1.082</span>      <span class="mf">0.283</span>     <span class="o">-</span><span class="mf">28.453</span>       <span class="mf">8.419</span>
+<span class="n">Region</span><span class="p">[</span><span class="n">T</span><span class="p">.</span><span class="n">S</span><span class="p">]</span>    <span class="o">-</span><span class="mf">4.5483</span>      <span class="mf">7.279</span>     <span class="o">-</span><span class="mf">0.625</span>      <span class="mf">0.534</span>     <span class="o">-</span><span class="mf">19.039</span>       <span class="mf">9.943</span>
+<span class="n">Region</span><span class="p">[</span><span class="n">T</span><span class="p">.</span><span class="n">W</span><span class="p">]</span>   <span class="o">-</span><span class="mf">10.0913</span>      <span class="mf">7.196</span>     <span class="o">-</span><span class="mf">1.402</span>      <span class="mf">0.165</span>     <span class="o">-</span><span class="mf">24.418</span>       <span class="mf">4.235</span>
+<span class="n">Literacy</span>       <span class="o">-</span><span class="mf">0.1858</span>      <span class="mf">0.210</span>     <span class="o">-</span><span class="mf">0.886</span>      <span class="mf">0.378</span>      <span class="o">-</span><span class="mf">0.603</span>       <span class="mf">0.232</span>
+<span class="n">Wealth</span>          <span class="mf">0.4515</span>      <span class="mf">0.103</span>      <span class="mf">4.390</span>      <span class="mf">0.000</span>       <span class="mf">0.247</span>       <span class="mf">0.656</span>
+<span class="o">==============================================================================</span>
+<span class="n">Omnibus</span><span class="p">:</span>                        <span class="mf">3.049</span>   <span class="n">Durbin</span><span class="o">-</span><span class="n">Watson</span><span class="p">:</span>                   <span class="mf">1.785</span>
+<span class="nc">Prob</span><span class="p">(</span><span class="n">Omnibus</span><span class="p">):</span>                  <span class="mf">0.218</span>   <span class="n">Jarque</span><span class="o">-</span><span class="nc">Bera </span><span class="p">(</span><span class="n">JB</span><span class="p">):</span>                <span class="mf">2.694</span>
+<span class="n">Skew</span><span class="p">:</span>                          <span class="o">-</span><span class="mf">0.340</span>   <span class="nc">Prob</span><span class="p">(</span><span class="n">JB</span><span class="p">):</span>                        <span class="mf">0.260</span>
+<span class="n">Kurtosis</span><span class="p">:</span>                       <span class="mf">2.454</span>   <span class="n">Cond</span><span class="p">.</span> <span class="n">No</span><span class="p">.</span>                         <span class="mf">371.</span>
+<span class="o">==============================================================================</span>
+
+<span class="n">Notes</span> <span class="p">:</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">Standard</span> <span class="n">Errors</span> <span class="n">assume</span> <span class="n">that</span> <span class="n">the</span> <span class="n">covariance</span> <span class="n">matrix</span> <span class="n">of</span> <span class="n">the</span> <span class="n">errors</span> <span class="ow">is</span> <span class="n">correctly</span> <span class="n">specified</span>
+</code></pre></div></div>
+
+<p>When you fit a statistical model using Statsmodels, such as linear regression, logistic regression, or any other supported model, you typically receive a summary of the model’s results, as shown above. This summary contains various statistical metrics, including coefficients, standard errors, p-values, confidence intervals, and more, depending on the type of model you’ve fitted. The table is divided into three sections.</p>
+
+<ul>
+  <li>Section I: general fitting of the models</li>
+  <li>Section II: t value and p values - coefficients</li>
+  <li>Section III: the shape of the distribution</li>
+</ul>
+
+<h4 id="section-i">Section I</h4>
+
+<ol>
+  <li>
+    <p><strong>Number of observations:</strong> The number of data points used in the analysis.</p>
+  </li>
+  <li>
+    <p><strong>Method</strong>: least square. Find the best line by minimizing the the sum of the squared errors.</p>
+
+    <p><img src="https://d138zd1ktt9iqe.cloudfront.net/media/seo_landing_files/least-square-method-1-1650276785.png" alt="Least Square Method" width="50%" /></p>
+  </li>
+  <li>
+    <p><strong>Degree of freedom</strong>: number of independent variables</p>
+  </li>
+  <li>
+    <p><strong>Covariance Type</strong>: typically nonrobust, which means there is no elimination of data to calculate the covariance between features</p>
+  </li>
+  <li>
+    <p><strong>R-squared:</strong>  One of the most important number in the table, also known as the coefficient of determination. R-squared represents the proportion of variance in the dependent variable that is explained by the independent variables. It ranges from 0 to 1, with higher values indicating a better fit. For example, 0.793 means the model explains 79.3% of the change in y variable</p>
+
+\[\begin{equation}
+ R^2 = 1-\dfrac{ \sum(y_i - \hat{y}_i)^2}{(y_i - \bar{y})^2}
+ \end{equation}\]
+
+    <p>y~i~ = observed values, ŷ= predicted values, ȳ =  mean of the observed values</p>
+  </li>
+  <li>
+    <p><strong>Adj. R-squared:</strong> Similar to R-squared but it penalizes the addition of unnecessary predictors. Consequently, a diminished adjusted score may indicate that some variables are not contributing to your model’s R-squared.</p>
+  </li>
+  <li>
+    <p><strong>F-statistic and Prob (F-statistic):</strong> The F-test indicates whether your linear regression model provides a better fit than a model with all parameters equal to zero. $H_0:\beta_1=\beta_2=⋯=\beta_i=0$  A small p-value (typically less than 0.05) indicates that the model as a whole is significant.</p>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>Log-Likelihood</strong> <sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">1</a></sup>: The natural logarithm of the likelihood. The likelihood is a function that tells the probability of observing the data given the model parameters, it is a product of probability density functions 𝑓~𝜃~.  $L(𝜃</td>
+          <td>𝑋)=∏_{𝑖=1}^𝑛𝑓_𝜃(𝑋_𝑖)$.   Log-likelihood values cannot be used alone as an index of fit because they are a function of sample size but can be used to compare the fit of different coefficients.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><strong>AIC and BIC</strong>: Akaike Information Criterion (AIC) and Bayesian Information Criterion (BIC) are both related to log-likelihood functions. They balance model complexity with goodness of fit, helping to prevent overfitting. Lower AIC or BIC values indicate better model fit, while taking into account the number of parameters in the model.</li>
+</ol>
+
+<h4 id="section-ii---coefficients">Section II - Coefficients</h4>
+
+<ol>
+  <li>
+    <p><strong>Coefficients</strong> : In a classic linear formula $y = mx+\beta$​ , coefficients is our β</p>
+  </li>
+  <li>
+    <p><strong>Std err:</strong> The standard error is the (estimated) standard deviation of the sampling distribution of 𝛽̂ $SE = \frac{\sigma}{\sqrt{n}}$    . The standard error quantifies the uncertainty or variability in this estimated coefficient. A smaller standard error indicates higher precision, meaning that the estimated coefficient is likely closer to the true population value.</p>
+  </li>
+  <li>
+    <p><strong>t:</strong> The t-statistic, which tests the null hypothesis that the coefficient is equal to zero. Based on that test we may decide whether x is a useful (linear) predictor of y.</p>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>**P&gt;</td>
+          <td>t</td>
+          <td>:** Another important feature in the summary table. The p-value is associated with the t-statistic. A small p-value indicates that the coefficient is statistically significant.  A p-value of 0.05 or lower is generally considered statistically significant.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><img src="https://www.simplypsychology.org/wp-content/uploads/p-value.jpg" width="80%" /></p>
+  </li>
+  <li><strong>[0.025 0.975]:</strong> The 95% confidence interval for the coefficient. It provides a range of plausible values for the true coefficient.</li>
+</ol>
+
+<h4 id="section-iii---shape-of-distribution">Section III - Shape of distribution</h4>
+
+<ol>
+  <li>
+    <p><strong>Omnibus, Prob(Omnibus):</strong> The Omnibus test measures the normality of the residuals with 0 meaning perfect, and the associated p-value (Prob(Omnibus)) indicates whether the test is statistically significant.</p>
+  </li>
+  <li>
+    <p><strong>Durbin-Watson:</strong> It is a test to detect autocorrelations in the residuals. Its scale spans from 0 to 4, where values proximate to 2 signify an absence of autocorrelation, 0 indicates positive autocorrelation, and 4 implies negative autocorrelation. Autocorrelation occurs when the errors (residuals) of a regression model exhibit patterns with themselves at different lags, and the residuals are not independent of each other.  One common approach to visually assess autocorrelation is by plotting residual plots, as depicted in the accompanying images below.</p>
+
+    <p><img src="https://www.reneshbedre.com/assets/posts/dw/auto_comb.webp?ezimgfmt=ng%3Awebp%2Fngcb2%2Frs%3Adevice%2Frscb2-2" alt="autocorrelation" /></p>
+  </li>
+  <li>
+    <p><strong>Jarque-Bera (JB) and Prob(JB):</strong> Similar to the Omnibus test, the Jarque-Bera test evaluates the normality of the residuals. The p-value (Prob(JB)) indicates whether the test is statistically significant.</p>
+  </li>
+  <li>
+    <p><strong>Skewness and Kurtosis:</strong> Skewness measures the asymmetry of the distribution and Kurtosis is a measure of whether the data are heavy-tailed or light-tailed relative to a normal distribution.</p>
+
+    <p><img src="https://www.statisticalaid.com/wp-content/uploads/2021/01/skw.png" width="60%" /></p>
+  </li>
+</ol>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Interpreting a Statsmodels summary table requires a solid understanding of statistical concepts and an appreciation for the nuances of the model being analyzed. By carefully examining the coefficients, p-values, confidence intervals, and diagnostic statistics provided in the summary table, you can gain valuable insights into the relationships between variables and the overall performance of the model. However, it’s essential to remember that statistical analysis is not an exact science, and interpretation should always be accompanied by critical thinking and consideration of the context in which the analysis was conducted. With practice and experience, you can become proficient in interpreting Statsmodels summary tables and using them to inform data-driven decisions.</p>
+
+<p>Happy modeling!</p>
+
+<h4 id="reference">Reference</h4>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:2" role="doc-endnote">
+      <p>https://www.statlect.com/glossary/log-likelihood  by Log-likelihoodby Marco Taboga  PhD. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>penny</name></author><category term="featured" /><summary type="html"><![CDATA[In the realm of data science and machine learning, understanding statistical results is crucial for making informed decisions. One of the most commonly used packages data scientist encountered daily is statsmodel. Its summary table is a great tool to gain insights to understanding the relationship between explanatory variable and response variable. In this blog post, we’ll dive into how to interpret a Statsmodels summary table and extract meaningful insights from it.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.statsmodels.org/stable/_images/statsmodels-logo-v2-horizontal.svg" /><media:content medium="image" url="https://www.statsmodels.org/stable/_images/statsmodels-logo-v2-horizontal.svg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Optiver stock volatility prediction</title><link href="http://localhost:4000/Optiver-stock-volatility-prediction/" rel="alternate" type="text/html" title="Optiver stock volatility prediction" /><published>2022-05-12T00:00:00-04:00</published><updated>2022-05-12T00:00:00-04:00</updated><id>http://localhost:4000/Optiver%20stock%20volatility%20prediction</id><content type="html" xml:base="http://localhost:4000/Optiver-stock-volatility-prediction/"><![CDATA[<h5 id="project-description">Project description</h5>
 
 <p>Optiver, a globally renowned high-frequency trading company, is organizing a Kaggle competition focused on discovering optimal volatility prediction models. The objective is to forecast short-term volatility for numerous stocks spanning various sectors. With access to millions of rows of detailed financial data, participants are challenged to anticipate volatility over 10-minute intervals. The performance of the models will be assessed using actual market data gathered during the three-month evaluation period following the training phase.</p>
 
-<p>First let’s have some basic understanding how is a trade is executed. When an investor wants to buy or sell, they submit a market order, which will match the best available price. Trades occur when a buyer’s bid matches a seller’s ask, leading to an agreement on the trade price.</p>
+<p><strong>Project Aim</strong></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Anime/score</th>
-      <th>User1</th>
-      <th>User2</th>
-      <th>User3</th>
-      <th>User4</th>
-      <th>User5</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Fairy Tail</td>
-      <td>10</td>
-      <td>8</td>
-      <td>10</td>
-      <td>5</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Kimi no na wa</td>
-      <td>10</td>
-      <td>9</td>
-      <td> </td>
-      <td> </td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td>No game no life</td>
-      <td>9</td>
-      <td> </td>
-      <td>9</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Tokyo Ghoul</td>
-      <td>7</td>
-      <td> </td>
-      <td>9</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>One Piece</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>10</td>
-      <td>9</td>
-    </tr>
-  </tbody>
-</table>
+<p>Predict the realized volatility for the next 10 minutes based on historical order book and transaction data for every 10-minute interval. The definition of realized volatility is as follows, where r is the log return of stock S.
+\(\sigma=\sqrt{\sum_t {r_{t-1,t}}^2}\\
+r_{t-1,t}=log(\dfrac{S_{t2}}{S_{t1}})\)
+Optiver provided order book and trade data as book_train/test and train/test. The training dataset contains information from 3830 10-minute segments, which have been sampled from a total of 32767 10-minute segments across 112 stocks from 3 years historical trading data.  Sec stands for seconds_in_bucket.</p>
 
-<h4 id="how-does-this-recommender-system-works-">How does this recommender system works ?</h4>
+<ul>
+  <li>
+    <p>book_train：order book data</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>time_id</th>
+          <th>sec*</th>
+          <th>bid_price1</th>
+          <th>ask_price1</th>
+          <th>bid_price2</th>
+          <th>ask_price2</th>
+          <th>bid_size1</th>
+          <th>ask_size1</th>
+          <th>bid_size2</th>
+          <th>ask_size2</th>
+          <th>stock_id</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5</td>
+          <td>0</td>
+          <td>1.001422</td>
+          <td>1.002301</td>
+          <td>1.00137</td>
+          <td>1.002353</td>
+          <td>3</td>
+          <td>226</td>
+          <td>2</td>
+          <td>100</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>1</td>
+          <td>1.001422</td>
+          <td>1.002301</td>
+          <td>1.00137</td>
+          <td>1.002353</td>
+          <td>3</td>
+          <td>100</td>
+          <td>2</td>
+          <td>100</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>5</td>
+          <td>1.001422</td>
+          <td>1.002301</td>
+          <td>1.00137</td>
+          <td>1.002405</td>
+          <td>3</td>
+          <td>100</td>
+          <td>2</td>
+          <td>100</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Trade_train: trading data</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: left">time_id</th>
+          <th style="text-align: left">sec*</th>
+          <th style="text-align: left">price</th>
+          <th style="text-align: left">size</th>
+          <th style="text-align: left">order_count</th>
+          <th>stock_id</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: left">5</td>
+          <td style="text-align: left">21</td>
+          <td style="text-align: left">1.002301</td>
+          <td style="text-align: left">326</td>
+          <td style="text-align: left">12</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">5</td>
+          <td style="text-align: left">46</td>
+          <td style="text-align: left">1.002778</td>
+          <td style="text-align: left">128</td>
+          <td style="text-align: left">4</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">5</td>
+          <td style="text-align: left">50</td>
+          <td style="text-align: left">1.002818</td>
+          <td style="text-align: left">55</td>
+          <td style="text-align: left">1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">5</td>
+          <td style="text-align: left">57</td>
+          <td style="text-align: left">1.003155</td>
+          <td style="text-align: left">121</td>
+          <td style="text-align: left">5</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">5</td>
+          <td style="text-align: left">68</td>
+          <td style="text-align: left">1.003646</td>
+          <td style="text-align: left">4</td>
+          <td style="text-align: left">1</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>train.csv：target is y_true</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Stock_id</th>
+          <th>time_id</th>
+          <th>Target (σ)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>9</td>
+          <td>5</td>
+          <td>0.007291</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>11</td>
+          <td>0.002529</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>16</td>
+          <td>0.003299</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p>The main goal is to use 10 minutes of book data to predict the realized volatility of the next 10-minute window - target. When plotting bid_price1, bid_price2, ask_price1, and ask_price2, it becomes evident that throughout this 10-minute timeframe, the overarching trends of these four prices remain consistent. However, variations in price movements within specific intervals are noticeable</p>
+
+<p float="left">
+    <img src="/Users/mumuxi/Desktop/Projects/git/02-Data-Science-Project/21-Stock Volatility Prediction/order_book_price.png" /><img src="/Users/mumuxi/Desktop/Projects/git/02-Data-Science-Project/21-Stock Volatility Prediction/order_book_price_with_trade.png" /> <em>Figure 1 (top): Order book bid and ask prices of stock id 0 time id 5.</em></p>
+<p><em>Figure 2 (bottom): Added real trade price</em></p>
+
+<p>Let’s start with a basic understanding of order book first. It helps match the best available price in the market. Trades occur when a buyer’s bid matches a seller’s ask, leading to an agreement on the trade price.  For example, if an investor wants to purchase 20 shares of stock A, they would check the sell side of the order book to find sellers offering 221 shares at the lowest price $148. Therefore as we see in figure 2, trade price falls between bid and ask.</p>
+
+<p><img src="https://www.optiver.com/wp-content/uploads/2021/05/OrderBook3.png" alt="order_book_1" /></p>
+
+<p>In total, there are 112 stock ids and we randomly split into train and test with 4:1 ratio.</p>
+
+<p>So the first step is to calculate the  realized volatility with the data given using formula (1). Because we have two bid prices and two ask prices, we can calculate two weighted average price wap1 and wap2.</p>
+
+<h4 id="feature-engineering"><strong>Feature Engineering</strong></h4>
 
 <hr />
 
-<p>Broadly speaking, there are two common algorithms used in the recommendation systems, collaborative filtering and content-based filtering. Collaborative filtering works by analyzing the viewing histories and ratings of multiple users. The system identifies users who have similar viewing and rating patterns and groups them into clusters. It then makes recommendations based on the preferences of users in the same cluster. For example, if many Marvel fans has enjoyed Tom and Jerry in their past, the system will likely recommend Tom and Jerry to those Marvel fans who has not watched it yet. In other words, it makes predictions based on the response of other users who share similar tastes. Content-based filtering, on the other hand, makes recommendations based on the content of the anime themselves. This approach involves analyzing the attributes, such as genre, theme, plot, character and story background,. The system then recommends anime to users based on their preferences for these attributes. For example, if a user enjoys watching romantic comedies with high school settings, the system will search for anime with similar attributes.</p>
-
-<p>Both methods have their pros and cons. A major appeal of collaborative filtering is its flexibility in dealing with various data aspects. Collaborative filtering requires an active user data base with effective rating system and it does not work well with new user profiles or new anime with no ratings or reviews, known as cold start problem. It also relies heavily on the availability of user data, which can lead to sparsity and bias in data. A content based filtering is more friendly to new anime but is more exclusive to users’ own experience, and does not consider social factors such as popularity.</p>
-
-<p>A more effective solution would be a hybrid system that combines both methods. While there are many blogs online discussing these two methods, few dive into how they work in practice. To begin with, it is important to understand the concept of the cold start problem and how it arises. We can conceptualize the rating system as a matrix, denoted as  <strong>R<sub>rating</sub></strong>, where the matrix contains the scores of all anime titles rated by all users. In our particular case, the matrix size will be 5000 shows by 5000 users, and each row will represent the ratings given by a user, with a value of 0 indicating that the user has not watched the anime.</p>
-
-<div class="language-mathematica highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[[</span><span class="w"> </span><span class="m">10</span><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">8</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">10</span><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">5</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">10</span><span class="w">   </span><span class="o">...</span><span class="p">]</span><span class="w">
- </span><span class="p">[</span><span class="w"> </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">8</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">4</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">8</span><span class="w">    </span><span class="o">...</span><span class="p">]</span><span class="w">
- </span><span class="p">[</span><span class="w"> </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">8</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">    </span><span class="o">...</span><span class="p">]</span><span class="w">
- </span><span class="p">[</span><span class="w"> </span><span class="m">0</span><span class="w">   </span><span class="m">3</span><span class="w">   </span><span class="m">1</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">7</span><span class="w">   </span><span class="m">3</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">    </span><span class="o">...</span><span class="p">]</span><span class="w">
- </span><span class="p">[</span><span class="w"> </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">    </span><span class="o">...</span><span class="p">]]</span><span class="w">
-</span></code></pre></div></div>
-
-<p>Let’s take a look at Row 5, which represents a new user. Typically, most users will have only watched a small fraction of the thousands of anime titles available on the platform. Assuming an average user spends about one hour per week on anime and each show has around 12 episodes of 20 minutes each, that would amount to roughly 152 hours per year, or about 20 shows per year. Consequently, the rating matrix will be extremely sparse, with most elements being zero. As the platform expands and more users join, the sparsity problem will continue to grow more severe.</p>
-
-<p>Figure 1. Hybrid recommender work flow. A layout structure of my code.</p>
-
-<h5><img src="https://live.staticflickr.com/65535/49755925832_dd80feb86a_b.jpg" width="100%" alt="zBbWj8p" /></h5>
-
-<h5 id="a-collaborative-filtering-workflow">A: Collaborative Filtering Workflow</h5>
-
-<p>The following image displays a user-item interaction matrix obtained from the ratings of six shows given by six users. Traditional collaborative filtering include measuring user similarity by calculating Pearson correlation or cosine similarity between normalized user vectors. Then combine the weighted average scores given by neighbors to estimate user’s score on the unseen show. A modern solution called matrix factorization, initially introduced by Simon Funk in 2006 in the Netflix Prize competition, has a better approach in handling this user-item matrix.  Instead of directly computing similarity between users, matrix factorization transforms the original matrix into two lower-dimensional matrices - one representing users and the other representing items using technique called singular value decomposition (SVD). These lower-dimensional matrices capture the latent factors or features that determine the user’s preference for a particular item, and can be used to predict missing ratings. Matrix factorization can provide more accurate predictions and is more scalable than traditional collaborative filtering methods.</p>
-
-<p>Figure 2. <a href="https://datajobs.com/data-science-repo/Recommender-Systems-Netflix.pdf" title="MATRIX FACTORIZATION TECHNIQUES FOR RECOMMENDER SYSTEMS by Yehuda Koren and Chris Volinsky, published in 2009">User-item matrix decomposition</a> <img src="https://miro.medium.com/v2/resize:fit:1400/0*c4ajANtlyjvhwpgj.png" width="100%" alt="zBbWj8p" />
-\(R=\begin{bmatrix}
-5 &amp; 3 &amp; 0 &amp; 1 \\
-4 &amp; 0 &amp; 0&amp; 1\\
-1 &amp; 1 &amp; 0&amp; 5\\
-0 &amp; 1 &amp; 5&amp; 4\\
-\end{bmatrix}
-\rightarrow\;\;\;\; U \times V\;\;
-\rightarrow \;\;\hat{R}=\begin{bmatrix}
-4.9&amp; 2.5 &amp;2.2 &amp;0.9 \\
-4.2 &amp; 0.5 &amp; 3.4&amp; 1\\
-1.5 &amp; 0.3 &amp; 4.5&amp; 3.9\\
-1.1 &amp; 0.9 &amp; 4.9&amp; 3.2\\
-\end{bmatrix}\)
-Rating matrix R can be expressed as the product of two lower-dimensional matrices: U (user matrix) and V (item matrix). Assume k=3 latent factors, which means we assume that there are three underlying factors that determine how users rate the items (e.g. action vs romance vs adventure, animation quality vs length vs vocal, etc). We initialize U and V randomly, then use gradient descent to optimize the matrices based on the mean squared error loss between the predicted ratings and actual ratings in R. We can then use these matrices to predict the missing values in R, by taking the dot product of the corresponding user and item vectors.</p>
-
-<h5 id="b-content-based-filtering-workflow">B: Content-based Filtering workflow</h5>
-
-<p>A way to understand content-based filtering is to see it as a classification problem, where the system identifies relevant features in the content that are highly correlated with the user’s preferences. Recommendations are then made by comparing the user’s profile to the content of each item in the collection. The inputs are descriptions of anime stories and the goal is to identify the key topics or themes present in the text by extracting and grouping related keywords. TF-IDF is a common method used for text extraction that calculates the importance of a specific word in a given document. Words that appear frequently across all documents, such as “people” or “place,” are given a lower importance than words that appear infrequently but suggest a specific theme or topic, such as “wolf,” “magic,” or “spirit”.  In this project, 30 different anime topics were identified by extracting the key phrases from all the story descriptions. For instance, Topic 7 is centered on solving crimes, with Detective Conan being the most representative example.</p>
-
-<p>Examples:</p>
-
-<blockquote>
-  <p>Topic #1: Special, release, air, recap, feature<br />
-Topic #2: Earth, Planet, space, alien, ship<br />
-Topic #3: High, school, junior, student, classmate<br />
-Topic #4: Team, soccer, player, match, baseball<br />
-Topic #5: Human, race, mankind, god, survive, extinct  <br />
-Topic #6: Magic, witch, magician, kingdom, wish<br />
-Topic #7: Mystery, solve, appear, past, shadow, kill<br />
-Topic #8: Demon, king, hero, lord, seal, defeat, mission<br />
-Topic #9: Love, feel, fall, relationship, confess, heart</p>
-</blockquote>
-
-<p>Then we can calculate an associated probability for each topic for a given anime.  For example</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Anime/Topics</th>
-      <th>Topic 2</th>
-      <th>Topic 3</th>
-      <th>Topic 7</th>
-      <th>Topic 8</th>
-      <th>Topic 9</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Fairy Tail</td>
-      <td>0.01</td>
-      <td>0.12</td>
-      <td>0.00</td>
-      <td>0.67</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <td>Kimi no na wa</td>
-      <td>0.11</td>
-      <td>0.87</td>
-      <td>0.02</td>
-      <td>0.01</td>
-      <td>0.54</td>
-    </tr>
-    <tr>
-      <td>No game no life</td>
-      <td>0.35</td>
-      <td>0.23</td>
-      <td>0.34</td>
-      <td>0.01</td>
-      <td>0.35</td>
-    </tr>
-    <tr>
-      <td>Tokyo Ghoul</td>
-      <td>0.02</td>
-      <td>0.56</td>
-      <td>0.76</td>
-      <td>0.12</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <td>One Piece</td>
-      <td>0.05</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.45</td>
-      <td>0.00</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>We can determine a user’s preference for different topics by taking an average of all the anime topics they have watched in the past. To generate recommendations, we then calculate the cosine similarity between the user’s topic matrix and the anime topic matrix. Finally, we combine the results obtained from the two recommenders.</p>
+<p>Feature engineering is quite important in this competition.</p>
 
 <h4 id="future-improvements">Future Improvements</h4>
 
 <hr />
 
-<p>Incorporating contextual information, such as location, country, ethnicity, age to enhance the accuracy of recommendations by tailoring them to the user’s current situation. Use deep learning techniques, such as neural networks, to create more sophisticated models that can capture more complex patterns and relationships between users and items.</p>
-
 <h4 id="conclusion">Conclusion</h4>
 
 <hr />
-
-<p>Both methods have their strengths and limitations, and they can be combined to create a hybrid recommender system. The effectiveness of these methods can be further improved with advancements in natural language processing and machine learning techniques. Overall, recommender systems play a critical role in providing personalized experiences to users and are increasingly important in today’s digital landscape.</p>
 
 <p>Reference</p>]]></content><author><name>penny</name></author><category term="featured" /><summary type="html"><![CDATA[Project description]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://newsroom.cisco.com/c/dam/r/newsroom/en/us/migrated-assets/amd-partner-innovation_800x450_thumb_031521-jpg-2146981-1-0.jpg" /><media:content medium="image" url="https://newsroom.cisco.com/c/dam/r/newsroom/en/us/migrated-assets/amd-partner-innovation_800x450_thumb_031521-jpg-2146981-1-0.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building a Dynamic E-commerce Website for Small Businesses</title><link href="http://localhost:4000/Ecommerce/" rel="alternate" type="text/html" title="Building a Dynamic E-commerce Website for Small Businesses" /><published>2021-06-06T00:00:00-04:00</published><updated>2021-06-06T00:00:00-04:00</updated><id>http://localhost:4000/Ecommerce</id><content type="html" xml:base="http://localhost:4000/Ecommerce/"><![CDATA[<p>The ongoing COVID-19 pandemic has brought about a seismic shift in consumer behavior, driving an unprecedented surge in online shopping. With an increasing preference for online shopping over in-person experiences, small business owners find themselves presented with a unique opportunity to expand their customer base and boost revenue by establishing a robust e-commerce presence. In this blog post, we’ll explore the transformative potential of setting up a simple yet dynamic website with a database for small businesses. This strategic move not only enables businesses to adapt to the changing landscape but also empowers them to thrive in the digital world.</p>
 
@@ -357,28 +519,6 @@ points to: yourwebsitename.com
 
 <p>Since the President declared a national emergency concerning the coronavirus disease, several months have been passed since the start of quarantine. The spread of COVID 19 seems going worse as more and more colleagues and friends are getting sick.</p>
 
-<p>I. Introduction A. Background on COVID-19 B. Importance of understanding disease spread C. Overview of SIR model and its significance D. Purpose of the essay: COVID-19 Spread SIR Model Simulation using Python</p>
-
-<p>II. SIR Model Explanation A. Components of the SIR model (Susceptible, Infected, Recovered) B. Differential equations governing the model C. Assumptions and limitations of the SIR model</p>
-
-<p>III. Python as a Simulation Tool A. Introduction to Python programming language B. Importance of simulation in epidemiology C. Brief overview of Python libraries for scientific computing (e.g., NumPy, Matplotlib)</p>
-
-<p>IV. Data Collection and Preprocessing A. Gathering COVID-19 data for simulation B. Cleaning and formatting data for input into the SIR model</p>
-
-<p>V. Implementing the SIR Model in Python A. Coding the SIR model equations B. Incorporating relevant parameters and initial conditions C. Running simulations and obtaining results</p>
-
-<p>VI. Visualization of Simulation Results A. Creating graphs and plots using Matplotlib B. Analyzing and interpreting simulation outcomes C. Comparing simulated data with real-world COVID-19 trends</p>
-
-<p>VII. Validation and Sensitivity Analysis A. Validating the SIR model results against actual COVID-19 data B. Performing sensitivity analysis to assess the impact of parameter variations C. Discussing the implications of the findings</p>
-
-<p>VIII. Challenges and Limitations A. Addressing challenges in modeling disease spread B. Recognizing limitations of the SIR model and its assumptions C. Suggestions for improving future simulations</p>
-
-<p>IX. Conclusion A. Summarizing key findings and insights B. Emphasizing the importance of simulation in understanding COVID-19 spread C. Concluding remarks on the role of Python in epidemiological research</p>
-
-<p>X. References A. Citing relevant literature and sources B. Listing Python libraries and resources used in the simulation</p>
-
-<p>XI. Appendices A. Code snippets for implementing the SIR model in Python B. Additional graphs and charts for in-depth analysis C. Any supplementary information or data used in the essay</p>
-
 <p>In this time huge changes have occurred since I first started this blog in early February. My initial goal was to create a source that would collect total number of cases worldwide since the most updated information was not easily available to the public. However, the current situation has now changed, and there are more reliable resources that are documenting the spread of COVID-19 and disseminating the research in clear graphs. However, if you like to try my code, I have presented it below (output is in json format).</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
@@ -461,7 +601,7 @@ I = \frac{1}{1+e^{-t}}
 
 <p>The model predicts the total confirmed cases next 30 days. For example, given data on March 1st, the model estimates about 172172 confirmed cases in Italy at the end of April.</p>
 
-<p>Thanks for reading !</p>]]></content><author><name>penny</name></author><category term="data scraping" /><summary type="html"><![CDATA[Subtitle: COVID19 Spread SIR Model Simulation using Python]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://safeharborsc.imgix.net/adobestock-339124602-converted-1731501992.png" /><media:content medium="image" url="https://safeharborsc.imgix.net/adobestock-339124602-converted-1731501992.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Anime Recommender</title><link href="http://localhost:4000/anime_recommender/" rel="alternate" type="text/html" title="Anime Recommender" /><published>2019-05-28T00:00:00-04:00</published><updated>2019-05-28T00:00:00-04:00</updated><id>http://localhost:4000/anime_recommender</id><content type="html" xml:base="http://localhost:4000/anime_recommender/"><![CDATA[<p>In recent years, anime has become increasingly popular worldwide, and the number of anime available online  has grown exponentially. With so many options to choose from, it can be challenging to select the perfect one to suit their unique tastes. To address this issue, machine learning techniques has been used to develop personalized anime recommendation systems. By analyzing an individual’s viewing history and preferences, these systems can suggest anime titles that are more likely to appeal to them, based on factors such as genre, themes, and style. In this way, anime fans can discover new shows that are tailored to their specific interests, and spend less time searching. This article explores the use of machine learning in anime recommendation systems and discusses how they can enhance the anime viewing experience.</p>
+<p>Thanks for reading !</p>]]></content><author><name>penny</name></author><category term="data scraping" /><category term="statistical modelling" /><category term="featured" /><summary type="html"><![CDATA[Subtitle: COVID19 Spread SIR Model Simulation using Python]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://safeharborsc.imgix.net/adobestock-339124602-converted-1731501992.png" /><media:content medium="image" url="https://safeharborsc.imgix.net/adobestock-339124602-converted-1731501992.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Anime Recommender</title><link href="http://localhost:4000/anime_recommender/" rel="alternate" type="text/html" title="Anime Recommender" /><published>2019-05-28T00:00:00-04:00</published><updated>2019-05-28T00:00:00-04:00</updated><id>http://localhost:4000/anime_recommender</id><content type="html" xml:base="http://localhost:4000/anime_recommender/"><![CDATA[<p>In recent years, anime has become increasingly popular worldwide, and the number of anime available online  has grown exponentially. With so many options to choose from, it can be challenging to select the perfect one to suit their unique tastes. To address this issue, machine learning techniques has been used to develop personalized anime recommendation systems. By analyzing an individual’s viewing history and preferences, these systems can suggest anime titles that are more likely to appeal to them, based on factors such as genre, themes, and style. In this way, anime fans can discover new shows that are tailored to their specific interests, and spend less time searching. This article explores the use of machine learning in anime recommendation systems and discusses how they can enhance the anime viewing experience.</p>
 
 <p>The process began by gathering data from MyAnimeList, a website dedicated to anime similar to IMDb. Over 5000 anime titles and user profiles were collected using Scrapy, Beautiful-soup and stored as JSON objects in MongoDB. The collected information includes names, descriptions, directors, vocal casts, theme songs, reviews, and more. Below is an example demonstrating the format of the collected data.</p>
 
@@ -678,15 +818,79 @@ Topic #9: Love, feel, fall, relationship, confess, heart</p>
 
 <p>Traditional labor-intensive methods involving the hiring of local citizens to spot illegal activities have proven to be costly and time-consuming. Fortunately, advancements in satellite technology have opened new avenues for detecting illegal mining activities using satellite images and employing machine learning techniques like image classification.</p>
 
-<p>The primary objective of this project is to develop a system capable of identifying illegal mining activities among 16 other labels, including clouds, trees, ground, road, water, and more. To achieve this, I employed a dataset obtained from <a href="https://www.kaggle.com/c/planet-understanding-the-amazon-from-space">“Planet: Understanding the Amazon from Space.”</a> The dataset consisted of satellite images that were segmented into smaller chips and randomly assigned numerical names. Our aim was to generate accurate labels that effectively describe the content of each image and enable the identification of those chips associated with illegal mining. Neural networks were chosen as the preferred approach for this project due to their exceptional ability to recognize complex patterns and extract meaningful features from images.</p>
+<p>The primary objective of this project is to develop an algorithm for labeling unlabeled image chips. The primary focus is on detecting the occurrence of ‘artisanal mining,’ commonly referred to as illegal mining, among a set of 16 labels categorized into three main groups: <span style="color:SALMON">  atmospheric conditions</span>,  <span style="color:LightSkyBlue">common land uses</span> and <span style="color:Plum"> rare land uses</span>.  Image chips may receive none or more than one label from these groups.</p>
 
-<h5 id="start-with-basic-neural-network-model">Start with basic Neural Network Model</h5>
+<p>The main objectives include:</p>
+
+<ol>
+  <li>
+    <p><strong>Train a Model with Labeled Image Chips:</strong></p>
+
+    <ul>
+      <li>Develop an algorithm that effectively labels unlabeled satellite image chips, considering atmospheric conditions and land uses as label categories.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Detection of Artisanal Mining (Illegal Mining):</strong></p>
+
+    <ul>
+      <li>Create a model that reliably identifies the presence of ‘artisanal mining’ (illegal mining) as one of the rare labels among others.</li>
+      <li>Differentiate between various classes of land cover and land use, emphasizing the detection of illegal mining activities.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Improved Understanding of Environmental Conditions:</strong></p>
+
+    <ul>
+      <li>
+        <p>Utilize the model to enhance the understanding of environmental conditions, particularly in relation to deforestation and illegal mining activities on a global scale.</p>
+      </li>
+      <li>
+        <p>Contribute to the identification and interpretation of patterns and causes of deforestation through the labeled satellite imagery.</p>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h5 id="challenges">Challenges</h5>
+
+<p>The challenge of the project lies in addressing the highly imbalanced distribution of data labels among the 16 groups. Specifically, the difficulty arises from the fact that the ‘artisanal mine’ label constitutes less than 1% of the total population.</p>
 
 <p float="left">
     <img src="https://live.staticflickr.com/65535/49626992868_557450fa33.jpg" width="50%" />  <img src="https://lh3.googleusercontent.com/jn0yWdVFz-RplTsir-DZcRs0UYWSouwjwhknKi3J6-f-o4TPWBlL2AGNsKQa0NIBkPJ66XfUfKrB03-BmHo8vDq2dJhf6lZLRuhQmluBukP2V979NtW7NZ-5odX8mhEru029s6PDy40" width="49%" /> <em>Left Figure 1: Examples of image chips with labels.   Right Figure 2: Frequency distribution of labels</em></p>
-<p>The dataset consists of 70,000 image chips, each was associated with at least one label. The labels were categorized into three main groups: <span style="color:SALMON">  atmospheric conditions</span>,  <span style="color:LightSkyBlue"> common land uses</span> and  <span style="color:Plum"> rare land uses</span>.  However, there were significant imbalances in the distribution of the labels, and a few labeling errors were present in the dataset. Among the labels, less than 1% represented categories such as artisanal mines, conventional mines, slash burn, and others. This highly imbalanced nature of the labels posed a challenge during the training process. The neural network had to learn to accurately classify and recognize the rare land use categories, despite having limited examples for these classes.</p>
 
-<h5 id="challenges-of-predicting-rare-used-labels">Challenges of predicting rare used labels</h5>
+<p>Key Challenges:</p>
+
+<ol>
+  <li><strong>Blurry Image Challenge:</strong>
+    <ul>
+      <li>A significant amount of satellite image chips appears to be blurry. Therefore a dehazing function may be necessary to enhance the clarity of these images before feeding them into the model.</li>
+      <li>Addressing blurry images is crucial for ensuring that the model can effectively learn and make accurate predictions, particularly in regions where haziness may impact the interpretability of features.</li>
+    </ul>
+  </li>
+  <li><strong>Imbalanced Data Distribution:</strong>
+    <ul>
+      <li>Imbalanced data can lead to model bias, where the model may struggle to accurately identify and classify the minority class due to insufficient examples for learning.</li>
+    </ul>
+  </li>
+  <li><strong>Risk of Misclassification:</strong>
+    <ul>
+      <li>The imbalanced distribution increases the risk of misclassification, especially for the minority class. The model may be heavily biased towards predicting the majority classes.</li>
+    </ul>
+  </li>
+  <li><strong>Model Training Complexity:</strong>
+    <ul>
+      <li>The model needs to be trained to handle the rarity of the ‘artisanal mine’ label while maintaining performance across the other more prevalent labels.</li>
+    </ul>
+  </li>
+  <li><strong>Data Augmentation and Sampling Strategies:</strong>
+    <ul>
+      <li>Balancing techniques, such as oversampling, undersampling, or the use of synthetic data, may need to be implemented to ensure fair learning across all classes.</li>
+    </ul>
+  </li>
+</ol>
+
+<h5 id="first-attempt">First Attempt</h5>
 
 <p>My initial attempt involved using a random forest with computed features such as haziness, image contrast, and RGB color channels. However, this approach proved unsuccessful, as the model struggled to differentiate the most basic weather conditions. Consequently, attention shifted towards a convolutional neural network (CNN), known for its prowess in capturing and extracting essential local features for pattern and object identification. While successful in discerning weather labels and common land uses, the CNN faced challenges in predicting rare land use labels, despite extensive training. Even after implementing oversampling techniques, the model not only failed to improve accuracy but also exacerbated the recall score, resulting in misclassifications of other labels as mining activities.</p>
 

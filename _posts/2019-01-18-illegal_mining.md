@@ -15,19 +15,51 @@ Traditional labor-intensive methods involving the hiring of local citizens to sp
 
 
 
-The primary objective of this project is to develop a system capable of identifying illegal mining activities among 16 other labels, including clouds, trees, ground, road, water, and more. To achieve this, I employed a dataset obtained from ["Planet: Understanding the Amazon from Space."](https://www.kaggle.com/c/planet-understanding-the-amazon-from-space) The dataset consisted of satellite images that were segmented into smaller chips and randomly assigned numerical names. Our aim was to generate accurate labels that effectively describe the content of each image and enable the identification of those chips associated with illegal mining. Neural networks were chosen as the preferred approach for this project due to their exceptional ability to recognize complex patterns and extract meaningful features from images. 
+The primary objective of this project is to develop an algorithm for labeling unlabeled image chips. The primary focus is on detecting the occurrence of 'artisanal mining,' commonly referred to as illegal mining, among a set of 16 labels categorized into three main groups: <span style="color:SALMON">  atmospheric conditions</span>,  <span style="color:LightSkyBlue">common land uses</span> and <span style="color:Plum"> rare land uses</span>.  Image chips may receive none or more than one label from these groups. 
 
+The main objectives include:
 
+1. **Train a Model with Labeled Image Chips:**
 
-##### Start with basic Neural Network Model
+    - Develop an algorithm that effectively labels unlabeled satellite image chips, considering atmospheric conditions and land uses as label categories.
+
+2. **Detection of Artisanal Mining (Illegal Mining):**
+
+    - Create a model that reliably identifies the presence of 'artisanal mining' (illegal mining) as one of the rare labels among others.
+    - Differentiate between various classes of land cover and land use, emphasizing the detection of illegal mining activities.
+
+3. **Improved Understanding of Environmental Conditions:**
+
+    - Utilize the model to enhance the understanding of environmental conditions, particularly in relation to deforestation and illegal mining activities on a global scale.
+
+    - Contribute to the identification and interpretation of patterns and causes of deforestation through the labeled satellite imagery.
+
+        
+
+##### Challenges
+
+The challenge of the project lies in addressing the highly imbalanced distribution of data labels among the 16 groups. Specifically, the difficulty arises from the fact that the 'artisanal mine' label constitutes less than 1% of the total population. 
 
 <p float="left">
     <img src="https://live.staticflickr.com/65535/49626992868_557450fa33.jpg" width="50%" />  <img src="https://lh3.googleusercontent.com/jn0yWdVFz-RplTsir-DZcRs0UYWSouwjwhknKi3J6-f-o4TPWBlL2AGNsKQa0NIBkPJ66XfUfKrB03-BmHo8vDq2dJhf6lZLRuhQmluBukP2V979NtW7NZ-5odX8mhEru029s6PDy40" width="49%" /> <em>Left Figure 1: Examples of image chips with labels.   Right Figure 2: Frequency distribution of labels</em></p>
-The dataset consists of 70,000 image chips, each was associated with at least one label. The labels were categorized into three main groups: <span style="color:SALMON">  atmospheric conditions</span>,  <span style="color:LightSkyBlue"> common land uses</span> and  <span style="color:Plum"> rare land uses</span>.  However, there were significant imbalances in the distribution of the labels, and a few labeling errors were present in the dataset. Among the labels, less than 1% represented categories such as artisanal mines, conventional mines, slash burn, and others. This highly imbalanced nature of the labels posed a challenge during the training process. The neural network had to learn to accurately classify and recognize the rare land use categories, despite having limited examples for these classes.
+
+Key Challenges:
+
+1. **Blurry Image Challenge:**
+    - A significant amount of satellite image chips appears to be blurry. Therefore a dehazing function may be necessary to enhance the clarity of these images before feeding them into the model.
+    - Addressing blurry images is crucial for ensuring that the model can effectively learn and make accurate predictions, particularly in regions where haziness may impact the interpretability of features.
+2. **Imbalanced Data Distribution:**
+    - Imbalanced data can lead to model bias, where the model may struggle to accurately identify and classify the minority class due to insufficient examples for learning.
+3. **Risk of Misclassification:**
+    - The imbalanced distribution increases the risk of misclassification, especially for the minority class. The model may be heavily biased towards predicting the majority classes.
+4. **Model Training Complexity:**
+    - The model needs to be trained to handle the rarity of the 'artisanal mine' label while maintaining performance across the other more prevalent labels.
+5. **Data Augmentation and Sampling Strategies:**
+    - Balancing techniques, such as oversampling, undersampling, or the use of synthetic data, may need to be implemented to ensure fair learning across all classes.
 
 
 
-##### Challenges of predicting rare used labels
+##### First Attempt
 
 My initial attempt involved using a random forest with computed features such as haziness, image contrast, and RGB color channels. However, this approach proved unsuccessful, as the model struggled to differentiate the most basic weather conditions. Consequently, attention shifted towards a convolutional neural network (CNN), known for its prowess in capturing and extracting essential local features for pattern and object identification. While successful in discerning weather labels and common land uses, the CNN faced challenges in predicting rare land use labels, despite extensive training. Even after implementing oversampling techniques, the model not only failed to improve accuracy but also exacerbated the recall score, resulting in misclassifications of other labels as mining activities.
 

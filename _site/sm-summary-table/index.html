@@ -4,23 +4,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Authors | Penny Pan</title>
+    <title>A Guide to Interpreting statsmodels summary table | Penny Pan</title>
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Authors | Penny Pan</title>
+<title>A Guide to Interpreting statsmodels summary table | Penny Pan</title>
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Authors" />
+<meta property="og:title" content="A Guide to Interpreting statsmodels summary table" />
+<meta name="author" content="penny" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Have a good day ~" />
-<meta property="og:description" content="Have a good day ~" />
-<link rel="canonical" href="http://localhost:4000/authors-list.html" />
-<meta property="og:url" content="http://localhost:4000/authors-list.html" />
+<meta name="description" content="In the realm of data science and machine learning, understanding statistical results is crucial for making informed decisions. One of the most commonly used packages data scientist encountered daily is statsmodel. Its summary table is a great tool to gain insights to understanding the relationship between explanatory variable and response variable. In this blog post, we’ll dive into how to interpret a Statsmodels summary table and extract meaningful insights from it." />
+<meta property="og:description" content="In the realm of data science and machine learning, understanding statistical results is crucial for making informed decisions. One of the most commonly used packages data scientist encountered daily is statsmodel. Its summary table is a great tool to gain insights to understanding the relationship between explanatory variable and response variable. In this blog post, we’ll dive into how to interpret a Statsmodels summary table and extract meaningful insights from it." />
+<link rel="canonical" href="http://localhost:4000/sm-summary-table/" />
+<meta property="og:url" content="http://localhost:4000/sm-summary-table/" />
 <meta property="og:site_name" content="Penny Pan" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Authors" />
+<meta property="og:image" content="https://www.statsmodels.org/stable/_images/statsmodels-logo-v2-horizontal.svg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-12-23T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.statsmodels.org/stable/_images/statsmodels-logo-v2-horizontal.svg" />
+<meta property="twitter:title" content="A Guide to Interpreting statsmodels summary table" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Have a good day ~","headline":"Authors","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"}},"url":"http://localhost:4000/authors-list.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"penny"},"dateModified":"2023-12-23T00:00:00-05:00","datePublished":"2023-12-23T00:00:00-05:00","description":"In the realm of data science and machine learning, understanding statistical results is crucial for making informed decisions. One of the most commonly used packages data scientist encountered daily is statsmodel. Its summary table is a great tool to gain insights to understanding the relationship between explanatory variable and response variable. In this blog post, we’ll dive into how to interpret a Statsmodels summary table and extract meaningful insights from it.","headline":"A Guide to Interpreting statsmodels summary table","image":"https://www.statsmodels.org/stable/_images/statsmodels-logo-v2-horizontal.svg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/sm-summary-table/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"},"name":"penny"},"url":"http://localhost:4000/sm-summary-table/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -107,12 +111,12 @@ var documents = [{
     "id": 2,
     "url": "http://localhost:4000/author-penny.html",
     "title": "Penny",
-    "body": "                    Penny:                 Data scienctist, love to explore new ideas                                   Posts by Penny:                   		A Guide to Interpreting statsmodels summary table	: 		  In the realm of data science and machine learning, understanding statistical results is crucial for making informed decisions. One of the most commonly used packages data scientist en. . . 	 			In 								Dec 23, 2023						            		Optiver stock volatility prediction	: 		  Project description	 			In 								May 12, 2022						            		Building a Dynamic E-commerce Website for Small Businesses	: 		  The ongoing COVID-19 pandemic has brought about a seismic shift in consumer behavior, driving an unprecedented surge in online shopping. With an increasing preference for online shopp. . . 	 			In 								Jun 06, 2021						            		Coronavirus Data Analysis	: 		  Subtitle: COVID19 Spread SIR Model Simulation using Python	 			In 				data scraping, 				statistical modelling, 								Mar 14, 2020						            		Anime Recommender	: 		  In recent years, anime has become increasingly popular worldwide, and the number of anime available online has grown exponentially. With so many options to choose from, it can be cha. . . 	 			In 				supervised, 								May 28, 2019						            		Amazon Illegal Mining Detection	: 		  The Amazon rainforest, known for its rich biodiversity and vital role in regulating the Earth’s climate, has been facing a grave threat in the form of deforestation. This destructive . . . 	 			In 				classification, 				supervised, 								Jan 18, 2019						        "
+    "body": "                    {{page. title}}:         {{ site. authors. penny. site }}         {{ site. authors. penny. bio }}                                   Posts by {{page. title}}:       {% assign posts = site. posts | where: author , penny  %}      {% for post in posts %}      {% include main-loop-card. html %}      {% endfor %}  "
     }, {
     "id": 3,
     "url": "http://localhost:4000/authors-list.html",
     "title": "Authors",
-    "body": "Authors:                                             Penny :       (View Posts)      Data scienctist, love to explore new ideas                                             "
+    "body": "{{page. title}}:     {% for author in site. authors %}                                         {{ author[1]. name }} :       (View Posts)      {{ author[1]. bio }}                                           {% endfor %}  "
     }, {
     "id": 4,
     "url": "http://localhost:4000/categories.html",
@@ -240,27 +244,272 @@ function lunr_search(term) {
 
     <!-- Content -->
     <main role="main" class="site-content">
-        <div class="container">
-<h4 class="font-weight-bold spanborder"><span>Authors</span></h4>
-    <div class="row gap-y listrecent listrecent listauthor">
-    
-        <div class="col-lg-6 mb-4">
-            <div class="p-4 border rounded">
-            <div class="row">
-            <div class="col-md-3 mb-4 mb-md-0"><img alt="Penny" src="/assets/images/avatar.jpeg" class="rounded-circle" height="80" width="80"></div>
-            <div class="col-md-9">
-            <a href="/author-penny">
-            <h4 class="text-dark mb-0"> Penny </h4>
-            <small class="d-inline-block mt-1 mb-3 font-weight-normal">(View Posts)</small>
-            <div class="excerpt">Data scienctist, love to explore new ideas</div>
-            </a>
-            <div class="icon-block mt-3 d-flex justify-content-between"> 
+        
+<div class="container">
+<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+		<div class="h-100 tofront">
+			<div class="row  justify-content-between ">
+				<div class=" col-md-6  pr-0 pr-md-4 pt-4 pb-4 align-self-center">
+					<p class="text-uppercase font-weight-bold">
+                        <span class="catlist">
+						
+                        </span>
+					</p>
+					<h1 class="display-4 mb-4 article-headline">A Guide to Interpreting statsmodels summary table</h1>
+					<div class="d-flex align-items-center">
+                        
+                        <img class="rounded-circle" src="/assets/images/avatar.jpeg" alt="Penny" width="70"/>
+                        
+						<small class="ml-3"> Penny
+                            <span class="text-muted d-block mt-1">Dec 23, 2023 · <span class="reading-time">
+  
+  
+    8 mins read
+  
+</span>
+    </span>
+						</small>
+					</div>
+				</div>
+                
+				<div class="col-md-6 pr-0 align-self-center">
+					<img class="rounded" src="https://www.statsmodels.org/stable/_images/statsmodels-logo-v2-horizontal.svg" alt="A Guide to Interpreting statsmodels summary table">
+				</div>
+                
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="container-lg pt-4 pb-4">
+	<div class="row justify-content-center">
+
+
+        <!-- Share -->
+		<div class="col-lg-1">
+
+		</div>
+
+
+		<div class="col-md-12 col-lg-8">
+
+            <!-- Article -->
+			<article class="article-post">
+			<p>In the realm of data science and machine learning, understanding statistical results is crucial for making informed decisions. One of the most commonly used packages data scientist encountered daily is statsmodel. Its summary table is a great tool to gain insights to understanding the relationship between explanatory variable and response variable. In this blog post, we’ll dive into how to interpret a Statsmodels summary table and extract meaningful insights from it.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">statsmodels.api</span> <span class="k">as</span> <span class="n">sm</span>
+<span class="kn">import</span> <span class="n">statsmodels.formula.api</span> <span class="k">as</span> <span class="n">smf</span>
+<span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="n">pandas</span>
+</code></pre></div></div>
+
+<h3 id="what-is-a-statsmodels-summary-table">What is a Statsmodels Summary Table?</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">est</span>  <span class="o">=</span> <span class="n">sm</span><span class="p">.</span><span class="nc">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sm</span><span class="p">.</span><span class="nf">add_constant</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">est</span><span class="p">.</span><span class="nf">fit</span><span class="p">()</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">summary</span><span class="p">())</span>
+
+
+                            <span class="n">OLS</span> <span class="n">Regression</span> <span class="n">Results</span>                            
+<span class="o">==============================================================================</span>
+<span class="n">Dep</span><span class="p">.</span> <span class="n">Variable</span><span class="p">:</span>                      <span class="n">y</span>   <span class="n">R</span><span class="o">-</span><span class="n">squared</span><span class="p">:</span>                       <span class="mf">0.793</span>
+<span class="n">Model</span><span class="p">:</span>                            <span class="n">OLS</span>   <span class="n">Adj</span><span class="p">.</span> <span class="n">R</span><span class="o">-</span><span class="n">squared</span><span class="p">:</span>                  <span class="mf">0.687</span>
+<span class="n">Method</span><span class="p">:</span>                 <span class="n">Least</span> <span class="n">Squares</span>   <span class="n">F</span><span class="o">-</span><span class="n">statistic</span><span class="p">:</span>                 <span class="mf">7.686e+04</span>
+<span class="n">Date</span><span class="p">:</span>                <span class="n">Mon</span><span class="p">,</span> <span class="mi">18</span> <span class="n">Dec</span> <span class="mi">2023</span>   <span class="nc">Prob </span><span class="p">(</span><span class="n">F</span><span class="o">-</span><span class="n">statistic</span><span class="p">):</span>                  <span class="mi">0</span>
+<span class="n">Time</span><span class="p">:</span>                        <span class="mi">09</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mi">24</span>   <span class="n">Log</span><span class="o">-</span><span class="n">Likelihood</span><span class="p">:</span>                <span class="o">-</span><span class="mf">375.30</span>
+<span class="n">No</span><span class="p">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">85</span>   <span class="n">AIC</span><span class="p">:</span>                             <span class="mf">764.6</span>
+<span class="n">Df</span> <span class="n">Residuals</span><span class="p">:</span>                      <span class="mi">78</span>   <span class="n">BIC</span><span class="p">:</span>                             <span class="mf">781.7</span>
+<span class="n">Df</span> <span class="n">Model</span><span class="p">:</span>                           <span class="mi">6</span>                                         
+<span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>            <span class="n">nonrobust</span>                                         
+<span class="o">===============================================================================</span>
+                  <span class="n">coef</span>    <span class="n">std</span> <span class="n">err</span>          <span class="n">t</span>      <span class="n">P</span><span class="o">&gt;|</span><span class="n">t</span><span class="o">|</span>      <span class="p">[</span><span class="mf">0.025</span>      <span class="mf">0.975</span><span class="p">]</span>
+<span class="o">-------------------------------------------------------------------------------</span>
+<span class="n">Intercept</span>      <span class="mf">38.6517</span>      <span class="mf">9.456</span>      <span class="mf">4.087</span>      <span class="mf">0.000</span>      <span class="mf">19.826</span>      <span class="mf">57.478</span>
+<span class="n">Region</span><span class="p">[</span><span class="n">T</span><span class="p">.</span><span class="n">E</span><span class="p">]</span>   <span class="o">-</span><span class="mf">15.4278</span>      <span class="mf">9.727</span>     <span class="o">-</span><span class="mf">1.586</span>      <span class="mf">0.117</span>     <span class="o">-</span><span class="mf">34.793</span>       <span class="mf">3.938</span>
+<span class="n">Region</span><span class="p">[</span><span class="n">T</span><span class="p">.</span><span class="n">N</span><span class="p">]</span>   <span class="o">-</span><span class="mf">10.0170</span>      <span class="mf">9.260</span>     <span class="o">-</span><span class="mf">1.082</span>      <span class="mf">0.283</span>     <span class="o">-</span><span class="mf">28.453</span>       <span class="mf">8.419</span>
+<span class="n">Region</span><span class="p">[</span><span class="n">T</span><span class="p">.</span><span class="n">S</span><span class="p">]</span>    <span class="o">-</span><span class="mf">4.5483</span>      <span class="mf">7.279</span>     <span class="o">-</span><span class="mf">0.625</span>      <span class="mf">0.534</span>     <span class="o">-</span><span class="mf">19.039</span>       <span class="mf">9.943</span>
+<span class="n">Region</span><span class="p">[</span><span class="n">T</span><span class="p">.</span><span class="n">W</span><span class="p">]</span>   <span class="o">-</span><span class="mf">10.0913</span>      <span class="mf">7.196</span>     <span class="o">-</span><span class="mf">1.402</span>      <span class="mf">0.165</span>     <span class="o">-</span><span class="mf">24.418</span>       <span class="mf">4.235</span>
+<span class="n">Literacy</span>       <span class="o">-</span><span class="mf">0.1858</span>      <span class="mf">0.210</span>     <span class="o">-</span><span class="mf">0.886</span>      <span class="mf">0.378</span>      <span class="o">-</span><span class="mf">0.603</span>       <span class="mf">0.232</span>
+<span class="n">Wealth</span>          <span class="mf">0.4515</span>      <span class="mf">0.103</span>      <span class="mf">4.390</span>      <span class="mf">0.000</span>       <span class="mf">0.247</span>       <span class="mf">0.656</span>
+<span class="o">==============================================================================</span>
+<span class="n">Omnibus</span><span class="p">:</span>                        <span class="mf">3.049</span>   <span class="n">Durbin</span><span class="o">-</span><span class="n">Watson</span><span class="p">:</span>                   <span class="mf">1.785</span>
+<span class="nc">Prob</span><span class="p">(</span><span class="n">Omnibus</span><span class="p">):</span>                  <span class="mf">0.218</span>   <span class="n">Jarque</span><span class="o">-</span><span class="nc">Bera </span><span class="p">(</span><span class="n">JB</span><span class="p">):</span>                <span class="mf">2.694</span>
+<span class="n">Skew</span><span class="p">:</span>                          <span class="o">-</span><span class="mf">0.340</span>   <span class="nc">Prob</span><span class="p">(</span><span class="n">JB</span><span class="p">):</span>                        <span class="mf">0.260</span>
+<span class="n">Kurtosis</span><span class="p">:</span>                       <span class="mf">2.454</span>   <span class="n">Cond</span><span class="p">.</span> <span class="n">No</span><span class="p">.</span>                         <span class="mf">371.</span>
+<span class="o">==============================================================================</span>
+
+<span class="n">Notes</span> <span class="p">:</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">Standard</span> <span class="n">Errors</span> <span class="n">assume</span> <span class="n">that</span> <span class="n">the</span> <span class="n">covariance</span> <span class="n">matrix</span> <span class="n">of</span> <span class="n">the</span> <span class="n">errors</span> <span class="ow">is</span> <span class="n">correctly</span> <span class="n">specified</span>
+</code></pre></div></div>
+
+<p>When you fit a statistical model using Statsmodels, such as linear regression, logistic regression, or any other supported model, you typically receive a summary of the model’s results, as shown above. This summary contains various statistical metrics, including coefficients, standard errors, p-values, confidence intervals, and more, depending on the type of model you’ve fitted. The table is divided into three sections.</p>
+
+<ul>
+  <li>Section I: general fitting of the models</li>
+  <li>Section II: t value and p values - coefficients</li>
+  <li>Section III: the shape of the distribution</li>
+</ul>
+
+<h4 id="section-i">Section I</h4>
+
+<ol>
+  <li>
+    <p><strong>Number of observations:</strong> The number of data points used in the analysis.</p>
+  </li>
+  <li>
+    <p><strong>Method</strong>: least square. Find the best line by minimizing the the sum of the squared errors.</p>
+
+    <p><img src="https://d138zd1ktt9iqe.cloudfront.net/media/seo_landing_files/least-square-method-1-1650276785.png" alt="Least Square Method" width="50%" /></p>
+  </li>
+  <li>
+    <p><strong>Degree of freedom</strong>: number of independent variables</p>
+  </li>
+  <li>
+    <p><strong>Covariance Type</strong>: typically nonrobust, which means there is no elimination of data to calculate the covariance between features</p>
+  </li>
+  <li>
+    <p><strong>R-squared:</strong>  One of the most important number in the table, also known as the coefficient of determination. R-squared represents the proportion of variance in the dependent variable that is explained by the independent variables. It ranges from 0 to 1, with higher values indicating a better fit. For example, 0.793 means the model explains 79.3% of the change in y variable</p>
+
+\[\begin{equation}
+ R^2 = 1-\dfrac{ \sum(y_i - \hat{y}_i)^2}{(y_i - \bar{y})^2}
+ \end{equation}\]
+
+    <p>y~i~ = observed values, ŷ= predicted values, ȳ =  mean of the observed values</p>
+  </li>
+  <li>
+    <p><strong>Adj. R-squared:</strong> Similar to R-squared but it penalizes the addition of unnecessary predictors. Consequently, a diminished adjusted score may indicate that some variables are not contributing to your model’s R-squared.</p>
+  </li>
+  <li>
+    <p><strong>F-statistic and Prob (F-statistic):</strong> The F-test indicates whether your linear regression model provides a better fit than a model with all parameters equal to zero. $H_0:\beta_1=\beta_2=⋯=\beta_i=0$  A small p-value (typically less than 0.05) indicates that the model as a whole is significant.</p>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>Log-Likelihood</strong> <sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">1</a></sup>: The natural logarithm of the likelihood. The likelihood is a function that tells the probability of observing the data given the model parameters, it is a product of probability density functions 𝑓~𝜃~.  $L(𝜃</td>
+          <td>𝑋)=∏_{𝑖=1}^𝑛𝑓_𝜃(𝑋_𝑖)$.   Log-likelihood values cannot be used alone as an index of fit because they are a function of sample size but can be used to compare the fit of different coefficients.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><strong>AIC and BIC</strong>: Akaike Information Criterion (AIC) and Bayesian Information Criterion (BIC) are both related to log-likelihood functions. They balance model complexity with goodness of fit, helping to prevent overfitting. Lower AIC or BIC values indicate better model fit, while taking into account the number of parameters in the model.</li>
+</ol>
+
+<h4 id="section-ii---coefficients">Section II - Coefficients</h4>
+
+<ol>
+  <li>
+    <p><strong>Coefficients</strong> : In a classic linear formula $y = mx+\beta$​ , coefficients is our β</p>
+  </li>
+  <li>
+    <p><strong>Std err:</strong> The standard error is the (estimated) standard deviation of the sampling distribution of 𝛽̂ $SE = \frac{\sigma}{\sqrt{n}}$    . The standard error quantifies the uncertainty or variability in this estimated coefficient. A smaller standard error indicates higher precision, meaning that the estimated coefficient is likely closer to the true population value.</p>
+  </li>
+  <li>
+    <p><strong>t:</strong> The t-statistic, which tests the null hypothesis that the coefficient is equal to zero. Based on that test we may decide whether x is a useful (linear) predictor of y.</p>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>**P&gt;</td>
+          <td>t</td>
+          <td>:** Another important feature in the summary table. The p-value is associated with the t-statistic. A small p-value indicates that the coefficient is statistically significant.  A p-value of 0.05 or lower is generally considered statistically significant.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><img src="https://www.simplypsychology.org/wp-content/uploads/p-value.jpg" width="80%" /></p>
+  </li>
+  <li><strong>[0.025 0.975]:</strong> The 95% confidence interval for the coefficient. It provides a range of plausible values for the true coefficient.</li>
+</ol>
+
+<h4 id="section-iii---shape-of-distribution">Section III - Shape of distribution</h4>
+
+<ol>
+  <li>
+    <p><strong>Omnibus, Prob(Omnibus):</strong> The Omnibus test measures the normality of the residuals with 0 meaning perfect, and the associated p-value (Prob(Omnibus)) indicates whether the test is statistically significant.</p>
+  </li>
+  <li>
+    <p><strong>Durbin-Watson:</strong> It is a test to detect autocorrelations in the residuals. Its scale spans from 0 to 4, where values proximate to 2 signify an absence of autocorrelation, 0 indicates positive autocorrelation, and 4 implies negative autocorrelation. Autocorrelation occurs when the errors (residuals) of a regression model exhibit patterns with themselves at different lags, and the residuals are not independent of each other.  One common approach to visually assess autocorrelation is by plotting residual plots, as depicted in the accompanying images below.</p>
+
+    <p><img src="https://www.reneshbedre.com/assets/posts/dw/auto_comb.webp?ezimgfmt=ng%3Awebp%2Fngcb2%2Frs%3Adevice%2Frscb2-2" alt="autocorrelation" /></p>
+  </li>
+  <li>
+    <p><strong>Jarque-Bera (JB) and Prob(JB):</strong> Similar to the Omnibus test, the Jarque-Bera test evaluates the normality of the residuals. The p-value (Prob(JB)) indicates whether the test is statistically significant.</p>
+  </li>
+  <li>
+    <p><strong>Skewness and Kurtosis:</strong> Skewness measures the asymmetry of the distribution and Kurtosis is a measure of whether the data are heavy-tailed or light-tailed relative to a normal distribution.</p>
+
+    <p><img src="https://www.statisticalaid.com/wp-content/uploads/2021/01/skw.png" width="60%" /></p>
+  </li>
+</ol>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Interpreting a Statsmodels summary table requires a solid understanding of statistical concepts and an appreciation for the nuances of the model being analyzed. By carefully examining the coefficients, p-values, confidence intervals, and diagnostic statistics provided in the summary table, you can gain valuable insights into the relationships between variables and the overall performance of the model. However, it’s essential to remember that statistical analysis is not an exact science, and interpretation should always be accompanied by critical thinking and consideration of the context in which the analysis was conducted. With practice and experience, you can become proficient in interpreting Statsmodels summary tables and using them to inform data-driven decisions.</p>
+
+<p>Happy modeling!</p>
+
+<h4 id="reference">Reference</h4>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:2" role="doc-endnote">
+      <p>https://www.statlect.com/glossary/log-likelihood  by Log-likelihoodby Marco Taboga  PhD. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+			</article>
+
+			<!-- Tags -->
+			<div class="mb-4">
+				<span class="taglist">
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/tags.html#featured">featured</a>
+				
+				</span>
+			</div>
+
+
+             <!-- Author Box -->
+                
+				<div class="row mt-5">
+					<div class="col-md-2 align-self-center">
+                         
+                        <img class="rounded-circle" src="/assets/images/avatar.jpeg" alt="Penny" width="90"/>
+                        
+					</div>
+					<div class="col-md-10">
+                        <h5 class="font-weight-bold">Written by Penny</h5>
+						Data scienctist, love to explore new ideas
+					</div>
+				</div>
+                
+
+
+		</div>
+
+
+	</div>
+</div>
+
+
+<!-- Aletbar Prev/Next -->
+<div class="alertbar">
+    <div class="container">
+        <div class="row prevnextlinks small font-weight-bold">
+          
+            <div class="col-md-6 rightborder pl-0">
+				<i class='fas fa-angle-left fa-lg' style='color:#6610f2'></i>
+                <a class="text-dark" href="/Optiver-stock-volatility-prediction/"> Optiver stock volatility prediction</a>
             </div>
-            </div>
-            </div>
-            </div>
+          
+          
         </div>
-    
     </div>
 </div>
 
