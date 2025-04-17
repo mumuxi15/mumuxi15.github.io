@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-29T13:14:13-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Penny Pan</title><subtitle>Have a good day ~ </subtitle><entry><title type="html">A Guide to Interpreting statsmodels summary table</title><link href="http://localhost:4000/sm-summary-table/" rel="alternate" type="text/html" title="A Guide to Interpreting statsmodels summary table" /><published>2023-12-23T00:00:00-05:00</published><updated>2023-12-23T00:00:00-05:00</updated><id>http://localhost:4000/sm%20summary%20table</id><content type="html" xml:base="http://localhost:4000/sm-summary-table/"><![CDATA[<p>In the realm of data science and machine learning, understanding statistical results is crucial for making informed decisions. One of the most commonly used packages data scientist encountered daily is statsmodel. Its summary table is a great tool to gain insights to understanding the relationship between explanatory variable and response variable. In this blog post, we’ll dive into how to interpret a Statsmodels summary table and extract meaningful insights from it.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-04-17T12:30:04-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Penny Pan</title><subtitle>Have a good day ~ </subtitle><entry><title type="html">A Guide to Interpreting statsmodels summary table</title><link href="http://localhost:4000/sm-summary-table/" rel="alternate" type="text/html" title="A Guide to Interpreting statsmodels summary table" /><published>2023-12-23T00:00:00-05:00</published><updated>2023-12-23T00:00:00-05:00</updated><id>http://localhost:4000/sm%20summary%20table</id><content type="html" xml:base="http://localhost:4000/sm-summary-table/"><![CDATA[<p>In the realm of data science and machine learning, understanding statistical results is crucial for making informed decisions. One of the most commonly used packages data scientist encountered daily is statsmodel. Its summary table is a great tool to gain insights to understanding the relationship between explanatory variable and response variable. In this blog post, we’ll dive into how to interpret a Statsmodels summary table and extract meaningful insights from it.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">statsmodels.api</span> <span class="k">as</span> <span class="n">sm</span>
 <span class="kn">import</span> <span class="n">statsmodels.formula.api</span> <span class="k">as</span> <span class="n">smf</span>
@@ -74,7 +74,7 @@
     <p><strong>R-squared:</strong>  One of the most important number in the table, also known as the coefficient of determination. R-squared represents the proportion of variance in the dependent variable that is explained by the independent variables. It ranges from 0 to 1, with higher values indicating a better fit. For example, 0.793 means the model explains 79.3% of the change in y variable</p>
 
 \[\begin{equation}
- R^2 = 1-\dfrac{ \sum(y_i - \hat{y}_i)^2}{(y_i - \bar{y})^2}
+ R^2 = 1-\dfrac{ \sum(y_i - \hat{y}_i)^2}{\sum(y_i - \bar{y})^2}
  \end{equation}\]
 
     <p>y~i~ = observed values, ŷ= predicted values, ȳ =  mean of the observed values</p>
@@ -89,7 +89,7 @@
     <table>
       <tbody>
         <tr>
-          <td><strong>Log-Likelihood</strong> <sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">1</a></sup>: The natural logarithm of the likelihood. The likelihood is a function that tells the probability of observing the data given the model parameters, it is a product of probability density functions 𝑓~𝜃~.  $L(𝜃</td>
+          <td><strong>Log-Likelihood</strong> <sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>: The natural logarithm of the likelihood. The likelihood is a function that tells the probability of observing the data given the model parameters, it is a product of probability density functions 𝑓~𝜃~.  $L(𝜃</td>
           <td>𝑋)=∏_{𝑖=1}^𝑛𝑓_𝜃(𝑋_𝑖)$.   Log-likelihood values cannot be used alone as an index of fit because they are a function of sample size but can be used to compare the fit of different coefficients.</td>
         </tr>
       </tbody>
@@ -157,7 +157,7 @@
 
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:2" role="doc-endnote">
+    <li id="fn:2">
       <p>https://www.statlect.com/glossary/log-likelihood  by Log-likelihoodby Marco Taboga  PhD. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>

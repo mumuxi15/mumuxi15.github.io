@@ -1,6 +1,9 @@
 How to run
 
 ```
+git clone git@ #the project
+rbenv global 3.4.3
+ruby -v # check ruby version
 bundle exec jekyll serve
 ```
 
